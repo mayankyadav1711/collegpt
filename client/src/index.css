@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/*TextSphere CSS Code */
+
+/* Importing google font  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700;800;900&display=swap');
+
+:root{
+  --light-dark:#eeeeee;
+  /* --light-mode:#202020; */
+
+}
+.text-shpere {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1e1e1e;
+    border-radius: 4rem;
+    box-shadow: 0px 5px 400px 1px inset var(--light-dark);
+}
+body.dark{
+  --light-dark: #308025;
+  /* --light-mode: #308025; */
+}
+.tagcloud {
+    display:inline;
+    top: 0;
+    left: 0;
+    
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.0625em;
+    font-size: 1.3em;
+    border-radius: 1px;
+    box-shadow: 6px 10px 190px 1px inset #202020;
+    /* var(--light-mode); */
+    
+}
+
+/* Change color of each text in sphere on hover   */
+.tagcloud--item {
+    background: linear- gradient (135deg,rgba(255,255,255,0.1) rgba(255,255,255,0));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop•filter: blur(40px);
+    border-radius: 13px;
+    border: 0.5px solid rgb(69, 19, 19);
+    box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.37);
+    padding: 4px 6px 4px 8px;
+    color: rgb(255, 0, 144);
+    /* text-transform: lowercase; */
+}
+
+.tagcloud--item:hover {
+    color: #7e4a93;
+}
+
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.print-media{
+display: none;
+}
+@media print {
+  
+ body{
+  display:none
+ }
+
+  
+}
