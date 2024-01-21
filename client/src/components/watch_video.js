@@ -30,7 +30,7 @@ const  WatchVideo = () =>{
     // Fetch the PDF link using the 'code' parameter
     const fetchPdfLink = async () => {
       try {
-        const response = await fetch(`/pdf-forms/${code}`);
+        const response = await fetch(`https://api-collegpt.vercel.app/pdf-forms/${code}`);
         const data = await response.json();
         console.log(data);
         if (response.ok) {
@@ -69,7 +69,7 @@ const  WatchVideo = () =>{
     };
     console.log(formData);
     try {
-      const response = await fetch("/doubt", {
+      const response = await fetch("https://api-collegpt.vercel.app/doubt", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

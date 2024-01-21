@@ -24,7 +24,7 @@ const Header = () => {
     if (state && state._id) {
       setIsLoading(true);
 
-      fetch(`/view-profile/${state._id}`)
+      fetch(`https://api-collegpt.vercel.app/view-profile/${state._id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");

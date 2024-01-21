@@ -28,7 +28,7 @@ function Contact() {
     };
 
     try {
-      const response = await fetch("/contact", {
+      const response = await fetch("https://api-collegpt.vercel.app/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -19,7 +19,7 @@ const Userlist = () => {
   useEffect(() => {
     const fetchUserProfiles = async () => {
       try {
-        const response = await fetch("/all-profiles");
+        const response = await fetch("https://api-collegpt.vercel.app/all-profiles");
         const data = await response.json();
         // eslint-disable-next-line no-unused-vars
         const profilesWithState = data.map((profile) => ({

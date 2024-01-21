@@ -24,7 +24,7 @@ const Contributor_Form = () => {
     };
 
     try {
-      const response = await fetch("/contribute", {
+      const response = await fetch("https://api-collegpt.vercel.app/contribute", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

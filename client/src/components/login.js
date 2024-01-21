@@ -33,7 +33,7 @@ function Login() {
     };
 
     // Make an API call to your server for user login
-    fetch("/signin", {
+    fetch("https://api-collegpt.vercel.app/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

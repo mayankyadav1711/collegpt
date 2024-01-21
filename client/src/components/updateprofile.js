@@ -76,7 +76,7 @@ function UpdateProfile() {
       console.log("Fetching user profile data...");
       setIsLoading(true);
 
-      fetch(`/view-profile/${state._id}`)
+      fetch(`https://api-collegpt.vercel.app/view-profile/${state._id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -268,7 +268,7 @@ function UpdateProfile() {
     }
 
     try {
-      const response = await fetch(`/update-profile`, {
+      const response = await fetch(`https://api-collegpt.vercel.app/update-profile`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

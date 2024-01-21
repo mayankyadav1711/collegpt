@@ -12,7 +12,7 @@ const Eventbar = () => {
   const [filteredEvents, setFilteredEvents] = useState([]);
   useEffect(() => {
     handledarkmode();
-    fetch("/event-forms") // Change the URL to match your API endpoint
+    fetch("https://api-collegpt.vercel.app/event-forms") // Change the URL to match your API endpoint
       .then((response) => response.json())
       .then((data) => {
         const reversedData = data.reverse();

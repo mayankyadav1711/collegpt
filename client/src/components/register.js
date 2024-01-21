@@ -127,7 +127,7 @@ if (!/^([^\s@]+@gmail\.com|[^@]+@ldrp\.ac\.in)$/.test(email)) {
     };
 
     // Make an API call to your server for user registration
-    fetch("/signup", {
+    fetch("https://api-collegpt.vercel.app/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

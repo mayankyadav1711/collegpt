@@ -38,7 +38,7 @@ const Event_Form = () => {
     };
 
     try {
-      const response = await fetch("/event-form", {
+      const response = await fetch("https://api-collegpt.vercel.app/event-form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

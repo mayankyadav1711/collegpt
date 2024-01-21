@@ -22,7 +22,7 @@ const  ForgotPassword = () => {
           return;
         }
     
-        fetch('/reset-password', {
+        fetch('https://api-collegpt.vercel.app/reset-password', {
           method: 'post',
           headers: {
             'Content-Type': 'application/json',

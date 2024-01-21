@@ -22,7 +22,7 @@ const About = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/feedback", {
+      const response = await fetch("https://api-collegpt.vercel.app/feedback", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

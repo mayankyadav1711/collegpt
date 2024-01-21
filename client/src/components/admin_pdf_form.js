@@ -406,7 +406,7 @@ const Admin_Pdf_Form = () => {
     }
 
     // Make a POST request to the backend endpoint
-    fetch("/pdf-forms", {
+    fetch("https://api-collegpt.vercel.app/pdf-forms", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
