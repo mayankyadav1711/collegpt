@@ -1,13 +1,47 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-redundant-roles */
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Gita from "./gita";
 import handledarkmode from "./handledarkmode";
 import chatgpt from "./images/ChatGPT_logo.svg.png";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from '@studio-freight/lenis'
 
+gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
+   const lenis = useRef(null);
+  const section1Ref = useRef(null);
+  // const colLeftRef = useRef(null);
+
+  useEffect(() => {
+    lenis.current = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+
+    function raf(time) {
+      lenis.current.raf(time);
+      ScrollTrigger.update();
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    const timeln = gsap.timeline({ paused: true });
+    // timeln.fromTo(colLeftRef.current, { y: 0 }, { y: '170vh', duration: 1, ease: 'none' }, 0);
+
+    ScrollTrigger.create({
+      animation: timeln,
+      trigger: section1Ref.current,
+      start: 'top top',
+      end: 'bottom center',
+      scrub: true,
+    });
+  }, []);
+
   useEffect(() => {
     handledarkmode();
   }, []);
@@ -63,7 +97,7 @@ app.init();
   // Read the active tab index from localStorage on page load
 
   return (
-    <div>
+    <div  ref={section1Ref}>
    
       <section class="home-grid">
      
