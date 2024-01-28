@@ -97,11 +97,11 @@ app.init();
   // Read the active tab index from localStorage on page load
 
   return (
-    <div  ref={section1Ref}>
+    <div>
    
       <section class="home-grid">
      
-      <section>
+      <section   ref={section1Ref}>
         <h1 class="heading">quick options</h1>
 
         <div class="box-container">
