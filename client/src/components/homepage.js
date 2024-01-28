@@ -99,9 +99,9 @@ app.init();
   return (
     <div>
    
-      <section class="home-grid">
+      <section class="home-grid" ref={section1Ref}>
      
-      <section   ref={section1Ref}>
+      <section>
         <h1 class="heading">quick options</h1>
 
         <div class="box-container">
