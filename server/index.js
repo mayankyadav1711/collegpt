@@ -8,8 +8,8 @@ const { MONGOURI } = require('./config/keys')
 //cors policy 
 app.use(cors (
   {
-     origin: ["https://www.collegpt.com"],
-     methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: ["https://collegpt.vercel.app", "http://localhost:3000", "https://collegpt.vercel.app/"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
      credentials: true
 
   }
