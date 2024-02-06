@@ -8,14 +8,15 @@ const { MONGOURI } = require('./config/keys')
 //cors policy 
 app.use(cors({
   origin: [
-    "https://www.collegpt.com/",
-    "https://collegpt.com/",
+    "https://www.collegpt.com",
+    "https://collegpt.com",
     "http://localhost:3000",
-    "https://collegpt.vercel.app/"
+    "https://collegpt.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
+
 mongoose.connect(MONGOURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
