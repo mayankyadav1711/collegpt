@@ -24,7 +24,7 @@ const Header = () => {
     if (state && state._id) {
       setIsLoading(true);
 
-      fetch(`https://api-collegpt.vercel.app/view-profile/${state._id}`)
+      fetch(`https://api-collegpt.vercel.app/view-profile/${state?._id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -93,8 +93,8 @@ const Header = () => {
               className="image"
               alt=""
             />
-            <h3 className="name">{userProfile.name}</h3>
-            <p className="role">{userProfile.Roles[0]}</p>
+            <h3 className="name">{userProfile?.name}</h3>
+            <p className="role">{userProfile?.Roles[0]}</p>
             <Link to="/updateProfile">
               <a className="inline-btn">view profile</a>
             </Link>
