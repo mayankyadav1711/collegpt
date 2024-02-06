@@ -190,7 +190,7 @@ const Footer = () => {
                   <div class="row">
                       <div class="col-xl-6 col-lg-6 text-center text-lg-left">
                           <div class="copyright-text">
-                              <p>Copyright &copy; 2023, All Right Reserved <a href="#">ColleGPT</a></p>
+                              <p>Copyright &copy; 2024, All Right Reserved <a href="#">ColleGPT</a></p>
                           </div>
                       </div>
                    
