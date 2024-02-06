@@ -11,7 +11,7 @@ const Userlist = () => {
   const [userProfiles, setUserProfiles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const profilesPerPage = 5; // Number of profiles to display per page
+  const profilesPerPage = 10; // Number of profiles to display per page
   useEffect(() => {
     handledarkmode();
   }, []);
