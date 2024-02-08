@@ -48,6 +48,18 @@ import Sem_5_Cn_Units from "./components/Sem_5_Cn_Units";
 import Sem_5_Map_Units from "./components/Sem_5_Map_Units";
 import Sem_5_Python_Units from "./components/Sem_5_Python_Units";
 import Sem_5_SOA_Units from "./components/Sem_5_SOA_Units";
+
+import Sem_6_Sc_Units from "./components/Sem_6_Sc_Units";
+import Sem_6_Dc_Units from "./components/Sem_6_Dc_Units";
+import Sem_6_Ee_Units from "./components/Sem_6_Ee_Units";
+import Sem_6_Ml_Units from "./components/Sem_6_Ml_Units";
+import Sem_6_Py_Units from "./components/Sem_6_Py_Units";
+import Sem_6_Ai_Units from "./components/Sem_6_Ai_Units";
+import Sem_6_Iot_Units from "./components/Sem_6_Iot_Units";
+import Sem_6_Cns_Units from "./components/Sem_6_Cns_Units";
+import Sem_6_Is_Units from "./components/Sem_6_Is_Units";
+import Sem_6_Ap_Units from "./components/Sem_6_Ap_Units";
+
 import Admin_Pdf_Form from "./components/admin_pdf_form";
 import Userlist from "./components/userlist";
 import Gita from "./components/gita";
@@ -97,13 +109,13 @@ const Routing = () => {
           <Route path="/updateProfile" element={<UpdateProfile />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-        
           <Route path="/contributor_form" element={<Contributor_Form />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/watchvideo/:code" element={<WatchVideo />} />
           <Route path="/roadmap_mern" element={<Roadmap_Mern />} />
           <Route path="/roadmap_frontend" element={<Roadmap_Frontend />} />
           <Route path="/roadmap_backend" element={<Roadmap_Backend />} />
+          
           <Route path="/sem_1_fop_units" element={<Sem_1_Fop_Units />} />
           <Route path="/sem_1_maths_units" element={<Sem_1_Maths_Units />} />
           <Route path="/sem_1_eoc_units" element={<Sem_1_Eoc_Units />} />
@@ -115,10 +127,7 @@ const Routing = () => {
           <Route path="/sem_2_beee_units" element={<Sem_2_Beee_Units />} />
           <Route path="/sem_2_fme_units" element={<Sem_2_Fme_Units />} />
           <Route path="/sem_2_bcps_units" element={<Sem_2_Bcps_Units />} />
-          <Route
-            path="/sem_2_workshop_units"
-            element={<Sem_2_Workshop_Units />}
-          />
+          <Route path="/sem_2_workshop_units" element={<Sem_2_Workshop_Units />} />
           <Route path="/sem_3_dsa_units" element={<Sem_3_Dsa_Units />} />
           <Route path="/sem_3_maths_units" element={<Sem_3_Maths_Units />} />
           <Route path="/sem_3_dbms_units" element={<Sem_3_Dbms_Units />} />
@@ -137,6 +146,17 @@ const Routing = () => {
           <Route path="/sem_5_map_units" element={<Sem_5_Map_Units />} />
           <Route path="/sem_5_python_units" element={<Sem_5_Python_Units />} />
           <Route path="/sem_5_soa_units" element={<Sem_5_SOA_Units />} />
+          <Route path="/sem_6_sc_units" element={<Sem_6_Sc_Units />} />
+          <Route path="/sem_6_ml_units" element={<Sem_6_Ml_Units />} />
+          <Route path="/sem_6_dc_units" element={<Sem_6_Dc_Units />} />
+          <Route path="/sem_6_ee_units" element={<Sem_6_Ee_Units />} />
+          <Route path="/sem_6_py_units" element={<Sem_6_Py_Units />} />
+          <Route path="/sem_6_ai_units" element={<Sem_6_Ai_Units />} />
+          <Route path="/sem_6_iot_units" element={<Sem_6_Iot_Units />} />
+          <Route path="/sem_6_cns_units" element={<Sem_6_Cns_Units />} />
+          <Route path="/sem_6_is_units" element={<Sem_6_Is_Units />} />
+          <Route path="/sem_6_ap_units" element={<Sem_6_Ap_Units />} />
+          
           <Route path="/admin_pdf_form" element={<Admin_Pdf_Form />} />
           <Route path="/aicomingsoon" element={<AI_Coming_Soon />} />
         </Route>
