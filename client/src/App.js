@@ -140,6 +140,19 @@ const Routing = () => {
           <Route path="/sem_5_map_units" element={<PrivateRoute element={<Sem_5_Map_Units />} />} />
           <Route path="/sem_5_python_units" element={<PrivateRoute element={<Sem_5_Python_Units />} />} />
           <Route path="/sem_5_soa_units" element={<PrivateRoute element={<Sem_5_SOA_Units />} />} />
+
+          <Route path="/sem_6_sc_units" element={<PrivateRoute element={<Sem_6_Sc_Units />} />} />
+    <Route path="/sem_6_ml_units" element={<PrivateRoute element={<Sem_6_Ml_Units />} />} />
+    <Route path="/sem_6_dc_units" element={<PrivateRoute element={<Sem_6_Dc_Units />} />} />
+    <Route path="/sem_6_ee_units" element={<PrivateRoute element={<Sem_6_Ee_Units />} />} />
+    <Route path="/sem_6_py_units" element={<PrivateRoute element={<Sem_6_Py_Units />} />} />
+    <Route path="/sem_6_ai_units" element={<PrivateRoute element={<Sem_6_Ai_Units />} />} />
+    <Route path="/sem_6_iot_units" element={<PrivateRoute element={<Sem_6_Iot_Units />} />} />
+    <Route path="/sem_6_cns_units" element={<PrivateRoute element={<Sem_6_Cns_Units />} />} />
+    <Route path="/sem_6_is_units" element={<PrivateRoute element={<Sem_6_Is_Units />} />} />
+    <Route path="/sem_6_ap_units" element={<PrivateRoute element={<Sem_6_Ap_Units />} />} />
+
+    
           <Route path="/admin_pdf_form" element={<PrivateRoute element={<Admin_Pdf_Form />} />} />
           <Route path="/aicomingsoon" element={<PrivateRoute element={<AI_Coming_Soon />} />} />
         </Route>
