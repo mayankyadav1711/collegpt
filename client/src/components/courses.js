@@ -39,6 +39,17 @@ import s56 from "./images/Thumbnail/Sem-5/MAP.jpg";
 import s57 from "./images/Thumbnail/Sem-5/Python.png";
 import s58 from "./images/Thumbnail/Sem-5/SOA.jpg";
 
+import s61 from "./images/Thumbnail/Sem-5/SOA.jpg";
+import s62 from "./images/Thumbnail/Sem-5/SOA.jpg";
+import s63 from "./images/Thumbnail/Sem-5/SOA.jpg";
+import s64 from "./images/Thumbnail/Sem-5/SOA.jpg";
+import s65 from "./images/Thumbnail/Sem-5/SOA.jpg";
+import s66 from "./images/Thumbnail/Sem-5/SOA.jpg";
+import s67 from "./images/Thumbnail/Sem-5/SOA.jpg";
+import s68 from "./images/Thumbnail/Sem-5/SOA.jpg";
+import s69 from "./images/Thumbnail/Sem-5/SOA.jpg";
+import s70 from "./images/Thumbnail/Sem-5/SOA.jpg";
+
 // import handledarkmode from "./handledarkmode";
 const  Courses = () =>{
   const [activeTab, setActiveTab] = useState(0);
@@ -660,6 +671,199 @@ const  Courses = () =>{
         </div>
       </li>
     </ul>,
+    // Content for Semester 6 (Tab 5)
+    <ul className="tab-content">
+      <li>
+        <h1 className="heading">Semester 6</h1>
+        <div className="box-container">
+          <div className="box">
+            <div className="tutor">
+              
+              <div className="info">
+            
+            <h3 className="title">Artificial Intelligence</h3>
+              </div>
+            </div>
+            <div className="thumb">
+              <img src={s61} alt="/" />
+              <span>8 Units</span>
+            </div>
+            <Link to="/sem_6_ai_units">
+              {" "}
+              <a class="inline-btn">View Units</a>{" "}
+            </Link>
+          </div>
+
+          <div className="box">
+            <div className="tutor">
+              
+              <div className="info">
+            
+            <h3 className="title">Python Programming</h3>
+              </div>
+            </div>
+            <div className="thumb">
+              <img src={s62} alt="" />
+              <span>6 Units</span>
+            </div>
+            <Link to="/sem_6_py_units">
+              {" "}
+              <a class="inline-btn">View Units</a>{" "}
+            </Link>
+          </div>
+
+          <div className="box">
+            <div className="tutor">
+              
+              <div className="info">
+            
+            <h3 className="title">Cryptography and Network Security</h3>
+              </div>
+            </div>
+            <div className="thumb">
+              <img src={s63} alt="" />
+              <span>10 Units</span>
+            </div>
+            <Link to="/sem_6_cns_units">
+              {" "}
+              <a class="inline-btn">View Units</a>{" "}
+            </Link>
+          </div>
+
+          <div className="box">
+            <div className="tutor">
+              
+              <div className="info">
+            
+            <h3 className="title">Machine Learning</h3>
+              </div>
+            </div>
+            <div className="thumb">
+              <img src={s64} alt="" />
+              <span>8 Units</span>
+            </div>
+            <Link to="/sem_6_ml_units">
+              {" "}
+              <a class="inline-btn">View Units</a>{" "}
+            </Link>
+          </div>
+
+          <div className="box">
+            <div className="tutor">
+              
+              <div className="info">
+            
+            <h3 className="title">Android Programming</h3>
+              </div>
+            </div>
+            <div className="thumb">
+              <img src={s65} alt="" />
+              <span>7 Units</span>
+            </div>
+            <Link to="/sem_6_ap_units">
+              {" "}
+              <a class="inline-btn">View Units</a>{" "}
+            </Link>
+          </div>
+
+          
+          <div className="box">
+            <div className="tutor">
+              
+              <div className="info">
+            
+            <h3 className="title">Internet of Things</h3>
+              </div>
+            </div>
+            <div className="thumb">
+              <img src={s66} alt="" />
+              <span>6 Units</span>
+            </div>
+              
+            <Link to="/sem_6_iot_units">
+              {" "}
+              <a class="inline-btn">View Units</a>{" "}
+            </Link>
+          </div>
+
+          <div className="box">
+            <div className="tutor">
+              
+              <div className="info">
+            
+            <h3 className="title">Soft Computing</h3>
+              </div>
+            </div>
+            <div className="thumb">
+              <img src={s67} alt="" />
+              <span>7 Units</span>
+            </div>
+              
+            <Link to="/sem_6_sc_units">
+              {" "}
+              <a class="inline-btn">View Units</a>{" "}
+            </Link>
+          </div>
+
+          <div className="box">
+            <div className="tutor">
+              
+              <div className="info">
+            
+            <h3 className="title">Information Security</h3>
+              </div>
+            </div>
+            <div className="thumb">
+              <img src={s68} alt="" />
+              <span>7 Units</span>
+            </div>
+              
+            <Link to="/sem_6_is_units">
+              {" "}
+              <a class="inline-btn">View Units</a>{" "}
+            </Link>
+          </div>
+
+          <div className="box">
+            <div className="tutor">
+              
+              <div className="info">
+            
+            <h3 className="title">Data Compression</h3>
+              </div>
+            </div>
+            <div className="thumb">
+              <img src={s69} alt="" />
+              <span>7 Units</span>
+            </div>
+              
+            <Link to="/sem_6_dc_units">
+              {" "}
+              <a class="inline-btn">View Units</a>{" "}
+            </Link>
+          </div>
+
+          <div className="box">
+            <div className="tutor">
+              
+              <div className="info">
+            
+            <h3 className="title">E-Commerce and E-Business</h3>
+              </div>
+            </div>
+            <div className="thumb">
+              <img src={s70} alt="" />
+              <span>7 Units</span>
+            </div>
+              
+            <Link to="/sem_6_ee_units">
+              {" "}
+              <a class="inline-btn">View Units</a>{" "}
+            </Link>
+          </div>
+        </div>
+      </li>
+    </ul>,
   ];
   return (
     <>
@@ -694,6 +898,12 @@ const  Courses = () =>{
             onClick={() => handleTabClick(4)}
           >
             <h3>Sem 5</h3>
+          </li>
+          <li
+            className={activeTab === 5 ? "active" : ""}
+            onClick={() => handleTabClick(5)}
+          >
+            <h3>Sem 6</h3>
           </li>
         </ul>
 

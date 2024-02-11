@@ -7723,11 +7723,14 @@ height: 70rem;
   .courses ul#tabs{
     margin-top: 2rem;
     margin-bottom: 2rem;
+    
   }
   .courses ul#tabs li{
     width: 8rem;
     padding-left: 1.2rem;
     padding-right: 1.2rem;
+
+
   }
   .heading{
     margin-left: 4rem;
@@ -8134,12 +8137,17 @@ height: 70rem;
   }
   .courses ul#tabs{
     margin-top: 2rem;
+    margin-left: 8rem;
+    margin-right: 8rem;
     margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
   }
   .courses ul#tabs li{
     width: 10rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    
   }
   .courses .box{
     min-width: 38rem;

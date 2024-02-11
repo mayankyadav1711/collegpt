@@ -48,6 +48,18 @@ import Sem_5_Cn_Units from "./components/Sem_5_Cn_Units";
 import Sem_5_Map_Units from "./components/Sem_5_Map_Units";
 import Sem_5_Python_Units from "./components/Sem_5_Python_Units";
 import Sem_5_SOA_Units from "./components/Sem_5_SOA_Units";
+
+import Sem_6_Sc_Units from "./components/Sem_6_Sc_Units";
+import Sem_6_Dc_Units from "./components/Sem_6_Dc_Units";
+import Sem_6_Ee_Units from "./components/Sem_6_Ee_Units";
+import Sem_6_Ml_Units from "./components/Sem_6_Ml_Units";
+import Sem_6_Py_Units from "./components/Sem_6_Py_Units";
+import Sem_6_Ai_Units from "./components/Sem_6_Ai_Units";
+import Sem_6_Iot_Units from "./components/Sem_6_Iot_Units";
+import Sem_6_Cns_Units from "./components/Sem_6_Cns_Units";
+import Sem_6_Is_Units from "./components/Sem_6_Is_Units";
+import Sem_6_Ap_Units from "./components/Sem_6_Ap_Units";
+
 import Admin_Pdf_Form from "./components/admin_pdf_form";
 import Userlist from "./components/userlist";
 import Gita from "./components/gita";
