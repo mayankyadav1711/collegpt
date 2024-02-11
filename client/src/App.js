@@ -61,84 +61,75 @@ import AI_Coming_Soon from "./components/collegptcomingsoon";
 
 export const UserContext = createContext();
 
-const Routing = () => {
+const PrivateRoute = ({ element, path }) => {
+  const { state } = useContext(UserContext);
   const navigate = useNavigate();
-  const { dispatch } = useContext(UserContext);
+
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-
-    const allowedPaths = [
-      "/login",
-      "/register",
-      "/otp",
-      "/resetpassword",
-      "/forgotpassword",
-    ]; // Add the paths that don't require login
-    const isAllowedPath = allowedPaths.some((path) =>
-      window.location.pathname.startsWith(path)
-    );
-
-    if (!user && !isAllowedPath) {
+    if (!state || !state.user) {
       navigate("/login");
     }
-    dispatch({ type: "USER", payload: user });
-  }, [dispatch, navigate]);
+  }, [state, navigate]);
 
-  // ...
+  return state && state.user ? element : null;
+};
+
+
+const Routing = () => {
+ 
 
   return (
     <>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="/gita" element={<Gita />} />
-          <Route path="/event_form" element={<Event_Form />} />
-          <Route path="/userlist" element={<Userlist />} />
-          <Route path="/updateProfile" element={<UpdateProfile />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        
-          <Route path="/contributor_form" element={<Contributor_Form />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/watchvideo/:code" element={<WatchVideo />} />
-          <Route path="/roadmap_mern" element={<Roadmap_Mern />} />
-          <Route path="/roadmap_frontend" element={<Roadmap_Frontend />} />
-          <Route path="/roadmap_backend" element={<Roadmap_Backend />} />
-          <Route path="/sem_1_fop_units" element={<Sem_1_Fop_Units />} />
-          <Route path="/sem_1_maths_units" element={<Sem_1_Maths_Units />} />
-          <Route path="/sem_1_eoc_units" element={<Sem_1_Eoc_Units />} />
-          <Route path="/sem_1_eg_units" element={<Sem_1_Eg_Units />} />
-          <Route path="/sem_1_ep_units" element={<Sem_1_Ep_Units />} />
-          <Route path="/sem_1_es_units" element={<Sem_1_Es_Units />} />
-          <Route path="/sem_2_oopc_units" element={<Sem_2_Oopc_Units />} />
-          <Route path="/sem_2_maths_units" element={<Sem_2_Maths_Units />} />
-          <Route path="/sem_2_beee_units" element={<Sem_2_Beee_Units />} />
-          <Route path="/sem_2_fme_units" element={<Sem_2_Fme_Units />} />
-          <Route path="/sem_2_bcps_units" element={<Sem_2_Bcps_Units />} />
+          <Route index element=<Home/> />
+          <Route path="/gita" element={<PrivateRoute element={<Gita />} />} />
+          <Route path="/event_form" element={<PrivateRoute element={<Event_Form />} />} />
+          <Route path="/userlist" element={<PrivateRoute element={<Userlist />} />} />
+          <Route path="/updateProfile" element={<PrivateRoute element={<UpdateProfile />} />} />
+          <Route path="/about" element={<PrivateRoute element={<About />} />} />
+          <Route path="/contact" element={<PrivateRoute element={<Contact />} />} />
+          <Route path="/contributor_form" element={<PrivateRoute element={<Contributor_Form />} />} />
+          <Route path="/courses" element=<Courses /> />
+          <Route path="/watchvideo/:code" element={<PrivateRoute element={<WatchVideo />} />} />
+          <Route path="/roadmap_mern" element={<PrivateRoute element={<Roadmap_Mern />} />} />
+          <Route path="/roadmap_frontend" element={<PrivateRoute element={<Roadmap_Frontend />} />} />
+          <Route path="/roadmap_backend" element={<PrivateRoute element={<Roadmap_Backend />} />} />
+          <Route path="/sem_1_fop_units" element={<PrivateRoute element={<Sem_1_Fop_Units />} />} />
+          <Route path="/sem_1_maths_units" element={<PrivateRoute element={<Sem_1_Maths_Units />} />} />
+          <Route path="/sem_1_eoc_units" element={<PrivateRoute element={<Sem_1_Eoc_Units />} />} />
+          <Route path="/sem_1_eg_units" element={<PrivateRoute element={<Sem_1_Eg_Units />} />} />
+          <Route path="/sem_1_ep_units" element={<PrivateRoute element={<Sem_1_Ep_Units />} />} />
+          <Route path="/sem_1_es_units" element={<PrivateRoute element={<Sem_1_Es_Units />} />} />
+          <Route path="/sem_2_oopc_units" element={<PrivateRoute element={<Sem_2_Oopc_Units />} />} />
+          <Route path="/sem_2_maths_units" element={<PrivateRoute element={<Sem_2_Maths_Units />} />} />
+          <Route path="/sem_2_beee_units" element={<PrivateRoute element={<Sem_2_Beee_Units />} />} />
+          <Route path="/sem_2_fme_units" element={<PrivateRoute element={<Sem_2_Fme_Units />} />} />
+          <Route path="/sem_2_bcps_units" element={<PrivateRoute element={<Sem_2_Bcps_Units />} />} />
           <Route
             path="/sem_2_workshop_units"
-            element={<Sem_2_Workshop_Units />}
+            element={<PrivateRoute element={<Sem_2_Workshop_Units />} />}
           />
-          <Route path="/sem_3_dsa_units" element={<Sem_3_Dsa_Units />} />
-          <Route path="/sem_3_maths_units" element={<Sem_3_Maths_Units />} />
-          <Route path="/sem_3_dbms_units" element={<Sem_3_Dbms_Units />} />
-          <Route path="/sem_3_de_units" element={<Sem_3_De_Units />} />
-          <Route path="/sem_3_itw_units" element={<Sem_3_Itw_Units />} />
-          <Route path="/sem_4_oopj_units" element={<Sem_4_Oopj_Units />} />
-          <Route path="/sem_4_psnm_units" element={<Sem_4_Psnm_Units />} />
-          <Route path="/sem_4_os_units" element={<Sem_4_Os_Units />} />
-          <Route path="/sem_4_coa_units" element={<Sem_4_Coa_Units />} />
-          <Route path="/sem_4_pom_units" element={<Sem_4_Pom_Units />} />
-          <Route path="/sem_5_ajp_units" element={<Sem_5_Ajp_Units />} />
-          <Route path="/sem_5_daa_units" element={<Sem_5_Daa_Units />} />
-          <Route path="/sem_5_se_units" element={<Sem_5_Se_Units />} />
-          <Route path="/sem_5_toc_units" element={<Sem_5_Toc_Units />} />
-          <Route path="/sem_5_cn_units" element={<Sem_5_Cn_Units />} />
-          <Route path="/sem_5_map_units" element={<Sem_5_Map_Units />} />
-          <Route path="/sem_5_python_units" element={<Sem_5_Python_Units />} />
-          <Route path="/sem_5_soa_units" element={<Sem_5_SOA_Units />} />
-          <Route path="/admin_pdf_form" element={<Admin_Pdf_Form />} />
-          <Route path="/aicomingsoon" element={<AI_Coming_Soon />} />
+          <Route path="/sem_3_dsa_units" element={<PrivateRoute element={<Sem_3_Dsa_Units />} />} />
+          <Route path="/sem_3_maths_units" element={<PrivateRoute element={<Sem_3_Maths_Units />} />} />
+          <Route path="/sem_3_dbms_units" element={<PrivateRoute element={<Sem_3_Dbms_Units />} />} />
+          <Route path="/sem_3_de_units" element={<PrivateRoute element={<Sem_3_De_Units />} />} />
+          <Route path="/sem_3_itw_units" element={<PrivateRoute element={<Sem_3_Itw_Units />} />} />
+          <Route path="/sem_4_oopj_units" element={<PrivateRoute element={<Sem_4_Oopj_Units />} />} />
+          <Route path="/sem_4_psnm_units" element={<PrivateRoute element={<Sem_4_Psnm_Units />} />} />
+          <Route path="/sem_4_os_units" element={<PrivateRoute element={<Sem_4_Os_Units />} />} />
+          <Route path="/sem_4_coa_units" element={<PrivateRoute element={<Sem_4_Coa_Units />} />} />
+          <Route path="/sem_4_pom_units" element={<PrivateRoute element={<Sem_4_Pom_Units />} />} />
+          <Route path="/sem_5_ajp_units" element={<PrivateRoute element={<Sem_5_Ajp_Units />} />} />
+          <Route path="/sem_5_daa_units" element={<PrivateRoute element={<Sem_5_Daa_Units />} />} />
+          <Route path="/sem_5_se_units" element={<PrivateRoute element={<Sem_5_Se_Units />} />} />
+          <Route path="/sem_5_toc_units" element={<PrivateRoute element={<Sem_5_Toc_Units />} />} />
+          <Route path="/sem_5_cn_units" element={<PrivateRoute element={<Sem_5_Cn_Units />} />} />
+          <Route path="/sem_5_map_units" element={<PrivateRoute element={<Sem_5_Map_Units />} />} />
+          <Route path="/sem_5_python_units" element={<PrivateRoute element={<Sem_5_Python_Units />} />} />
+          <Route path="/sem_5_soa_units" element={<PrivateRoute element={<Sem_5_SOA_Units />} />} />
+          <Route path="/admin_pdf_form" element={<PrivateRoute element={<Admin_Pdf_Form />} />} />
+          <Route path="/aicomingsoon" element={<PrivateRoute element={<AI_Coming_Soon />} />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
