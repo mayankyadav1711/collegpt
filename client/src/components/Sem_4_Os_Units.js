@@ -29,7 +29,7 @@ function Sem_4_Os_Units() {
 
             <div class="thumb">
                 <img src={thumb}alt=""/>
-                <span>6 Units</span>
+                <span>7 Units</span>
             </div>
         </div>
 
@@ -102,6 +102,14 @@ function Sem_4_Os_Units() {
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
       <h3>I/O Hardware</h3>
+    </a> 
+  </Link>
+
+  <Link to='/watchvideo/437' class="box">  
+    <a>
+      {/* <i class="fas fa-play"></i> */}
+      <img src={postpic} alt=""/>
+      <h3>Security</h3>
     </a> 
   </Link>
 </div>
