@@ -470,7 +470,7 @@ const  Courses = () =>{
             </div>
             <div className="thumb">
               <img src={s43} alt="" />
-              <span>6 Units</span>
+              <span>7 Units</span>
             </div>
             <Link to="/sem_4_os_units">
               {" "}
