@@ -94,7 +94,7 @@ const Routing = () => {
     <>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element=<Home/> />
+          <Route index element={<Home/> }/>
           <Route path="/gita" element={<PrivateRoute element={<Gita />} />} />
           <Route path="/event_form" element={<PrivateRoute element={<Event_Form />} />} />
           <Route path="/userlist" element={<PrivateRoute element={<Userlist />} />} />
@@ -102,7 +102,7 @@ const Routing = () => {
           <Route path="/about" element={<PrivateRoute element={<About />} />} />
           <Route path="/contact" element={<PrivateRoute element={<Contact />} />} />
           <Route path="/contributor_form" element={<PrivateRoute element={<Contributor_Form />} />} />
-          <Route path="/courses" element=<Courses /> />
+          <Route path="/courses" element={<Courses />} />
           <Route path="/watchvideo/:code" element={<PrivateRoute element={<WatchVideo />} />} />
           <Route path="/roadmap_mern" element={<PrivateRoute element={<Roadmap_Mern />} />} />
           <Route path="/roadmap_frontend" element={<PrivateRoute element={<Roadmap_Frontend />} />} />
