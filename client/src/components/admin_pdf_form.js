@@ -270,11 +270,11 @@ const Admin_Pdf_Form = () => {
             "Memory Organization",
         ],
         "Principles of Management": [
-            "Soon...",
-            "Soon...",
-            "Soon...",
-            "Soon...",
-            "Soon...",
+            "Introduction to Management and Organizations",
+            "Schools of Management thoughts",
+            "Organizational Structure and Design",
+            "Organizational Culture and Environment",
+            "Understanding Basics of Financial Management and Accounting",
         ],
         //Semester 5
         "Advanced Java Programming": [
@@ -286,7 +286,7 @@ const Admin_Pdf_Form = () => {
             "Hibernet 4.0",
             "Spring MVC",
         ],
-        Python: [
+        "Python": [
             "Introduction to Python Programming Language",
             "Data Collections and Language Component ",
             "Object and Classes",
