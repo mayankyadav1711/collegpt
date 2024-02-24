@@ -2833,7 +2833,7 @@ body.dark .card-item-title {
 .courses .box-container .box .thumb img {
   width: 100%;
   height: 20rem;
-  object-fit: cover;
+  object-fit: fill;
   border-radius: 0.5rem;
 }
 
@@ -3019,7 +3019,7 @@ visibility: hidden;
   margin-top: 2rem;
   width: 90%;
   height: 20rem;
-  object-fit: cover;
+  object-fit:fill;
   border-radius: 0.5rem;
 }
 

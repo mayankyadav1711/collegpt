@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-// import profilepic from "./images/pic-1.jpg";
-// import thumb from "./images/Thumbnail/Sem-5/TOC.png";
-import postpic from "./images/Thumbnail/Sem-5/TOC.png";
+
+import postpic from "./images/Thumbnail/Sem-6/AI.png";
 import handledarkmode from "./handledarkmode";
 function Sem_6_Ai_Units() {
   useEffect(() => {
@@ -32,7 +31,7 @@ function Sem_6_Ai_Units() {
 
           <div class="column">
             <div class="tutor">
-              {/* <img src={profilepic} alt="" /> */}
+              <img src={postpic} alt="" />
               <div>
                 <h3>john deo</h3>
                 <span>21-10-2022</span>

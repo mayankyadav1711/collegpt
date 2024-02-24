@@ -39,16 +39,16 @@ import s56 from "./images/Thumbnail/Sem-5/MAP.jpg";
 import s57 from "./images/Thumbnail/Sem-5/Python.png";
 import s58 from "./images/Thumbnail/Sem-5/SOA.jpg";
 
-import s61 from "./images/Thumbnail/Sem-5/SOA.jpg";
-import s62 from "./images/Thumbnail/Sem-5/SOA.jpg";
-import s63 from "./images/Thumbnail/Sem-5/SOA.jpg";
-import s64 from "./images/Thumbnail/Sem-5/SOA.jpg";
-import s65 from "./images/Thumbnail/Sem-5/SOA.jpg";
-import s66 from "./images/Thumbnail/Sem-5/SOA.jpg";
-import s67 from "./images/Thumbnail/Sem-5/SOA.jpg";
-import s68 from "./images/Thumbnail/Sem-5/SOA.jpg";
-import s69 from "./images/Thumbnail/Sem-5/SOA.jpg";
-import s70 from "./images/Thumbnail/Sem-5/SOA.jpg";
+import s61 from "./images/Thumbnail/Sem-6/AI.png";
+import s62 from "./images/Thumbnail/Sem-6/pyp.png";
+import s63 from "./images/Thumbnail/Sem-6/cns.png";
+import s64 from "./images/Thumbnail/Sem-6/ml.png";
+import s65 from "./images/Thumbnail/Sem-5/SOA.png";
+import s66 from "./images/Thumbnail/Sem-5/SOA.png";
+import s67 from "./images/Thumbnail/Sem-5/SOA.png";
+import s68 from "./images/Thumbnail/Sem-5/SOA.png";
+import s69 from "./images/Thumbnail/Sem-5/SOA.png";
+import s70 from "./images/Thumbnail/Sem-5/SOA.png";
 
 // import handledarkmode from "./handledarkmode";
 const  Courses = () =>{
