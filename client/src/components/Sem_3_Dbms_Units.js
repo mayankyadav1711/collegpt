@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
-import profilepic from './images/pic-1.jpg'
-import thumb from "./images/Thumbnail/Sem-3/DBMS.png"
+// import profilepic from './images/pic-1.jpg'
+// import thumb from "./images/Thumbnail/Sem-3/DBMS.png"
 import postpic from "./images/Thumbnail/Sem-3/DBMS.png"
 
-import newpic from "./images/Thumbnail/Sem-3/DBMS.png"
+// import newpic from "./images/Thumbnail/Sem-3/DBMS.png"
 import handledarkmode from "./handledarkmode";
 function Sem_3_Dbms_Units() {
   useEffect(() => {
@@ -30,13 +30,13 @@ function Sem_3_Dbms_Units() {
          </form>
    
          <div class="thumb">
-            <img src={thumb}alt=""/>
+            <img src={postpic}alt=""/>
             <span>9 Units</span>
          </div>
       </div>
       <div class="column">
          <div class="tutor">
-            <img src={profilepic} alt=""/>
+                        {/* <img src={profilepic} alt=""/> */}
             <div>
                <h3>john deo</h3>
                <span>21-10-2022</span>
@@ -61,7 +61,8 @@ function Sem_3_Dbms_Units() {
   <Link to='/watchvideo/331' class="box">  
     <a>
       {/* <i class="fas fa-play"></i> */}
-      <img src={newpic} alt=""/>
+      <img src={postpic} alt=""/>
+
       <h3>Database System Architecture</h3>
     </a> 
   </Link>

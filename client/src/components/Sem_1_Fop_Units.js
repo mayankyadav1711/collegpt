@@ -2,9 +2,6 @@
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 import FOP from "./images/Thumbnail/Sem-1/FOP.png";
-import postpic from "./images/post-1-1.png";
-
-import newpic from "./images/thumb-4.png";
 import handledarkmode from "./handledarkmode";
 
 function Sem_1_Fop_Units() {

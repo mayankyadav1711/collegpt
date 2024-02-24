@@ -2,10 +2,10 @@
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 
-import thumb from "./images/Thumbnail/Sem-1/Maths-1.png"
+// import thumb from "./images/Thumbnail/Sem-1/Maths-1.png"
 import postpic from "./images/Thumbnail/Sem-1/Maths-1.png"
 
-import newpic from "./images/Thumbnail/Sem-1/Maths-1.png"
+// import newpic from "./images/Thumbnail/Sem-1/Maths-1.png"
 import handledarkmode from "./handledarkmode";
 
 function Sem_1_Maths_Units() {
@@ -27,7 +27,7 @@ function Sem_1_Maths_Units() {
          
    
          <div class="thumb">
-            <img src={thumb}alt=""/>
+            <img src={postpic}alt=""/>
             <span>7 Units</span>
          </div>
       </div>
@@ -52,55 +52,56 @@ function Sem_1_Maths_Units() {
    <Link to='/watchvideo/121' class="box">
   <a>
     {/* <i class="fas fa-play"></i> */}
-    <img src={newpic} alt=""/>
+    <img src={postpic} alt=""/>
+
     <h3>Differential Calculus</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/122' class="box">
   <a>
-    {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt=""/>
+
     <h3>Partial differentiation and its applications</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/123' class="box">
   <a>
-    {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt=""/>
+
     <h3>Curve Tracing</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/124' class="box">
   <a>
-    {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt=""/>
+
     <h3>Beta & Gamma function</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/125' class="box">
   <a>
-    {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt=""/>
+
     <h3>Integral Calculus</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/126' class="box">
   <a>
-    {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt=""/>
+
     <h3>Multiple Integrals and its applications</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/127' class="box">
   <a>
-    {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt=""/>
+
     <h3>Infinite Series</h3>
   </a>
 </Link>

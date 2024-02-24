@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Gita from "./gita";
 import handledarkmode from "./handledarkmode";
-import chatgpt from "./images/ChatGPT_logo.svg.png";
+
 // import { gsap } from 'gsap';
 // import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // import Lenis from '@studio-freight/lenis'

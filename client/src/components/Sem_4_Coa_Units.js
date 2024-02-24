@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {  useEffect } from "react";
 import { Link } from "react-router-dom";
-import profilepic from './images/pic-1.jpg'
-import thumb from "./images/Thumbnail/Sem-4/COA.png"
+// import profilepic from './images/pic-1.jpg'
+// import thumb from "./images/Thumbnail/Sem-4/COA.png"
 import postpic from "./images/Thumbnail/Sem-4/COA.png"
 
 import handledarkmode from "./handledarkmode";
@@ -28,14 +28,14 @@ function Sem_4_Coa_Units() {
             </form>
 
             <div class="thumb">
-                <img src={thumb}alt=""/>
+                <img src={postpic}alt=""/>
                 <span>6 Units</span>
             </div>
         </div>
 
         <div class="column">
             <div class="tutor">
-                <img src={profilepic} alt=""/>
+                            {/* <img src={profilepic} alt=""/> */}
                 <div>
                     <h3>john deo</h3>
                     <span>21-10-2022</span>

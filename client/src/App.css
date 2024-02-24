@@ -1,6 +1,7 @@
 /* divya */
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   --main-color: #5badad;
@@ -32,9 +33,9 @@
   --bgTransperent:#5badad12;
   --registerHeader:#5badad;
 }
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap');
 * {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Jost', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -507,7 +508,7 @@ section {
   transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
 }
 .welcome-text {
-  font-family: "Roboto Condensed";
+  font-family: "Jost", sans-serif;
   font-size: 3.25rem;
   line-height: 32px;
   letter-spacing: 8px;
@@ -4025,7 +4026,7 @@ option:hover {
 }
 
 h1 {
-  font-family: "Inter", sans-serif;
+  font-family: "Jost", sans-serif;
   font-size: 1.7rem;
   color: #f55e77;
   text-transform: uppercase;
@@ -4095,7 +4096,7 @@ tr:nth-child(1) {
 
 td {
   height: 5rem;
-  font-family: "Inter", sans-serif;
+  font-family: "Jost", sans-serif;
   font-size: 1.4rem;
   padding: 1rem 2rem;
   position: relative;
@@ -4187,7 +4188,7 @@ td {
 .exit {
   width: 11rem;
   height: 3rem;
-  font-family: "Inter", sans-serif;
+  font-family: "Jost", sans-serif;
   font-size: 1.3rem;
   font-weight: bolder;
   text-transform: uppercase;
@@ -4206,7 +4207,7 @@ td {
 .continue {
   width: 11rem;
   height: 3rem;
-  font-family: "Inter", sans-serif;
+  font-family: "Jost", sans-serif;
   font-size: 1.3rem;
   color: #fff;
   text-transform: uppercase;
@@ -4614,10 +4615,10 @@ ul li a {
   justify-content: center;
 }
 
-ul li a:hover {
+/* ul li a:hover {
   color: white;
   transform: translate(0rem, -0.7rem);
-}
+} */
 
 ul li a svg {
   width: calc(100% - 1.5rem);

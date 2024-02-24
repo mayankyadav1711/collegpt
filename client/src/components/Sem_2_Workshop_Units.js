@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
-import profilepic from './images/pic-1.jpg'
-import thumb from "./images/Thumbnail/Sem-2/WORKSHOP.png";
+// import profilepic from './images/pic-1.jpg'
+// import thumb from "./images/Thumbnail/Sem-2/WORKSHOP.png";
 import postpic from "./images/Thumbnail/Sem-2/WORKSHOP.png";
 
-import newpic from "./images/Thumbnail/Sem-2/WORKSHOP.png";
+// import newpic from "./images/Thumbnail/Sem-2/WORKSHOP.png";
 import handledarkmode from "./handledarkmode";
 function Sem_2_Workshop_Units() {
   useEffect(() => {
@@ -30,13 +30,13 @@ function Sem_2_Workshop_Units() {
          </form>
    
          <div class="thumb">
-            <img src={thumb}alt=""/>
+            <img src={postpic}alt=""/>
             <span># Units</span>
          </div>
       </div>
       <div class="column">
          <div class="tutor">
-            <img src={profilepic} alt=""/>
+                        {/* <img src={profilepic} alt=""/> */}
             <div>
                <h3>john deo</h3>
                <span>21-10-2022</span>
@@ -61,13 +61,15 @@ function Sem_2_Workshop_Units() {
 
    <Link to='/watchvideo'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
-         <img src={newpic} alt=""/>
+         <img src={postpic} alt=""/>
+
          <h3>Soon...</h3>
       </a> </Link>
 
       <Link to='/watchvideo'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
-         <img src={newpic} alt=""/>
+         <img src={postpic} alt=""/>
+
          <h3>Soon...</h3>
       </a> </Link>
 

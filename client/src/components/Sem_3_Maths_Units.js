@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {  useEffect } from "react";
 import { Link } from "react-router-dom";
-import profilepic from './images/pic-1.jpg'
-import thumb from "./images/Thumbnail/Sem-3/Maths-3.png"
+// import profilepic from './images/pic-1.jpg'
+// import thumb from "./images/Thumbnail/Sem-3/Maths-3.png"
 import postpic from "./images/Thumbnail/Sem-3/Maths-3.png"
 
-import newpic from "./images/thumb-4.png"
+
 import handledarkmode from "./handledarkmode";
 function Sem_3_Maths_Units() {
   useEffect(() => {
@@ -30,13 +30,13 @@ function Sem_3_Maths_Units() {
          </form>
    
          <div class="thumb">
-            <img src={thumb}alt=""/>
+            <img src={postpic}alt=""/>
             <span>5 Units</span>
          </div>
       </div>
       <div class="column">
          <div class="tutor">
-            <img src={profilepic} alt=""/>
+                        {/* <img src={profilepic} alt=""/> */}
             <div>
                <h3>john deo</h3>
                <span>21-10-2022</span>
@@ -65,7 +65,8 @@ function Sem_3_Maths_Units() {
   <Link to='/watchvideo/321' class="box">  
     <a>
       {/* <i class="fas fa-play"></i> */}
-      <img src={thumb} alt=""/>
+      <img src={postpic} alt=""/>
+
       <h3>Set, Relation & Function</h3>
     </a> 
   </Link>
