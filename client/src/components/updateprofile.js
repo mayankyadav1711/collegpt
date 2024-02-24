@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../App";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import spinnerlogo from "./images/collegpt-pink.svg";
+import spinnerlogo from "./images/Group.svg";
 import {
   faSave,
   faPencilAlt,
