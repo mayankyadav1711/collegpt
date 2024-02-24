@@ -1,6 +1,6 @@
 /* eslint-disable no-loop-func */
 import React, {  useEffect } from "react";
-
+import logo from "./images/collegpt2.svg";
 import handledarkmode from "./handledarkmode";
 
 const Welcome_Collegpt = () => {
@@ -10,22 +10,10 @@ const Welcome_Collegpt = () => {
 
   return (
     <>
-      <div className="welcome-center-container">
-        
-        <button class="buttongpt">
 
-            <text
-              className="welcome-text"
-              x="50%"
-              y="50%"
-              dominant-baseline="middle"
-              text-anchor="middle"
-            >
-              CoLLe<tspan className="welcome-gpt">GPT</tspan>
-            </text>
-            </button>
-        
-      </div>
+
+<img className="welcome-center-container" src={logo} alt="College GPT" />
+
     </>
   );
 };

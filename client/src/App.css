@@ -2726,7 +2726,7 @@ body.dark .card-item-title {
   backdrop-filter: blur(20px);
   box-shadow: 0 0 2rem rgb(0 0 0 / 19%);
   /* border-bottom: solid 5px rgb(37, 69, 128); */
-  padding: 5px 20px;
+  /* padding: 5px 20px; */
   margin-bottom: -10px;
   color: #fff;
   cursor: pointer;

@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import "react-toastify/dist/ReactToastify.css";
 import defaultprofilepic from "./images/60111.png";
-import logo from "./images/collegpt-pink.svg";
+import logo from "./images/Group.svg";
 import Welcome_Collegpt from "./collegptanimation";
 
 

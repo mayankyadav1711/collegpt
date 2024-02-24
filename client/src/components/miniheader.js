@@ -4,7 +4,7 @@ import React from "react";
 import { Link} from "react-router-dom";
 
 import "react-toastify/dist/ReactToastify.css";
-import logo from "./images/ColleGPT_Logo-01.svg";
+import logo from "./images/Group.svg";
 import Welcome_Collegpt from "./collegptanimation";
 const MiniHeader = () => {
  
