@@ -6809,6 +6809,14 @@ width: 65rem;
     margin-left: 6rem;
     margin-right: 0rem !important;
   }
+  }
+.logo-header {
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 50%;
+  margin-right: 0.7rem;
+  margin-bottom: 0.2rem;
+}
   .comments .add-comment{
     margin-left: 6rem !important;
     width: 60rem;
@@ -7063,6 +7071,14 @@ width: 65rem;
   html{
     font-size: 55%;
   }
+  }
+.logo-header {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  margin-right: 0.7rem;
+  margin-bottom: 0.2rem;
+}
   .watch-video{
     margin-left: 6rem;
     margin-right: 0rem !important;
@@ -7399,6 +7415,14 @@ height: 70rem;
   html{
     font-size: 55%;
   }
+  }
+.logo-header {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  margin-right: 0.7rem;
+  margin-bottom: 0.2rem;
+}
   .welcome-container{
     margin-top: -5rem !important;
     margin-left: 2rem !important;
@@ -7725,6 +7749,13 @@ height: 70rem;
   html{
     font-size: 40%;
   }
+  .logo-header {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  margin-right: 0.7rem;
+  margin-bottom: 0.2rem;
+}
   .watch-video{
     margin-left: 6rem;
     margin-right: 0rem !important;
@@ -8092,6 +8123,13 @@ height: 70rem;
   html{
     font-size: 40%;
   }
+  .logo-header {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  margin-right: 0.7rem;
+  margin-bottom: 0.2rem;
+}
   .welcome-container{
     margin-top: -5rem !important;
     margin-left: 0rem !important;
@@ -8562,6 +8600,13 @@ height: 70rem;
   html{
     font-size: 40%;
   }
+  .logo-header {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-right: 0.7rem;
+  margin-bottom: 0.2rem;
+}
   .container-roadmap{
     margin-top: 45rem !important;
   }
@@ -9031,6 +9076,13 @@ height: 70rem;
   html {
     font-size: 40%;
   }
+  .logo-header {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-right: 0.7rem;
+  margin-bottom: 0.2rem;
+}
   .sidebar.close{
     width: 9rem;
   }
