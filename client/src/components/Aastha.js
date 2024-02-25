@@ -136,7 +136,7 @@ const Aastha = () => {
                             </ul>
                         </div>
                     </div>
-                    <div
+                    {/* <div
                         className={`card-section ${
                             activeSection === "#experience" ? "is-active" : ""
                         }`}
@@ -198,7 +198,7 @@ const Aastha = () => {
                             </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div
                         className={`card-section ${
                             activeSection === "#contact" ? "is-active" : ""
