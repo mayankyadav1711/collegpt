@@ -7,6 +7,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Darshit from "./Darshit";
 import Divya from "./Divya";
 import Mayank from "./Mayank";
+import Aastha from "./Aastha";
+import Kussh from "./Kussh";
+
 const About = () => {
   const [feedback, setFeedback] = useState("");
   const [rating, setRating] = useState(0);
@@ -72,6 +75,9 @@ const About = () => {
             <Darshit />
             <Divya />
             <Mayank />
+            <Kussh />
+            <Aastha />
+           
           </div>
 
         </section>

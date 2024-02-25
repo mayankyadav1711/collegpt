@@ -130,7 +130,7 @@ app.init();
                 <b>"Where Tech Meets Play"</b>
               </i>
             </p>
-            {/* <a href="teachers.html" class="inline-btn">get started</a> */}
+            {/* <a href="teachers.html" class="inline-btn">get started</Link> */}
             <Link to="/watchvideo/typefastio">
               {" "}
               <button class="button-56" role="button">
@@ -161,47 +161,47 @@ app.init();
               </i>
             </p>
             <div class="flex">
-              <a href="/watchvideo/cs_html" target="_blank">
+              <Link to="/watchvideo/cs_html" target="_blank">
                 <i class="fab fa-html5"></i>
                 {/* <span>HTML</span> */}
-              </a>
-              <a href="/watchvideo/cs_css" target="_blank">
+              </Link>
+              <Link to="/watchvideo/cs_css" target="_blank">
                 <i class="fab fa-css3"></i>
                 {/* <span>CSS</span> */}
-              </a>
-              <a href="/watchvideo/cs_js" target="_blank">
+              </Link>
+              <Link to="/watchvideo/cs_js" target="_blank">
                 <i class="fab fa-js"></i>
                 {/* <span>JavaScript</span> */}
-              </a>
-              <a href="/watchvideo/cs_bootstrap" target="_blank">
+              </Link>
+              <Link to="/watchvideo/cs_bootstrap" target="_blank">
                 <i class="fab fa-bootstrap"></i>
                 {/* <span>BootStrap</span> */}
-              </a>
-              <a href="/watchvideo/cs_gpt" target="_blank">
+              </Link>
+              <Link to="/watchvideo/cs_gpt" target="_blank">
                 <i class="fab fa-react"></i>
                 {/* <span>React</span> */}
-              </a>
+              </Link>
               {/* <a href="/watchvideo/cs_gpt" target="_blank">
                 <img src={chatgpt} alt=""></img> */}
                 {/* <span>React</span> */}
-              {/* </a> */}
-              <a href="/watchvideo/cs_vscode" target="_blank">
+              {/* </Link> */}
+              <Link to="/watchvideo/cs_vscode" target="_blank">
                 <i class="fas fa-file-code"></i>
                 {/* <span>VS-Code</span> */}
-              </a>
+              </Link>
              
-              <a href="/watchvideo/cs_python" target="_blank">
+              <Link to="/watchvideo/cs_python" target="_blank">
                 <i class="fa-brands fa-python"></i>
                 {/* <span>Windows</span> */}
-              </a>
-              <a href="/watchvideo/cs_web" target="_blank">
+              </Link>
+              <Link to="/watchvideo/cs_web" target="_blank">
                 <i class="fa-solid fa-globe"></i>
                 {/* <span>Windows</span> */}
-              </a>
-              <a href="/watchvideo/cs_database" target="_blank">
+              </Link>
+              <Link to="/watchvideo/cs_database" target="_blank">
                 <i class="fa-solid fa-database"></i>
                 {/* <span>Chrome</span> */}
-              </a>
+              </Link>
             </div>
           </div>
 </div>

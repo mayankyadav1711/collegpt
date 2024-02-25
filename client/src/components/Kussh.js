@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Darshit = () => {
+const Kussh = () => {
     const [activeSection, setActiveSection] = useState("#about");
 
     const handleButtonClick = (targetSection) => {
@@ -17,14 +17,14 @@ const Darshit = () => {
                 }`}
                 data-state={activeSection}>
                 <div className="card-header">
-                    <div className="card-cover-darshit"></div>
+                    <div className="card-cover-kussh"></div>
                     <img
                         className="card-avatar"
-                        src="http://res.cloudinary.com/dkyrtfk1u/image/upload/v1697349373/sli9ffed1vdqegf1srip.jpg"
+                        src="https://res.cloudinary.com/dkyrtfk1u/image/upload/v1708844593/x8f1ay9rbefzfzusbbqw.png"
                         alt="avatar"
                     />
-                    <p className="card-fullname">Darshit Sojitra</p>
-                    <h2 className="card-jobtitle">Front-End Developer</h2>
+                    <p className="card-fullname">Kussh Prajapati</p>
+                    <h2 className="card-jobtitle">Graphic Designer</h2>
                 </div>
                 <div className="card-main">
                     <div
@@ -35,17 +35,14 @@ const Darshit = () => {
                         <div className="card-content">
                             <div className="card-subtitle1">ABOUT</div>
                             <p className="card-desc">
-                                Welcome to my website! I'm a 3<sup>rd</sup> year
-                                Computer Engineering student at LDRP-ITR
-                                College, passionate about programming and
-                                technology.
+                            Hello, I'm Kussh Prajapati , a freelance graphic designer specializing in graphic design, logo design, and branding. I bring to the table innovation, a keen eye for detail, and a passion for fostering brand identities that resonate.
                             </p>
                         </div>
                         <div class="card-social">
                             <ul>
                                 <li>
                                     <Link
-                                        to="https://github.com/DPS21302"
+                                        to="#"
                                         target="_blank"
                                         rel="noreferrer">
                                         <svg
@@ -59,7 +56,7 @@ const Darshit = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to="https://www.linkedin.com/in/darshit-sojitra/"
+                                        to="https://www.linkedin.com/in/itskussh/"
                                         target="_blank"
                                         rel="noreferrer">
                                         <svg
@@ -71,7 +68,7 @@ const Darshit = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="https://darshit-dev.vercel.app/" target="_blank">
+                                    <Link to="https://www.behance.net/the_graphic_guy" target="_blank">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="16"
@@ -84,9 +81,7 @@ const Darshit = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link
-                                        to="https://drive.google.com/file/d/1hxeehUs1XbsN-5L9ytGj5OMf_yf8PDF5/view?usp=drivesdk"
-                                        target="_blank">
+                                    <Link to="https://read.cv/kussh" target="_blank">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="16"
@@ -100,7 +95,7 @@ const Darshit = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to="https://www.instagram.com/darshit_sojitraa/"
+                                        to="https://www.instagram.com/itskussh/"
                                         target="_blank"
                                         rel="noreferrer">
                                         <svg
@@ -114,7 +109,7 @@ const Darshit = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to="https://twitter.com/DarshitSojitraa?t=B7p7nOVhyLYfc-rmTeWx_g&s=09"
+                                        to="https://twitter.com/itskussh"
                                         target="_blank"
                                         rel="noreferrer">
                                         <svg
@@ -145,75 +140,36 @@ const Darshit = () => {
                                 WORK EXPERIENCE
                             </div>
                             <div class="card-timeline">
-                            <div class="card-timeline-darshit">
+                            <div class="card-timeline-kussh">
                                 <div class="card-item" data-year="2024">
                                     <div class="card-item-title">
-                                        <b>SDE Intern at Hackingly</b>
+                                        
+                                        Graphic designer & Content creator at ColleGPT
+                                       
                                     </div>
                                     <div class="card-item-desc">
-                                        An online platform that helps students
-                                        and early talent find opportunities,
-                                        such as competitions, hackathons.
-                                        Organizers can use{" "}
-                                        <Link
-                                            to="Hackingly.in"
-                                            target="_blank"
-                                            rel="noreferrer">
-                                            Hackingly
-                                        </Link>{" "}
-                                        to list opportunities and create a
-                                        microsite for them.
-                                    </div>
-                                </div>
-                                <div class="card-item" data-year="2023">
-                                    <div class="card-item-title">
-                                        <b>
-                                            Founder, Developer and Content
-                                            Creator at ColleGPT
-                                        </b>
-                                    </div>
-                                    <div class="card-item-desc">
-                                        As ColleGPT's founder, I assisted in
-                                        establishing its mission and set its
-                                        path while also creating original
-                                        intellectual content that stimulated the
-                                        minds of many.
-                                    </div>
-                                </div>
-                                <div class="card-item" data-year="2023">
-                                    <div class="card-item-title">
-                                    <b>Top Contributor at Google Crowdsource
-                                        and Cloud Community by India</b>
-                                    </div>
-                                    <div class="card-item-desc">
-                                        Oct 2022 - Present • Remote • Test
-                                        Management
+                                    I spearheaded the redesign of the official logo and various other brand assets. My contributions elevated Collegpt's visual identity, delivering high-quality designs aligned with industry standards.
                                     </div>
                                 </div>
                                 <div class="card-item" data-year="2022">
                                     <div class="card-item-title">
-                                    <b> Hackathons</b>
+                                    Design Lead & social media manager at Aksharam consultancy
                                     </div>
                                     <div class="card-item-desc">
-                                        <p>
-                                            <b>↪</b> E-Challan Payment{" "}
-                                            <b>(SSIP-State Level Finalist)</b>
-                                        </p>
-                                        <p>
-                                            <b>↪</b> Online Hair Cut Booking
-                                            System (BTB)
-                                        </p>
+                                    Led the development of the agency's brand logo, enhancing its visual identity.
+Crafted engaging social media graphics, Facebook ads, banners, and visiting cards.
+Developed the agency's social media presence, driving increased engagement and reach.
                                     </div>
                                 </div>
-                                <div class="card-item" data-year="2022">
+                                <div class="card-item" data-year="2021">
                                     <div class="card-item-title">
-                                    <b> UI/UX and Logo Designer</b>
+                                    Freelance graphic designer
                                     </div>
                                     <div class="card-item-desc">
-                                        God is a Designer. I am just a tool.
+                                    Collaborated with clients to create intuitive and visually appealing product designs. Leveraged proficiency in Adobe InDesign, Photoshop and Illustrator to design catalogs, posters and other promotional materials.
                                     </div>
                                 </div>
-                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -237,7 +193,7 @@ const Darshit = () => {
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                                         <circle cx="12" cy="10" r="3" />
                                     </svg>
-                                    Ahmedabad, Gujarat, Bharat-382350.
+                                    Gandhinagar, Gujarat, Bharat-382015.
                                 </div>
                                 {/* <div class="card-contact">
                   <svg
@@ -265,9 +221,9 @@ const Darshit = () => {
                                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                                         <path d="M22 6l-10 7L2 6" />
                                     </svg>
-                                    sojitradarshitpiyushbhai@gmail.com
+                                    kushprajapati184@gmail.com
                                 </div>
-                                <Link to="mailto:sojitradarshitpiyushbhai@gmail.com">
+                                <Link to="mailto:kushprajapati184@gmail.com">
                                     {" "}
                                     <button class="contact-me">
                                         WORK TOGETHER
@@ -308,4 +264,4 @@ const Darshit = () => {
     );
 };
 
-export default Darshit;
+export default Kussh;

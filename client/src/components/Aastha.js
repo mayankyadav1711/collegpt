@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Darshit = () => {
+const Aastha = () => {
     const [activeSection, setActiveSection] = useState("#about");
 
     const handleButtonClick = (targetSection) => {
@@ -17,14 +17,14 @@ const Darshit = () => {
                 }`}
                 data-state={activeSection}>
                 <div className="card-header">
-                    <div className="card-cover-darshit"></div>
+                    <div className="card-cover-aastha"></div>
                     <img
                         className="card-avatar"
-                        src="http://res.cloudinary.com/dkyrtfk1u/image/upload/v1697349373/sli9ffed1vdqegf1srip.jpg"
+                        src="http://res.cloudinary.com/dkyrtfk1u/image/upload/v1708837420/sbga0ipdyfjkd2gvc51l.png"
                         alt="avatar"
                     />
-                    <p className="card-fullname">Darshit Sojitra</p>
-                    <h2 className="card-jobtitle">Front-End Developer</h2>
+                    <p className="card-fullname">Aastha Suthar</p>
+                    <h2 className="card-jobtitle">Content writer</h2>
                 </div>
                 <div className="card-main">
                     <div
@@ -35,17 +35,20 @@ const Darshit = () => {
                         <div className="card-content">
                             <div className="card-subtitle1">ABOUT</div>
                             <p className="card-desc">
-                                Welcome to my website! I'm a 3<sup>rd</sup> year
-                                Computer Engineering student at LDRP-ITR
-                                College, passionate about programming and
-                                technology.
+                                Hi there! I'm Aastha Suthar, a passionate
+                                learner in languages like C, C++, Python, and
+                                Java, coupled with DSA. I thrive on exploring
+                                the endless possibilities of ML. Additionally, I
+                                find joy in crafting educational content,
+                                sharing knowledge, and empowering others to
+                                learn and grow.
                             </p>
                         </div>
                         <div class="card-social">
                             <ul>
                                 <li>
                                     <Link
-                                        to="https://github.com/DPS21302"
+                                        to="https://github.com/aastha262"
                                         target="_blank"
                                         rel="noreferrer">
                                         <svg
@@ -59,7 +62,7 @@ const Darshit = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to="https://www.linkedin.com/in/darshit-sojitra/"
+                                        to="https://www.linkedin.com/in/aasthasuthar"
                                         target="_blank"
                                         rel="noreferrer">
                                         <svg
@@ -71,7 +74,7 @@ const Darshit = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="https://darshit-dev.vercel.app/" target="_blank">
+                                    <Link to="#" target="_blank">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="16"
@@ -84,9 +87,7 @@ const Darshit = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link
-                                        to="https://drive.google.com/file/d/1hxeehUs1XbsN-5L9ytGj5OMf_yf8PDF5/view?usp=drivesdk"
-                                        target="_blank">
+                                    <Link to="#" target="_blank">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="16"
@@ -100,7 +101,7 @@ const Darshit = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to="https://www.instagram.com/darshit_sojitraa/"
+                                        to="https://www.instagram.com/aasthasuthar/"
                                         target="_blank"
                                         rel="noreferrer">
                                         <svg
@@ -114,7 +115,7 @@ const Darshit = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to="https://twitter.com/DarshitSojitraa?t=B7p7nOVhyLYfc-rmTeWx_g&s=09"
+                                        to="#"
                                         target="_blank"
                                         rel="noreferrer">
                                         <svg
@@ -145,26 +146,7 @@ const Darshit = () => {
                                 WORK EXPERIENCE
                             </div>
                             <div class="card-timeline">
-                            <div class="card-timeline-darshit">
-                                <div class="card-item" data-year="2024">
-                                    <div class="card-item-title">
-                                        <b>SDE Intern at Hackingly</b>
-                                    </div>
-                                    <div class="card-item-desc">
-                                        An online platform that helps students
-                                        and early talent find opportunities,
-                                        such as competitions, hackathons.
-                                        Organizers can use{" "}
-                                        <Link
-                                            to="Hackingly.in"
-                                            target="_blank"
-                                            rel="noreferrer">
-                                            Hackingly
-                                        </Link>{" "}
-                                        to list opportunities and create a
-                                        microsite for them.
-                                    </div>
-                                </div>
+                            <div class="card-timeline-aastha">
                                 <div class="card-item" data-year="2023">
                                     <div class="card-item-title">
                                         <b>
@@ -182,8 +164,8 @@ const Darshit = () => {
                                 </div>
                                 <div class="card-item" data-year="2023">
                                     <div class="card-item-title">
-                                    <b>Top Contributor at Google Crowdsource
-                                        and Cloud Community by India</b>
+                                        Top Contributor at Google Crowdsource
+                                        and Cloud Community by India
                                     </div>
                                     <div class="card-item-desc">
                                         Oct 2022 - Present • Remote • Test
@@ -192,7 +174,7 @@ const Darshit = () => {
                                 </div>
                                 <div class="card-item" data-year="2022">
                                     <div class="card-item-title">
-                                    <b> Hackathons</b>
+                                        Hackathons
                                     </div>
                                     <div class="card-item-desc">
                                         <p>
@@ -207,13 +189,13 @@ const Darshit = () => {
                                 </div>
                                 <div class="card-item" data-year="2022">
                                     <div class="card-item-title">
-                                    <b> UI/UX and Logo Designer</b>
+                                        UI/UX and Logo Designer
                                     </div>
                                     <div class="card-item-desc">
                                         God is a Designer. I am just a tool.
                                     </div>
                                 </div>
-                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -237,7 +219,7 @@ const Darshit = () => {
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                                         <circle cx="12" cy="10" r="3" />
                                     </svg>
-                                    Ahmedabad, Gujarat, Bharat-382350.
+                                    Gandhinagar, Gujarat, Bharat-382015.
                                 </div>
                                 {/* <div class="card-contact">
                   <svg
@@ -265,9 +247,9 @@ const Darshit = () => {
                                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                                         <path d="M22 6l-10 7L2 6" />
                                     </svg>
-                                    sojitradarshitpiyushbhai@gmail.com
+                                    iamaastha87@gmail.com
                                 </div>
-                                <Link to="mailto:sojitradarshitpiyushbhai@gmail.com">
+                                <Link to="mailto:iamaastha87@gmail.com">
                                     {" "}
                                     <button class="contact-me">
                                         WORK TOGETHER
@@ -308,4 +290,4 @@ const Darshit = () => {
     );
 };
 
-export default Darshit;
+export default Aastha;

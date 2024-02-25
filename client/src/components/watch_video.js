@@ -205,12 +205,12 @@ const  WatchVideo = () =>{
                     </div>
                   </div>
                   <div>
-  <a href={pdfFilePath} target="_blank">
+  <Link to={pdfFilePath} target="_blank">
     <button class="button-57" role="button">
       <span class="text">Click Me</span>
       <span>Padh Le Jaa</span>
     </button>
-  </a>
+  </Link>
 </div>
                 </div>
 
@@ -238,7 +238,7 @@ const  WatchVideo = () =>{
               <form action="" method="post" class="flex">
                 {/* <Link to="/playlist">
               {" "}
-              <a class="inline-btn">view playlist</a>{" "}
+              <a class="inline-btn">view playlist</Link>{" "}
             </Link>
            */}
               </form>
