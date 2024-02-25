@@ -195,13 +195,15 @@ const Darshit = () => {
                                     <b> Hackathons</b>
                                     </div>
                                     <div class="card-item-desc">
+                        
                                         <p>
-                                            <b>↪</b> E-Challan Payment{" "}
-                                            <b>(SSIP-State Level Finalist)</b>
+                                            <b>↪</b> SIH Hackathon Finalist-23
                                         </p>
                                         <p>
-                                            <b>↪</b> Online Hair Cut Booking
-                                            System (BTB)
+                                            <b>↪</b> SSIP Hackathon Finalist-22
+                                        </p>
+                                        <p>
+                                            <b>↪</b> Runner up of BTB Hackathon
                                         </p>
                                     </div>
                                 </div>

@@ -136,7 +136,7 @@ const Aastha = () => {
                             </ul>
                         </div>
                     </div>
-                    {/* <div
+                    <div
                         className={`card-section ${
                             activeSection === "#experience" ? "is-active" : ""
                         }`}
@@ -146,59 +146,30 @@ const Aastha = () => {
                                 WORK EXPERIENCE
                             </div>
                             <div class="card-timeline">
-                            <div class="card-timeline-aastha">
-                                <div class="card-item" data-year="2023">
-                                    <div class="card-item-title">
-                                        <b>
-                                            Founder, Developer and Content
-                                            Creator at ColleGPT
-                                        </b>
+                                <div class="card-timeline-aastha">
+                                    <div class="card-item" data-year="2024">
+                                        <div class="card-item-title">
+                                            Content Creator at ColleGPT
+                                        </div>
+                                        <div class="card-item-desc">
+                                            
+                                        </div>
                                     </div>
-                                    <div class="card-item-desc">
-                                        As ColleGPT's founder, I assisted in
-                                        establishing its mission and set its
-                                        path while also creating original
-                                        intellectual content that stimulated the
-                                        minds of many.
-                                    </div>
-                                </div>
-                                <div class="card-item" data-year="2023">
-                                    <div class="card-item-title">
-                                        Top Contributor at Google Crowdsource
-                                        and Cloud Community by India
-                                    </div>
-                                    <div class="card-item-desc">
-                                        Oct 2022 - Present • Remote • Test
-                                        Management
-                                    </div>
-                                </div>
-                                <div class="card-item" data-year="2022">
-                                    <div class="card-item-title">
-                                        Hackathons
-                                    </div>
-                                    <div class="card-item-desc">
+                                    <div class="card-item" data-year="2023">
+                                        <div class="card-item-title">
+                                            Hackathons
+                                        </div>
+                                        <div class="card-item-desc">
                                         <p>
-                                            <b>↪</b> E-Challan Payment{" "}
-                                            <b>(SSIP-State Level Finalist)</b>
+                                            <b>↪</b> SIH Hackathon Finalist-23
                                         </p>
-                                        <p>
-                                            <b>↪</b> Online Hair Cut Booking
-                                            System (BTB)
-                                        </p>
+                                        </div>
                                     </div>
+                        
                                 </div>
-                                <div class="card-item" data-year="2022">
-                                    <div class="card-item-title">
-                                        UI/UX and Logo Designer
-                                    </div>
-                                    <div class="card-item-desc">
-                                        God is a Designer. I am just a tool.
-                                    </div>
-                                </div>
-                            </div>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
                     <div
                         className={`card-section ${
                             activeSection === "#contact" ? "is-active" : ""

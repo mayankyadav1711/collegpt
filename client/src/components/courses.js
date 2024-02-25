@@ -44,11 +44,11 @@ import s62 from "./images/Thumbnail/Sem-6/pyp.png";
 import s63 from "./images/Thumbnail/Sem-6/cns.png";
 import s64 from "./images/Thumbnail/Sem-6/ml.png";
 import s65 from "./images/Thumbnail/Sem-5/SOA.png";
-import s66 from "./images/Thumbnail/Sem-5/SOA.png";
-import s67 from "./images/Thumbnail/Sem-5/SOA.png";
-import s68 from "./images/Thumbnail/Sem-5/SOA.png";
-import s69 from "./images/Thumbnail/Sem-5/SOA.png";
-import s70 from "./images/Thumbnail/Sem-5/SOA.png";
+import s66 from "./images/Thumbnail/Sem-6/iot.png";
+import s67 from "./images/Thumbnail/Sem-6/sc.png";
+import s68 from "./images/Thumbnail/Sem-6/is.png";
+import s69 from "./images/Thumbnail/Sem-6/dc.png";
+import s70 from "./images/Thumbnail/Sem-6/ecom.png";
 
 // import handledarkmode from "./handledarkmode";
 const  Courses = () =>{

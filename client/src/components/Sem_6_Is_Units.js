@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 // import profilepic from "./images/pic-1.jpg";
 // import thumb from "./images/Thumbnail/Sem-5/TOC.png";
-import postpic from "./images/Thumbnail/Sem-5/TOC.png";
+import postpic from "./images/Thumbnail/Sem-6/is.png";
 import handledarkmode from "./handledarkmode";
 function Sem_6_Is_Units() {
   useEffect(() => {
