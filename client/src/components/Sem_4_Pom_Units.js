@@ -67,28 +67,28 @@ function Sem_4_Pom_Units() {
                             <h3>Introduction to Management and Organizations</h3>
                         </a>
                     </Link>
-                    <Link to="/watchvideo/451" class="box">
+                    <Link to="/watchvideo/452" class="box">
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
                             <h3>Schools of Management thoughts</h3>
                         </a>
                     </Link>
-                    <Link to="/watchvideo/451" class="box">
+                    <Link to="/watchvideo/453" class="box">
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
                             <h3>Organizational Structure and Design</h3>
                         </a>
                     </Link>
-                    <Link to="/watchvideo/451" class="box">
+                    <Link to="/watchvideo/454" class="box">
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
                             <h3>Organizational Culture and Environment</h3>
                         </a>
                     </Link>
-                    <Link to="/watchvideo/451" class="box">
+                    <Link to="/watchvideo/455" class="box">
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
