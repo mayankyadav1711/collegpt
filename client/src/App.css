@@ -6365,6 +6365,8 @@ form .custom-toast{
   .container-roadmap{
     margin-top: 15rem !important;
   }
+
+  
   .playlist{
     margin-left: 10rem;
   }
@@ -6406,6 +6408,14 @@ form .custom-toast{
     margin-left: 10rem;
     width: 84.3rem;
   } */
+  .logo-header {
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+    margin-right: 0.7rem;
+    margin-bottom: 1rem;
+  }
+  
   .welcome-container{
     margin-top: 6.5rem !important;
   }
@@ -6494,6 +6504,14 @@ form .custom-toast{
   html {
     font-size: 55%;
   }
+  .logo-header {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin-right: 0.7rem;
+    margin-bottom: 1rem;
+  }
+  
   .playlist-details{
     margin-left: 4.5rem;
   }
@@ -6572,6 +6590,14 @@ width: 80rem;
   }
 }
 @media (min-width: 769px) and (max-width: 869px) {
+  .logo-header {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin-right: 0.7rem;
+    margin-bottom: 0.2rem;
+  }
+  
   .welcome-container{
     margin-top: -2rem !important;
   }
@@ -6809,6 +6835,18 @@ width: 65rem;
     margin-left: 6rem;
     margin-right: 0rem !important;
   }
+  .welcome-center-container {
+    /* background: rgba(20, 20, 20, 0.103); */
+    /* text-align: center; */
+    width: 40rem;
+    border-radius: 0.5rem;
+    /* justify-content: center; */
+    padding: 0rem 0rem;
+    display: flex;
+    gap: 2rem;
+    height: 6rem;
+    margin-top: -0.5rem;
+    margin-left: -7rem;
   }
 .logo-header {
   width: 3.8rem;
@@ -7071,10 +7109,22 @@ width: 65rem;
   html{
     font-size: 55%;
   }
+  .welcome-center-container {
+    /* background: rgba(20, 20, 20, 0.103); */
+    /* text-align: center; */
+    width: 40rem;
+    border-radius: 0.5rem;
+    /* justify-content: center; */
+    padding: 0rem 0rem;
+    display: flex;
+    gap: 2rem;
+    height: 6rem;
+    margin-top: -0.5rem;
+    margin-left: -12rem;
   }
 .logo-header {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.7rem;
+  height: 3.7rem;
   border-radius: 50%;
   margin-right: 0.7rem;
   margin-bottom: 0.2rem;
@@ -7415,6 +7465,18 @@ height: 70rem;
   html{
     font-size: 55%;
   }
+  .welcome-center-container {
+    /* background: rgba(20, 20, 20, 0.103); */
+    /* text-align: center; */
+    width: 40rem;
+    border-radius: 0.5rem;
+    /* justify-content: center; */
+    padding: 0rem 0rem;
+    display: flex;
+    gap: 2rem;
+    height: 6rem;
+    margin-top: -0.5rem;
+    margin-left: -10rem;
   }
 .logo-header {
   width: 3.5rem;
@@ -7748,6 +7810,19 @@ height: 70rem;
 @media (min-width: 481px) and (max-width:540px) {
   html{
     font-size: 40%;
+  }
+  .welcome-center-container {
+    /* background: rgba(20, 20, 20, 0.103); */
+    /* text-align: center; */
+    width: 40rem;
+    border-radius: 0.5rem;
+    /* justify-content: center; */
+    padding: 0rem 0rem;
+    display: flex;
+    gap: 2rem;
+    height: 6rem;
+    margin-top: -0.5rem;
+    margin-left: -8rem;
   }
   .logo-header {
   width: 3.2rem;
@@ -8123,9 +8198,22 @@ height: 70rem;
   html{
     font-size: 40%;
   }
+  .welcome-center-container {
+    /* background: rgba(20, 20, 20, 0.103); */
+    /* text-align: center; */
+    width: 40rem;
+    border-radius: 0.5rem;
+    /* justify-content: center; */
+    padding: 0rem 0rem;
+    display: flex;
+    gap: 2rem;
+    height: 6rem;
+    margin-top: -0.5rem;
+    margin-left: -20rem;
+  }
   .logo-header {
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 50%;
   margin-right: 0.7rem;
   margin-bottom: 0.2rem;
@@ -8600,11 +8688,24 @@ height: 70rem;
   html{
     font-size: 40%;
   }
+  .welcome-center-container {
+    /* background: rgba(20, 20, 20, 0.103); */
+    /* text-align: center; */
+    width: 40rem;
+    border-radius: 0.5rem;
+    /* justify-content: center; */
+    padding: 0rem 0rem;
+    display: flex;
+    gap: 2rem;
+    height: 6rem;
+    margin-top: -0.5rem;
+    margin-left: -20rem;
+  }
   .logo-header {
-  width: 3rem;
-  height: 3rem;
+  width: 3.2rem;
+  height: 3.2rem;
   border-radius: 50%;
-  margin-right: 0.7rem;
+  margin-right: 0rem;
   margin-bottom: 0.2rem;
 }
   .container-roadmap{
