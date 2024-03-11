@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { createContext, useReducer, useEffect, useContext } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes  } from "react-router-dom";
+
 import { useNavigate } from "react-router-dom";
 import "./App.css";
 import { reducer, initialState } from "./reducers/userReducer";
@@ -71,7 +72,6 @@ import Roadmap_Frontend from "./components/roadmap_frontend";
 import Roadmap_Mern from "./components/roadmap_mern";
 import Roadmap_Backend from "./components/roadmap_backend";
 import AI_Coming_Soon from "./components/collegptcomingsoon";
-
 export const UserContext = createContext();
 
 const Routing = () => {
@@ -168,6 +168,7 @@ const Routing = () => {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/otp" element={<OTP />} />
       </Routes>
+
     </>
   );
 };
@@ -177,6 +178,7 @@ function App() {
     <UserContext.Provider value={{ state, dispatch }}>
   
       <Router>
+    
         <Routing />
         <ToastContainer />
       </Router>
