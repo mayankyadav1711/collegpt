@@ -101,7 +101,7 @@ router.post("/doubt", requireLogin, async (req, res) => {
 
     transporter.sendMail({
       from: "collegpt@gmail.com", // Your email address
-      to: "mykyadav2003@gmail.com", // Your email address
+      to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"], // Your email address
       subject: "New Doubt Submitted",
       html: `
         <h1>New Doubt Submitted</h1>
@@ -151,7 +151,7 @@ router.post("/contact", requireLogin, async (req, res) => {
 
     transporter.sendMail({
       from: "collegpt@gmail.com", // Your email address
-      to: "mykyadav2003@gmail.com", // Your email address
+      to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"], // Your email address
       subject: "Someone tried to reach you (Contact Us Form)",
       html: `
         <h1>New Contact Submitted</h1>

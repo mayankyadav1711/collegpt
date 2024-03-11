@@ -32,7 +32,7 @@ const Mayank = () => {
             <div className="card-content">
               <div className="card-subtitle1">ABOUT</div>
               <p className="card-desc">
-                👋Heyyy! I'm a skilled MERN Stack Developer with strong foundations in DSA(C, C++, Java) and Cloud Computing. I enjoy teamwork and stay updated on latest industry trends. Let's connect!
+                🙏 Namaste, tech enthusiasts! 🚀 I specialize in the MERN Stack, exploring DSA (C, C++, Java) and Cloud Computing. Together, let's create some dhamaal-worthy code and stay updated on the latest jugad in the tech world. Let's connect! 🌐
               </p>
             </div>
             <div class="card-social">
@@ -77,7 +77,7 @@ const Mayank = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="https://drive.google.com/file/d/1yaIBkjaDAiMNdi63Pi_Lerl7PktDAlPZ/view?usp=sharing" target="_blank" rel="noreferrer">
+                  <Link to="https://mayank-dev.vercel.app/" target="_blank" rel="noreferrer">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -136,6 +136,14 @@ const Mayank = () => {
               <div className="card-subtitle2">WORK EXPERIENCE</div>
               <div class="card-timeline">
               <div class="card-timeline-mayank">
+                <div class="card-item" data-year="2024">
+                  <div class="card-item-title">
+                    SDE Intern at <span>Hackingly</span>
+                  </div>
+                  <div class="card-item-desc">
+                  Worked as a React and Next.js developer in an Agile Environment, turned concept from inception into reality. 
+                  </div>
+                </div>
                 <div class="card-item" data-year="2023">
                   <div class="card-item-title">
                     Founder, Developer and Content Creator at <span>ColleGPT</span>
@@ -154,20 +162,25 @@ const Mayank = () => {
                 </div>
                 <div class="card-item" data-year="2023">
                   <div class="card-item-title">
-                    Topper of the <span>NPTEL Courses</span>
+                    Programming Domain<span> ~ NPTEL</span>
                   </div>
+                  <Link to="https://linktr.ee/myk_nptel" target="_blank">
                   <div class="card-item-desc">
-                    <p>◉ Programming in Java</p>
-                    <p>◉ DataBase Management System</p>
-                    <p>◉ DSA using Java</p>
-                    <p>◉ Programming in C++</p>
+                    <p>🥉 Cloud Computing</p>
+                    <p>🥉 Machine Learning</p>
+                    <p>🥈 Programming in Java</p>
+                    <p>🥇 DataBase Management System</p>
+                    <p>🥇 DSA using Java</p>
+                    <p>🥈 Programming in C++</p>
                   </div>
+                  </Link>
                 </div>
-                <div class="card-item" data-year="2022">
+                <div class="card-item" data-year="2023">
                   <div class="card-item-title">
                     Hackathons <span></span>
                   </div>
                   <div class="card-item-desc">
+                    <p>◉ Smart India Hackathon Finalist-23</p>
                     <p>◉ SSIP Hackathon Finalist-22</p>
 
                     <p>◉ Winner of BTB under MongoDb Category. </p>
