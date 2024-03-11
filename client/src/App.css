@@ -52,6 +52,7 @@
 html {
   font-size: 62.5%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 html::-webkit-scrollbar {
@@ -148,6 +149,7 @@ body {
 --dropWave: rgb(27 214 214);
 --roadmapText:#ce8c0f;
 --roadmapTitle:#6868ab;
+scroll-behavior: smooth;
 }
 
 body.dark {
@@ -240,6 +242,8 @@ body.dark {
 --dropWave: rgba(255, 255, 255, 0.2);
 --roadmapText:wheat;
 --roadmapTitle:aqua;
+scroll-behavior: smooth;
+
 }
 
 body.active {

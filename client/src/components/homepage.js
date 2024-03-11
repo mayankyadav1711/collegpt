@@ -3,7 +3,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import Gita from "./gita";
+
 import handledarkmode from "./handledarkmode";
 
 // import { gsap } from 'gsap';
@@ -45,55 +45,55 @@ const Home = () => {
   useEffect(() => {
     handledarkmode();
   }, []);
-  useEffect(() => {
-    const UP = 'up';
-const DOWN = 'down';
+//   useEffect(() => {
+//     const UP = 'up';
+// const DOWN = 'down';
 
-const app = {
-  sections: [],
-  isAnimating: false,
-  direction: null,
-  viewportHeight: window.innerHeight,
+// const app = {
+//   sections: [],
+//   isAnimating: false,
+//   direction: null,
+//   viewportHeight: window.innerHeight,
 
-  init() {
-    this.sections.forEach((section) => {
-      section.addEventListener('intersect', this.onIntersect);
-    });
+//   init() {
+//     this.sections.forEach((section) => {
+//       section.addEventListener('intersect', this.onIntersect);
+//     });
 
-    document.addEventListener('wheel', this.onWheel);
-    window.addEventListener('resize', this.onResize);
-  },
+//     document.addEventListener('wheel', this.onWheel);
+//     window.addEventListener('resize', this.onResize);
+//   },
 
-  onIntersect(event) {
-    if (!this.isAnimating && event.isIntersecting && event.target.offsetTop < this.viewportHeight) {
-      this.isAnimating = true;
-      this.scrollTo(event.target);
-    }
-  },
+//   onIntersect(event) {
+//     if (!this.isAnimating && event.isIntersecting && event.target.offsetTop < this.viewportHeight) {
+//       this.isAnimating = true;
+//       this.scrollTo(event.target);
+//     }
+//   },
 
-  onWheel(event) {
-    this.direction = event.deltaY < 0 ? UP : DOWN;
+//   onWheel(event) {
+//     this.direction = event.deltaY < 0 ? UP : DOWN;
 
-    if (this.isAnimating) {
-      event.preventDefault();
-    }
-  },
+//     if (this.isAnimating) {
+//       event.preventDefault();
+//     }
+//   },
 
-  onResize() {
-    this.viewportHeight = window.innerHeight;
-  },
+//   onResize() {
+//     this.viewportHeight = window.innerHeight;
+//   },
 
-  scrollTo(target) {
-    window.scrollTo({
-      top: target.offsetTop,
-      behavior: 'smooth',
-    });
-  },
-};
+//   scrollTo(target) {
+//     window.scrollTo({
+//       top: target.offsetTop,
+//       behavior: 'smooth',
+//     });
+//   },
+// };
 
-app.init();
+// app.init();
 
-  }, []);
+//   }, []);
   // Read the active tab index from localStorage on page load
 
   return (
@@ -167,40 +167,38 @@ app.init();
               </Link>
               <Link to="/watchvideo/cs_css" target="_blank">
                 <i class="fab fa-css3"></i>
-                {/* <span>CSS</span> */}
+             
               </Link>
               <Link to="/watchvideo/cs_js" target="_blank">
                 <i class="fab fa-js"></i>
-                {/* <span>JavaScript</span> */}
+       
               </Link>
               <Link to="/watchvideo/cs_bootstrap" target="_blank">
                 <i class="fab fa-bootstrap"></i>
-                {/* <span>BootStrap</span> */}
+      
               </Link>
               <Link to="/watchvideo/cs_gpt" target="_blank">
                 <i class="fab fa-react"></i>
-                {/* <span>React</span> */}
+     
               </Link>
-              {/* <a href="/watchvideo/cs_gpt" target="_blank">
-                <img src={chatgpt} alt=""></img> */}
-                {/* <span>React</span> */}
-              {/* </Link> */}
+       
+    
               <Link to="/watchvideo/cs_vscode" target="_blank">
                 <i class="fas fa-file-code"></i>
-                {/* <span>VS-Code</span> */}
+          
               </Link>
              
               <Link to="/watchvideo/cs_python" target="_blank">
                 <i class="fa-brands fa-python"></i>
-                {/* <span>Windows</span> */}
+           
               </Link>
               <Link to="/watchvideo/cs_web" target="_blank">
                 <i class="fa-solid fa-globe"></i>
-                {/* <span>Windows</span> */}
+                
               </Link>
               <Link to="/watchvideo/cs_database" target="_blank">
                 <i class="fa-solid fa-database"></i>
-                {/* <span>Chrome</span> */}
+               
               </Link>
             </div>
           </div>
