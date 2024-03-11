@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./App.css";
 import { reducer, initialState } from "./reducers/userReducer";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Home from "./components/homepage";
@@ -174,10 +175,12 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <UserContext.Provider value={{ state, dispatch }}>
+  
       <Router>
         <Routing />
         <ToastContainer />
       </Router>
+    
     </UserContext.Provider>
   );
 }
