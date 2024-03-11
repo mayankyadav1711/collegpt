@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "../App";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import handledarkmode from "./handledarkmode";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contributor_Form = () => {
- 
+  const { state } = useContext(UserContext);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const [semester, setSemester] = useState("");
   const [subjectName, setSubjectName] = useState("");
@@ -14,7 +16,12 @@ const Contributor_Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if (!state?._id) {
+      // If user is not logged in, navigate to the login page
+      toast.success("Please login first")
+      navigate("/login");
+      return;
+    }
     const formData = {
       semester,
       subjectName,

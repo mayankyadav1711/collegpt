@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../App";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 
 import handledarkmode from "./handledarkmode";
 function Contact() {
   const { state } = useContext(UserContext);
-
+  const navigate = useNavigate(); // Initialize useNavigate
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [message, setmessage] = useState("");
@@ -19,7 +20,12 @@ function Contact() {
   }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if (!state?._id) {
+      // If user is not logged in, navigate to the login page
+      toast.success("Please login first")
+      navigate("/login");
+      return;
+    }
     const formData = {
       name,
       email,

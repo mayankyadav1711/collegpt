@@ -80,6 +80,7 @@ const Routing = () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
     const allowedPaths = [
+      "/",
       "/login",
       "/register",
       "/otp",

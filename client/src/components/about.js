@@ -1,5 +1,7 @@
 /* eslint-disable no-loop-func */
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "../App";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import profilepic from "./images/60111.png";
 import handledarkmode from "./handledarkmode";
 import { toast } from "react-toastify";
@@ -11,6 +13,8 @@ import Aastha from "./Aastha";
 import Kussh from "./Kussh";
 
 const About = () => {
+  const { state } = useContext(UserContext);
+  const navigate = useNavigate(); // Initialize useNavigate
   const [feedback, setFeedback] = useState("");
   const [rating, setRating] = useState(0);
 
@@ -24,6 +28,12 @@ const About = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!state?._id) {
+      // If user is not logged in, navigate to the login page
+      toast.success("Please login first")
+      navigate("/login");
+      return;
+    }
     try {
       const response = await fetch("https://api-collegpt.vercel.app/feedback", {
         method: "POST",

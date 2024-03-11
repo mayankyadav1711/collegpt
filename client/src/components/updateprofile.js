@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../App";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import spinnerlogo from "./images/Group.svg";
 import {
@@ -16,6 +18,8 @@ import handledarkmode from "./handledarkmode";
 
 function UpdateProfile() {
   const { state } = useContext(UserContext);
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const availableSkills = [
@@ -71,6 +75,12 @@ function UpdateProfile() {
   const ALLOWED_FILE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
 
   useEffect(() => {
+    if (!state?._id) {
+      // If user is not logged in, navigate to the login page
+      toast.success("Please login first")
+      navigate("/login");
+      return;
+    }
     if (state && state._id) {
       // Check if state is defined and _id is available
       console.log("Fetching user profile data...");

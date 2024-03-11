@@ -2,8 +2,9 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "../App";
+import { useParams, Link,useNavigate } from "react-router-dom";
 import profilepic from "./images/60111.png";
 import handledarkmode from "./handledarkmode";
 import { toast } from "react-toastify";
@@ -13,6 +14,8 @@ import "jquery-ui-dist/jquery-ui";
 import "react-toastify/dist/ReactToastify.css";
 
 const  WatchVideo = () =>{
+  const { state } = useContext(UserContext);
+  const navigate = useNavigate(); // Initialize useNavigate
   const [pdfFilePath, setPdfFilePath] = useState("");
   const [sem, setSem] = useState("");
   const [sub, setSub] = useState("");
@@ -29,6 +32,7 @@ const  WatchVideo = () =>{
   useEffect(() => {
     // Fetch the PDF link using the 'code' parameter
     const fetchPdfLink = async () => {
+
       try {
         const response = await fetch(`https://api-collegpt.vercel.app/pdf-forms/${code}`);
         const data = await response.json();
@@ -57,7 +61,12 @@ const  WatchVideo = () =>{
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if (!state?._id) {
+      // If user is not logged in, navigate to the login page
+      toast.success("Please login first")
+      navigate("/login");
+      return;
+    }
     const formData = {
       code: code,
       semester: sem,
