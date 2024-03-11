@@ -5987,6 +5987,7 @@ background: var(--roadmap-slide);
   -ms-transition: background-color 0.25s ease;
   -o-transition: background-color 0.25s ease;
   transition: background-color 0.25s ease;
+  touch-action: pan-y pinch-zoom;
 }
 #unlock .content .drag:active {
   cursor: ns-resize;
