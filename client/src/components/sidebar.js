@@ -88,32 +88,32 @@ const Sidebar = () => {
           <ul className="menu-links">
             <li className="">
               <Link to="/">
-                <i className="fas fa-home" title="Home"></i>
-                <span className="text" title="Home">Home</span>
+                <i className="fas fa-home"></i>
+                <span className="text ">Home</span>
               </Link>
             </li>
             <li className="">
               <Link to="/about">
-                <i className="fas fa-question" title="About"></i>
-                <span className="text " title="About">About</span>
+                <i className="fas fa-question"></i>
+                <span className="text ">About</span>
               </Link>
             </li>
             <li className="">
               <Link to="/courses">
-                <i className="fas fa-graduation-cap" title="Courses"></i>
-                <span className="text " title="Courses">Courses</span>
+                <i className="fas fa-graduation-cap"></i>
+                <span className="text ">Courses</span>
               </Link>
             </li>
             <li className="">
               <Link to="/contributor_form">
-                <i className="fas fa-chalkboard-user" title="Contribute"></i>
-                <span className="text " title="Contribute">Contribute  &nbsp;&nbsp;</span>
+                <i className="fas fa-chalkboard-user"></i>
+                <span className="text ">Contributors</span>
               </Link>
             </li>
             <li className="">
               <Link to="/contact">
-                <i className="fas fa-headset" title="Contact Us"></i>
-                <span className="text " title="Contact Us">Contact Us</span>
+                <i className="fas fa-headset"></i>
+                <span className="text ">Contact Us</span>
               </Link>
             </li>
           </ul>
