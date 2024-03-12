@@ -17,6 +17,7 @@ import About from "./components/about";
 import Contact from "./components/contact";
 
 import OTP from "./components/OTP";
+import Term from "./components/term";
 import ResetPassword from "./components/ResetPassword";
 import ForgotPassword from "./components/ForgotPassword";
 import WatchVideo from "./components/watch_video";
@@ -113,6 +114,7 @@ const Routing = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/contributor_form" element={<Contributor_Form />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/term" element={<Term />} />
           <Route path="/watchvideo/:code" element={<WatchVideo />} />
           <Route path="/roadmap_mern" element={<Roadmap_Mern />} />
           <Route path="/roadmap_frontend" element={<Roadmap_Frontend />} />
