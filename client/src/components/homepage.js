@@ -123,14 +123,14 @@ const Home = () => {
               </button>{" "}
             </Link>
           </div>
-          <div class="playground-box">
+          {/* <div class="playground-box">
             <h3 class="title-xclusive">PlayGround🎮</h3>
             <p class="tutor">
               <i>
                 <b>"Where Tech Meets Play"</b>
               </i>
             </p>
-            {/* <a href="teachers.html" class="inline-btn">get started</Link> */}
+      
             <Link to="/watchvideo/typefastio">
               {" "}
               <button class="button-56" role="button">
@@ -146,7 +146,7 @@ const Home = () => {
                 Type-Blaster☄️
               </button>{" "}
             </Link>
-          </div>
+          </div> */}
           </div>
         </section>
 
