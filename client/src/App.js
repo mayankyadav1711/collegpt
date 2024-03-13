@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
-import React, { createContext, useReducer, useEffect, useContext } from "react";
+import React, { createContext, useReducer, useEffect, useContext,useRef } from "react";
 import { BrowserRouter as Router, Route, Routes  } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
@@ -178,16 +178,19 @@ const Routing = () => {
 };
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  return (
-    <UserContext.Provider value={{ state, dispatch }}>
+ 
   
-      <Router>
-    
-        <Routing />
-        <ToastContainer />
-      </Router>
-    
-    </UserContext.Provider>
+  return (
+
+      <UserContext.Provider value={{ state, dispatch }}>
+ 
+          <Router>
+            <Routing />
+            <ToastContainer />
+          </Router>
+      
+      </UserContext.Provider>
+  
   );
 }
 
