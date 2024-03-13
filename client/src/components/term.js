@@ -7,19 +7,19 @@ import "react-toastify/dist/ReactToastify.css";
 const Term = () => {
   return (
     <>
-      <div className="max-h-full mt-5">
-        <div className="container mx-auto px-6 py-8 text-gray-900 dark:text-white">
-          <h1 className="text-4xl font-semibold my-14">Terms and Conditions</h1>
+      <div className="max-h-full mt-16">
+        <div className="container mx-auto px-6 py-8  text-gray-900 dark:text-white">
+          <h1 className="text-4xl text-center font-semibold my-14">Terms and Conditions</h1>
 
-          <p className="mb-4 text-2xl ">
+          <p className="mb-4 text-xl font-semibold">
             Welcome to ColleGPT!
           </p>
 
-          <p className="mb-4">
+          <p className="mb-4 text-lg">
             These terms and conditions outline the rules and regulations for the use of ColleGPT's Website, located at
             <Link to="/" className="text-blue-500 hover:underline"> https://www.collegpt.com/</Link>.
           </p>
-
+<div className="text-lg">
           <p className="mb-4">
             By accessing this website we assume you accept these terms and conditions. Do not continue to use ColleGPT if you do not agree to take all of the terms and conditions stated on this page.
           </p>
@@ -37,9 +37,10 @@ const Term = () => {
           <p className="mb-8">
             Most interactive websites use cookies to let us retrieve the user's details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.
           </p>
+          </div>
 
           <h3 className="text-xl font-semibold mb-2">License</h3>
-
+          <div className="text-lg">
           <p className="mb-4">
             Unless otherwise stated, ColleGPT and/or its licensors own the intellectual property rights for all material on ColleGPT. All intellectual property rights are reserved. You may access this from ColleGPT for your own personal use subjected to restrictions set in these terms and conditions.
           </p>
@@ -55,9 +56,9 @@ const Term = () => {
             This Agreement shall begin on the date hereof. Our Terms and Conditions were created with the help of the
             <a href="https://www.termsandconditionsgenerator.com/" className="text-blue-500 hover:underline"> Free Terms and Conditions Generator</a>.
           </p>
-
+</div>
           <h3 className="text-xl font-semibold mb-2">Hyperlinking to our Content</h3>
-
+          <div className="text-lg">
           <p className="mb-4">
             The following organizations may link to our Website without prior written approval:
           </p>
@@ -79,9 +80,9 @@ const Term = () => {
           <p className="mb-8">
             Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.
           </p>
-
+          </div>
           <h3 className="text-xl font-semibold mb-2">Content Liability</h3>
-
+          <div className="text-lg">
           <p className="mb-8">
             We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that is rising on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.
           </p>
@@ -91,9 +92,9 @@ const Term = () => {
           <p className="mb-8">
             We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it's linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.
           </p>
-
+          </div>
           <h3 className="text-xl font-semibold mb-2">Removal of links from our website</h3>
-
+          <div className="text-lg">
           <p className="mb-8">
             If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.
           </p>
@@ -101,9 +102,9 @@ const Term = () => {
           <p className="mb-8">
             We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.
           </p>
-
+          </div>
           <h3 className="text-xl font-semibold mb-2">Disclaimer</h3>
-
+          <div className="text-lg">
           <p className="mb-4">
             To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:
           </p>
@@ -122,6 +123,8 @@ const Term = () => {
           <p>
             As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.
           </p>
+
+        </div>
         </div>
       </div>
     </>

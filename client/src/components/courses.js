@@ -35,9 +35,9 @@ import s52 from "./images/Thumbnail/Sem-5/DAA.png";
 import s53 from "./images/Thumbnail/Sem-5/SE.png";
 import s54 from "./images/Thumbnail/Sem-5/TOC.png";
 import s55 from "./images/Thumbnail/Sem-5/CN.png";
-import s56 from "./images/Thumbnail/Sem-5/MAP.jpg";
+import s56 from "./images/Thumbnail/Sem-5/MAP.png";
 import s57 from "./images/Thumbnail/Sem-5/Python.png";
-import s58 from "./images/Thumbnail/Sem-5/SOA.jpg";
+import s58 from "./images/Thumbnail/Sem-5/SOA.png";
 
 import s61 from "./images/Thumbnail/Sem-6/AI.png";
 import s62 from "./images/Thumbnail/Sem-6/pyp.png";
@@ -672,6 +672,7 @@ const  Courses = () =>{
       </li>
     </ul>,
     // Content for Semester 6 (Tab 5)
+    
     <ul className="tab-content">
       <li>
         <h1 className="heading">Semester 6</h1>
@@ -867,6 +868,17 @@ const  Courses = () =>{
   ];
   return (
     <>
+    {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2443682363346742"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-6t+ed+2i-1n-4w"
+     data-ad-client="ca-pub-2443682363346742"
+     data-ad-slot="3464285403"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script> */}
       <section className="courses">
         <ul id="tabs">
           <li

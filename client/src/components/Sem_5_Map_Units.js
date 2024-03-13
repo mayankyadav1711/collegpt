@@ -2,8 +2,8 @@
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 // import profilepic from './images/pic-1.jpg'
-// import thumb from "./images/Thumbnail/Sem-5/MAP.jpg"
-import postpic from "./images/Thumbnail/Sem-5/MAP.jpg"
+// import thumb from "./images/Thumbnail/Sem-5/MAP.png"
+import postpic from "./images/Thumbnail/Sem-5/MAP.png"
 
 import handledarkmode from "./handledarkmode";
 function Sem_5_Map_Units() {

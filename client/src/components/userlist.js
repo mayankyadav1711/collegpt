@@ -137,7 +137,7 @@ const Userlist = () => {
         value={searchTerm}
         onChange={handleSearch}
       />
-      <button type="submit" className="fas fa-search "></button>
+      <button type="submit" className="fas fa-search -mr-16 "></button>
     </form>
     {isLoading ? (
       <div>
