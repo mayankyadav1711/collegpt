@@ -694,6 +694,7 @@ body.dark
   border-radius: 50%;
   object-fit: contain;
   margin-bottom: 1rem;
+  margin-left: 9rem;
 }
 
 .header .flex .profile .name {
@@ -784,11 +785,13 @@ body.dark
   flex-direction: row;
   align-items: center;
   gap: 2rem; /* Gap when the sidebar is closed */
+  margin-left: 2rem;
 }
 .sidebar.open ul {
   flex-direction: column;
   align-items: center;
   gap: 0.4rem; /* Gap when the sidebar is open */
+  margin-left: 1.5rem;
 }
 .sidebar header .logo-text {
   display: flex;
@@ -3937,6 +3940,17 @@ visibility: hidden;
 
   padding: 1rem 0;
 }
+.subscribe-area {
+  /* background: var(--white); */
+  /* backdrop-filter: blur(100px); */
+  /* box-shadow:inset 0 1rem 9rem 0rem rgb(21 39 94); */
+  box-shadow: 0 0rem 61rem 0rem rgb(21 39 94 / 38%);
+  /* display: flex; */
+  /* justify-content: center; Horizontally center the content */
+  /* align-items: center; */
+
+  padding: 1rem 0;
+}
 .copyright-text p {
   margin: 0;
     font-size: 2.25rem;
@@ -4701,7 +4715,12 @@ ul li a {
   align-items: center;
   justify-content: center;
 }
-
+footer ul li{
+  width: 14rem !important;
+}
+footer ul li a{
+  width: 9rem !important;
+}
 /* ul li a:hover {
   color: white;
   transform: translate(0rem, -0.7rem);
@@ -4730,6 +4749,7 @@ ul li a svg {
 .update .form-container img {
   width: 15rem;
   height: 15rem;
+  margin-left: 40rem;
 }
 
 .update .form-container form .box.left-field {
@@ -6530,6 +6550,9 @@ form .custom-toast{
     margin-left: 12rem;
     margin-right: 2rem;
   }
+  .update .form-container img{
+    margin-left: 29rem;
+  }
   .header .flex .logo-trans {
     margin-left: -3rem;
     margin-right: -5rem;
@@ -6622,6 +6645,9 @@ width: 80rem;
   .update .form-container{
     margin-left: 5rem;
     margin-right: 2rem;
+  }
+  .update .form-container img{
+    margin-left: 22rem;
   }
 .edit-icon, .save-icon {
     font-size: 3rem;
@@ -6851,7 +6877,7 @@ width: 65rem;
     gap: 2rem;
     height: 6rem;
     margin-top: -0.5rem;
-    margin-left: -7rem;
+    margin-left: -1rem;
   }
 .logo-header {
   width: 3.8rem;
@@ -6885,6 +6911,9 @@ width: 65rem;
    .update .form-container{
     margin-left: 5rem;
     margin-right: 2rem;
+  }
+  .update .form-container img{
+    margin-left: 15rem;
   }
   .arrow{
     width: 3.2rem;
@@ -7125,7 +7154,7 @@ width: 65rem;
     gap: 2rem;
     height: 6rem;
     margin-top: -0.5rem;
-    margin-left: -12rem;
+    /* margin-left: 0rem; */
   }
 .logo-header {
   width: 3.7rem;
@@ -7158,6 +7187,9 @@ width: 65rem;
   .update .form-container{
     margin-left: 5rem;
     margin-right: 2rem;
+  }
+  .update .form-container img{
+    margin-left: 16rem;
   }
   .arrow{
     width: 3.2rem;
@@ -7507,6 +7539,9 @@ height: 70rem;
   .update .form-container{
     margin-left: 5rem;
     margin-right: 2rem;
+  }
+  .update .form-container img{
+    margin-left: 15rem;
   }
   .watch-video .video-container{
     margin-left: 1rem;
@@ -7873,6 +7908,9 @@ height: 70rem;
     margin-left: 6rem;
     margin-right: 2rem;
   }
+  .update .form-container img{
+    margin-left: 22rem;
+  }
   .arrow{
     width: 3.2rem;
     height: 1rem;
@@ -8214,7 +8252,7 @@ height: 70rem;
     gap: 2rem;
     height: 6rem;
     margin-top: -0.5rem;
-    margin-left: -20rem;
+    margin-left: -12rem;
   }
   .logo-header {
   width: 3.5rem;
@@ -8261,6 +8299,9 @@ height: 70rem;
     margin-left: 12rem;
     width: 53rem;
   }
+  .update .form-container img{
+    margin-left: 15rem;
+  }   
   .arrow{
     width: 3.2rem;
     height: 1rem;
@@ -8388,7 +8429,8 @@ height: 70rem;
   }
   .sidebar.close ul{
     margin-top: 5rem;
-    gap: 7rem
+    gap: 7rem;
+    margin-left:2rem;
   }
   .sidebar.close header .image{
     margin-top: 7rem;
@@ -8704,7 +8746,7 @@ height: 70rem;
     gap: 2rem;
     height: 6rem;
     margin-top: -0.5rem;
-    margin-left: -20rem;
+    margin-left: -10rem;
   }
   .logo-header {
   width: 3.2rem;
@@ -8756,6 +8798,9 @@ height: 70rem;
     margin-left: 1rem;
     width: 60rem;
   }
+  .update .form-container img{
+    margin-left: 12rem;
+  }   
   .arrow{
     width: 3.2rem;
     height: 1rem;
@@ -8904,7 +8949,8 @@ height: 70rem;
   }
   .sidebar.close ul{
     margin-top: 5rem;
-    gap: 7rem
+    gap: 7rem;
+    margin-left: 2rem;
   }
   .sidebar.close header .image{
     margin-top: 7rem;
@@ -9182,6 +9228,9 @@ height: 70rem;
   html {
     font-size: 40%;
   }
+  .update .form-container img{
+    margin-left: 10rem;
+  }   
   .logo-header {
   width: 3rem;
   height: 3rem;
@@ -9194,7 +9243,8 @@ height: 70rem;
   }
   .sidebar.close ul{
     margin-top: 5rem;
-    gap: 7rem
+    gap: 7rem;
+    margin-left: 2rem;
   }
   .sidebar.close header .image{
     margin-top: 7rem;
