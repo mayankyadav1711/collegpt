@@ -43,6 +43,13 @@ module.exports = {
         ]
       }
     },
+    keyframes: {
+      loop: {
+          to: {
+              "offset-distance": "100%",
+          },
+      },
+  },
   },
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
