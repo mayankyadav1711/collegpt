@@ -24,8 +24,8 @@ const Footer = () => {
     <div className="container mx-auto px-10 flex justify-between items-center subscribe-area">
         {/* Left side: Logo and contact info */}
         <div className="flex flex-col">
-            <h3 className="text-3xl font-bold">ColleGPT</h3>
-            <div className="mt-4 text-xl">
+            <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">ColleGPT</h3>
+            <div className="mt-4 text-xl text-gray-900 dark:text-white">
                 <p>Mail Us: collegpt@gmail.com</p>
             </div>
         </div>
@@ -36,7 +36,7 @@ const Footer = () => {
                 <input type="email" placeholder="Enter your email" className="px-4 py-2 rounded-lg border border-gray-600 focus:outline-none focus:border-gray-400 text-2xl" />
                 <button className="px-4 py-2 bg-blue-500 text-white rounded-lg ml-2 text-2xl">Subscribe</button>
             </div>
-            <div className="text-left text-2xl">
+            <div className="text-left text-2xl text-gray-900 dark:text-white">
                 <a href="#" className="mr-4 hover:text-gray-400">LinkedIN</a>
                 <a href="#" className="mr-4 hover:text-gray-400">Twitter</a>
                 <a href="#" className="mr-4 hover:text-gray-400">Instagram</a>
@@ -47,20 +47,20 @@ const Footer = () => {
         {/* Right side: Social media links and legal info */}
         <div className="flex justify-between">
   <div className="w-1/2 flex flex-col text-2xl">
-  <h2 className="font-bold text-2xl">ColleGPT</h2>
+  <h2 className="font-bold text-2xl text-gray-900 dark:text-white">ColleGPT</h2>
     <div className="mb-4">
-      <a href="#" className="mr-4 hover:text-gray-400">About</a><br />
-      <a href="#" className="mr-4 hover:text-gray-400">X-Notes</a><br />
-      <a href="#" className="mr-4 hover:text-gray-400">Our Community</a><br />
-      <a href="#" className="mr-4 hover:text-gray-400">Cheatsheets</a><br />
-      <a href="#" className="hover:text-gray-400">Roadmaps</a>
+      <a href="#" className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">About</a><br />
+      <a href="#" className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">X-Notes</a><br />
+      <a href="#" className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">Our Community</a><br />
+      <a href="#" className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">Cheatsheets</a><br />
+      <a href="#" className="hover:text-gray-400 text-gray-900 dark:text-white">Roadmaps</a>
     </div>
   </div>
   <div className="w-1/2 flex flex-col text-2xl">
-  <h2 className="font-bold text-2xl">Legal</h2>
+  <h2 className="font-bold text-2xl text-gray-900 dark:text-white">Legal</h2>
     <div className="mb-4">
-      <a href="#" className="mr-4 hover:text-gray-400">Privacy Policy</a><br />
-      <a href="#" className="mr-4 hover:text-gray-400">Terms & Conditions</a><br />
+      <Link to="/privacy"><a  className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">Privacy Policy</a><br /></Link>
+      <Link to="/term"><a  className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">Terms & Conditions</a><br /></Link>
     </div>
   </div>
 </div>

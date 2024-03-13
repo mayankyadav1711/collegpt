@@ -8,16 +8,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Privacy = () => {
 
-    const handlesubscribe = (e) => {
-        e.preventDefault();
-        toast.dark("Subscribed Successfully", {
-            className: "custom-toast", 
-          });
-    }
     
   return (
     <>
-<div class="max-h-full mt-5">
+<div class="max-h-full mt-5 text-gray-900 dark:text-white">
     <div class="container mx-auto px-6 py-64">
         <h1 class="text-3xl font-bold mb-4">Privacy Policy</h1>
 

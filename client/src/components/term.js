@@ -8,12 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Term = () => {
 
-    const handlesubscribe = (e) => {
-        e.preventDefault();
-        toast.dark("Subscribed Successfully", {
-            className: "custom-toast", 
-          });
-    }
+    
     
   return (
     <>
