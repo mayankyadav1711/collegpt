@@ -110,7 +110,7 @@ const Home = () => {
                 New
               </span>{" "}
               <span class="text-2xl font-medium">
-                ColleGPT is Live! See what's new
+                ColleGPT is Live! 🚀
               </span>
               <svg
                 class="ml-2 w-5 h-5"
@@ -134,7 +134,7 @@ const Home = () => {
               providing engaging resources and supportive community.
             </p>
             <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-              <a
+            <Link to="/courses"> <a
                 href="#"
                 class="text-2xl inline-flex justify-center items-center py-3 px-5  font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
               >
@@ -152,74 +152,12 @@ const Home = () => {
                   ></path>
                 </svg>
               </a>
-              <Link to="/courses">
-              <a
-               
-                class="inline-flex justify-center items-center py-3 px-5 text-2xl  font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
-              >
-                <svg
-                  class="mr-2 -ml-1 w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
-                </svg>
-                Our Courses
-              </a>
               </Link>
             </div>
           </div>
         </section>
 
-        <section>
-          <h1 class="heading">quick options</h1>
-
-          <div class="box-container">
-            <div class="notes-box">
-              <h3 class="title-xclusive">Xclusive Notes🔥</h3>
-              <p class="tutor">
-                <i>
-                  <b>
-                    "Discover our Handwritten College Notes designed to help you
-                    excel in your studies and ace your exams."
-                  </b>
-                </i>
-              </p>
-
-              <Link to="/courses">
-                {" "}
-                <button class="button-56 glowing" role="button">
-                  X~Notes
-                </button>{" "}
-              </Link>
-            </div>
-            {/* <div class="playground-box">
-            <h3 class="title-xclusive">PlayGround🎮</h3>
-            <p class="tutor">
-              <i>
-                <b>"Where Tech Meets Play"</b>
-              </i>
-            </p>
-      
-            <Link to="/watchvideo/typefastio">
-              {" "}
-              <button class="button-56" role="button">
-                Key-Master🕹️
-              </button>{" "}
-              <br />{" "}
-            </Link>
-            <hr className="pacman" />
-            <br />
-            <Link to="/watchvideo/ztype">
-              {" "}
-              <button class="button-56" role="button">
-                Type-Blaster☄️
-              </button>{" "}
-            </Link>
-          </div> */}
-          </div>
-        </section>
+    
 
         <section>
           <div class="box-container">
