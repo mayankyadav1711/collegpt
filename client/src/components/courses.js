@@ -868,7 +868,7 @@ const  Courses = () =>{
   ];
   return (
     <>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2443682363346742"
+    {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2443682363346742"
      crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
      style="display:block"
@@ -878,7 +878,7 @@ const  Courses = () =>{
      data-ad-slot="3464285403"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+</script> */}
       <section className="courses">
         <ul id="tabs">
           <li
