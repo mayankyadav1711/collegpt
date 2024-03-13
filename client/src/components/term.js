@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -7,135 +5,125 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Term = () => {
-
-    
-    
   return (
     <>
-<div class="max-h-full mt-5">
-    <div class="container mx-auto px-6 py-64">
-        <h1 class="text-3xl font-bold mb-4">Privacy Policy</h1>
+      <div className="max-h-full mt-5">
+        <div className="container mx-auto px-6 py-8 text-gray-900 dark:text-white">
+          <h1 className="text-4xl font-semibold my-14">Terms and Conditions</h1>
 
-        <p class="mb-4">
-            This privacy policy sets out how our website uses and protects any information that you give us when you use
-            this
-            website.
-        </p>
+          <p className="mb-4 text-2xl ">
+            Welcome to ColleGPT!
+          </p>
 
-        <h2 class="text-2xl font-bold mb-2">Information We Collect</h2>
+          <p className="mb-4">
+            These terms and conditions outline the rules and regulations for the use of ColleGPT's Website, located at
+            <Link to="/" className="text-blue-500 hover:underline"> https://www.collegpt.com/</Link>.
+          </p>
 
-        <p class="mb-4">
-            We may collect the following information:
-        </p>
+          <p className="mb-4">
+            By accessing this website we assume you accept these terms and conditions. Do not continue to use ColleGPT if you do not agree to take all of the terms and conditions stated on this page.
+          </p>
 
-        <ul class="list-disc list-inside mb-4">
-            <li>Your name and contact information</li>
-            <li>Demographic information</li>
-            <li>Other information relevant to customer surveys and/or offers</li>
-        </ul>
+          <p className="mb-8">
+            The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company's terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client's needs in respect of provision of the Company's stated services, in accordance with and subject to, prevailing law of in. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.
+          </p>
 
-        <h2 class="text-2xl font-bold mb-2">How We Use the Information</h2>
+          <h3 className="text-xl font-semibold mb-2">Cookies</h3>
 
-        <p class="mb-4">
-            We require this information to understand your needs and provide you with a better service, and in
-            particular
-            for
-            the following reasons:
-        </p>
+          <p className="mb-4">
+            We employ the use of cookies. By accessing ColleGPT, you agreed to use cookies in agreement with the ColleGPT's Privacy Policy.
+          </p>
 
-        <ul class="list-disc list-inside mb-4">
-            <li>Internal record keeping</li>
-            <li>Improving our products and services</li>
-            <li>Sending promotional emails about new products, special offers, or other information which we think you
-                may
-                find
-                interesting</li>
-            <li>From time to time, we may also use your information to contact you for market research purposes. We may
-                contact
-                you by email, phone, or mail. We may use the information to customize the website according to your
-                interests.</li>
-        </ul>
+          <p className="mb-8">
+            Most interactive websites use cookies to let us retrieve the user's details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.
+          </p>
 
-        <h2 class="text-2xl font-bold mb-2">Security</h2>
+          <h3 className="text-xl font-semibold mb-2">License</h3>
 
-        <p class="mb-4">
-            We are committed to ensuring that your information is secure. In order to prevent unauthorized access or
-            disclosure,
-            we have put in place suitable physical, electronic, and managerial procedures to safeguard and secure the
-            information we collect online.
-        </p>
+          <p className="mb-4">
+            Unless otherwise stated, ColleGPT and/or its licensors own the intellectual property rights for all material on ColleGPT. All intellectual property rights are reserved. You may access this from ColleGPT for your own personal use subjected to restrictions set in these terms and conditions.
+          </p>
 
-        <h2 class="text-2xl font-bold mb-2">Cookies</h2>
+          <ul className="mb-8 list-disc list-inside">
+            <li>Republish material from ColleGPT</li>
+            <li>Sell, rent or sub-license material from ColleGPT</li>
+            <li>Reproduce, duplicate or copy material from ColleGPT</li>
+            <li>Redistribute content from ColleGPT</li>
+          </ul>
 
-        <p class="mb-4">
-            A cookie is a small file that asks permission to be placed on your computer's hard drive. Once you agree,
-            the
-            file
-            is added, and the cookie helps analyze web traffic or lets you know when you visit a particular site.
-            Cookies
-            allow
-            web applications to respond to you as an individual. The web application can tailor its operations to your
-            needs,
-            likes, and dislikes by gathering and remembering information about your preferences.
-        </p>
+          <p className="mb-8">
+            This Agreement shall begin on the date hereof. Our Terms and Conditions were created with the help of the
+            <a href="https://www.termsandconditionsgenerator.com/" className="text-blue-500 hover:underline"> Free Terms and Conditions Generator</a>.
+          </p>
 
-        <p class="mb-4">
-            Overall, cookies help us provide you with a better website by enabling us to monitor which pages you find
-            useful
-            and which you do not. A cookie in no way gives us access to your computer or any information about you,
-            other
-            than
-            the data you choose to share with us.
-        </p>
+          <h3 className="text-xl font-semibold mb-2">Hyperlinking to our Content</h3>
 
-        <h2 class="text-2xl font-bold mb-2">Links to Other Websites</h2>
+          <p className="mb-4">
+            The following organizations may link to our Website without prior written approval:
+          </p>
 
-        <p class="mb-4">
-            Our website may contain links to other websites of interest. However, once you have used these links to
-            leave
-            our
-            site, you should note that we do not have any control over that other website. Therefore, we cannot be
-            responsible
-            for the protection and privacy of any information which you provide whilst visiting such sites and such
-            sites
-            are
-            not governed by this privacy statement. You should exercise caution and look at the privacy statement
-            applicable
-            to
-            the website in question.
-        </p>
+          <ul className="mb-8 list-disc list-inside">
+            <li>Government agencies;</li>
+            <li>Search engines;</li>
+            <li>News organizations;</li>
+            <li>Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and</li>
+            <li>System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.</li>
+          </ul>
 
-        <h2 class="text-2xl font-bold mb-2">Controlling Your Personal Information</h2>
+          <p className="mb-8">
+            These organizations may link to our home page, to publications or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party's site.
+          </p>
 
-        <p class="mb-4">
-            You may choose to restrict the collection or use of your personal information in the following ways:
-        </p>
+          <h3 className="text-xl font-semibold mb-2">iFrames</h3>
 
-        <ul class="list-disc list-inside mb-4">
-            <li>If you have previously agreed to us using your personal information for direct marketing purposes, you
-                may
-                change your mind at any time by writing to or emailing us at [email protected]</li>
-            <li>We will not sell, distribute, or lease your personal information to third parties unless we have your
-                permission
-                or are required by law to do so. We may use your personal information to send you promotional
-                information
-                about
-                third parties which we think you may find interesting if you tell us that you wish this to happen.</li>
-            <li>You may request details of personal information which we hold about you. If you would like a copy of the
-                information held on you, please write to [Your Company Name, Address, City, State, Zip Code] or email
-                [email protected]</li>
-            <li>If you believe that any information we are holding on you is incorrect or incomplete, please write to or
-                email
-                us as soon as possible at the above address. We will promptly correct any information found to be
-                incorrect.
-            </li>
-        </ul>
+          <p className="mb-8">
+            Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.
+          </p>
 
-        <p class="mb-4">
-            This privacy policy is subject to change without notice.
-        </p>
-    </div>
-</div>
+          <h3 className="text-xl font-semibold mb-2">Content Liability</h3>
+
+          <p className="mb-8">
+            We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that is rising on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.
+          </p>
+
+          <h3 className="text-xl font-semibold mb-2">Reservation of Rights</h3>
+
+          <p className="mb-8">
+            We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it's linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.
+          </p>
+
+          <h3 className="text-xl font-semibold mb-2">Removal of links from our website</h3>
+
+          <p className="mb-8">
+            If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.
+          </p>
+
+          <p className="mb-8">
+            We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.
+          </p>
+
+          <h3 className="text-xl font-semibold mb-2">Disclaimer</h3>
+
+          <p className="mb-4">
+            To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:
+          </p>
+
+          <ul className="mb-8 list-disc list-inside">
+            <li>limit or exclude our or your liability for death or personal injury;</li>
+            <li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>
+            <li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li>
+            <li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>
+          </ul>
+
+          <p className="mb-4">
+            The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.
+          </p>
+
+          <p>
+            As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.
+          </p>
+        </div>
+      </div>
     </>
   );
 };
