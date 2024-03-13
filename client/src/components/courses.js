@@ -35,9 +35,9 @@ import s52 from "./images/Thumbnail/Sem-5/DAA.png";
 import s53 from "./images/Thumbnail/Sem-5/SE.png";
 import s54 from "./images/Thumbnail/Sem-5/TOC.png";
 import s55 from "./images/Thumbnail/Sem-5/CN.png";
-import s56 from "./images/Thumbnail/Sem-5/MAP.jpg";
+import s56 from "./images/Thumbnail/Sem-5/MAP.png";
 import s57 from "./images/Thumbnail/Sem-5/Python.png";
-import s58 from "./images/Thumbnail/Sem-5/SOA.jpg";
+import s58 from "./images/Thumbnail/Sem-5/SOA.png";
 
 import s61 from "./images/Thumbnail/Sem-6/AI.png";
 import s62 from "./images/Thumbnail/Sem-6/pyp.png";
