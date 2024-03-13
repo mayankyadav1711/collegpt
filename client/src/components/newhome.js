@@ -976,6 +976,7 @@ const NewHome = () => {
                         <p class="mt-6 text-gray-700 dark:text-gray-300">Together, we've built something remarkable—a testament to our strength.</p>
                     </div>
                     <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 justify-center ">
+                    <Link to="https://mayank-dev.vercel.app/" target="_blank" rel="noreferrer">
     <div class="text-center text-gray-500 dark:text-gray-400 transform transition duration-300 ease-in-out hover:scale-105">
     <img class="mx-auto mb-4 w-36 h-36 rounded-full border-4 border-white hover:border-blue-500" src="https://res.cloudinary.com/dkyrtfk1u/image/upload/v1690369698/i14t3seuzumapysauajm.jpg" alt="Mayank Yadav"/>
 
@@ -985,6 +986,8 @@ const NewHome = () => {
         </h3>
         <p>Founder, Developer and Content Writer</p>
     </div>
+    </Link>
+    <Link to="" target="_blank" rel="noreferrer">
     <div class="text-center text-gray-500 dark:text-gray-400 transform transition duration-300 ease-in-out hover:scale-105">
                 <img class="mx-auto mb-4 w-36 h-36 rounded-full border-4 border-white hover:border-blue-500" src="https://res.cloudinary.com/dkyrtfk1u/image/upload/v1692452732/by2nz7yrqcfmnq2nlnu6.jpg" alt="Divya Kaurani"/>
 
@@ -993,6 +996,8 @@ const NewHome = () => {
         </h3>
         <p>Founder, Developer and Content Writer</p>
     </div>
+    </Link>
+    <Link to="" target="_blank" rel="noreferrer">
     <div class="text-center text-gray-500 dark:text-gray-400 transform transition duration-300 ease-in-out hover:scale-105">
                 <img class="mx-auto mb-4 w-36 h-36 rounded-full border-4 border-white hover:border-blue-500" src="http://res.cloudinary.com/dkyrtfk1u/image/upload/v1697349373/sli9ffed1vdqegf1srip.jpg" alt="Darshit Sojitra"/>
 
@@ -1001,8 +1006,11 @@ const NewHome = () => {
         </h3>
         <p>Founder, Developer and Content Writer</p>
     </div>
+</Link>
 </div>  
+  
 <div class="my-4 grid gap-8 lg:gap-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 justify-center ">
+<Link to="" target="_blank" rel="noreferrer">
     <div class="text-center text-gray-500 dark:text-gray-400 transform transition duration-300 ease-in-out hover:scale-105">
                 <img class="mx-auto mb-4 w-36 h-36 rounded-full border-4 border-white hover:border-blue-500" src="https://res.cloudinary.com/dkyrtfk1u/image/upload/v1708844593/x8f1ay9rbefzfzusbbqw.png" alt="Kussh Prajapati"/>
 
@@ -1011,6 +1019,8 @@ const NewHome = () => {
         </h3>
         <p>Graphic Designer & Content Writer</p>
     </div>
+    </Link>
+    <Link to="" target="_blank" rel="noreferrer">
     <div class="text-center text-gray-500 dark:text-gray-400 transform transition duration-300 ease-in-out hover:scale-105">
                 <img class="mx-auto mb-4 w-36 h-36 rounded-full border-4 border-white hover:border-blue-500" src="http://res.cloudinary.com/dkyrtfk1u/image/upload/v1708837420/sbga0ipdyfjkd2gvc51l.png" alt="Aastha Suthar"/>
 
@@ -1019,6 +1029,7 @@ const NewHome = () => {
         </h3>
         <p>Content Writer</p>
     </div>
+    </Link>
 </div>
 
 
