@@ -672,6 +672,7 @@ const  Courses = () =>{
       </li>
     </ul>,
     // Content for Semester 6 (Tab 5)
+    
     <ul className="tab-content">
       <li>
         <h1 className="heading">Semester 6</h1>
@@ -867,6 +868,17 @@ const  Courses = () =>{
   ];
   return (
     <>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2443682363346742"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-6t+ed+2i-1n-4w"
+     data-ad-client="ca-pub-2443682363346742"
+     data-ad-slot="3464285403"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
       <section className="courses">
         <ul id="tabs">
           <li
