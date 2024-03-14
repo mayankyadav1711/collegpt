@@ -46,11 +46,10 @@ const Header = () => {
     
     <header className="header headerimp" >
       <section className="flex">
-        <Link to="/">
-          <a className=" logo-trans">
+        <Link to="/"className=" logo-trans">
             <img className="  logo-header" src={logo} alt="College GPT" />
             College GPT
-          </a>
+
         </Link>
 
    

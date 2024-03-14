@@ -12,7 +12,7 @@ const Privacy = () => {
   return (
     <>
 <div className="max-h-full">
-    <div className="container mx-auto px-6 py-64">
+    <div className="container mx-auto px-6 py-64 text-gray-900 dark:text-white">
         <h1 className="text-3xl  text-center font-bold mb-4">Privacy Policy</h1>
 
         <p className="mb-4">

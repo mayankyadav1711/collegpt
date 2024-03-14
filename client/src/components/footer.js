@@ -288,16 +288,15 @@ const Footer = () => {
                                 Legal
                             </h2>
                             <div className="mt-2">
-                                <Link to="/privacy">
-                                    <a className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
+                                <Link to="/privacy"  className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
+                           
                                         Privacy Policy
-                                    </a>
+                            
                                     <br />
                                 </Link>
-                                <Link to="/term">
-                                    <a className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
+                                <Link to="/term" className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
                                         Terms & Conditions
-                                    </a>
+                                 
                                     <br />
                                 </Link>
                             </div>
