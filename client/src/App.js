@@ -74,6 +74,8 @@ import Roadmap_Frontend from "./components/roadmap_frontend";
 import Roadmap_Mern from "./components/roadmap_mern";
 import Roadmap_Backend from "./components/roadmap_backend";
 import AI_Coming_Soon from "./components/collegptcomingsoon";
+import NewHome from "./components/newhome";
+import Blog from "./components/Blog";
 export const UserContext = createContext();
 
 const Routing = () => {
@@ -165,6 +167,8 @@ const Routing = () => {
           
           <Route path="/admin_pdf_form" element={<Admin_Pdf_Form />} />
           <Route path="/aicomingsoon" element={<AI_Coming_Soon />} />
+          <Route path="/newhome" element={<NewHome />} />
+          <Route path="/blog" element={<Blog />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
