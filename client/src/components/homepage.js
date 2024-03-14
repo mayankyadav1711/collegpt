@@ -155,6 +155,102 @@ const Home = () => {
               </Link>
             </div>
           </div>
+          <div class="box-container">
+                  <div class="cheatsheet-box">
+            <h3 class="title-xclusive">CheatSheets📋🎯</h3>
+            <p class="likes">
+              {" "}
+              <i>
+                <b>"Unlocking Excellence: Your Rapid Technical Guide" </b>
+              </i>
+            </p>
+            <div class="flex">
+              <Link to="/watchvideo/cs_html" target="_blank">
+                <i class="fab fa-html5" title="HTML"></i>
+                {/* <span>HTML</span> */}
+              </Link>
+              <Link to="/watchvideo/cs_css" target="_blank">
+                <i class="fab fa-css3" title="CSS"></i>
+             
+              </Link>
+              <Link to="/watchvideo/cs_js" target="_blank">
+                <i class="fab fa-js" title="JS"></i>
+       
+              </Link>
+              <Link to="/watchvideo/cs_bootstrap" target="_blank">
+                <i class="fab fa-bootstrap" title="Bootstarp"></i>
+      
+              </Link>
+              <Link to="/watchvideo/cs_gpt" target="_blank">
+                <i class="fab fa-react" title="ChatGPT"></i>
+     
+              </Link>
+       
+    
+              <Link to="/watchvideo/cs_vscode" target="_blank">
+                <i class="fas fa-file-code" title="VS Code"></i>
+          
+              </Link>
+             
+              <Link to="/watchvideo/cs_python" target="_blank">
+                <i class="fa-brands fa-python" title="Python"></i>
+           
+              </Link>
+              <Link to="/watchvideo/cs_web" target="_blank">
+                <i class="fa-solid fa-globe" title="Web"></i>
+                
+              </Link>
+              <Link to="/watchvideo/cs_database" target="_blank">
+                <i class="fa-solid fa-database" title="Database"></i>
+               
+              </Link>
+            </div>
+          </div>
+</div>
+     </section>
+     <section>
+        <div class="box-container">
+     <div class="roadmap-box">
+            <h3 class="title-xclusive">RoadMaps🚀📈</h3>
+            <p class="likes">
+              {" "}
+              <i>
+                <b>"Guiding Your Journey Along the Technical Pathway"</b>{" "}
+              </i>
+            </p>
+            <div class="flex">
+            <Link to="/roadmap_frontend">
+              <div className="line"></div>
+              <i class="fab fa-html5"></i>
+              <i class="fab fa-css3"></i>
+              <i class="fab fa-js"></i>
+              <i class="fas fa-code"></i>
+              <div className="line"></div>
+              <span className="roadmap" >Frontend Developer</span>
+              </Link>
+              <Link to="/roadmap_mern">
+              <div className="line"></div>
+              <i class="fa-solid fa-leaf"></i>
+              <i class="fa-regular fa-circle"><div className="express">EX</div></i>
+              <i class="fab fa-react"></i>
+              <i class="fa-brands fa-node"></i>
+              <div className="line"></div>
+              <span className="roadmap" >Mern Developer</span>
+              </Link>
+              <Link to="/roadmap_backend">
+              <div className="line"></div>
+              <i class="fa-brands fa-python"></i>
+              <i class="fa-brands fa-java"></i>
+              <i class="fa-brands fa-node"></i>
+              <i class="fas fa-gem"></i>
+              <div className="line"></div>
+              <span className="roadmap" >Backend Developer</span>
+              </Link>
+              
+            </div>
+          </div> 
+</div>
+
         </section>
 
     
