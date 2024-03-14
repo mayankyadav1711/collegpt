@@ -257,35 +257,30 @@ const Footer = () => {
                                 ColleGPT
                             </h2>
                             <div className="mt-2">
-                                <a
-                                    href="/about"
+                                <Link to="/about"
                                     className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
                                     About
-                                </a>
+                                </Link>
                                 <br />
-                                <a
-                                    href="/courses"
+                                <Link to="/courses"
                                     className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
                                     X-Notes
-                                </a>
+                                </Link>
                                 <br />
-                                <a
-                                    href="#"
+                                <Link to="/userlist"
                                     className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
                                     Our Community
-                                </a>
+                                </Link>
                                 <br />
-                                <a
-                                    href="/watchvideo/cs_html"
+                                <Link to="/watchvideo/cs_html"
                                     className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
                                     Cheatsheets
-                                </a>
+                                </Link>
                                 <br />
-                                <a
-                                    href="/roadmap_mern"
+                                <Link to="/roadmap_mern"
                                     className="hover:text-gray-400 text-gray-900 dark:text-white">
                                     Roadmaps
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         <div className="w-10/2 flex flex-col text-2xl">
