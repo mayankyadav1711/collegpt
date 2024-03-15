@@ -111,7 +111,7 @@ const Homepage = () => {
                                 innovative features!
                             </p>
                         </div>
-                        <div className="space-y-8 pt-20 grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 md:gap-12 lg:gap-y-24 lg:gap-x-56 md:space-y-0">
+                        <div className="space-y-8 pt-20 grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 sm:gap-24 md:gap-12 lg:gap-y-24 lg:gap-x-56 md:space-y-0">
                             <FeatureCard
                                 icon={
                                     <svg
@@ -1188,7 +1188,7 @@ const Homepage = () => {
                                     <p>Founder, Developer and Content Writer</p>
                                 </div>
                             </Link>
-                            <Link to="" target="_blank" rel="noreferrer">
+                            <Link to="https://darshit-dev.vercel.app/" target="_blank" rel="noreferrer">
                                 <div class="text-center text-gray-500 dark:text-gray-400 transform transition duration-300 ease-in-out hover:scale-105">
                                     <img
                                         class="mx-auto mb-4 w-36 h-36 rounded-full border-4 border-white hover:border-blue-500"
@@ -1210,7 +1210,7 @@ const Homepage = () => {
                         {/* </div> */}
 
                         {/* <div class="grid gap-8 mt-24 lg:gap-16 sm:grid-cols-0 md:grid-cols-1 lg:grid-cols-3 justify-center "> */}
-                        <Link to="" target="_blank" rel="noreferrer">
+                        <Link to="https://www.behance.net/the_graphic_guy" target="_blank" rel="noreferrer">
                                 <div class="text-center text-gray-500 dark:text-gray-400 transform transition duration-300 ease-in-out hover:scale-105">
                                     <img
                                         class="mx-auto mb-4 w-36 h-36 rounded-full border-4 border-white hover:border-blue-500"
@@ -1229,7 +1229,7 @@ const Homepage = () => {
                                     <p>Graphic Designer & Content Writer</p>
                                 </div>
                             </Link>
-                            <Link to="" target="_blank" rel="noreferrer">
+                            <Link to="/about" target="_blank" rel="noreferrer">
                                 <div class="text-center text-gray-500 dark:text-gray-400 transform transition duration-300 ease-in-out hover:scale-105">
                                     <img
                                         class="mx-auto mb-4 w-36 h-36 rounded-full border-4 border-white hover:border-blue-500"
