@@ -3,69 +3,48 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner, faBars, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { faSpinner, faBars, faAngleDown } from "@fortawesome/free-solid-svg-icons"; // Added faAngleDown for dropdown indicator
 import defaultprofilepic from "./images/60111.png";
 import logo from "./images/Group.svg";
 import Welcome_Collegpt from "./collegptanimation";
-
 
 const Header = () => {
   const { state, dispatch } = useContext(UserContext);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [userProfile, setUserProfile] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false); // Track profile dropdown state
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Track menu state
   const menuRef = useRef(null);
+  const profileRef = useRef(null);
 
   useEffect(() => {
-    // Function to close the menu when clicking outside of it or on the menu toggle button
-    function handleClick(event) {
-      setIsOpen(!isOpen);
+    // Function to close the menu and profile dropdown when clicking anywhere
+    function handleClickOutside() {
+      setIsMenuOpen(false);
+      setIsProfileOpen(false);
     }
-
-    // Adding event listener when the component mounts
-    document.body.addEventListener("click", handleClick);
-
+  
+    // Adding event listener to handle clicks anywhere on the document
+    document.addEventListener("mousedown", handleClickOutside);
+  
     // Removing event listener when the component unmounts
     return () => {
-      document.body.removeEventListener("click", handleClick);
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    // Function to close the menu when clicking outside of it
-    function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    }
-
-    // Adding event listeners when the component mounts
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("touchstart", handleClickOutside);
-
-    // Removing event listeners when the component unmounts
-    return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
     };
   }, []);
+  
+  
+
+  const handleProfileClick = () => {
+    setIsProfileOpen(!isProfileOpen);
+    setIsMenuOpen(false); // Close the menu when profile dropdown is opened
+  };
 
   // Function to toggle the mobile menu
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  // Function to handle toggling the mobile menu
-  const handleNavbarToggle = () => {
-    setIsOpen(!isOpen);
-    if (isOpen) {
-      document.body.classList.add("navbar-open");
-      document.body.classList.remove("navbar-closed");
-    } else {
-      document.body.classList.remove("navbar-open");
-      document.body.classList.add("navbar-closed");
-    }
+    setIsMenuOpen(!isMenuOpen);
+    setIsProfileOpen(false); // Close the profile dropdown when menu is opened
   };
 
   return (
@@ -116,22 +95,50 @@ const Header = () => {
 
         <div className="flex items-center space-x-0 mr-0 ml-auto">
           <div className="icons">
-          
             {/* <div id="user-btn" className="fas fa-users"></div> */}
             <div id="toggle-btn" className="fas fa-moon"></div>
-            <div className="image-text">
-    <Link to="/"> {/* Replace "/your-image-link" with the image link */}
-      <div className="profile">
-        <img
-          src={userProfile?.profilePic || defaultprofilepic}
-          className={`image ${isOpen ? "large-image" : ""}`}
-          alt=""
-        />
-      </div>
-    </Link>
-    </div>
           </div>
-
+          <div className="relative" ref={profileRef}>
+            <img
+              src={defaultprofilepic}
+              className="w-16 h-16 ml-3 cursor-pointer"
+              onClick={handleProfileClick} // Attach click handler for profile picture
+              alt="Profile Picture"
+            />
+            {/* Dropdown menu */}
+            <div
+              className={`absolute right-0 text-2xl mt-2 w-48 bg-gray-700 rounded-md shadow-lg z-10 ${
+                isProfileOpen ? "" : "hidden"
+              }`}
+              ref={menuRef}
+            >
+              <div className="py-1">
+                {/* Logout option */}
+                <button
+                  className="block w-full px-4 py-2 text-2xl text-white hover:bg-gray-100 hover:text-black"
+                  onClick={() => {
+                    localStorage.clear();
+                    dispatch({ type: "CLEAR" });
+                    toast.success("Logout Successfully!!");
+                    navigate("/login");
+                  }}
+                >
+                  Logout
+                </button>
+                {/* View Profile option */}
+                <Link
+                  to="/updateProfile"
+                  className="block w-full text-center px-4 py-2 text-2xl text-white hover:bg-gray-100 hover:text-black"
+                >
+                  View Profile
+                </Link>
+              </div>
+            </div>
+          </div>
+          <FontAwesomeIcon
+            icon={faAngleDown}
+            className={`h-6 w-6 ${isProfileOpen ? "transform rotate-180" : ""}`}
+          />
           {isLoading ? (
             <div className="profile">
               <div className="image"></div>
@@ -179,7 +186,7 @@ const Header = () => {
         <div className="md:hidden">
           <FontAwesomeIcon
             icon={faBars}
-            onClick={handleNavbarToggle}
+            onClick={toggleMenu}
             className="flex items-center justify-center ml-auto w-10 h-10 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 mr-16"
             aria-label="Toggle Menu"
           />
@@ -189,7 +196,7 @@ const Header = () => {
       {/* Mobile Menu */}
       <div
         className={`md:hidden fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 transition-transform duration-300 ease-in-out transform navbar ${
-          isOpen ? "" : "-translate-x-full"
+          isMenuOpen ? "" : "-translate-x-full"
         }`}
       >
         <button
@@ -215,46 +222,48 @@ const Header = () => {
         </button>
 
         {/* Menu items */}
-        <nav ref={menuRef} className="flex flex-col items-center justify-center min-h-full space-y-40 w-full backdrop-blur-3xl bg-opacity-50 ">
-    <Link
-      to="#"
-      className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-    >
-      Home
-    </Link>
-    <Link
-      to="/about"
-      className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-    >
-      About
-    </Link>
-    <Link
-      to="#"
-      className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-    >
-      Community
-    </Link>
-    <Link
-      to="#"
-      className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-    >
-      Cheatsheets
-    </Link>
-    <Link
-      to="#"
-      className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-    >
-      Roadmaps
-    </Link>
-    <Link
-      to="#"
-      className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-    >
-      Notes
-    </Link>
-  </nav>
-</div>
-
+        <nav
+          ref={menuRef}
+          className="flex flex-col items-center justify-center min-h-full space-y-40 w-full backdrop-blur-3xl bg-opacity-50"
+        >
+          <Link
+            to="#"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+          >
+            About
+          </Link>
+          <Link
+            to="#"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+          >
+            Community
+          </Link>
+          <Link
+            to="#"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+          >
+            Cheatsheets
+          </Link>
+          <Link
+            to="#"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+          >
+            Roadmaps
+          </Link>
+          <Link
+            to="#"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+          >
+            Notes
+          </Link>
+        </nav>
+      </div>
     </header>
   );
 };
