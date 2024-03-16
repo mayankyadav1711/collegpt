@@ -45,6 +45,11 @@ const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     setIsProfileOpen(false); // Close the profile dropdown when menu is opened
+     if (!isMenuOpen) {
+      document.body.style.overflow = "hidden"; // Disable scrolling when menu is open
+    } else {
+      document.body.style.overflow = ""; // Enable scrolling when menu is closed
+    }
   };
 
   return (
@@ -56,40 +61,40 @@ const Header = () => {
 
         <nav className="hidden md:flex items-center space-x-20 ml-auto">
           <Link
-            to="#"
-            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            to="/"
+            className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
             Home
           </Link>
           <Link
-            to="#"
-            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            to="/courses"
+            className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
-            About
+            X-Notes
           </Link>
           <Link
-            to="#"
-            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            to="/userlist"
+            className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
             Community
           </Link>
           <Link
-            to="#"
-            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            to="/about"
+            className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
-            Cheatsheets
+            About
           </Link>
           <Link
-            to="#"
-            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            to="/contributor_form"
+            className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
-            Roadmaps
+            Contribute
           </Link>
           <Link
-            to="#"
-            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            to="contact"
+            className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
-            Notes
+            Contact
           </Link>
         </nav>
 
@@ -193,11 +198,13 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 transition-transform duration-300 ease-in-out transform navbar ${
-          isMenuOpen ? "" : "-translate-x-full"
-        }`}
+
+   
+
+         {/* Mobile Menu */}
+         <div
+        className={`fixed top-0 left-0 w-full h-full ${isMenuOpen ? "" : "hidden"}`}
+        style={{ zIndex: 999 }}
       >
         <button
           onClick={toggleMenu}
@@ -212,55 +219,49 @@ const Header = () => {
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            ></path>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
 
-        {/* Menu items */}
         <nav
           ref={menuRef}
-          className="flex flex-col items-center justify-center min-h-full space-y-40 w-full backdrop-blur-3xl bg-opacity-50"
+          className={`flex flex-col items-center justify-center min-h-full space-y-40`}
         >
           <Link
-            to="#"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            to="/"
+            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
           >
             Home
           </Link>
           <Link
-            to="/about"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            to="/courses"
+            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
           >
-            About
+            X-Notes
           </Link>
           <Link
-            to="#"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            to="/userlist"
+            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
           >
             Community
           </Link>
           <Link
-            to="#"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            to="/about"
+            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
           >
-            Cheatsheets
+            About
           </Link>
           <Link
-            to="#"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            to="/contributor_form"
+            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
           >
-            Roadmaps
+            Contribute
           </Link>
           <Link
-            to="#"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            to="/contact"
+            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
           >
-            Notes
+            Contact
           </Link>
         </nav>
       </div>
