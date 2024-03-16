@@ -115,7 +115,7 @@ const Homepage = () => {
                             <FeatureCard
                                 icon={
                                     <svg
-                                        className="w-5 h-5 text-[#12b8ff] lg:w-14 lg:h-14 dark:text-[#83b1e9]"
+                                        className="w-5 h-5 text-[#12b8ff] lg:w-14 lg:h-14  sm:w-14 sm:h-14   dark:text-[#83b1e9]"
                                         fill="currentColor"
                                         viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -131,7 +131,7 @@ const Homepage = () => {
                             <FeatureCard
                                 icon={
                                     <svg
-                                        className="w-5 h-5 text-[#12b8ff] lg:w-14 lg:h-14 dark:text-primary-300"
+                                        className="w-5 h-5 text-[#12b8ff] lg:w-14 lg:h-14   sm:w-14 sm:h-14 dark:text-primary-300"
                                         fill="currentColor"
                                         viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -144,7 +144,7 @@ const Homepage = () => {
                             <FeatureCard
                                 icon={
                                     <svg
-                                        className="w-5 h-5 text-[#12b8ff] lg:w-14 lg:h-14 dark:text-primary-300"
+                                        className="w-5 h-5 text-[#12b8ff] lg:w-14 lg:h-14  sm:w-14 sm:h-14 dark:text-primary-300"
                                         fill="currentColor"
                                         viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -161,7 +161,7 @@ const Homepage = () => {
                             <FeatureCard
                                 icon={
                                     <svg
-                                        className="w-5 h-5 text-[#12b8ff] lg:w-14 lg:h-14 dark:text-primary-300"
+                                        className="w-5 h-5 text-[#12b8ff] lg:w-14 lg:h-14  sm:w-14 sm:h-14 dark:text-primary-300"
                                         fill="currentColor"
                                         viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -178,7 +178,7 @@ const Homepage = () => {
                             <FeatureCard
                                 icon={
                                     <svg
-                                        className="w-5 h-5 text-[#12b8ff] lg:w-14 lg:h-14 dark:text-primary-300"
+                                        className="w-5 h-5 text-[#12b8ff] lg:w-14 lg:h-14  sm:w-14 sm:h-14 dark:text-primary-300"
                                         fill="currentColor"
                                         viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -193,7 +193,7 @@ const Homepage = () => {
                             <FeatureCard
                                 icon={
                                     <svg
-                                        className="w-5 h-5 text-[#12b8ff] lg:w-14 lg:h-14 dark:text-primary-300"
+                                        className="w-5 h-5 text-[#12b8ff] lg:w-14 lg:h-14  sm:w-14 sm:h-14 dark:text-primary-300"
                                         fill="currentColor"
                                         viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
