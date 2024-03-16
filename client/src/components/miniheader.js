@@ -12,11 +12,11 @@ const MiniHeader = () => {
     <>
       <header className="header">
         <section className="flex">
-        <Link to="/">
-          <a className=" logo-trans">
+        <Link to="/"
+       className=" logo-trans">
             <img className="  logo-header" src={logo} alt="College GPT" />
             College GPT
-          </a>
+
         </Link>
 
           <Welcome_Collegpt />

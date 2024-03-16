@@ -539,10 +539,10 @@ tspan {
 .welcome-center-container {
   /* background: rgba(20, 20, 20, 0.103); */
   text-align: center;
-  width: 50rem;
+  width: auto;
   border-radius: 0.5rem;
   justify-content: center;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 0rem;
   display: flex;
   gap: 2rem;
   height: 7rem;
@@ -570,7 +570,7 @@ margin-top: 0.5rem;
   background-image: var(--logo);
 }
 .flex .icons{
-  margin-left: -2rem;
+  /* margin-left: -2rem; */
   display: flex;
 }
 .header .flex .logo-trans {
@@ -647,7 +647,7 @@ margin-top: 0.5rem;
   line-height: 4rem;
   cursor: pointer;
   text-align: center;
-  margin-left: 0.7rem;
+  /* margin-left: 0.7rem; */
 }
 body.dark 
 .header .flex .icons div:hover {
@@ -736,7 +736,11 @@ body.dark
   transition: var(--tran-05);
   z-index: 100;
 }
-
+.navbar{
+  height: 100%;
+  backdrop-filter: var(--sidebarFilter);
+  background-color: var(--sidebarBgcolor);
+}
 .sidebar.close {
   width: 10rem;
 }
@@ -6871,7 +6875,7 @@ width: 65rem;
   .welcome-center-container {
     /* background: rgba(20, 20, 20, 0.103); */
     /* text-align: center; */
-    width: 40rem;
+    width: auto;
     border-radius: 0.5rem;
     /* justify-content: center; */
     padding: 0rem 0rem;
@@ -6879,7 +6883,7 @@ width: 65rem;
     gap: 2rem;
     height: 6rem;
     margin-top: -0.5rem;
-    margin-left: -1rem;
+    /* margin-left: -1rem; */
   }
 .logo-header {
   width: 3.8rem;
@@ -7148,7 +7152,7 @@ width: 65rem;
   .welcome-center-container {
     /* background: rgba(20, 20, 20, 0.103); */
     /* text-align: center; */
-    width: 40rem;
+    width: auto;
     border-radius: 0.5rem;
     /* justify-content: center; */
     padding: 0rem 0rem;
@@ -7507,7 +7511,7 @@ height: 70rem;
   .welcome-center-container {
     /* background: rgba(20, 20, 20, 0.103); */
     /* text-align: center; */
-    width: 40rem;
+    width: auto;
     border-radius: 0.5rem;
     /* justify-content: center; */
     padding: 0rem 0rem;
@@ -7515,7 +7519,7 @@ height: 70rem;
     gap: 2rem;
     height: 6rem;
     margin-top: -0.5rem;
-    margin-left: -10rem;
+    /* margin-left: -10rem; */
   }
 .logo-header {
   width: 3.5rem;
@@ -7856,7 +7860,7 @@ height: 70rem;
   .welcome-center-container {
     /* background: rgba(20, 20, 20, 0.103); */
     /* text-align: center; */
-    width: 40rem;
+    width: auto;
     border-radius: 0.5rem;
     /* justify-content: center; */
     padding: 0rem 0rem;
@@ -7864,7 +7868,7 @@ height: 70rem;
     gap: 2rem;
     height: 6rem;
     margin-top: -0.5rem;
-    margin-left: -8rem;
+    /* margin-left: -8rem; */
   }
   .logo-header {
   width: 3.2rem;
@@ -8246,7 +8250,7 @@ height: 70rem;
   .welcome-center-container {
     /* background: rgba(20, 20, 20, 0.103); */
     /* text-align: center; */
-    width: 40rem;
+    width: auto;
     border-radius: 0.5rem;
     /* justify-content: center; */
     padding: 0rem 0rem;
@@ -8254,7 +8258,7 @@ height: 70rem;
     gap: 2rem;
     height: 6rem;
     margin-top: -0.5rem;
-    margin-left: -12rem;
+    /* margin-left: -12rem; */
   }
   .logo-header {
   width: 3.5rem;
@@ -8337,7 +8341,7 @@ height: 70rem;
     letter-spacing: 1rem;
   }
   .header .flex .icons{
-    margin-left: -22rem;
+    /* margin-left: -22rem; */
   }
   .slide{
     width: 28rem;
@@ -8740,7 +8744,7 @@ height: 70rem;
   .welcome-center-container {
     /* background: rgba(20, 20, 20, 0.103); */
     /* text-align: center; */
-    width: 40rem;
+    width: auto;
     border-radius: 0.5rem;
     /* justify-content: center; */
     padding: 0rem 0rem;
@@ -8748,7 +8752,7 @@ height: 70rem;
     gap: 2rem;
     height: 6rem;
     margin-top: -0.5rem;
-    margin-left: -10rem;
+    /* margin-left: -10rem; */
   }
   .logo-header {
   width: 3.2rem;
@@ -8836,7 +8840,7 @@ height: 70rem;
     letter-spacing: 1rem;
   }
   .header .flex .icons{
-    margin-left: -22rem;
+    /* margin-left: -22rem; */
   }
   .slide{
     width: 28rem;
@@ -9508,7 +9512,7 @@ height: 70rem;
     letter-spacing: 0.8rem;
   }
   .header .flex .icons{
-    margin-left: -37rem;
+    /* margin-left: -37rem; */
   }
   .slide{
     width: 2rem;

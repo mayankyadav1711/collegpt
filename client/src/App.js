@@ -174,6 +174,7 @@ const Routing = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+        {/* <Route path="/blog" element={<Blog />} /> */}
         <Route path="/otp" element={<OTP />} />
       </Routes>
 
