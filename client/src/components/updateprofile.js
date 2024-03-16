@@ -75,12 +75,7 @@ function UpdateProfile() {
   const ALLOWED_FILE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
 
   useEffect(() => {
-    if (!state?._id) {
-      // If user is not logged in, navigate to the login page
-      toast.success("Please login first")
-      navigate("/login");
-      return;
-    }
+    
     if (state && state._id) {
       // Check if state is defined and _id is available
       console.log("Fetching user profile data...");

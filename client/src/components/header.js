@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner, faBars, faAngleDown } from "@fortawesome/free-solid-svg-icons"; // Added faAngleDown for dropdown indicator
 import defaultprofilepic from "./images/60111.png";
-import logo from "./images/Group.svg";
 import Welcome_Collegpt from "./collegptanimation";
 
 const Header = () => {
@@ -17,7 +16,29 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Track menu state
   const menuRef = useRef(null);
   const profileRef = useRef(null);
+  useEffect(() => {
 
+    
+    if (state && state._id) {
+      setIsLoading(true);
+
+      fetch(`https://api-collegpt.vercel.app/view-profile/${state?._id}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setUserProfile(data);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          setIsLoading(false);
+        });
+    }
+  }, [state]);
   useEffect(() => {
     // Function to close the menu and profile dropdown when clicking anywhere
     function handleClickOutside() {
@@ -100,13 +121,13 @@ const Header = () => {
 
         <div className="flex items-center space-x-0 mr-0 ml-auto">
           <div className="icons">
-            {/* <div id="user-btn" className="fas fa-users"></div> */}
+       
             <div id="toggle-btn" className="fas fa-moon"></div>
           </div>
           <div className="relative" ref={profileRef}>
             <img
-              src={defaultprofilepic}
-              className="w-16 h-16 ml-3 cursor-pointer"
+               src={userProfile?.profilePic || defaultprofilepic}
+              className="w-16 h-16 ml-3 cursor-pointer rounded-full"
               onClick={handleProfileClick} // Attach click handler for profile picture
               alt="Profile Picture"
             />
@@ -134,6 +155,7 @@ const Header = () => {
                 <Link
                   to="/updateProfile"
                   className="block w-full text-center px-4 py-2 text-2xl text-white hover:bg-gray-100 hover:text-black"
+                
                 >
                   View Profile
                 </Link>

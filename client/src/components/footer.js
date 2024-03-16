@@ -45,15 +45,25 @@ const Footer = () => {
     return (
         <>
             <footer class="footer-section ">
-                <div className="container bg-[#c0e8eb] dark:bg-[#151e3689] mx-auto px-10 flex justify-between items-center subscribe-area">
+                <div className="container   mx-auto px-10 flex justify-between items-center subscribe-area">
                     {/* Left side: Logo and contact info */}
                     <div className="flex flex-col">
                         {/* <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">ColleGPT</h3> */}
-                        <img
-                            className="w-96 px-0"
-                            src={logoSrc}
-                            alt="College GPT"
-                        />
+                        <div className=" text-gray-900 dark:text-white">
+        <span
+          style={{ fontSize: "4rem" }}
+          className="flex items-center font-bold"
+        >
+          <span>C</span>
+          <img
+            src={logo}
+            className="inline align-middle h-auto mx-1 md:mx-2"
+            alt="Logo"
+            style={{ height: "2.75rem", width: "2.75rem" }}
+          />
+          <span>LLEGPT</span>
+        </span>
+      </div>
                         <div className="mt-4 text-xl text-gray-900 dark:text-white">
                             <p>Mail Us: collegpt@gmail.com</p>
                         </div>
