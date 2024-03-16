@@ -1,41 +1,25 @@
 // Welcome_Collegpt.js
-import React, { useEffect, useState } from "react";
-import lightLogo from "./images/lightheader.svg";
-import darkLogo from "./images/darkheader.svg";
-import handledarkmode from "./handledarkmode";
+import React from "react";
 
+import logo from "./images/Group.svg";
 const Welcome_Collegpt = () => {
-  const [logoSrc, setLogoSrc] = useState(lightLogo);
-
-  useEffect(() => {
-    handledarkmode(); // Call your existing handledarkmode function
-
-    const handleLogoSource = () => {
-      const isDarkModeEnabled = localStorage.getItem("dark-mode") === "enabled";
-      setLogoSrc(isDarkModeEnabled ? darkLogo : lightLogo);
-    };
-
-    // Call the function initially
-    handleLogoSource();
-
-    // Periodically check the local storage for changes
-    const intervalId = setInterval(() => {
-      handleLogoSource();
-    }, 500); // Adjust the interval as needed
-
-    // Clean up the interval when the component is unmounted
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-
   return (
     <>
-      <img
-        className="welcome-center-container"
-        src={logoSrc}
-        alt="College GPT"
-      />
+      <div className="welcome-center-container text-gray-900 dark:text-white">
+        <span
+          style={{ fontSize: "4rem" }}
+          className="flex items-center font-bold"
+        >
+          <span>C</span>
+          <img
+            src={logo}
+            className="inline align-middle h-auto mx-1 md:mx-2"
+            alt="Logo"
+            style={{ height: "2.75rem", width: "2.75rem" }}
+          />
+          <span>LLEGPT</span>
+        </span>
+      </div>
     </>
   );
 };

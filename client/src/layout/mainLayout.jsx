@@ -17,7 +17,7 @@ function MainLayout() {
   return (
     <div className="background-container">
       <Header />
-      <Sidebar />
+      {/* <Sidebar /> */}
       {/* <Eventbar /> */}
       <Outlet />
       <Footer />

@@ -28,26 +28,9 @@ const handledarkmode = () =>{
     }
   };
 
-  let profile = document.querySelector(".header .flex .profile");
-  let userBtn = document.querySelector("#user-btn");
   
-  // Add a click event listener to the document body
-  document.body.addEventListener("click", (event) => {
-    // Check if the click event target is not within the profile and userBtn elements
-    if (
-      !profile.contains(event.target) &&
-      event.target !== userBtn &&
-      !userBtn.contains(event.target)
-    ) {
-      // If the click is outside the profile and userBtn, close the profile
-      profile.classList.remove("active");
-    }
-  });
   
-  // Add a click event listener to the userBtn to toggle the profile
-  userBtn.onclick = () => {
-    profile.classList.toggle("active");
-  };
+  
   
  
 }
