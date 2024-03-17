@@ -149,7 +149,7 @@ const  WatchVideo = () =>{
   return (
     <>
       {!pdfFilePath ? (
-        <div className="iframe-container">
+        <div className="iframe-container mt-60">
         <div class="title-apple-coming-soon">Coming Soon</div>
         </div>
       ) : code === "typefastio" || code === "ztype" ? (
