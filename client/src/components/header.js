@@ -59,37 +59,37 @@ const Header = () => {
         <nav className="hidden md:flex items-center space-x-20 ml-auto">
           <Link
             to="/"
-            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            className="text-gray-900 font-medium dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
             Home
           </Link>
           <Link
             to="/about"
-            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            className="text-gray-900 font-medium dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
             About
           </Link>
           <Link
             to="/userlist"
-            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            className="text-gray-900 font-medium dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
             Community
           </Link>
           <Link
             to="/"
-            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            className="text-gray-900 font-medium dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
             Cheatsheets
           </Link>
           <Link
             to="/"
-            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            className="text-gray-900 font-medium dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
             Roadmaps
           </Link>
           <Link
             to="/courses"
-            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            className="text-gray-900 font-medium dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
             Notes
           </Link>
