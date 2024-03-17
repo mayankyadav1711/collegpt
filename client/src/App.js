@@ -10,6 +10,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import spinnerlogo from "./components/images/Group.svg";
 import MainLayout from "./layout/mainLayout";
 
+
 export const UserContext = createContext();
 const Home = lazy(() => import("./components/homepage"));
 const Login = lazy(() => import("./components/login"));
@@ -75,6 +76,7 @@ const Roadmap_Backend = lazy(() => import("./components/roadmap_backend"));
 const NewHome = lazy(() => import("./components/newhome"));
 const Blog = lazy(() => import("./components/Blog"));
 const Youtube_Lecture = lazy(() => import("./components/youtube_lecture"));
+const Support = lazy(() => import("./components/support"));
 
 const LoadingSpinner = () => (
   <div className="loading-spinner bg-[#ffffff] dark:bg-[#020813] ">
@@ -177,6 +179,7 @@ const Routing = () => {
          
           <Route path="/newhome" element={<NewHome />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/support" element={<Support />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
