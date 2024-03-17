@@ -71,7 +71,7 @@ function Login() {
     <>
     <div className="background-container">
       <MiniHeader />
-      <Sidebar />
+      {/* <Sidebar /> */}
 
       <section className="form-container">
         <form onSubmit={handleLogin} encType="multipart/form-data">

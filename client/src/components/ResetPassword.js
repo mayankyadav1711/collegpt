@@ -55,7 +55,7 @@ const  ResetPassword = () => {
     <div className="background-container">
 <MiniHeader />
 
-<Sidebar/>
+{/* <Sidebar/> */}
 
 <section class="form-container">
 

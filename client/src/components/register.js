@@ -164,7 +164,7 @@ if (!/^([^\s@]+@gmail\.com|[^@]+@ldrp\.ac\.in)$/.test(email)) {
     <>
       <div className="background-container">
         <MiniHeader />
-        <Sidebar />
+        {/* <Sidebar /> */}
         <Welcome_Message />
 <section className="register">
         <section className="form-container">

@@ -57,7 +57,7 @@ function OTP() {
         <>
         <div className="background-container">
         <MiniHeader />
-          <Sidebar />
+          {/* <Sidebar /> */}
     
           <section className="form-container">
             <form onSubmit={handleOTPVerification}>

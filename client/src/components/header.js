@@ -16,34 +16,16 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Track menu state
   const menuRef = useRef(null);
   const profileRef = useRef(null);
-  useEffect(() => {
 
-    
-    if (state && state._id) {
-      setIsLoading(true);
-
-      fetch(`https://api-collegpt.vercel.app/view-profile/${state?._id}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setUserProfile(data);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          setIsLoading(false);
-        });
-    }
-  }, [state]);
   useEffect(() => {
-    // Function to close the menu and profile dropdown when clicking anywhere
-    function handleClickOutside() {
-      setIsMenuOpen(false);
-      setIsProfileOpen(false);
+    // Function to close the menu and profile dropdown when clicking anywhere outside
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setIsProfileOpen(false);
+      }
     }
   
     // Adding event listener to handle clicks anywhere on the document
@@ -56,7 +38,6 @@ const Header = () => {
   }, []);
   
   
-
   const handleProfileClick = () => {
     setIsProfileOpen(!isProfileOpen);
     setIsMenuOpen(false); // Close the menu when profile dropdown is opened
@@ -66,11 +47,6 @@ const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     setIsProfileOpen(false); // Close the profile dropdown when menu is opened
-     if (!isMenuOpen) {
-      document.body.style.overflow = "hidden"; // Disable scrolling when menu is open
-    } else {
-      document.body.style.overflow = ""; // Enable scrolling when menu is closed
-    }
   };
 
   return (
@@ -79,55 +55,55 @@ const Header = () => {
         <Link to="/">
           <Welcome_Collegpt />
         </Link>
-
+        {/* Desktop Menu  */}
         <nav className="hidden md:flex items-center space-x-20 ml-auto">
           <Link
             to="/"
-            className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
             Home
           </Link>
           <Link
-            to="/courses"
-            className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
-          >
-            X-Notes
-          </Link>
-          <Link
-            to="/userlist"
-            className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
-          >
-            Community
-          </Link>
-          <Link
             to="/about"
-            className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
             About
           </Link>
           <Link
-            to="/contributor_form"
-            className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            to="/userlist"
+            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
-            Contribute
+            Community
           </Link>
           <Link
-            to="contact"
-            className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            to="/"
+            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
-            Contact
+            Cheatsheets
+          </Link>
+          <Link
+            to="/"
+            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+          >
+            Roadmaps
+          </Link>
+          <Link
+            to="/courses"
+            className="text-white dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+          >
+            Notes
           </Link>
         </nav>
 
         <div className="flex items-center space-x-0 mr-0 ml-auto">
           <div className="icons">
-       
+            {/* <div id="user-btn" className="fas fa-users"></div> */}
             <div id="toggle-btn" className="fas fa-moon"></div>
           </div>
           <div className="relative" ref={profileRef}>
             <img
-               src={userProfile?.profilePic || defaultprofilepic}
-              className="w-16 h-16 ml-3 cursor-pointer rounded-full"
+              src={defaultprofilepic}
+              className="w-16 h-16 ml-3 cursor-pointer"
               onClick={handleProfileClick} // Attach click handler for profile picture
               alt="Profile Picture"
             />
@@ -139,7 +115,7 @@ const Header = () => {
               ref={menuRef}
             >
               <div className="py-1">
-                {/* Logout option */}
+                {/* Logout option for desktop*/}
                 <button
                   className="block w-full px-4 py-2 text-2xl text-white hover:bg-gray-100 hover:text-black"
                   onClick={() => {
@@ -155,7 +131,6 @@ const Header = () => {
                 <Link
                   to="/updateProfile"
                   className="block w-full text-center px-4 py-2 text-2xl text-white hover:bg-gray-100 hover:text-black"
-                
                 >
                   View Profile
                 </Link>
@@ -187,21 +162,11 @@ const Header = () => {
                 <h3 className="font-medium">{userProfile?.name}</h3>
                 <p>{userProfile?.Roles[0]}</p>
               </div>
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center ">
                 <Link to="/updateProfile" className="inline-btn">
                   View Profile
                 </Link>
-                <button
-                  onClick={() => {
-                    localStorage.clear();
-                    dispatch({ type: "CLEAR" });
-                    toast.success("Logout Successfully!!");
-                    navigate("/login");
-                  }}
-                  className="inline-btn"
-                >
-                  Logout
-                </button>
+            
                 <Link to="/userlist" className="inline-btn">
                   Community
                 </Link>
@@ -209,24 +174,22 @@ const Header = () => {
             </div>
           )}
         </div>
-
+          {/* Hamburger icon for menu  */}
         <div className="md:hidden">
           <FontAwesomeIcon
             icon={faBars}
             onClick={toggleMenu}
-            className="flex items-center justify-center ml-auto w-10 h-10 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 mr-16"
+            className="flex items-center justify-center ml-auto w-10 h-10 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 mr-16 ml-0s"
             aria-label="Toggle Menu"
           />
         </div>
       </div>
 
-
-   
-
-         {/* Mobile Menu */}
-         <div
-        className={`fixed top-0 left-0 w-full h-full ${isMenuOpen ? "" : "hidden"}`}
-        style={{ zIndex: 999 }}
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 transition-transform duration-300 ease-in-out transform navbar ${
+          isMenuOpen ? "" : "-translate-x-full"
+        }`}
       >
         <button
           onClick={toggleMenu}
@@ -241,49 +204,55 @@ const Header = () => {
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
           </svg>
         </button>
 
+        {/* Menu items */}
         <nav
           ref={menuRef}
-          className={`flex flex-col items-center justify-center min-h-full space-y-40`}
+          className="flex flex-col items-center justify-center min-h-full space-y-40 w-full backdrop-blur-3xl bg-opacity-50"
         >
           <Link
-            to="/"
-            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            to="#"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
           >
             Home
           </Link>
           <Link
-            to="/courses"
-            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-          >
-            X-Notes
-          </Link>
-          <Link
-            to="/userlist"
-            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-          >
-            Community
-          </Link>
-          <Link
             to="/about"
-            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
           >
             About
           </Link>
           <Link
-            to="/contributor_form"
-            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            to="#"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
           >
-            Contribute
+            Community
           </Link>
           <Link
-            to="/contact"
-            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            to="#"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
           >
-            Contact
+            Cheatsheets
+          </Link>
+          <Link
+            to="#"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+          >
+            Roadmaps
+          </Link>
+          <Link
+            to="#"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+          >
+            Notes
           </Link>
         </nav>
       </div>
