@@ -133,7 +133,7 @@ const Header = () => {
             />
             {/* Dropdown menu */}
             <div
-              className={`absolute right-0 text-2xl mt-2 w-48 bg-gray-700 rounded-md shadow-lg z-10 ${
+              className={`absolute right-0 text-2xl  mt-2 w-48 bg-[#12b8ff40] dark:bg-[#0a1c54]   border-gray-900 border-4 backdrop-blur-lg  rounded-md shadow-lg z-10 ${
                 isProfileOpen ? "" : "hidden"
               }`}
               ref={menuRef}
@@ -141,7 +141,8 @@ const Header = () => {
               <div className="py-1">
                 {/* Logout option */}
                 <button
-                  className="block w-full px-4 py-2 text-2xl text-white hover:bg-gray-100 hover:text-black"
+                  className="block w-full px-4 py-2 text-2xl text-gray-600 hover:bg-[#ebecefa6] hover:text-black dark:text-gray-600 dark:hover:bg-[#3d809c5e] dark:hover:text-white"
+
                   onClick={() => {
                     localStorage.clear();
                     dispatch({ type: "CLEAR" });
@@ -154,7 +155,8 @@ const Header = () => {
                 {/* View Profile option */}
                 <Link
                   to="/updateProfile"
-                  className="block w-full text-center px-4 py-2 text-2xl text-white hover:bg-gray-100 hover:text-black"
+                  className="block w-full text-center px-4 py-2 text-2xl text-gray-600 hover:bg-[#ebecefa6] hover:text-black dark:text-gray-600 dark:hover:bg-[#3d809c5e] dark:hover:text-white"
+     
                 
                 >
                   View Profile
