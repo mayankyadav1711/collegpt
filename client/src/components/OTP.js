@@ -1,9 +1,6 @@
 import React, {  useEffect, useState } from "react";
 import {  useNavigate,useLocation } from "react-router-dom";
 
-import MiniHeader from "./miniheader";
-import Sidebar from "./sidebar";
-import Footer from "./footer";
 import toast from 'react-hot-toast';
 import handledarkmode from "./handledarkmode";
 function OTP() {
@@ -53,8 +50,7 @@ function OTP() {
       return (
         <>
         <div className="background-container">
-        <MiniHeader />
-          <Sidebar />
+
     
           <section className="form-container">
             <form onSubmit={handleOTPVerification}>
@@ -82,7 +78,6 @@ function OTP() {
             </form>
           </section>
     
-          <Footer />
           </div>
         </>
       );

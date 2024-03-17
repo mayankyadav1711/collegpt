@@ -2,10 +2,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
-
-import MiniHeader from "./miniheader";
-import Sidebar from "./sidebar";
-import Footer from "./footer";
 import toast from 'react-hot-toast';
 import handledarkmode from "./handledarkmode";
 function Login() {
@@ -65,8 +61,6 @@ function Login() {
   return (
     <>
     <div className="background-container">
-      <MiniHeader />
-      <Sidebar />
 
       <section className="form-container">
         <form onSubmit={handleLogin} encType="multipart/form-data">
@@ -109,8 +103,6 @@ function Login() {
           </Link>
         </form>
       </section>
-
-      <Footer />
       </div>
     </>
   );

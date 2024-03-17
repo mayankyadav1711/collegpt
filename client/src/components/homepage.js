@@ -125,29 +125,30 @@ const Homepage = () => {
   title="Xclusive Notes"
   description="Access comprehensive notes in plain language, spiced up with entertaining memes for engaging learning."
 />
-
-          <FeatureCard 
-  icon={<img src="https://i.ibb.co/vk6GgdL/Xenesis-2024-24.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
-            title="Real-Time Event Updates"
-            description="Stay informed about upcoming academic events, seminars, and workshops."
+<FeatureCard 
+  icon={<img src="https://i.ibb.co/rxWXPcX/Xenesis-2024-29.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
+            title="Engaging Community"
+            description="Join a supportive community of learners, exchange ideas, and seek assistance."
           />
+          
           <FeatureCard 
   icon={<img src="https://i.ibb.co/gT0fX1C/Xenesis-2024-25.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
             title="Handy Cheat Sheets"
             description="Quick reference guides for key concepts, formulas, and more."
           />
           <FeatureCard 
-  icon={<img src="https://i.ibb.co/hM60Hd9/Xenesis-2024-23.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
+  icon={<img src="https://i.ibb.co/DGGRmZT/Xenesis-2024-31.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
+            title="Real-Time Event Updates"
+            description="Stay informed about upcoming academic events, seminars, and workshops."
+          />
+          <FeatureCard 
+  icon={<img src="https://i.ibb.co/7NPHC38/Xenesis-2024-27.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
             title="In-Depth Learning Guides"
             description="Detailed roadmaps to help you navigate and master challenging topics."
           />
+         
           <FeatureCard 
-  icon={<img src="https://i.ibb.co/hM60Hd9/Xenesis-2024-23.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
-            title="Engaging Community"
-            description="Join a supportive community of learners, exchange ideas, and seek assistance."
-          />
-          <FeatureCard 
-  icon={<img src="https://i.ibb.co/hM60Hd9/Xenesis-2024-23.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
+  icon={<img src="https://i.ibb.co/p2JqFmg/Xenesis-2024-30.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
             title="Intuitive User Interface"
             description="Our user-friendly interface ensures a seamless and enjoyable browsing experience."
           />

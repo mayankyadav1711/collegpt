@@ -1,8 +1,5 @@
 import React, {  useEffect, useState } from "react";
 
-import MiniHeader from "./miniheader";
-import Sidebar from "./sidebar";
-import Footer from "./footer";
 import toast from 'react-hot-toast';
 import handledarkmode from "./handledarkmode";
 const  ForgotPassword = () => {
@@ -47,8 +44,7 @@ const  ForgotPassword = () => {
   return (
     <>
 <div className="background-container">
-<MiniHeader/>
-<Sidebar/>
+
 
 <section class="form-container">
 
@@ -71,10 +67,6 @@ const  ForgotPassword = () => {
 
 </section>
 
-
-
-
-<Footer/>
 </div>
 </>
   );

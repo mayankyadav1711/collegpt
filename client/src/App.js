@@ -179,14 +179,14 @@ const Routing = () => {
          
           <Route path="/newhome" element={<NewHome />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/support" element={<Support />} />
-        </Route>
-        <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         {/* <Route path="/blog" element={<Blog />} /> */}
         <Route path="/otp" element={<OTP />} />
+        </Route>
+       
       </Routes>
       </Suspense>
 

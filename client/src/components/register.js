@@ -2,14 +2,10 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, {  useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import MiniHeader from "./miniheader";
-import Sidebar from "./sidebar";
-import Footer from "./footer";
 
 import toast from 'react-hot-toast';
 import handledarkmode from "./handledarkmode";
 import defaultprofilepic from "./images/60111.png";
-import Welcome_Message from "./welcomemsg";
 
 function Register() {
   useEffect(() => {
@@ -160,9 +156,7 @@ if (!/^([^\s@]+@gmail\.com|[^@]+@ldrp\.ac\.in)$/.test(email)) {
   return (
     <>
       <div className="background-container">
-        <MiniHeader />
-        <Sidebar />
-        <Welcome_Message />
+
 <section className="register">
         <section className="form-container">
           <form onSubmit={handleRegistration} encType="multipart/form-data">
@@ -489,7 +483,6 @@ if (!/^([^\s@]+@gmail\.com|[^@]+@ldrp\.ac\.in)$/.test(email)) {
           </form>
         </section>
 </section>
-        <Footer />
       </div>
     </>
   );

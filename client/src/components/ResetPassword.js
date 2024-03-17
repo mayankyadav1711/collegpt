@@ -1,9 +1,6 @@
 import React, {  useEffect, useState } from "react";
 import {  useNavigate,useParams  } from "react-router-dom";
 
-import MiniHeader from "./miniheader";
-import Sidebar from "./sidebar";
-import Footer from "./footer";
 import toast from 'react-hot-toast';
 import handledarkmode from "./handledarkmode";
 const  ResetPassword = () => {
@@ -50,9 +47,6 @@ const  ResetPassword = () => {
   return (
     <>
     <div className="background-container">
-<MiniHeader />
-
-<Sidebar/>
 
 <section class="form-container">
 
@@ -87,10 +81,6 @@ const  ResetPassword = () => {
 
 </section>
 
-
-
-
-<Footer/>
 </div>
 </>
   );
