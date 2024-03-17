@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import handledarkmode from "./handledarkmode";
 
+import toast from 'react-hot-toast';
 const Admin_Pdf_Form = () => {
-    useEffect(() => {
-        handledarkmode();
-    }, []);
+   
 
     // Sample data
     const semesters = ["Sem 1", "Sem 2", "Sem 3", "Sem 4", "Sem 5", "Sem 6"];
@@ -481,6 +479,7 @@ const Admin_Pdf_Form = () => {
     const [author, setAuthor] = useState("");
     const [description, setDescription] = useState("");
     const [extra, setExtra] = useState("");
+    const [youtube, setYoutube] = useState("");
 
     // Function to handle changes in the link input field
     const handleLinkInputChange = (event) => {
@@ -494,6 +493,9 @@ const Admin_Pdf_Form = () => {
     };
     const extraInput = (event) => {
         setExtra(event.target.value);
+    };
+    const youtubeInput = (event) => {
+        setYoutube(event.target.value);
     };
 
     // Function to handle form submission
@@ -520,6 +522,7 @@ const Admin_Pdf_Form = () => {
             !formDataObject.extra
         ) {
             console.error("All fields are required.");
+            toast.error("All fields are required.");
             return;
         }
 
@@ -543,6 +546,7 @@ const Admin_Pdf_Form = () => {
                 setAuthor("");
                 setDescription("");
                 setExtra("");
+                setYoutube("");
             })
             .catch((error) => {
                 console.error("Error submitting form:", error);
@@ -678,6 +682,18 @@ const Admin_Pdf_Form = () => {
                         className="box"
                         value={extra}
                         onChange={extraInput}
+                        required
+                    />
+                      <p>
+                        Youtube Link {" "}
+                    </p>
+                    <input
+                        type="text"
+                        name="youtube"
+                        placeholder="Youtube Link"
+                        className="box"
+                        value={youtube}
+                        onChange={youtubeInput}
                         required
                     />
                     <input
