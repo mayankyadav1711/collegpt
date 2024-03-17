@@ -164,7 +164,7 @@ const Userlist = () => {
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-gray-100"
+                  className="text-[#00000080] hover:text-[#000000]"
                 >
                                        <FontAwesomeIcon icon={faXTwitter} className="w-8 h-8" />
 
@@ -173,7 +173,7 @@ const Userlist = () => {
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-gray-100"
+                  className="text-[#00000080] hover:text-[#000000]"
                 >
                                        <FontAwesomeIcon icon={faGithub} className="w-8 h-8" />
 
@@ -182,7 +182,7 @@ const Userlist = () => {
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-gray-100"
+                  className="text-[#0076b580] hover:text-[#0077b5]"
                 >
                                       <FontAwesomeIcon icon={faLinkedin} className="w-8 h-8" />
 
