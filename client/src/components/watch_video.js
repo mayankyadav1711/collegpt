@@ -8,9 +8,7 @@ import { useParams, Link,useNavigate } from "react-router-dom";
 import profilepic from "./images/60111.png";
 import handledarkmode from "./handledarkmode";
 import toast from 'react-hot-toast';
-import $ from "jquery";
 
-import "jquery-ui-dist/jquery-ui";
 
 
 const  WatchVideo = () =>{
@@ -36,9 +34,11 @@ const  WatchVideo = () =>{
       try {
         const response = await fetch(`https://api-collegpt.vercel.app/pdf-forms/${code}`);
         const data = await response.json();
-        console.log(data);
+  
         if (response.ok) {
-          setPdfFilePath(data.link);
+          const pdfPreviewUrl = `${data.link.replace('/view?usp=drive_link', '/preview')}`;
+
+          setPdfFilePath(pdfPreviewUrl);
           setSem(data.sem);
           setSub(data.sub);
           setUnit(data.unit);
@@ -98,136 +98,32 @@ const  WatchVideo = () =>{
       console.error("Error submitting Doubt:", error);
     }
   };
-  useEffect(() => {
-    initializeDrag();
-  }, [pdfFilePath]);
-
-  const initializeDrag = () => {
-    // Initialize the slider when pdfFilePath is available
-
-    setIsLoading(false);
-    $("#unlock .drag").draggable({
-      axis: "x",
-      containment: "parent",
-      drag: function (event, ui) {
-        $("#unlock .content .drop").addClass("active");
-
-        if (ui.position.left > 105) {
-          $("#unlock .content .drop").addClass("hover");
-        }
-      },
-      stop: function (event, ui) {
-        if (ui.position.left < 105) {
-          $(this).animate({
-            left: 0,
-          });
-          $("#unlock .content .drop").removeClass("hover");
-          $("#unlock .content .drop").removeClass("active");
-        } else {
-          $(this).animate({
-            left: 0,
-          });
-          $("#unlock .content .drop").removeClass("hover");
-          $("#unlock .content .drop").removeClass("active");
-
-          // UNLOCK
-          $("#unlock").addClass("unlock");
-          $("#home").addClass("unlock");
-
-          // Open PDF link in new tab
-          window.open(pdfFilePath, "_blank");
-        }
-      },
-    });
-
-    $(".restart").click(function () {
-      $("#unlock").removeClass("unlock");
-      $("#home").removeClass("unlock");
-    });
-  };
+ 
 
   return (
     <>
-      {!pdfFilePath ? (
-        <div className="iframe-container mt-60">
-        <div class="title-apple-coming-soon">Coming Soon</div>
-        </div>
-      ) : code === "typefastio" || code === "ztype" ? (
-        <>
-          <iframe
-            src={pdfFilePath}
-            width="100%"
-            height="650rem"
-            allow="autoplay"
-          ></iframe>
-        </>
-      ) : (
-        <>
-          <section className="watch-video">
-            {/* <div>
-          <iframe
-            src={
-              pdfFilePath ||
-              "https://drive.google.com/file/d/1fl48I3rPKtvoNMv9yI58kwNJ5y1mxTz1/preview"
-            }
-            width="100%"
-            height="650rem"
-            allow="autoplay"
-          ></iframe>
-        </div> */}
-            <div class="swiper-container">
-              <div class="swipe-container">
-                <div id="unlock">
-                  <div class="title-apple">{unit}</div>
-                  <div class="subtitle">Swipe to Access</div>
+    {pdfFilePath ? (
+      <div className="mt-52 flex justify-center items-center">
+  <iframe
+    src={pdfFilePath}
+    width="640"
+    height="480"
+    className="border-2 border-gray-200 shadow-md rounded-lg"
+    title="PDF Viewer"
+    id="pdfIframe"
+  />
 
-                  <div class="content">
-                    <div class="drag">
-                      <svg
-                        // xmlns="http://www.w3.org/1999/xlink"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 7 10"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M 3.51 7.67 C 3.32 7.67 3.13 7.59 2.98 7.44 L -0.78 3.63 C -1.07 3.34 -1.07 2.85 -0.78 2.56 C -0.49 2.26 -0.01 2.26 0.28 2.56 L 3.51 5.83 L 6.74 2.56 C 7.04 2.26 7.51 2.26 7.81 2.56 C 8.1 2.85 8.1 3.34 7.81 3.63 L 4.05 7.44 C 3.9 7.59 3.71 7.67 3.51 7.67"
-                        />
-                      </svg>
-                    </div>
 
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
 
-                    <div class="drop">
-                      <div class="wave"></div>
-                    </div>
-                  </div>
-                  <div>
-  <Link to={pdfFilePath} target="_blank">
-    <button class="button-57" role="button">
-      <span class="text">Click Me</span>
-      <span>Padh Le Jaa</span>
-    </button>
-  </Link>
-</div>
-                </div>
 
-                <div id="home">
-                  <div class="restart">Once More ? Once More</div>
-                </div>
-              </div>{" "}
+
             </div>
+          ) : (
+            <p>Coming Soon</p>
+          )}
+          <section className="watch-video">
+           
+         
             <div class="video-container">
               <h3 class="title"> {unit}</h3>
               <div class="info">
@@ -277,8 +173,8 @@ const  WatchVideo = () =>{
               />
             </form>
           </section>
-        </>
-      )}
+   
+  
     </>
   );
 }
