@@ -175,30 +175,34 @@ const Userlist = () => {
                   </p>{" "}
                   {/* Display only the first role */}
                   <div className="flex justify-center space-x-4">
-                    <a
-                      href={userProfile?.twitterURL || "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-gray-100"
-                    >
-                      <FontAwesomeIcon icon={faXTwitter} className="w-8 h-8" />
-                    </a>
-                    <a
-                      href={userProfile?.githubURL || "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-gray-100"
-                    >
-                      <FontAwesomeIcon icon={faGithub} className="w-8 h-8" />
-                    </a>
-                    <a
-                      href={userProfile?.linkedinURL || "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-gray-100"
-                    >
-                      <FontAwesomeIcon icon={faLinkedin} className="w-8 h-8" />
-                    </a>
+                  <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#00000080] hover:text-[#000000]"
+                >
+                                       <FontAwesomeIcon icon={faXTwitter} className="w-8 h-8" />
+
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#00000080] hover:text-[#000000]"
+                >
+                                       <FontAwesomeIcon icon={faGithub} className="w-8 h-8" />
+
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#0076b580] hover:text-[#0077b5]"
+                >
+                                      <FontAwesomeIcon icon={faLinkedin} className="w-8 h-8" />
+
+                </a>
+
                   </div>
                 </div>
               </div>
