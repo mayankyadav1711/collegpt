@@ -18,37 +18,37 @@ import s25 from "./images/Thumbnail/Sem-2/BCPS.png";
 import s26 from "./images/Thumbnail/Sem-2/WORKSHOP.png";
 import s27 from "./images/Thumbnail/Sem-2/IICT.png";
 
-import s31 from "./images/Thumbnail/Sem-3/DSA.png";
-import s32 from "./images/Thumbnail/Sem-3/Maths-3.png";
-import s33 from "./images/Thumbnail/Sem-3/DBMS.png";
-import s34 from "./images/Thumbnail/Sem-3/DE.png";
-import s35 from "./images/Thumbnail/Sem-3/ITW.png";
+import s31 from "./images/Thumbnail/Sem-3/DSA.webp";
+import s32 from "./images/Thumbnail/Sem-3/Maths-3.webp";
+import s33 from "./images/Thumbnail/Sem-3/DBMS.webp";
+import s34 from "./images/Thumbnail/Sem-3/DE.webp";
+import s35 from "./images/Thumbnail/Sem-3/ITW.webp";
 
-import s41 from "./images/Thumbnail/Sem-4/OOPJ.png";
-import s42 from "./images/Thumbnail/Sem-4/Maths-41.png";
-import s43 from "./images/Thumbnail/Sem-4/OS.png";
-import s44 from "./images/Thumbnail/Sem-4/COA.png";
-import s45 from "./images/Thumbnail/Sem-4/POM.png";
+import s41 from "./images/Thumbnail/Sem-4/OOPJ.webp";
+import s42 from "./images/Thumbnail/Sem-4/Maths-41.webp";
+import s43 from "./images/Thumbnail/Sem-4/OS.webp";
+import s44 from "./images/Thumbnail/Sem-4/COA.webp";
+import s45 from "./images/Thumbnail/Sem-4/POM.webp";
 
-import s51 from "./images/Thumbnail/Sem-5/AJP.png";
-import s52 from "./images/Thumbnail/Sem-5/DAA.png";
-import s53 from "./images/Thumbnail/Sem-5/SE.png";
-import s54 from "./images/Thumbnail/Sem-5/TOC.png";
-import s55 from "./images/Thumbnail/Sem-5/CN.png";
-import s56 from "./images/Thumbnail/Sem-5/MAP.png";
-import s57 from "./images/Thumbnail/Sem-5/Python.png";
-import s58 from "./images/Thumbnail/Sem-5/SOA.png";
+import s51 from "./images/Thumbnail/Sem-5/AJP.webp";
+import s52 from "./images/Thumbnail/Sem-5/DAA.webp";
+import s53 from "./images/Thumbnail/Sem-5/SE.webp";
+import s54 from "./images/Thumbnail/Sem-5/TOC.webp";
+import s55 from "./images/Thumbnail/Sem-5/CN.webp";
+import s56 from "./images/Thumbnail/Sem-5/MAP.webp";
+import s57 from "./images/Thumbnail/Sem-5/Python.webp";
+import s58 from "./images/Thumbnail/Sem-5/SOA.webp";
 
-import s61 from "./images/Thumbnail/Sem-6/AI.png";
-import s62 from "./images/Thumbnail/Sem-6/pyp.png";
-import s63 from "./images/Thumbnail/Sem-6/cns.png";
-import s64 from "./images/Thumbnail/Sem-6/ml.png";
-import s65 from "./images/Thumbnail/Sem-6/ap.png";
-import s66 from "./images/Thumbnail/Sem-6/iot.png";
-import s67 from "./images/Thumbnail/Sem-6/sc.png";
-import s68 from "./images/Thumbnail/Sem-6/is.png";
-import s69 from "./images/Thumbnail/Sem-6/dc.png";
-import s70 from "./images/Thumbnail/Sem-6/ecom.png";
+import s61 from "./images/Thumbnail/Sem-6/AI.webp";
+import s62 from "./images/Thumbnail/Sem-6/pyp.webp";
+import s63 from "./images/Thumbnail/Sem-6/cns.webp";
+import s64 from "./images/Thumbnail/Sem-6/ml.webp";
+import s65 from "./images/Thumbnail/Sem-6/ap.webp";
+import s66 from "./images/Thumbnail/Sem-6/iot.webp";
+import s67 from "./images/Thumbnail/Sem-6/sc.webp";
+import s68 from "./images/Thumbnail/Sem-6/is.webp";
+import s69 from "./images/Thumbnail/Sem-6/dc.webp";
+import s70 from "./images/Thumbnail/Sem-6/ecom.webp";
 
 // import handledarkmode from "./handledarkmode";
 const Courses = () => {

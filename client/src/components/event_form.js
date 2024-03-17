@@ -2,8 +2,7 @@
 import React, {  useEffect, useState } from "react";
 import Modal from "react-modal";
 import jethalal from "./images/jethu.gif";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast from 'react-hot-toast';
 
 import handledarkmode from "./handledarkmode";
 

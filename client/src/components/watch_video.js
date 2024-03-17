@@ -7,11 +7,11 @@ import { UserContext } from "../App";
 import { useParams, Link,useNavigate } from "react-router-dom";
 import profilepic from "./images/60111.png";
 import handledarkmode from "./handledarkmode";
-import { toast } from "react-toastify";
+import toast from 'react-hot-toast';
 import $ from "jquery";
 
 import "jquery-ui-dist/jquery-ui";
-import "react-toastify/dist/ReactToastify.css";
+
 
 const  WatchVideo = () =>{
   const { state } = useContext(UserContext);
@@ -149,7 +149,7 @@ const  WatchVideo = () =>{
   return (
     <>
       {!pdfFilePath ? (
-        <div className="iframe-container">
+        <div className="iframe-container mt-60">
         <div class="title-apple-coming-soon">Coming Soon</div>
         </div>
       ) : code === "typefastio" || code === "ztype" ? (

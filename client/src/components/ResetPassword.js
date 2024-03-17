@@ -4,8 +4,7 @@ import {  useNavigate,useParams  } from "react-router-dom";
 import MiniHeader from "./miniheader";
 import Sidebar from "./sidebar";
 import Footer from "./footer";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import toast from 'react-hot-toast';
 import handledarkmode from "./handledarkmode";
 const  ResetPassword = () => {
   const navigate = useNavigate();
@@ -39,9 +38,7 @@ const  ResetPassword = () => {
             if (data.error) {
               toast.error(data.error);
             } else {
-              toast.success(data.message, {
-                className: "custom-toast", 
-              });
+              toast.success(data.message);
               navigate('/login')
               // Do something after successful password reset if needed
             }

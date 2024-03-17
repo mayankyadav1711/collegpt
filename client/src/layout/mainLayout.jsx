@@ -8,21 +8,23 @@ import Header from "../components/header";
 // import Eventbar from "../components/eventBar";
 
 function MainLayout() {
-  const location = useLocation();
+    const location = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location.pathname]);
 
-  return (
-    <div className="background-container">
-      <Header />
-      {/* <Sidebar /> */}
-      {/* <Eventbar /> */}
-      <Outlet />
-      <Footer />
-    </div>
-  );
+    return (
+        <div className="flex flex-col min-h-screen">
+            <div className="flex-grow">
+                <div className="background-container">
+                    <Header />
+                    <Outlet />
+                </div>
+            </div>
+            <Footer />
+        </div>
+    );
 }
 
 export default MainLayout;

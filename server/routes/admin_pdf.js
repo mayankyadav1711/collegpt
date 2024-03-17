@@ -14,7 +14,7 @@ const { EMAIL, GPASS } = require("../config/keys");
 
 router.post("/pdf-forms", async (req, res) => {
   try {
-    const { code, sem, sub, unit, link, author, description, extra } = req.body;
+    const { code, sem, sub, unit, link, author, description, extra, youtube } = req.body;
 
     // Create a new PdfForm instance with the form data
 
@@ -27,6 +27,7 @@ router.post("/pdf-forms", async (req, res) => {
       author,
       description,
       extra,
+      youtube,
       timestamp: new Date(),
     });
 
@@ -59,9 +60,9 @@ router.get("/pdf-forms/:code", async (req, res) => {
     }
 
     // Extract the 'link' property from the pdfForm and send it as the response
-    const { sem, sub, unit, link, author, description, extra, timestamp } =
+    const { sem, sub, unit, link, author, description, extra, youtube, timestamp } =
       pdfForm;
-    res.json({ sem, sub, unit, link, author, description, extra, timestamp });
+    res.json({ sem, sub, unit, link, author, description, extra, youtube, timestamp });
   } catch (error) {
     // Handle errors
     console.error("Error fetching PDF link:", error);

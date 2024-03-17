@@ -25,6 +25,9 @@ const pdfFormSchema = new mongoose.Schema({
   extra: {
     type: String,
   },
+  youtube: {
+    type: String,
+  },
   timestamp: {
     type: String,
   },

@@ -4,8 +4,7 @@ import {  useNavigate,useLocation } from "react-router-dom";
 import MiniHeader from "./miniheader";
 import Sidebar from "./sidebar";
 import Footer from "./footer";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import toast from 'react-hot-toast';
 import handledarkmode from "./handledarkmode";
 function OTP() {
   const navigate = useNavigate();
@@ -39,9 +38,7 @@ function OTP() {
             if (data.token && data.user) {
               // OTP verification successful, save the token to localStorage or a state management system for future authenticated requests
               localStorage.setItem("token", data.token);
-              toast.success("OTP Verified! Please Login.", {
-                className: "custom-toast", 
-              });
+              toast.success("OTP Verified! Please Login.");
               navigate("/login"); // Redirect to the dashboard page after successful OTP verification
             } else {
               toast.error(data.error || "Invalid OTP. Please try again.");

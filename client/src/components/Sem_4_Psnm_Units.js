@@ -2,8 +2,8 @@
 import React, {  useEffect } from "react";
 import { Link } from "react-router-dom";
 // import profilepic from './images/pic-1.jpg'
-// import thumb from "./images/Thumbnail/Sem-4/Maths-41.png";
-import postpic from "./images/Thumbnail/Sem-4/Maths-41.png";
+// import thumb from "./images/Thumbnail/Sem-4/Maths-41.webp";
+import postpic from "./images/Thumbnail/Sem-4/Maths-41.webp";
 
 import handledarkmode from "./handledarkmode";
 
