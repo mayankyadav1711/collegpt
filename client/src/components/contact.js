@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../App";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast from 'react-hot-toast';
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 
@@ -44,9 +43,7 @@ function Contact() {
       });
 
       if (response.ok) {
-        toast.success("Will contact you shortly!", {
-          className: "custom-toast", 
-        });
+        toast.success("Will contact you shortly!");
       } else {
         // Handle error
         console.error("ContactUs form submission failed.");

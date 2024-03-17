@@ -6,6 +6,7 @@ import "./App.css";
 import { reducer, initialState } from "./reducers/userReducer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import toast, { Toaster } from 'react-hot-toast';
 import spinnerlogo from "./components/images/Group.svg";
 import MainLayout from "./layout/mainLayout";
 export const UserContext = createContext();
@@ -196,7 +197,27 @@ function App() {
  
           <Router>
             <Routing />
-            <ToastContainer />
+            <Toaster
+  position="top-center"
+  reverseOrder={false}
+  gutter={8}
+  containerClassName=""
+  containerStyle={{ zIndex: '9999999999' }} // Ensure the container has a high z-index
+  toastOptions={{
+    className: '',
+    duration: 5000,
+    style: {
+      background: 'white',
+      color: 'black',
+      fontSize: '16px',
+    },
+    success: {
+      duration: 3000,
+     
+    },
+  }}
+/>
+
           </Router>
       
       </UserContext.Provider>

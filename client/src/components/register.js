@@ -6,8 +6,7 @@ import MiniHeader from "./miniheader";
 import Sidebar from "./sidebar";
 import Footer from "./footer";
 
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast from 'react-hot-toast';
 import handledarkmode from "./handledarkmode";
 import defaultprofilepic from "./images/60111.png";
 import Welcome_Message from "./welcomemsg";
@@ -144,9 +143,7 @@ if (!/^([^\s@]+@gmail\.com|[^@]+@ldrp\.ac\.in)$/.test(email)) {
         ) {
           toast.success(
             "Registration successful! Please check your email for OTP verification."
-            , {
-              className: "custom-toast", 
-            });
+            );
           navigate(`/otp?email=${encodeURIComponent(email)}`); // Redirect to the OTP verification page after successful registration
         } else {
           toast.error(
