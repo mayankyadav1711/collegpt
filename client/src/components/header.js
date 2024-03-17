@@ -164,10 +164,10 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <FontAwesomeIcon
+          {/* <FontAwesomeIcon
             icon={faAngleDown}
             className={`h-6 w-6 ${isProfileOpen ? "transform rotate-180" : ""}`}
-          />
+          /> */}
           {isLoading ? (
             <div className="profile">
               <div className="image"></div>
