@@ -1,4 +1,4 @@
-const handledarkmode = () =>{
+const handledarkmode = () => {
   let toggleBtn = document.getElementById("toggle-btn");
   let body = document.body;
   let darkMode = localStorage.getItem("dark-mode");
@@ -6,13 +6,22 @@ const handledarkmode = () =>{
   const enableDarkMode = () => {
     toggleBtn.classList.replace("fa-moon", "fa-sun");
     body.classList.add("dark");
+    preloadBackgroundImages(); // Preload background images
     localStorage.setItem("dark-mode", "enabled");
   };
 
   const disableDarkMode = () => {
     toggleBtn.classList.replace("fa-sun", "fa-moon");
     body.classList.remove("dark");
+    preloadBackgroundImages(); // Preload background images
     localStorage.setItem("dark-mode", "disabled");
+  };
+
+  const preloadBackgroundImages = () => {
+    const lightModeImage = new Image();
+    lightModeImage.src = getComputedStyle(document.body).getPropertyValue('--bgImage').slice(4, -1).replace(/["']/g, "");
+    const darkModeImage = new Image();
+    darkModeImage.src = getComputedStyle(document.body).getPropertyValue('--bgImage').slice(4, -1).replace(/["']/g, "");
   };
 
   if (darkMode === "enabled") {
@@ -26,30 +35,11 @@ const handledarkmode = () =>{
     } else {
       disableDarkMode();
     }
+    // Add a smooth transition to background image
+    body.style.transition = "background-image 0.5s ease";
   };
 
-  let profile = document.querySelector(".header .flex .profile");
-  let userBtn = document.querySelector("#user-btn");
   
-  // Add a click event listener to the document body
-  document.body.addEventListener("click", (event) => {
-    // Check if the click event target is not within the profile and userBtn elements
-    if (
-      !profile.contains(event.target) &&
-      event.target !== userBtn &&
-      !userBtn.contains(event.target)
-    ) {
-      // If the click is outside the profile and userBtn, close the profile
-      profile.classList.remove("active");
-    }
-  });
-  
-  // Add a click event listener to the userBtn to toggle the profile
-  userBtn.onclick = () => {
-    profile.classList.toggle("active");
-  };
-  
- 
-}
+};
 
 export default handledarkmode;

@@ -1,11 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { faXTwitter, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"; // Import social media icons
+import {
+  faXTwitter,
+  faGithub,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons"; // Import social media icons
 
 import handledarkmode from "./handledarkmode";
 import defaultprofilepic from "./images/60111.png";
+import spinnerlogo from "./images/Group.svg";
 const Userlist = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [userProfiles, setUserProfiles] = useState([]);
@@ -21,7 +25,9 @@ const Userlist = () => {
   useEffect(() => {
     const fetchUserProfiles = async () => {
       try {
-        const response = await fetch("https://api-collegpt.vercel.app/all-profiles");
+        const response = await fetch(
+          "https://api-collegpt.vercel.app/all-profiles"
+        );
         const data = await response.json();
         const profilesWithState = data.map((profile) => ({
           ...profile,
@@ -88,8 +94,8 @@ const Userlist = () => {
 
   return (
     <>
-   <style>
-    {`
+      <style>
+        {`
       .user-list {
         position: relative;
       }
@@ -121,114 +127,119 @@ const Userlist = () => {
         background-color: rgb(92 173 173 / 25%);
       }
     `}
-  </style>
-  <div className="user-list">
-  <h1 class="text-center mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-6xl lg:text-8xl dark:text-white">
-              Our Community {counter}
-            </h1>
-          
-    <form className="userlist-searchbar">
-      <input
-        type="text"
-        name="search_box"
-        required
-        placeholder="Search Member"
-        maxLength="100"
-        value={searchTerm}
-        onChange={handleSearch}
-      />
-      <button type="submit" className="fas fa-search -mr-16 "></button>
-    </form>
-    {isLoading ? (
-      <div>
-        <FontAwesomeIcon icon={faSpinner} spin size="2x" />
-      </div>
-    ) : filteredProfiles.length === 0 ? (
-      <div>
-        <h2 className="">No match found. </h2>
-      </div>
-    ) : (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center mx-44 my-10">
-        {currentProfiles.map((userProfile) => (
-          <div key={userProfile._id} className=" rounded-lg mx-2 bg-custom transition-all">
-            <div className="p-6 text-center">
-              <img
-                className="mx-auto rounded-full h-48 w-48 object-cover transform hover:scale-110 transition-transform duration-300"
-                src={userProfile?.profilePic || defaultprofilepic}
-                alt="author avatar"
-              />
-              <h3 className="dark:text-white text-4xl font-medium mt-4 mb-2">{userProfile?.name}</h3>
-              <p className="dark:text-white text-2xl mb-4">{userProfile?.Roles[0]}</p> {/* Display only the first role */}
-              <div className="flex justify-center space-x-4">
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#00000080] hover:text-[#000000]"
-                >
-                                       <FontAwesomeIcon icon={faXTwitter} className="w-8 h-8" />
+      </style>
+      <div className="user-list">
+        <h1 class="text-center mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-6xl lg:text-8xl dark:text-white">
+          Our Community {counter}
+        </h1>
 
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#00000080] hover:text-[#000000]"
-                >
-                                       <FontAwesomeIcon icon={faGithub} className="w-8 h-8" />
-
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#0076b580] hover:text-[#0077b5]"
-                >
-                                      <FontAwesomeIcon icon={faLinkedin} className="w-8 h-8" />
-
-                </a>
-              </div>
-            </div>
+        <form className="userlist-searchbar">
+          <input
+            type="text"
+            name="search_box"
+            required
+            placeholder="Search Member"
+            maxLength="100"
+            value={searchTerm}
+            onChange={handleSearch}
+          />
+          <button type="submit" className="fas fa-search -mr-16 "></button>
+        </form>
+        {isLoading ? (
+          <div className="loading-spinner">
+            {/* Replace 'logo.svg' with the path to your SVG logo */}
+            <img src={spinnerlogo} alt="Loading" className="spinner-logo" />
           </div>
-        ))}
+        ) : filteredProfiles.length === 0 ? (
+          <div>
+            <h2 className="">No match found. </h2>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center mx-44 my-10">
+            {currentProfiles.map((userProfile) => (
+              <div
+                key={userProfile._id}
+                className=" rounded-lg mx-2 bg-custom transition-all"
+              >
+                <div className="p-6 text-center">
+                  <img
+                    className="mx-auto rounded-full h-48 w-48 object-cover transform hover:scale-110 transition-transform duration-300"
+                    src={userProfile?.profilePic || defaultprofilepic}
+                    alt="author avatar"
+                  />
+                  <h3 className="dark:text-white text-4xl font-medium mt-4 mb-2">
+                    {userProfile?.name}
+                  </h3>
+                  <p className="dark:text-white text-2xl mb-4">
+                    {userProfile?.Roles[0]}
+                  </p>{" "}
+                  {/* Display only the first role */}
+                  <div className="flex justify-center space-x-4">
+                    <a
+                      href={userProfile?.twitterURL || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-gray-100"
+                    >
+                      <FontAwesomeIcon icon={faXTwitter} className="w-8 h-8" />
+                    </a>
+                    <a
+                      href={userProfile?.githubURL || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-gray-100"
+                    >
+                      <FontAwesomeIcon icon={faGithub} className="w-8 h-8" />
+                    </a>
+                    <a
+                      href={userProfile?.linkedinURL || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-gray-100"
+                    >
+                      <FontAwesomeIcon icon={faLinkedin} className="w-8 h-8" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <nav className="pagination-outer my-5" aria-label="Page navigation">
+          <ul className="pagination">
+            <li className="page-item">
+              <button
+                className="page-link"
+                aria-label="Previous"
+                onClick={prevPage}
+                disabled={currentPage === 1}
+              >
+                Prev
+              </button>
+            </li>
+            <li className="page-item">
+              <button className="page-link page-number" disabled>
+                {currentPage}
+              </button>
+            </li>
+            <li className="page-item">
+              <button
+                className="page-link"
+                aria-label="Next"
+                onClick={nextPage}
+                disabled={
+                  currentPage ===
+                  Math.ceil(userProfiles.length / profilesPerPage)
+                }
+              >
+                Next
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
-    )}
-
-    <nav className="pagination-outer" aria-label="Page navigation">
-      <ul className="pagination">
-        <li className="page-item">
-          <button
-            className="page-link"
-            aria-label="Previous"
-            onClick={prevPage}
-            disabled={currentPage === 1}
-          >
-            Prev
-          </button>
-        </li>
-        <li className="page-item">
-          <button className="page-link page-number" disabled>
-            {currentPage}
-          </button>
-        </li>
-        <li className="page-item">
-          <button
-            className="page-link"
-            aria-label="Next"
-            onClick={nextPage}
-            disabled={
-              currentPage ===
-              Math.ceil(userProfiles.length / profilesPerPage)
-            }
-          >
-            Next
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</>
-
+    </>
   );
 };
 
