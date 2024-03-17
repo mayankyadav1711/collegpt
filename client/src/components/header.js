@@ -41,24 +41,19 @@ const Header = () => {
     }
   }, [state]);
   useEffect(() => {
-    // Function to close the menu and profile dropdown when clicking anywhere outside
     function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+      if (!menuRef.current.contains(event.target)) {
         setIsMenuOpen(false);
-      }
-      if (profileRef.current && !profileRef.current.contains(event.target)) {
-        setIsProfileOpen(false);
       }
     }
   
-    // Adding event listener to handle clicks anywhere on the document
     document.addEventListener("mousedown", handleClickOutside);
   
-    // Removing event listener when the component unmounts
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   
   
   const handleProfileClick = () => {
@@ -85,24 +80,24 @@ const Header = () => {
         </Link>
         {/* Desktop Menu  */}
         <nav className="hidden md:flex items-center space-x-20 ml-auto">
-          <div className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
+          <div className="text-gray-900 dark:text-white font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
             <Link to="/">Home</Link>
           </div>
-          <div className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
+          <div className="text-gray-900 dark:text-white font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
             <Link to="/courses">X-Notes</Link>
           </div>
-          <div className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
+          <div className="text-gray-900 dark:text-white font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
             <Link to="/userlist">Community</Link>
           </div>
-          <div className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
+          <div className="text-gray-900 dark:text-white font-medium  text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
             <Link to="/about">About</Link>
           </div>
-          <div className="text-gray-900 dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
+          <div className="text-gray-900 dark:text-white font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
             <Link to="/contributor_form">Contribute</Link>
           </div>
           <Link
             to="/contact"
-            className="text-gray-900 font-medium dark:text-white text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+            className="text-gray-900  dark:text-white  font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
             Contact
           </Link>
@@ -166,70 +161,71 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-  className={`md:hidden fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 transition-transform duration-300 ease-in-out transform ${
-    isMenuOpen ? "" : "opacity-0 pointer-events-none" // Hide the container when menu is closed
-  }`}
+  className={`md:hidden fixed top-0 left-0 w-full h-full bg-[#ffffff] dark:bg-[#020813] transition-transform duration-300 ease-in-out transform ${
+    isMenuOpen ? "" : "opacity-0 pointer-events-none"
+  }`
+  }
+  onClick={closeMenu}
 >
- 
-        <button
-          onClick={closeMenu}
-          type="button"
-          className="absolute top-4 right-4 w-10 h-10 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center"
-          aria-label="Close Menu"
-        >
-          <FontAwesomeIcon icon={faTimes} className="w-12 h-12" />
-        </button>
+ <button
+    onClick={closeMenu}
+    type="button"
+    className="absolute top-4 right-4 w-10 h-10 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center"
+    aria-label="Close Menu"
+    style={{ zIndex: 10 }}
+  >
+    <FontAwesomeIcon icon={faTimes} className="w-12 h-12" />
+  </button>
 
-        {/* Menu items for Mobile*/}
-        <nav
-          ref={menuRef}
-          className="flex flex-col bg-[#ffffff] dark:bg-[#020813]  items-center justify-center min-h-full space-y-40 w-full backdrop-blur-3xl bg-opacity-50"
-        >
-          <Link
-            to="/"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-            onClick={closeMenu}
-          >
-            Home
-          </Link>
-          <Link
-            to="/courses"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-            onClick={closeMenu}
-          >
-            X-Notes
-          </Link>
-          <Link
-            to="/userlist"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-            onClick={closeMenu}
-          >
-            Community
-          </Link>
-          <Link
-            to="/about"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-            onClick={closeMenu}
-          >
-            About
-          </Link>
-         
-          <Link
-            to="/contributor_form"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-            onClick={closeMenu}
-          >
-            Contribute
-          </Link>
-          <Link
-            to="/contact"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-            onClick={closeMenu}
-          >
-            Contact
-          </Link>
-        </nav>
-      </div>
+  <nav
+    ref={menuRef}
+    className="flex flex-col bg-[#ffffff] dark:bg-[#020813] text-white items-center justify-center min-h-screen w-full backdrop-filter backdrop-blur-lg"
+  >
+    <Link
+      to="/"
+      className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+      onClick={closeMenu}
+    >
+      Home
+    </Link>
+    <Link
+      to="/courses"
+      className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+      onClick={closeMenu}
+    >
+      X-Notes
+    </Link>
+    <Link
+      to="/userlist"
+      className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+      onClick={closeMenu}
+    >
+      Community
+    </Link>
+    <Link
+      to="/about"
+      className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+      onClick={closeMenu}
+    >
+      About
+    </Link>
+    <Link
+      to="/contributor_form"
+      className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+      onClick={closeMenu}
+    >
+      Contribute
+    </Link>
+    <Link
+      to="/contact"
+      className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+      onClick={closeMenu}
+    >
+      Contact
+    </Link>
+  </nav>
+</div>
+
     </header>
   );
 };
