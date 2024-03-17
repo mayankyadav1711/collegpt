@@ -105,7 +105,6 @@ router.post("/signup", (req, res) => {
                    
                     <h1 style="color: purple; text-align: center;" >Ta-dah! 🎉 We've sent your OTP – the golden key to unlock a world of ColleGPT adventures! </h1> <h3 style="text-align: center;"> Ab aap taiyyar hain shuru hone ke liye ek naye aur dhamakedar safar par. OTP check karein aur ColleGPT ke saath masti bhari padhai ki taraf kadam badhayein! 🚀 </h3>
                    
-                    <img class="email-image" src="https://firebasestorage.googleapis.com/v0/b/studymate-c44e8.appspot.com/o/jethalal_otp.gif?alt=media&token=61e96350-2a47-442e-9217-e8978d405591&_gl=1*ai9yxf*_ga*MTkzMDY4MTk2My4xNjk0NTQ0MDQw*_ga_CW55HF8NVT*MTY5Njc1MzgzNi4xNy4xLjE2OTY3NTQwOTMuMi4wLjA." style="border-radius: 50%; max-width: 300px; height: 300px">
                     
                     <h2 class="image-text">${otp}</h2>
             
@@ -176,7 +175,6 @@ router.post("/signup", (req, res) => {
                    
                     <h1 style="color: purple; text-align: center;" >Ta-dah! 🎉 We've sent your OTP – the golden key to unlock a world of ColleGPT adventures! </h1> <h3 style="text-align: center;"> Ab aap taiyyar hain shuru hone ke liye ek naye aur dhamakedar safar par. OTP check karein aur ColleGPT ke saath masti bhari padhai ki taraf kadam badhayein! 🚀 </h3>
                    
-                    <img class="email-image" src="https://firebasestorage.googleapis.com/v0/b/studymate-c44e8.appspot.com/o/jethalal_otp.gif?alt=media&token=61e96350-2a47-442e-9217-e8978d405591&_gl=1*ai9yxf*_ga*MTkzMDY4MTk2My4xNjk0NTQ0MDQw*_ga_CW55HF8NVT*MTY5Njc1MzgzNi4xNy4xLjE2OTY3NTQwOTMuMi4wLjA." style="border-radius: 50%; max-width: 300px; height: 300px">
                     
                     <h2 class="image-text">${otp}</h2>
             
@@ -284,51 +282,7 @@ router.post("/verify-otp", (req, res) => {
             <body>
               <h1 class="image-text heading" style="color: darkblue;" >प्रणाम, ${user.name} 🙏</h1>
               <h1 style="color: purple; text-align: center;" >ColleGPT 🚀 में आपका स्वागत है !!</h1>
-             
-              <img class="email-image" src="https://firebasestorage.googleapis.com/v0/b/studymate-c44e8.appspot.com/o/tmkoc-dayabhabhi.gif?alt=media&token=91cd60f3-a72c-46dd-92d2-95207cc3e884&_gl=1*19mu3fc*_ga*MTkzMDY4MTk2My4xNjk0NTQ0MDQw*_ga_CW55HF8NVT*MTY5NjYxNDg3Ni4xMi4xLjE2OTY2MTcwMDEuMjcuMC4w" style="border-radius: 50%; max-width: 300px; height: 300px">
               <h2 class="image-text"  >Your ultimate college companion ~ ColleGPT 💯, is here to revolutionize your academic journey🔥</h2>
-              <h2 class="image-text">🌟 Explore 🌟</h2>
-      
-              <!-- Image 1 -->
-              <a href="https://www.collegpt.com"> <img
-                src="https://firebasestorage.googleapis.com/v0/b/studymate-c44e8.appspot.com/o/Xnotesvector.jpg?alt=media&token=bb10a77a-52b9-4aaa-b0df-6a79df17340f&_gl=1*1qqzsbn*_ga*MTkzMDY4MTk2My4xNjk0NTQ4MDQw*_ga_CW55HF8NVT*MTY5NjYxNTk0Ny4xMi4xLjE2OTY2MTY5NzcuNTYuMC4w"
-                alt="Image 1"
-                class="email-image"
-              /></a>
-              <p class="image-text"><a href="https://www.collegpt.com">Exclusive Notes</a></p>
-              
-              <!-- Image 2 -->
-              <a href="https://www.collegpt.com"> <img
-                src="https://firebasestorage.googleapis.com/v0/b/studymate-c44e8.appspot.com/o/roadmapvector.jpg?alt=media&token=1e6b3d47-8ad0-4cb0-af6e-0983d230592f&_gl=1*wj1qg1*_ga*MTkzMDY4MTk2My4xNjk0NTQ4MDQw*_ga_CW55HF8NVT*MTY5NjYxNTk0Ny4xMi4xLjE2OTY2MTY5NzcuNTkuMC4w"
-                alt="Image 2"
-                class="email-image"
-              /></a>
-              <p class="image-text"><a href="https://www.collegpt.com">Detailed Roadmaps</a></p>
-              
-              <!-- Image 3 -->
-              <a href="https://www.collegpt.com"> <img
-                src="https://firebasestorage.googleapis.com/v0/b/studymate-c44e8.appspot.com/o/cheatsheetvector.jpg?alt=media&token=01aeb25d-1670-4c0b-bedd-a839703e2d77&_gl=1*11je3m5*_ga*MTkzMDY4MTk2My4xNjk0NTQ4MDQw*_ga_CW55HF8NVT*MTY5NjYxNTk0Ny4xMi4xLjE2OTY2MTY5NzYuMTEuMC4w"
-                alt="Image 3"
-                class="email-image"
-              /></a>
-              <p class="image-text"><a href="https://www.collegpt.com">Handy CheatSheets</a></p>
-              
-              <!-- Image 4 -->
-              <a href="https://www.collegpt.com"> <img
-                src="https://firebasestorage.googleapis.com/v0/b/studymate-c44e8.appspot.com/o/eventcalendarvector.jpg?alt=media&token=2b4c28ec-e627-42a6-b724-0f65c859a56a&_gl=1*ebxa2s*_ga*MTkzMDY4MTk2My4xNjk0NTQ4MDQw*_ga_CW55HF8NVT*MTY5NjYxNTk0Ny4xMi4xLjE2OTY2MTY5NzEuMzMuMC4w"
-                alt="Image 4"
-                class="email-image"
-              /></a>
-              <p class="image-text"><a href="https://www.collegpt.com">Event Calendar</a></p>
-              
-              <!-- Image 5 -->
-              <a href="https://www.collegpt.com">   <img
-                src="https://firebasestorage.googleapis.com/v0/b/studymate-c44e8.appspot.com/o/community%20vector.jpg?alt=media&token=df9a73b7-3c3a-4bf2-8441-16890fc7b5df&_gl=1*g6kaho*_ga*MTkzMDY4MTk2My4xNjk0NTQ4MDQw*_ga_CW55HF8NVT*MTY5NjYxNTk0Ny4xMi4xLjE2OTY2MTY5NjguNjAuMC4w"
-                alt="Image 5"
-                class="email-image"
-              /></a>
-              <p class="image-text"><a href="https://www.collegpt.com">Engaging Community</a></p>
-              
             </body>
           </html>
         `,
@@ -431,7 +385,6 @@ router.post("/reset-password", (req, res) => {
           </head>
           <body>
           <h1 style=" text-align: center;">Password bhul gaye ? Itna yaad nahi rehta ? Khaana to nahi bhulte </h1>
-          <img class="email-image" src="https://firebasestorage.googleapis.com/v0/b/studymate-c44e8.appspot.com/o/jethalal%20gadha%20hu%F0%9F%98%82%20(Custom)%20(3)%20(Custom)%20(1).gif?alt=media&token=6dd0ab5e-3a9a-410e-a00a-734fe36027c9&_gl=1*fflit0*_ga*MTkzMDY4MTk2My4xNjk0NTQ0MDQw*_ga_CW55HF8NVT*MTY5Njc1MzgzNi4xNy4xLjE2OTY3NTUwNTcuNTcuMC4w" style="border-radius: 50%; max-width: 300px; height: 300px">
                         <h2 style=" text-align: center;">Click on this 👉 <a href="${EMAIL}/resetpassword/${token}">link</a> to reset password</h2>
                         </body>
         </html>`,

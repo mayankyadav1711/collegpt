@@ -254,7 +254,7 @@ router.post("/feedback", requireLogin, async (req, res) => {
       subject: "New Feedback Recieved",
       html: `
       <div style="text-align: center;">
-      <img src=${req.user.profilePic} style="border-radius: 50%; max-width: 200px;">
+   
       <h2 style="color: purple;">${req.user.name}</h2>
       <h3 style="color: purple;">${req.user.email}</h3>
       <h3><span >Feedback:</span>  ${feedback}</h3>

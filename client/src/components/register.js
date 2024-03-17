@@ -4,13 +4,12 @@ import React, {  useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import toast from 'react-hot-toast';
-import handledarkmode from "./handledarkmode";
+
 import defaultprofilepic from "./images/60111.png";
 
+
 function Register() {
-  useEffect(() => {
-    handledarkmode();
-  }, []);
+ 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +18,7 @@ function Register() {
   const [sem, setSem] = useState(1);
   const [gender, setGender] = useState("");
   const [profileImage, setProfileImage] = useState(null);
+  const [loading, setLoading] = useState(false); 
   const navigate = useNavigate();
 
   const MAX_FILE_SIZE_MB = 1;
@@ -74,23 +74,25 @@ function Register() {
 
   const handleRegistration = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     // Perform validation (you can add more validation rules as needed)
     if (!name || !email || !password || !c_password || !university || !gender) {
       toast.error("Please fill in all the required fields.");
+      setLoading(false); // Reset loading state
       return;
     }
-if (!/^([^\s@]+@gmail\.com|[^@]+@ldrp\.ac\.in)$/.test(email)) {
-  toast.error("Enter a valid Gmail !");
-  return;
-}
-
-
+    if (!/^([^\s@]+@gmail\.com|[^@]+@ldrp\.ac\.in)$/.test(email)) {
+      toast.error("Enter a valid Gmail !");
+      setLoading(false); // Reset loading state
+      return;
+    }
+  
     if (password !== c_password) {
       toast.error("Passwords do not match.");
+      setLoading(false); // Reset loading state
       return;
     }
-
+  
     // Check if a profileImage is selected, and upload it to Cloudinary if so
     let imageUrl = "";
     if (profileImage) {
@@ -99,6 +101,7 @@ if (!/^([^\s@]+@gmail\.com|[^@]+@ldrp\.ac\.in)$/.test(email)) {
         console.log(imageUrl);
         if (!imageUrl) {
           // Error occurred during image upload
+          setLoading(false); // Reset loading state
           return;
         }
       } catch (error) {
@@ -106,10 +109,11 @@ if (!/^([^\s@]+@gmail\.com|[^@]+@ldrp\.ac\.in)$/.test(email)) {
         toast.error(
           "An error occurred during image upload. Please try again later."
         );
+        setLoading(false); // Reset loading state
         return;
       }
     }
-
+  
     // Create a JSON payload to send in the request body
     const payload = {
       name,
@@ -120,7 +124,7 @@ if (!/^([^\s@]+@gmail\.com|[^@]+@ldrp\.ac\.in)$/.test(email)) {
       gender,
       profilePic: imageUrl, // Use the Cloudinary image URL, or an empty string if no image was uploaded
     };
-
+  
     // Make an API call to your server for user registration
     fetch("https://api-collegpt.vercel.app/signup", {
       method: "POST",
@@ -139,7 +143,7 @@ if (!/^([^\s@]+@gmail\.com|[^@]+@ldrp\.ac\.in)$/.test(email)) {
         ) {
           toast.success(
             "Registration successful! Please check your email for OTP verification."
-            );
+          );
           navigate(`/otp?email=${encodeURIComponent(email)}`); // Redirect to the OTP verification page after successful registration
         } else {
           toast.error(
@@ -150,8 +154,12 @@ if (!/^([^\s@]+@gmail\.com|[^@]+@ldrp\.ac\.in)$/.test(email)) {
       .catch((error) => {
         console.error("Error occurred during registration:", error);
         alert("An error occurred during registration. Please try again later.");
+      })
+      .finally(() => {
+        setLoading(false); // Hide spinner when request completes
       });
   };
+  
 
   return (
     <>
@@ -473,9 +481,10 @@ if (!/^([^\s@]+@gmail\.com|[^@]+@ldrp\.ac\.in)$/.test(email)) {
       }} // Adjust the width as needed
             />
            
-            <button type="submit" className="btn">
-              Send OTP
-            </button>
+           <button type="submit" className="btn" disabled={loading}> {/* Disable button when loading */}
+  {loading ? "Sending OTP..." : "Send OTP"} {/* Show button text based on loading state */}
+</button>
+
             <p>&nbsp;&nbsp; Already have an account? </p>
             <Link to="/login">
               <a className="btn">Login</a>
