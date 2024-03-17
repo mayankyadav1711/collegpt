@@ -2,10 +2,10 @@
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 // import profilepic from './images/pic-1.jpg'
-// import thumb from "./images/Thumbnail/Sem-3/DBMS.png"
-import postpic from "./images/Thumbnail/Sem-3/DBMS.png"
+// import thumb from "./images/Thumbnail/Sem-3/DBMS.webp"
+import postpic from "./images/Thumbnail/Sem-3/DBMS.webp"
 
-// import newpic from "./images/Thumbnail/Sem-3/DBMS.png"
+// import newpic from "./images/Thumbnail/Sem-3/DBMS.webp"
 import handledarkmode from "./handledarkmode";
 function Sem_3_Dbms_Units() {
   useEffect(() => {

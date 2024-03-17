@@ -2,8 +2,8 @@
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 // import profilepic from './images/pic-1.jpg'
-// import thumb from "./images/Thumbnail/Sem-3/DE.png"
-import postpic from "./images/Thumbnail/Sem-3/DE.png"
+// import thumb from "./images/Thumbnail/Sem-3/DE.webp"
+import postpic from "./images/Thumbnail/Sem-3/DE.webp"
 
 import handledarkmode from "./handledarkmode";
 function Sem_3_De_Units() {

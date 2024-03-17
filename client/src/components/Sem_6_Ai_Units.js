@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import postpic from "./images/Thumbnail/Sem-6/AI.png";
+import postpic from "./images/Thumbnail/Sem-6/AI.webp";
 import handledarkmode from "./handledarkmode";
 function Sem_6_Ai_Units() {
   useEffect(() => {

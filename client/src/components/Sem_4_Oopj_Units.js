@@ -2,8 +2,8 @@
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 // import profilepic from './images/pic-1.jpg'
-// import thumb from "./images/Thumbnail/Sem-4/OOPJ.png"
-import postpic from "./images/Thumbnail/Sem-4/OOPJ.png"
+// import thumb from "./images/Thumbnail/Sem-4/OOPJ.webp"
+import postpic from "./images/Thumbnail/Sem-4/OOPJ.webp"
 
 import handledarkmode from "./handledarkmode";
 function Sem_4_Oopj_Units() {

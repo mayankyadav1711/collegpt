@@ -74,9 +74,9 @@ const NewHome = lazy(() => import("./components/newhome"));
 const Blog = lazy(() => import("./components/Blog"));
 
 const LoadingSpinner = () => (
-  <div className="loading-spinner">
+  <div className="loading-spinner bg-[#ffffff] dark:bg-[#020813] ">
     {/* Replace 'logo.svg' with the path to your SVG logo */}
-    <img src={spinnerlogo} alt="Loading" className="spinner-logo" />
+    <img src={spinnerlogo} alt="Loading" className="spinner-logo " />
   </div>
 );
 
