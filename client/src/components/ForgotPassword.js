@@ -3,8 +3,7 @@ import React, {  useEffect, useState } from "react";
 import MiniHeader from "./miniheader";
 import Sidebar from "./sidebar";
 import Footer from "./footer";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import toast from 'react-hot-toast';
 import handledarkmode from "./handledarkmode";
 const  ForgotPassword = () => {
 

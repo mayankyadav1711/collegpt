@@ -4,8 +4,7 @@ import { UserContext } from "../App";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import profilepic from "./images/60111.png";
 import handledarkmode from "./handledarkmode";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast from 'react-hot-toast';
 import Darshit from "./Darshit";
 import Divya from "./Divya";
 import Mayank from "./Mayank";
@@ -30,7 +29,7 @@ const About = () => {
     e.preventDefault();
     if (!state?._id) {
       // If user is not logged in, navigate to the login page
-      toast.success("Please login first")
+      toast.error("Please login first")
       navigate("/login");
       return;
     }
@@ -47,9 +46,7 @@ const About = () => {
       if (response.ok) {
         setFeedback("");
         setRating(0);
-        toast.dark("Feedback submitted successfully", {
-          className: "custom-toast", 
-        });
+        toast.success("Feedback submitted successfully");
       } else {
         toast.error("Error submitting feedback");
       }

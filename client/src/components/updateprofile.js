@@ -11,8 +11,7 @@ import {
  
 } from "@fortawesome/free-solid-svg-icons";
 
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast from 'react-hot-toast';
 
 import handledarkmode from "./handledarkmode";
 

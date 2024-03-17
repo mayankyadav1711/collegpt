@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../App";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import handledarkmode from "./handledarkmode";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast from 'react-hot-toast';
 
 const Contributor_Form = () => {
   const { state } = useContext(UserContext);
@@ -42,9 +41,7 @@ const Contributor_Form = () => {
 
       if (response.ok) {
         // Handle successful contribution
-        toast.success("Submitted Sucessfully", {
-          className: "custom-toast", 
-        }); // Redirect to a success page or handle it according to your needs
+        toast.success("Submitted Sucessfully"); // Redirect to a success page or handle it according to your needs
       } else {
         // Handle error
         console.error("Contribution submission failed.");

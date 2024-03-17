@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
-import { toast } from "react-toastify";
+import toast from 'react-hot-toast';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner, faBars, faAngleDown } from "@fortawesome/free-solid-svg-icons"; // Added faAngleDown for dropdown indicator
 import defaultprofilepic from "./images/60111.png";

@@ -6,8 +6,7 @@ import { UserContext } from "../App";
 import MiniHeader from "./miniheader";
 import Sidebar from "./sidebar";
 import Footer from "./footer";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast from 'react-hot-toast';
 import handledarkmode from "./handledarkmode";
 function Login() {
   const {  dispatch } = useContext(UserContext);
@@ -49,15 +48,11 @@ function Login() {
           localStorage.setItem("token", data.token);
           localStorage.setItem("user", JSON.stringify(data.user));
           dispatch({ type: "USER", payload: data.user });
-          toast.success("Successfully SignedIn!!", {
-            className: "custom-toast", 
-          });
+          toast.success("Successfully SignedIn!!");
           navigate("/"); // Redirect to the dashboard page after successful login
         } else {
           toast.error(
-            data.error || "Invalid email or password. Please try again.", {
-              className: "custom-toast", 
-            });
+            data.error || "Invalid email or password. Please try again.");
          
         }
       })
