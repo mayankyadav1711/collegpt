@@ -166,10 +166,11 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 transition-transform duration-300 ease-in-out transform navbar ${
-          isMenuOpen ? "" : "-translate-x-full"
-        }`}
-      >
+  className={`md:hidden fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 transition-transform duration-300 ease-in-out transform ${
+    isMenuOpen ? "" : "opacity-0 pointer-events-none" // Hide the container when menu is closed
+  }`}
+>
+ 
         <button
           onClick={closeMenu}
           type="button"
@@ -182,29 +183,33 @@ const Header = () => {
         {/* Menu items for Mobile*/}
         <nav
           ref={menuRef}
-          className="flex flex-col items-center justify-center min-h-full space-y-40 w-full backdrop-blur-3xl bg-opacity-50"
+          className="flex flex-col bg-[#ffffff] dark:bg-[#020813]  items-center justify-center min-h-full space-y-40 w-full backdrop-blur-3xl bg-opacity-50"
         >
           <Link
             to="/"
             className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            onClick={closeMenu}
           >
             Home
           </Link>
           <Link
             to="/courses"
             className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            onClick={closeMenu}
           >
             X-Notes
           </Link>
           <Link
             to="/userlist"
             className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            onClick={closeMenu}
           >
             Community
           </Link>
           <Link
             to="/about"
             className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            onClick={closeMenu}
           >
             About
           </Link>
@@ -212,12 +217,14 @@ const Header = () => {
           <Link
             to="/contributor_form"
             className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            onClick={closeMenu}
           >
             Contribute
           </Link>
           <Link
             to="/contact"
             className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            onClick={closeMenu}
           >
             Contact
           </Link>
