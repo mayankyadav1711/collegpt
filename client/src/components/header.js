@@ -1,9 +1,14 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner, faBars, faAngleDown, faTimes } from "@fortawesome/free-solid-svg-icons"; // Added faAngleDown for dropdown indicator
+import {
+  faSpinner,
+  faBars,
+  faAngleDown,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons"; // Added faAngleDown for dropdown indicator
 import defaultprofilepic from "./images/60111.png";
 import Welcome_Collegpt from "./collegptanimation";
 
@@ -18,8 +23,6 @@ const Header = () => {
   const profileRef = useRef(null);
 
   useEffect(() => {
-
-    
     if (state && state._id) {
       setIsLoading(true);
 
@@ -42,8 +45,9 @@ const Header = () => {
   }, [state]);
   useEffect(() => {
     function handleClickOutside(event) {
-      if (!menuRef.current.contains(event.target)) {
+      if (!menuRef.current.contains(event.target) && !profileRef.current.contains(event.target)) {
         setIsMenuOpen(false);
+        setIsProfileOpen(false); // Close the dropdown if clicked outside
       }
     }
   
@@ -53,9 +57,8 @@ const Header = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  
 
-  
-  
   const handleProfileClick = () => {
     setIsProfileOpen(!isProfileOpen);
     setIsMenuOpen(false); // Close the menu when profile dropdown is opened
@@ -108,8 +111,8 @@ const Header = () => {
             <div id="toggle-btn" className="fas fa-moon"></div>
           </div>
           <div className="relative" ref={profileRef}>
-          <img
-               src={userProfile?.profilePic || defaultprofilepic}
+            <img
+              src={userProfile?.profilePic || defaultprofilepic}
               className="w-16 h-16 ml-3 cursor-pointer rounded-full"
               onClick={handleProfileClick} // Attach click handler for profile picture
               alt="Profile Picture"
@@ -122,20 +125,36 @@ const Header = () => {
               ref={menuRef}
             >
               <div className="py-1">
-                <button
-                  className="block w-full px-4 py-2 text-2xl text-white hover:bg-gray-100 hover:text-black"
-                  onClick={() => {
-                    localStorage.clear();
-                    dispatch({ type: "CLEAR" });
-                    toast.success("Logout Successfully!!");
-                    navigate("/login");
-                  }}
-                >
-                  Logout
-                </button>
+                {state?._id ? (
+                  <button
+                    className="block w-full px-4 py-2 text-2xl text-white "
+                    onClick={() => {
+                      localStorage.clear();
+                      dispatch({ type: "CLEAR" });
+                      toast.success("Logout Successfully!!");
+                      navigate("/login");
+                      setIsProfileOpen(false);
+                    }}
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <button
+                    className="block w-full px-4 py-2 text-2xl text-white "
+                    onClick={() => {
+                      navigate("/login");
+                      setIsProfileOpen(false);
+                    }}
+                  >
+                    Login
+                  </button>
+                )}
+
                 <Link
                   to="/updateProfile"
-                  className="block w-full text-center px-4 py-2 text-2xl text-white hover:bg-gray-100 hover:text-black"
+                  className="block w-full text-center px-4 py-2 text-2xl text-white "
+                  onClick={() => setIsProfileOpen(false)} // Close the dropdown after selecting view profile
+
                 >
                   View Profile
                 </Link>
@@ -161,71 +180,69 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-  className={`md:hidden fixed top-0 left-0 w-full h-full bg-[#ffffff] dark:bg-[#020813] transition-transform duration-300 ease-in-out transform ${
-    isMenuOpen ? "" : "opacity-0 pointer-events-none"
-  }`
-  }
-  onClick={closeMenu}
->
- <button
-    onClick={closeMenu}
-    type="button"
-    className="absolute top-4 right-4 w-10 h-10 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center"
-    aria-label="Close Menu"
-    style={{ zIndex: 10 }}
-  >
-    <FontAwesomeIcon icon={faTimes} className="w-12 h-12" />
-  </button>
+        className={`md:hidden fixed top-0 left-0 w-full h-full bg-[#ffffff] dark:bg-[#020813] transition-transform duration-300 ease-in-out transform ${
+          isMenuOpen ? "" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={closeMenu}
+      >
+        <button
+          onClick={closeMenu}
+          type="button"
+          className="absolute top-4 right-4 w-10 h-10 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center"
+          aria-label="Close Menu"
+          style={{ zIndex: 10 }}
+        >
+          <FontAwesomeIcon icon={faTimes} className="w-12 h-12" />
+        </button>
 
-  <nav
-    ref={menuRef}
-    className="flex flex-col bg-[#ffffff] dark:bg-[#020813] text-white items-center justify-center min-h-screen w-full backdrop-filter backdrop-blur-lg"
-  >
-    <Link
-      to="/"
-      className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
-      onClick={closeMenu}
-    >
-      Home
-    </Link>
-    <Link
-      to="/courses"
-      className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
-      onClick={closeMenu}
-    >
-      X-Notes
-    </Link>
-    <Link
-      to="/userlist"
-      className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
-      onClick={closeMenu}
-    >
-      Community
-    </Link>
-    <Link
-      to="/about"
-      className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
-      onClick={closeMenu}
-    >
-      About
-    </Link>
-    <Link
-      to="/contributor_form"
-      className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
-      onClick={closeMenu}
-    >
-      Contribute
-    </Link>
-    <Link
-      to="/contact"
-      className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
-      onClick={closeMenu}
-    >
-      Contact
-    </Link>
-  </nav>
-</div>
-
+        <nav
+          ref={menuRef}
+          className="flex flex-col bg-[#ffffff] dark:bg-[#020813] text-white items-center justify-center min-h-screen w-full backdrop-filter backdrop-blur-lg"
+        >
+          <Link
+            to="/"
+            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+            onClick={closeMenu}
+          >
+            Home
+          </Link>
+          <Link
+            to="/courses"
+            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+            onClick={closeMenu}
+          >
+            X-Notes
+          </Link>
+          <Link
+            to="/userlist"
+            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+            onClick={closeMenu}
+          >
+            Community
+          </Link>
+          <Link
+            to="/about"
+            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+            onClick={closeMenu}
+          >
+            About
+          </Link>
+          <Link
+            to="/contributor_form"
+            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+            onClick={closeMenu}
+          >
+            Contribute
+          </Link>
+          <Link
+            to="/contact"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            onClick={closeMenu}
+          >
+            Contact
+          </Link>
+        </nav>
+      </div>
     </header>
   );
 };

@@ -24,8 +24,16 @@ const handledarkmode = () => {
     darkModeImage.src = getComputedStyle(document.body).getPropertyValue('--bgImage').slice(4, -1).replace(/["']/g, "");
   };
 
-  if (darkMode === "enabled") {
-    enableDarkMode();
+  // Check if dark mode is not explicitly set
+  if (!darkMode) {
+    enableDarkMode(); // Set default mode to dark
+  } else {
+    // Otherwise, check the stored mode and apply it
+    if (darkMode === "enabled") {
+      enableDarkMode();
+    } else {
+      disableDarkMode();
+    }
   }
 
   toggleBtn.onclick = (e) => {
@@ -39,7 +47,6 @@ const handledarkmode = () => {
     body.style.transition = "background-image 0.5s ease";
   };
 
-  
 };
 
 export default handledarkmode;
