@@ -43,7 +43,7 @@ const Footer = () => {
     return (
         <>
         <footer class="footer-section ">
-            <div className="container   mx-auto px-10 flex justify-between items-center subscribe-area">
+            <div className="container  mb-0 mx-auto px-10 flex justify-between items-center subscribe-area">
                 {/* Left side: Logo and contact info */}
                 <div className="flex flex-col">
                     {/* <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">ColleGPT</h3> */}

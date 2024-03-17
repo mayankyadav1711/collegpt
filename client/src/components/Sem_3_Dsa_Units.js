@@ -2,10 +2,10 @@
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 // import profilepic from './images/pic-1.jpg'
-// import thumb from "./images/Thumbnail/Sem-3/DSA.png";
-import postpic from "./images/Thumbnail/Sem-3/DSA.png";
+// import thumb from "./images/Thumbnail/Sem-3/DSA.webp";
+import postpic from "./images/Thumbnail/Sem-3/DSA.webp";
 
-// import newpic from "./images/Thumbnail/Sem-3/DSA.png";
+// import newpic from "./images/Thumbnail/Sem-3/DSA.webp";
 import handledarkmode from "./handledarkmode";
 function Sem_3_Dsa_Units() {
   useEffect(() => {

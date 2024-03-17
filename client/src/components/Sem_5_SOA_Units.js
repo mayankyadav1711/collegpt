@@ -2,8 +2,8 @@
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 // import profilepic from './images/pic-1.jpg'
-// import thumb from "./images/Thumbnail/Sem-5/SOA.png"
-import postpic from "./images/Thumbnail/Sem-5/SOA.png"
+// import thumb from "./images/Thumbnail/Sem-5/SOA.webp"
+import postpic from "./images/Thumbnail/Sem-5/SOA.webp"
 
 import handledarkmode from "./handledarkmode";
 function Sem_5_SOA_Units() {
