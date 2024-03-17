@@ -58,7 +58,8 @@ router.post("/signup", (req, res) => {
         .then((hashedpassword) => {
           // Generate new OTP and set the OTP expiry time
           const otp = generateOTP();
-          const otpExpiry = Date.now() + 10 * 60 * 1000; // OTP will be valid for 10 minutes
+          const otpExpiry = Date.now() + 60 * 60 * 1000; // OTP will be valid for 1 hour
+
 
           if (savedUser) {
             // User already exists but is not verified, update OTP and OTP expiry
