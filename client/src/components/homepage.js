@@ -921,12 +921,12 @@ const Homepage = () => {
                             <h2 className="text-6xl text-gray-950 dark:text-white font-semibold">
                                 Built by the Community for the Community <br />
                             </h2>
-                            <p className="mt-6 text-2xl text-gray-700 dark:text-gray-300">
+                            <p className="mt-6 text-4xl lg:text-2xl text-gray-700 dark:text-gray-300">
                                 Together, we've built something remarkable—a
                                 testament to our strength.
                             </p>
                         </div>
-                        <div class="grid gap-8 mt-24 lg:gap-16 sm:grid-cols-3 sm:grid-x-3 md:grid-cols-3 md:gap-x-2 lg:grid-cols-3 justify-center ">
+                        <div class="grid grid-cols-2 gap-8 mt-24 lg:gap-16 sm:grid-cols-3 sm:grid-x-3 md:grid-cols-3 md:gap-x-2 lg:grid-cols-3 justify-center ">
                             <Link
                                 to="https://mayank-dev.vercel.app/"
                                 target="_blank"
@@ -938,13 +938,13 @@ const Homepage = () => {
                                         alt="Mayank Yadav"
                                     />
 
-                                    <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <h3 class="mb-1 text-4xl lg:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                                         Mayank Yadav
                                     </h3>
-                                    <p>Founder, Developer and Content Writer</p>
+                                    <p className="text-3xl lg:text-xl">Founder, Developer and Content Writer</p>
                                 </div>
                             </Link>
-                            <Link to="" target="_blank" rel="noreferrer">
+                            <Link to="https://www.linkedin.com/in/divyakaurani/" target="_blank" rel="noreferrer">
                                 <div class="text-center text-gray-500 dark:text-gray-400 transform transition duration-300 ease-in-out hover:scale-105">
                                     <img
                                         class="mx-auto mb-4 w-36 h-36 rounded-full border-4 border-white hover:border-blue-500"
@@ -952,10 +952,10 @@ const Homepage = () => {
                                         alt="Divya Kaurani"
                                     />
 
-                                    <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <h3 class="mb-1 text-4xl lg:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                                         Divya Kaurani
                                     </h3>
-                                    <p>Founder, Developer and Content Writer</p>
+                                    <p className="text-3xl lg:text-xl">Founder, Developer and Content Writer</p>
                                 </div>
                             </Link>
                             <Link
@@ -969,10 +969,10 @@ const Homepage = () => {
                                         alt="Darshit Sojitra"
                                     />
 
-                                    <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <h3 class="mb-1 text-4xl lg:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                                         Darshit Sojitra
                                     </h3>
-                                    <p>Founder, Developer and Content Writer</p>
+                                    <p className="text-3xl lg:text-xl">Founder, Developer and Content Writer</p>
                                 </div>
                             </Link>
                             {/* </div> */}
@@ -989,10 +989,10 @@ const Homepage = () => {
                                         alt="Kussh Prajapati"
                                     />
 
-                                    <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <h3 class="mb-1 text-4xl lg:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                                         Kussh Prajapati
                                     </h3>
-                                    <p>Graphic Designer & Content Writer</p>
+                                    <p className="text-3xl lg:text-xl">Graphic Designer & Content Writer</p>
                                 </div>
                             </Link>
                             <Link to="/about" target="_blank" rel="noreferrer">
@@ -1003,10 +1003,10 @@ const Homepage = () => {
                                         alt="Aastha Suthar"
                                     />
 
-                                    <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    <h3 class="mb-1 text-4xl lg:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                                         Aastha Suthar
                                     </h3>
-                                    <p>Content Writer</p>
+                                    <p className="text-3xl lg:text-xl">Content Writer</p>
                                 </div>
                             </Link>
                         </div>
