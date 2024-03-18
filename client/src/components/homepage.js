@@ -55,70 +55,16 @@ const Homepage = () => {
     return (
         <>
             <main className="mt-8 overflow-hidden text-gray-900 dark:text-white ">
-                <section class="home-grid">
-                    <section>
-                        <div class="py-14 px-4 mx-auto max-w-screen-xl text-center lg:py-52 lg:px-12 mb-16  ">
-                            <a
-                                href="#"
-                                onClick={scrollToNextSection}
-                                class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-12 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-                                role="alert">
-                                <span class="text-2xl bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">
-                                    New
-                                </span>{" "}
-                                <span class="text-2xl font-medium">
-                                    ColleGPT is Live! 🚀
-                                </span>
-                                <svg
-                                    class="ml-2 w-5 h-5"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </a>
-                            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-6xl lg:text-9xl dark:text-white">
-                                Get Prepared Together
-                            </h1>
-                            <p class="mb-16 text-lg font-normal text-gray-500 lg:text-3xl sm:px-16 xl:px-48 dark:text-gray-400">
-                                With the intention of learning and growing
-                                together, our team has built this platform, to
-                                revolutionize your academic journey by providing
-                                engaging resources and supportive community.
-                            </p>
-                            <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                              
-                                    {" "}
-                                    <a
-                                        href="#"
-                                        onClick={scrollToNextSection}
-                                        class="text-2xl inline-flex justify-center items-center py-3 px-5  font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                                        Explore more
-                                        <svg
-                                            class="ml-2 -mr-1 w-5 h-5"
-                                            fill="currentColor"
-                                            viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                    </a>
-                          
-                            </div>
-                        </div>
-                    </section>
-                </section>
+                  
                 <section id="feature-section-lg" className="hidden lg:block">
       <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-        <div className="my-8 max-w-screen-md lg:my-16">
-          <h2 className="mb-4 text-6xl font-extrabold text-gray-900 dark:text-white">Welcome to ColleGPT 🚀</h2>
-          <p className="text-gray-500 text-2xl sm:text-xl dark:text-gray-400">Your ultimate College Companion is here to revolutionize your academic journey. Break down the boundaries of traditional education with our innovative features!</p>
-        </div>
+        <div className="my-8 max-w-screen-md lg:my-16 flex justify-center">
+        <h2 className="text-6xl text-gray-950 dark:text-white font-semibold">
+        Experience ColleGPT 🚀 <br />
+                                </h2>
+                                <p className="mt-6 text-4xl text-gray-700 dark:text-gray-300">
+                                Transforming Your Academic Journey
+                                </p> </div>
         <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
         <FeatureCard 
   icon={<img src="https://i.ibb.co/hM60Hd9/Xenesis-2024-23.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
@@ -156,11 +102,16 @@ const Homepage = () => {
       </div>
     </section>
     <section id="feature-section-sm" className="block lg:hidden relative">
-    <div className="my-8 max-w-screen-md lg:my-8">
-          <h2 className="mb-4 text-6xl font-extrabold text-gray-900 dark:text-white">Welcome to ColleGPT 🚀</h2>
-          <p className="text-gray-500 text-2xl sm:text-xl dark:text-gray-400">Your ultimate College Companion is here to revolutionize your academic journey. Break down the boundaries of traditional education with our innovative features!</p>
-        </div>
-      <div className="relative pt-24 lg:pt-28">
+    <div className="my-8 max-w-screen-md  flex justify-center mt-32">
+        <h2 className="text-6xl text-gray-950 dark:text-white font-semibold">
+        Experience ColleGPT 🚀 <br />
+                                </h2>
+                                </div>
+                                <div className="my-8 max-w-screen-md  flex justify-center">
+                                <p className="mt-6 text-4xl text-gray-700 dark:text-gray-300">
+                                Transforming Your Academic Journey
+                                </p> </div>
+      <div className="relative pt-24 lg:pt-28 flex justify-center">
         <div className="mx-auto px-6 max-w-7xl md:px-12">
           <div className="-mx-6 relative mt-8 sm:mt-12 max-w-xl sm:mx-auto">
             <div className="swiper proofSlides pb-6">
@@ -168,34 +119,11 @@ const Homepage = () => {
                 <div className="swiper-slide">
                   <div className="px-6 pt-2 pb-12 flex items-center justify-center">
                     <div className="box-container text-center">
-                      <FeatureCard 
-                        icon={<img src="https://i.ibb.co/hM60Hd9/Xenesis-2024-23.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
-                        title="Xclusive Notes"
-                        description="Access comprehensive notes in plain language, spiced up with entertaining memes for engaging learning."
-                      />
-                    </div>
-                  </div>
-                </div>
-              
-                <div className="swiper-slide">
-                  <div className="px-6 pt-2 pb-12 flex items-center justify-center">
-                    <div className="box-container text-center">
-                      <FeatureCard 
-                        icon={<img src="https://i.ibb.co/hM60Hd9/Xenesis-2024-23.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
-                        title="In-Depth Learning Guides"
-                        description="Detailed roadmaps to help you navigate and master challenging topics."
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="swiper-slide">
-                  <div className="px-6 pt-2 pb-12 flex items-center justify-center">
-                    <div className="box-container text-center">
                     <FeatureCard 
   icon={<img src="https://i.ibb.co/hM60Hd9/Xenesis-2024-23.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
-            title="Engaging Community"
-            description="Join a supportive community of learners, exchange ideas, and seek assistance."
-          />
+  title="Xclusive Notes"
+  description="Access comprehensive notes in plain language, spiced up with entertaining memes for engaging learning."
+/>
                     </div>
                   </div>
                 </div>
@@ -208,6 +136,30 @@ const Homepage = () => {
             title="Handy Cheat Sheets"
             description="Quick reference guides for key concepts, formulas, and more."
           />
+                    </div>
+                  </div>
+                </div>
+                <div className="swiper-slide">
+                  <div className="px-6 pt-2 pb-12 flex items-center justify-center">
+                    <div className="box-container text-center">
+                    <FeatureCard 
+  icon={<img src="https://i.ibb.co/gT0fX1C/Xenesis-2024-25.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
+            title="Handy Cheat Sheets"
+            description="Quick reference guides for key concepts, formulas, and more."
+          />
+                    </div>
+                  </div>
+                </div>
+              
+                <div className="swiper-slide">
+                  <div className="px-6 pt-2 pb-12 flex items-center justify-center">
+                    <div className="box-container text-center">
+                    <FeatureCard 
+  icon={<img src="https://i.ibb.co/7NPHC38/Xenesis-2024-27.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
+            title="In-Depth Learning Guides"
+            description="Detailed roadmaps to help you navigate and master challenging topics."
+          />
+         
                     </div>
                   </div>
                 </div>
@@ -225,21 +177,22 @@ const Homepage = () => {
                 {/* cheatsheets *************************************************************************************************************************/}
                 <section>
                     <div className="pt-36">
-                        <div className="mx-auto px-6 max-w-6xl text-gray-500">
-                            <div className="text-center">
+                    <div className="text-center">
                                 <h2 className="text-6xl text-gray-950 dark:text-white font-semibold">
-                                    Cheatsheets <br />
+                                    Handy Cheatsheets 🤳🏻<br />
                                 </h2>
                                 <p className="mt-6 text-4xl text-gray-700 dark:text-gray-300">
                                     Unlocking Excellence: Your Rapid Technical
                                     Guide
                                 </p>
                             </div>
+                        <div className="mx-auto px-6 max-w-6xl text-gray-500 flex justify-center">
+                           
                             <div className="mt-12 relative w-fit h-fit sm:mx-auto sm:px-0 -mx-6 px-6 ">
                                 <div className="mb-10 flex w-fit mx-auto gap-24 text-gray-950 dark:text-white">
                                 <div class="border flex relative *:relative *:size-30 *:m-auto size-32 mx-auto rounded-3xl dark:bg-[#b5b5b510] before:absolute before:rounded-3xl before:inset-0 before:from-slate-200 before:bg-gradient-to-b dark:before:from-neutral-800 dark:before:to-black/50 before:shadow transform hover:scale-110 transition duration-300">
                                         <Link to="/watchvideo/cs_html"  >
-  
+                                    
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 x="0px"

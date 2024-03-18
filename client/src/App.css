@@ -6421,7 +6421,7 @@ form .custom-toast{
     width: 60rem;
   }
   .courses{
-    margin-left: 3.5rem;
+    /* margin-left: 3.5rem; */
   }
   /* .comments .add-comment{
     margin-left: 8rem;
@@ -6491,7 +6491,7 @@ form .custom-toast{
     margin-left: 7rem;
   }
   .courses{
-    margin-left: 2rem !important;
+    /* margin-left: 2rem !important; */
   }
 }
 @media (max-width: 1200px) {
@@ -6513,7 +6513,7 @@ form .custom-toast{
     margin-bottom: 5rem;
   }
   .courses{
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
   }
   .courses ul#tabs{
     margin-left: 2rem;
@@ -9599,12 +9599,12 @@ height: 70rem;
     margin-bottom: 5rem;
     width: 50rem;
   }
-  .courses{
+  /* .courses{
     margin-left: 20rem;
-  }
+  } */
   .about{
     margin-top: 10rem;
-    margin-left: 6rem;
+    /* margin-left: 6rem; */
   }
   .about .box-container{
     /* margin-left: 40%; */
