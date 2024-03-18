@@ -180,33 +180,34 @@ const Youtube_Lecture = () => {
               </div>
               <Link to="https://www.youtube.com/@ColleGPT" target="blank">
                 <div className="tutor">
-                  <img src="https://yt3.ggpht.com/3zPQXWu3swZ9FbRjspX0A3pIYq2zYZNGc65Qv7fTqOfI-eMuA1V31dDMGT6Vxf9NwcXvszp7=s48-c-k-c0x00ffffff-no-rj" alt="" />
+                  <img src="https://yt3.ggpht.com/3zPQXWu3swZ9FbRjspX0A3pIYq2zYZNGc65Qv7fTqOfI-eMuA1V31dDMGT6Vxf9NwcXvszp7=s48-c-k-c0x00ffffff-no-rj" className="mt-4" alt="" />
    
-                  <div className="">
+                  <div className="flex items-start">
                   
                     <h3 className="font-semibold  absolute ">ColleGPT</h3>
-          
-                    <div className="text-gray-900 dark:text-white text-2xl ml-36 relative mt-2 ">
-                  <MdVerified />
-                  </div><div className="mt-2">
+                    <div className="mt-20 w-auto flex items-start">
+                    
                     <span className="text-gray-900 dark:text-white font-semibold mr-2">
-                  
+                 
                   {subscribers} Subscribers
-             </span>
-             <div className="tutor grid gap-4 mb-5 grid-columns-1">
-              <span className="text-gray-900 dark:text-white font-semibold mr-2">
-                    <FaEye   className="mr-2" />
+             </span></div>
+                    <div className="text-gray-900 dark:text-white text-2xl ml-36 relative mt-2 ">
+                  
+                 
+                  </div></div>
+                  
+              <span className="text-gray-900 dark:text-white font-semibold flex">
+                    <FaEye />
                   Views: {views}
              </span>
-                    <span className="text-gray-900 dark:text-white font-semibold mr-2">
-                    <BiSolidLike className="mr-2" />
+                    <span className="text-gray-900 dark:text-white font-semibold flex">
+                    <BiSolidLike />
                   Likes: {likes}
              </span>
-             </div>
 
                     </div>
-                  </div>
-                  </div>
+                
+             
          
               </Link>
               <p className="description text-justify text-wrap whitespace-pre-wrap">{description}</p>
