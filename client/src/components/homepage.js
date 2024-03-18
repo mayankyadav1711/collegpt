@@ -55,67 +55,37 @@ const Homepage = () => {
     return (
         <>
             <main className="mt-8 overflow-hidden text-gray-900 dark:text-white ">
-            <section class="home-grid">
-                    <section>
-                        <div class="py-14 px-4 mx-auto max-w-screen-xl text-center lg:py-52 lg:px-12 mb-16  ">
-                            <a
-                                href="#"
-                                onClick={scrollToNextSection}
-                                class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-12 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-                                role="alert">
-                                <span class="text-2xl bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">
-                                    New
-                                </span>{" "}
-                                <span class="text-2xl font-medium">
-                                    ColleGPT is Live! 🚀
-                                </span>
-                                <svg
-                                    class="ml-2 w-5 h-5"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </a>
-                            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-6xl lg:text-9xl dark:text-white">
-                                Get Prepared Together
-                            </h1>
-                            <p class="mb-16 text-lg font-normal text-gray-500 lg:text-3xl sm:px-16 xl:px-48 dark:text-gray-400">
-                                With the intention of learning and growing
-                                together, our team has built this platform, to
-                                revolutionize your academic journey by providing
-                                engaging resources and supportive community.
-                            </p>
-                            <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                              
-                                    {" "}
-                                    <a
-                                        href="#"
-                                        onClick={scrollToNextSection}
-                                        class="text-2xl inline-flex justify-center items-center py-3 px-5  font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                                        Explore more
-                                        <svg
-                                            class="ml-2 -mr-1 w-5 h-5"
-                                            fill="currentColor"
-                                            viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                    </a>
-                          
-                            </div>
-                        </div>
-                    </section>
-                </section>
+            <section class="home-grid h-screen">
+    <section class="flex items-center justify-center h-full">
+        <div class="py-14 px-4 mx-auto max-w-screen-xl text-center lg:py-52 lg:px-12 mb-16">
+            <a href="#" onClick={scrollToNextSection} class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-12 text-xl lg:text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
+                <span class="text-4xl lg:text-2xl bg-primary-600 rounded-full text-white px-8 lg:px-4 py-3.5 lg:py-1.5 mr-3">New</span>
+                <span class="text-4xl lg:text-2xl font-medium">ColleGPT is Live! 🚀</span>
+                <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
+            <h1 class="mb-4 text-8xl font-extrabold tracking-tight leading-none text-gray-900 md:text-6xl lg:text-9xl dark:text-white">
+                Get Prepared Together
+            </h1>
+            <p class="mb-16 text-5xl font-normal text-gray-500 lg:text-3xl sm:px-16 xl:px-48 dark:text-gray-400">
+                With the intention of learning and growing together, our team has built this platform, to revolutionize your academic journey by providing engaging resources and supportive community.
+            </p>
+            <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                <a href="#" onClick={scrollToNextSection} class="text-5xl lg:text-2xl inline-flex justify-center items-center py-3 px-5 font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                    Explore more
+                    <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+</section>
+
                 <section id="feature-section-lg" className="hidden lg:block">
                 <div className="flex justify-center">
-                <div className="mt-8 max-w-screen-md lg:mt-16">
+                <div className="mt-16 pt-16 max-w-screen-md lg:mt-16">
   <h2 className="text-6xl text-gray-950 dark:text-white font-semibold text-center">Experience ColleGPT 🚀<br /></h2>
 </div>
                                 </div>
@@ -163,7 +133,7 @@ const Homepage = () => {
       </div>
     </section>
     <section id="feature-section-sm" className="block lg:hidden relative">
-    <div className="my-8 max-w-screen-md  flex justify-center mt-32">
+    <div className="my-8 max-w-screen-md pt-40 flex justify-center mt-32">
         <h2 className="text-6xl text-gray-950 dark:text-white font-semibold">
         Experience ColleGPT 🚀 <br />
                                 </h2>
@@ -582,6 +552,54 @@ const Homepage = () => {
                                 </p>
                             </div>
                             <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
+                            {/* tried but still pending */}
+                            {/* <Link to="/roadmap_frontend">
+    <div className="relative overflow-hidden p-4 rounded-lg bg-white border border-gray-300 dark:border-gray-700 shadow-xl hover:shadow-2xl transform transition duration-300 hover:-translate-y-1 hover:scale-105">
+        <div className="absolute left-0 top-0 animate-float">
+            <img src="https://i.ibb.co/6JcQbHj/html.png" alt="HTML" className="w-16 h-16 opacity-20" />
+        </div>
+        <div className="absolute right-0 top-0 animate-float">
+            <img src="https://i.ibb.co/1ZzBZ7T/css.png" alt="CSS" className="w-16 h-16 opacity-20" />
+        </div>
+        <div className="absolute left-1/2 transform -translate-x-1/2 top-1/2 animate-float">
+            <img src="https://i.ibb.co/VpsnSTS/javascript.png" alt="JavaScript" className="w-16 h-16 opacity-20" />
+        </div>
+        <div className="absolute right-1/3 transform translate-x-1/2 bottom-0 animate-float">
+            <img src="https://i.ibb.co/0frZ083/react-1.png" alt="React" className="w-16 h-16 opacity-20" />
+        </div>
+        <div className="absolute right-1/3 transform translate-x-1/2 bottom-0 animate-float">
+            <img src="https://i.ibb.co/xqJX0sZ/tailwind.png" alt="Tailwind CSS" className="w-16 h-16 opacity-20" />
+        </div>
+        <div className="relative z-10 flex flex-col items-center justify-center">
+            <div className="text-gray-700 dark:text-gray-300 text-3xl pb-6">
+                Front-end Developer
+            </div>
+            <div className="flex gap-3">
+                <a
+                    className="rounded-full bg-blue-400 hover:bg-blue-500 text-white hover:text-gray-100 active:bg-blue-600 dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex items-center justify-center w-10 h-10"
+                    href="#"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 24 24"
+                        className="w-6 h-6"
+                    >
+                        <path
+                            fill="none"
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="m17 13l-5 5m0 0l-5-5m5 5V6"
+                        />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</Link> */}
                                 <Link to="/roadmap_frontend"> 
                                 <div className="relative group overflow-hidden p-[--card-padding] rounded-[--card-border-radius] bg-transparent border border-[--ui-light-border-color] dark:border-[--ui-dark-border-color] dark:bg-[--card-dark-bg] shadow-xl hover:shadow-2xl transform transition duration-300 hover:-translate-y-1 hover:scale-105">
                                     <div
@@ -625,8 +643,7 @@ const Homepage = () => {
                                         </div>
                                         <div className="flex gap-3 -mb-[--card-padding] py-4 border-t border-[--ui-light-border-color] dark:border-[--ui-dark-border-color]">
                                             <a
-                                          
-                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
+                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-blue-400 hover:text-gray-100 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
                                                 <span>Explore</span>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -673,9 +690,8 @@ const Homepage = () => {
                                             </p>
                                         </div>
                                         <div className="flex gap-3 -mb-[--card-padding] py-4 border-t border-[--ui-light-border-color] dark:border-[--ui-dark-border-color]">
-                                            <a
-                                            
-                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
+                                            <a                                           
+                                            className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-blue-400 hover:text-gray-100 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
                                                 <span>Explore</span>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -723,8 +739,7 @@ const Homepage = () => {
                                         </div>
                                         <div className="flex gap-3 -mb-[--card-padding] py-4 border-t border-[--ui-light-border-color] dark:border-[--ui-dark-border-color]">
                                             <a
-                                          
-                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
+                                              className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-blue-400 hover:text-gray-100 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
                                                 <span>Explore</span>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -771,8 +786,7 @@ const Homepage = () => {
                                         </div>
                                         <div className="flex gap-3 -mb-[--card-padding] py-4 border-t border-[--ui-light-border-color] dark:border-[--ui-dark-border-color]">
                                             <a
-                                         
-                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
+                                         className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-blue-400 hover:text-gray-100 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
                                                 <span>Explore</span>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -824,8 +838,7 @@ const Homepage = () => {
                                         </div>
                                         <div className="flex gap-3 -mb-[--card-padding] py-4 border-t border-[--ui-light-border-color] dark:border-[--ui-dark-border-color]">
                                             <a
-                                               
-                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
+                                               className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-blue-400 hover:text-gray-100 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
                                                 <span>Explore</span>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -876,8 +889,7 @@ const Homepage = () => {
                                         </div>
                                         <div className="flex gap-3 -mb-[--card-padding] py-4 border-t border-[--ui-light-border-color] dark:border-[--ui-dark-border-color]">
                                             <a
-                                  
-                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
+                                              className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-blue-400 hover:text-gray-100 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
                                                 <span>Explore</span>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"

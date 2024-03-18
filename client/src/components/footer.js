@@ -43,10 +43,11 @@ const Footer = () => {
     return (
         <>
         <footer class="footer-section ">
-            <div className="container  mb-0 mx-auto px-10 flex justify-between items-center subscribe-area">
-                {/* Left side: Logo and contact info */}
-                <div className="flex flex-col">
-                    {/* <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">ColleGPT</h3> */}
+        <div class="container mx-auto px-4 sm:px-10 py-8 lg:flex lg:justify-center">
+                <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-10 lg:gap-40">
+            {/* Left side: Logo and contact info */}
+            <div class="flex flex-col space-y-5">
+                                        {/* <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">ColleGPT</h3> */}
                     <div className=" text-gray-900 dark:text-white">
     <span
       style={{ fontSize: "4rem" }}
@@ -68,8 +69,8 @@ const Footer = () => {
                 </div>
 
                 {/* Middle: Subscribe box and navigation links */}
-                <div className="flex flex-col items-center">
-                    <div className="mb-4">
+                <div class="flex flex-col items-center sm:items-start space-y-5 sm:space-y-0 space-x-2 lg:space-x-2">
+                                        <div className="mb-4">
                         <form onSubmit={handlesubscribe}>
                             <input
                                 type="email"
@@ -234,54 +235,33 @@ const Footer = () => {
                             <span class="sr-only">WhatsApp page</span>
                         </a>
                     </div>
-                    <div className="text-center text-2xl  text-gray-900 ml-5 dark:text-white">
-                        <a
-                            href="https://www.linkedin.com/in/collegpt/"
-                            className="ml-4 hover:text-gray-400">
-                            LinkedIN
-                        </a>
-                        <a
-                            href="https://twitter.com/ColleGPT"
-                            className="ml-4 hover:text-gray-400">
-                            Twitter
-                        </a>
-                        <a
-                            href="https://www.instagram.com/collegpt?igsh=aXFjNTQzemI3eGVx"
-                            className="ml-4 hover:text-gray-400">
-                            Instagram
-                        </a>
-                        <a
-                            href="https://chat.whatsapp.com/KKbEWaxNaxt1OI9EVtJxm9"
-                            className="ml-4 hover:text-gray-400">
-                            Whatsapp
-                        </a>
-                    </div>
+                    
                 </div>
 
                 {/* Right side: Social media links and legal info */}
-                <div className="flex justify-between">
-                    <div className="w-10/12 flex flex-col text-2xl">
+                <div className="flex lg:justify-between justify-center">
+                    <div className="w-5/12 flex flex-col text-2xl">
                         <h2 className="font-bold text-2xl text-gray-900 dark:text-white">
                             ColleGPT
                         </h2>
                         <div className="mt-2">
                             <Link to="/about"
-                                className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
+                                className=" hover:text-gray-400 text-gray-900 dark:text-white">
                                 About
                             </Link>
                             <br />
                             <Link to="/courses"
-                                className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
+                                className=" hover:text-gray-400 text-gray-900 dark:text-white">
                                 X-Notes
                             </Link>
                             <br />
                             <Link to="/userlist"
-                                className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
+                                className=" hover:text-gray-400 text-gray-900 dark:text-white">
                                 Our Community
                             </Link>
                             <br />
                             <Link to="/watchvideo/cs_html"
-                                className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
+                                className=" hover:text-gray-400 text-gray-900 dark:text-white">
                                 Cheatsheets
                             </Link>
                             <br />
@@ -296,13 +276,13 @@ const Footer = () => {
                             Legal
                         </h2>
                         <div className="mt-2">
-                            <Link to="/privacy"  className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
+                            <Link to="/privacy"  className=" hover:text-gray-400 text-gray-900 dark:text-white">
                        
                                     Privacy Policy
                         
                                 <br />
                             </Link>
-                            <Link to="/term" className="mr-4 hover:text-gray-400 text-gray-900 dark:text-white">
+                            <Link to="/term" className=" hover:text-gray-400 text-gray-900 dark:text-white">
                                     Terms & Conditions
                              
                                 <br />
@@ -310,6 +290,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
             <div class="row bg-[#c0e8eb] dark:bg-[#151e3689]">
                 <div class="col-xl-6 col-lg-6 text-center text-lg-left">
