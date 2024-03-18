@@ -3,7 +3,7 @@ import { UserContext } from "../App";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import handledarkmode from "./handledarkmode";
 import toast from "react-hot-toast";
-import { ThumbUp, ThumbDown, Comment, Visibility, Subscriptions } from "@material-ui/icons";
+// import { ThumbUp, ThumbDown, Comment, Visibility, Subscriptions } from "@material-ui/icons";
 
 const Youtube_Lecture = () => {
   const { state } = useContext(UserContext);
@@ -180,7 +180,7 @@ const Youtube_Lecture = () => {
                   <img src="https://yt3.ggpht.com/3zPQXWu3swZ9FbRjspX0A3pIYq2zYZNGc65Qv7fTqOfI-eMuA1V31dDMGT6Vxf9NwcXvszp7=s48-c-k-c0x00ffffff-no-rj" alt="" />
                   <div>
                     <h3 className="font-semibold">ColleGPT</h3>
-                    <span className="text-gray-900 dark:text-white font-semibold mr-2">
+                    {/* <span className="text-gray-900 dark:text-white font-semibold mr-2">
                   <Subscriptions className="mr-2 " />
                   Subscribers: {subscribers}
              </span>
@@ -191,7 +191,7 @@ const Youtube_Lecture = () => {
                     <span className="text-gray-900 dark:text-white font-semibold mr-2">
                     <ThumbUp className="mr-2" />
                   Likes: {likes}
-             </span>
+             </span> */}
                   </div>
                 </div>
               </Link>
