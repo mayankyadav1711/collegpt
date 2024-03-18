@@ -291,6 +291,21 @@ body.active {
   border-top: 2px solid #5badad;
   border-bottom: 2px solid #5badad;
 }
+@keyframes move {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translate(calc(100vw - 100%), calc(100vh - 100%));
+  }
+}
+
+.icon {
+  position: absolute;
+  animation: move linear infinite;
+  animation-duration: 5s;
+  animation-direction: alternate;
+}
 
 @import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
 /* collegpt and searchbar css starts here  */

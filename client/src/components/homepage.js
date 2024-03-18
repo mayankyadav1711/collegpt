@@ -115,7 +115,7 @@ const Homepage = () => {
                 </section>
                 <section id="feature-section-lg" className="hidden lg:block">
                 <div className="flex justify-center">
-                <div className="mt-8 max-w-screen-md lg:mt-16">
+                <div className="mt-16 pt-16 max-w-screen-md lg:mt-16">
   <h2 className="text-6xl text-gray-950 dark:text-white font-semibold text-center">Experience ColleGPT 🚀<br /></h2>
 </div>
                                 </div>
@@ -582,6 +582,54 @@ const Homepage = () => {
                                 </p>
                             </div>
                             <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
+                            {/* tried but still pending */}
+                            {/* <Link to="/roadmap_frontend">
+    <div className="relative overflow-hidden p-4 rounded-lg bg-white border border-gray-300 dark:border-gray-700 shadow-xl hover:shadow-2xl transform transition duration-300 hover:-translate-y-1 hover:scale-105">
+        <div className="absolute left-0 top-0 animate-float">
+            <img src="https://i.ibb.co/6JcQbHj/html.png" alt="HTML" className="w-16 h-16 opacity-20" />
+        </div>
+        <div className="absolute right-0 top-0 animate-float">
+            <img src="https://i.ibb.co/1ZzBZ7T/css.png" alt="CSS" className="w-16 h-16 opacity-20" />
+        </div>
+        <div className="absolute left-1/2 transform -translate-x-1/2 top-1/2 animate-float">
+            <img src="https://i.ibb.co/VpsnSTS/javascript.png" alt="JavaScript" className="w-16 h-16 opacity-20" />
+        </div>
+        <div className="absolute right-1/3 transform translate-x-1/2 bottom-0 animate-float">
+            <img src="https://i.ibb.co/0frZ083/react-1.png" alt="React" className="w-16 h-16 opacity-20" />
+        </div>
+        <div className="absolute right-1/3 transform translate-x-1/2 bottom-0 animate-float">
+            <img src="https://i.ibb.co/xqJX0sZ/tailwind.png" alt="Tailwind CSS" className="w-16 h-16 opacity-20" />
+        </div>
+        <div className="relative z-10 flex flex-col items-center justify-center">
+            <div className="text-gray-700 dark:text-gray-300 text-3xl pb-6">
+                Front-end Developer
+            </div>
+            <div className="flex gap-3">
+                <a
+                    className="rounded-full bg-blue-400 hover:bg-blue-500 text-white hover:text-gray-100 active:bg-blue-600 dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex items-center justify-center w-10 h-10"
+                    href="#"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 24 24"
+                        className="w-6 h-6"
+                    >
+                        <path
+                            fill="none"
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="m17 13l-5 5m0 0l-5-5m5 5V6"
+                        />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</Link> */}
                                 <Link to="/roadmap_frontend"> 
                                 <div className="relative group overflow-hidden p-[--card-padding] rounded-[--card-border-radius] bg-transparent border border-[--ui-light-border-color] dark:border-[--ui-dark-border-color] dark:bg-[--card-dark-bg] shadow-xl hover:shadow-2xl transform transition duration-300 hover:-translate-y-1 hover:scale-105">
                                     <div
@@ -625,8 +673,7 @@ const Homepage = () => {
                                         </div>
                                         <div className="flex gap-3 -mb-[--card-padding] py-4 border-t border-[--ui-light-border-color] dark:border-[--ui-dark-border-color]">
                                             <a
-                                          
-                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
+                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-blue-400 hover:text-gray-100 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
                                                 <span>Explore</span>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -673,9 +720,8 @@ const Homepage = () => {
                                             </p>
                                         </div>
                                         <div className="flex gap-3 -mb-[--card-padding] py-4 border-t border-[--ui-light-border-color] dark:border-[--ui-dark-border-color]">
-                                            <a
-                                            
-                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
+                                            <a                                           
+                                            className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-blue-400 hover:text-gray-100 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
                                                 <span>Explore</span>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -723,8 +769,7 @@ const Homepage = () => {
                                         </div>
                                         <div className="flex gap-3 -mb-[--card-padding] py-4 border-t border-[--ui-light-border-color] dark:border-[--ui-dark-border-color]">
                                             <a
-                                          
-                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
+                                              className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-blue-400 hover:text-gray-100 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
                                                 <span>Explore</span>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -771,8 +816,7 @@ const Homepage = () => {
                                         </div>
                                         <div className="flex gap-3 -mb-[--card-padding] py-4 border-t border-[--ui-light-border-color] dark:border-[--ui-dark-border-color]">
                                             <a
-                                         
-                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
+                                         className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-blue-400 hover:text-gray-100 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
                                                 <span>Explore</span>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -824,8 +868,7 @@ const Homepage = () => {
                                         </div>
                                         <div className="flex gap-3 -mb-[--card-padding] py-4 border-t border-[--ui-light-border-color] dark:border-[--ui-dark-border-color]">
                                             <a
-                                               
-                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
+                                               className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-blue-400 hover:text-gray-100 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
                                                 <span>Explore</span>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -876,8 +919,7 @@ const Homepage = () => {
                                         </div>
                                         <div className="flex gap-3 -mb-[--card-padding] py-4 border-t border-[--ui-light-border-color] dark:border-[--ui-dark-border-color]">
                                             <a
-                                  
-                                                className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-gray-200/75 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
+                                              className="group rounded-5 disabled:border *:select-none [&>*:not(.sr-only)]:relative *:disabled:opacity-20 disabled:text-gray-950 disabled:border-gray-200 disabled:bg-gray-100 dark:disabled:border-gray-800/50 disabled:dark:bg-gray-900 dark:*:disabled:!text-white text-gray-950 bg-gray-100 hover:bg-blue-400 hover:text-gray-100 active:bg-gray-100 dark:text-white dark:bg-gray-500/10 dark:hover:bg-sky-500/50 dark:active:bg-gray-500/10 flex gap-1.5 items-center text-xl h-10 px-4 justify-center">
                                                 <span>Explore</span>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
