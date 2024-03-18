@@ -130,6 +130,7 @@ const Routing = () => {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/watchvideo/:code" element={<WatchVideo />} />
           <Route path="/youtube/:code" element={<Youtube_Lecture />} />
+          <Route path="/support" element={<Support />} />
           <Route path="/roadmap_mern" element={<Roadmap_Mern />} />
           <Route path="/roadmap_frontend" element={<Roadmap_Frontend />} />
           <Route path="/roadmap_backend" element={<Roadmap_Backend />} />

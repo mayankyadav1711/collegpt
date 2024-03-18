@@ -3,8 +3,11 @@ import { UserContext } from "../App";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import handledarkmode from "./handledarkmode";
 import toast from "react-hot-toast";
-// import { ThumbUp, ThumbDown, Comment, Visibility, Subscriptions } from "@material-ui/icons";
-
+// import { ThumbUp, Visibility, Subscriptions } from "@material-ui/icons";
+import { BiSolidLike } from "react-icons/bi";
+import { FaEye   } from "react-icons/fa6";
+import { MdSubscriptions   } from "react-icons/md";
+import { MdVerified    } from "react-icons/md";
 const Youtube_Lecture = () => {
   const { state } = useContext(UserContext);
   const navigate = useNavigate();
@@ -154,8 +157,8 @@ const Youtube_Lecture = () => {
         <div className="mt-40">
           <section className="youtube-preview">
             <iframe
-              width="560"
-              height="315"
+              width="400"
+              height="800"
               src={youtube}
               title="YouTube video player"
               frameBorder="0"
@@ -166,7 +169,7 @@ const Youtube_Lecture = () => {
           <section className="watch-video">
             <div className="video-container">
      
-              <h3 className="title">
+              <h3 className="title text-left">
               
                {unit}</h3>
               <div className="info">
@@ -178,24 +181,35 @@ const Youtube_Lecture = () => {
               <Link to="https://www.youtube.com/@ColleGPT" target="blank">
                 <div className="tutor">
                   <img src="https://yt3.ggpht.com/3zPQXWu3swZ9FbRjspX0A3pIYq2zYZNGc65Qv7fTqOfI-eMuA1V31dDMGT6Vxf9NwcXvszp7=s48-c-k-c0x00ffffff-no-rj" alt="" />
-                  <div>
-                    <h3 className="font-semibold">ColleGPT</h3>
-                    {/* <span className="text-gray-900 dark:text-white font-semibold mr-2">
-                  <Subscriptions className="mr-2 " />
-                  Subscribers: {subscribers}
-             </span>
+   
+                  <div className="">
+                  
+                    <h3 className="font-semibold  absolute ">ColleGPT</h3>
+          
+                    <div className="text-gray-900 dark:text-white text-2xl ml-36 relative mt-2 ">
+                  <MdVerified />
+                  </div><div className="mt-2">
                     <span className="text-gray-900 dark:text-white font-semibold mr-2">
-                    <Visibility className="mr-2" />
+                  
+                  {subscribers} Subscribers
+             </span>
+             <div className="tutor grid gap-4 mb-5 grid-columns-1">
+              <span className="text-gray-900 dark:text-white font-semibold mr-2">
+                    <FaEye   className="mr-2" />
                   Views: {views}
              </span>
                     <span className="text-gray-900 dark:text-white font-semibold mr-2">
-                    <ThumbUp className="mr-2" />
+                    <BiSolidLike className="mr-2" />
                   Likes: {likes}
-             </span> */}
+             </span>
+             </div>
+
+                    </div>
                   </div>
-                </div>
+                  </div>
+         
               </Link>
-              <p className="description">{description}</p>
+              <p className="description text-justify text-wrap whitespace-pre-wrap">{description}</p>
             </div>
           </section>
          
