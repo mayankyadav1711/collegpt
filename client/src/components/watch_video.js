@@ -119,7 +119,7 @@ const  WatchVideo = () =>{
 
             </div>
           ) : (
-            <p>Coming Soon</p>
+            <div className="title-apple-coming-soon">Coming Soon</div>
           )}
           <section className="watch-video">
            
