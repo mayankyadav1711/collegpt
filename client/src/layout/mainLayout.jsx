@@ -15,9 +15,10 @@ function MainLayout() {
     }, [location.pathname]);
 
     return (
+        <div className="background-container">
         <div className="flex flex-col min-h-screen">
             <div className="flex-grow">
-                <div className="background-container">
+     
                     <Header />
                     <Outlet />
                 </div>
