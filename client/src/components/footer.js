@@ -44,7 +44,7 @@ const Footer = () => {
         <>
         <footer class="footer-section ">
         <div class="container mx-auto px-4 sm:px-10 py-8 lg:flex lg:justify-center">
-                <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-10 lg:gap-40">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-40">
             {/* Left side: Logo and contact info */}
             <div class="flex flex-col space-y-5">
                                         {/* <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">ColleGPT</h3> */}
@@ -69,7 +69,7 @@ const Footer = () => {
                 </div>
 
                 {/* Middle: Subscribe box and navigation links */}
-                <div class="flex flex-col items-center sm:items-start space-y-5 sm:space-y-0 space-x-2 lg:space-x-2">
+                <div class="flex flex-col items-center space-y-5 sm:space-y-0 space-x-2 lg:space-x-2">
                                         <div className="mb-4">
                         <form onSubmit={handlesubscribe}>
                             <input
