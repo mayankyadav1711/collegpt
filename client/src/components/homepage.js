@@ -174,9 +174,9 @@ const Homepage = () => {
                   <div className="px-6 pt-2 pb-12 flex items-center justify-center">
                     <div className="box-container text-center">
                     <FeatureCard 
-  icon={<img src="https://i.ibb.co/gT0fX1C/Xenesis-2024-25.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
-            title="Handy Cheat Sheets"
-            description="Quick reference guides for key concepts, formulas, and more."
+  icon={<img src="https://i.ibb.co/rxWXPcX/Xenesis-2024-29.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
+            title="Engaging Community"
+            description="Join a supportive community of learners, exchange ideas, and seek assistance."
           />
                     </div>
                   </div>
