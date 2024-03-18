@@ -114,14 +114,18 @@ const Homepage = () => {
                     </section>
                 </section>
                 <section id="feature-section-lg" className="hidden lg:block">
-      <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-        <div className="my-8 max-w-screen-md lg:my-16 flex justify-center">
-        <h2 className="text-6xl text-gray-950 dark:text-white font-semibold">
-        Experience ColleGPT 🚀 <br />
-                                </h2>
-                                <p className="mt-6 text-4xl text-gray-700 dark:text-gray-300">
-                                Transforming Your Academic Journey
-                                </p> </div>
+                <div className="flex justify-center">
+                <div className="mt-8 max-w-screen-md lg:mt-16">
+  <h2 className="text-6xl text-gray-950 dark:text-white font-semibold text-center">Experience ColleGPT 🚀<br /></h2>
+</div>
+                                </div>
+                                <div className=" flex justify-center">
+                                <div className=" max-w-screen-md lg:my-16 flex justify-center">
+                                <p className=" text-4xl text-gray-700 dark:text-gray-300">
+                                Discover a New Era of Learning with ColleGPT 
+                                </p> </div></div>
+      <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 flex justify-center">
+     
         <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
         <FeatureCard 
   icon={<img src="https://i.ibb.co/hM60Hd9/Xenesis-2024-23.png" className="w-15 h-15 text-primary-600 lg:w-24 lg:h-24 dark:text-primary-300" alt="icon" />}
@@ -166,7 +170,7 @@ const Homepage = () => {
                                 </div>
                                 <div className="my-8 max-w-screen-md  flex justify-center">
                                 <p className="mt-6 text-4xl text-gray-700 dark:text-gray-300">
-                                Transforming Your Academic Journey
+                                Discover a New Era of Learning with ColleGPT 
                                 </p> </div>
       <div className="relative pt-24 lg:pt-28 flex justify-center">
         <div className="mx-auto px-6 max-w-7xl md:px-12">
