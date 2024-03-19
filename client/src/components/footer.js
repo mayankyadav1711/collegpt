@@ -48,6 +48,7 @@ const Footer = () => {
             {/* Left side: Logo and contact info */}
             <div class="flex flex-col space-y-5">
                                         {/* <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">ColleGPT</h3> */}
+                    <Link to="/">
                     <div className=" text-gray-900 dark:text-white">
     <span
       style={{ fontSize: "4rem" }}
@@ -62,9 +63,9 @@ const Footer = () => {
       />
       <span>LLEGPT</span>
     </span>
-  </div>
+  </div></Link>
                     <div className="mt-4 text-xl text-gray-900 dark:text-white">
-                        <p>Mail Us: collegpt@gmail.com</p>
+                        <p><Link to="mailto:collegpt@gmail.com">Mail Us: collegpt@gmail.com</Link></p>
                     </div>
                 </div>
 
@@ -85,7 +86,7 @@ const Footer = () => {
 
                     <div class="flex justify-center mt-2 sm:justify-center ml-7 sm:mt-0">
                         <a
-                            href="https://www.linkedin.com/in/collegpt/"
+                            href="https://www.linkedin.com/in/collegpt/" target="_blank" rel="noreferrer"
                             class="text-blue-700 hover:text-blue-900 dark:hover:text-white">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +105,7 @@ const Footer = () => {
                             <span class="sr-only">LinkedIn page</span>
                         </a>
                         <a
-                            href="https://twitter.com/ColleGPT"
+                            href="https://twitter.com/ColleGPT" target="_blank" rel="noreferrer"
                             class="text-blue-500 hover:text-blue-700 dark:hover:text-white  ms-5">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +132,7 @@ const Footer = () => {
                             <span class="sr-only">Twitter page</span>
                         </a>
                         <a
-                            href="https://www.instagram.com/collegpt?igsh=aXFjNTQzemI3eGVx"
+                            href="https://www.instagram.com/collegpt?igsh=aXFjNTQzemI3eGVx" target="_blank" rel="noreferrer"
                             class="text-purple-700   hover:text-purple-900 dark:hover:text-white ms-5">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +206,7 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href="https://chat.whatsapp.com/KKbEWaxNaxt1OI9EVtJxm9"
+                            href="https://chat.whatsapp.com/KKbEWaxNaxt1OI9EVtJxm9" target="_blank" rel="noreferrer"
                             class="text-green-600 hover:text-green-800 dark:hover:text-white pl-4 ms-5">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -241,14 +242,16 @@ const Footer = () => {
                 {/* Right side: Social media links and legal info */}
                 <div className="flex lg:justify-between justify-center">
                     <div className="w-5/12 flex flex-col text-2xl">
+                    <Link to="/">
                         <h2 className="font-bold text-2xl text-gray-900 dark:text-white">
                             ColleGPT
                         </h2>
+                        </Link>
                         <div className="mt-2">
                             <Link to="/about"
                                 className=" hover:text-gray-400 text-gray-900 dark:text-white">
                                 About
-                            </Link>
+                                </Link>
                             <br />
                             <Link to="/courses"
                                 className=" hover:text-gray-400 text-gray-900 dark:text-white">
