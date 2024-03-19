@@ -58,13 +58,16 @@ html {
 html::-webkit-scrollbar {
   width: 1rem;
   height: 0.5rem;
+
 }
 
 html::-webkit-scrollbar-track {
   background-color: transparent;
+
 }
 
 html::-webkit-scrollbar-thumb {
+  border-radius: 5rem;
   background-color: var(--main-color);
 }
 body {

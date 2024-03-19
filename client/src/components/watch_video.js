@@ -103,14 +103,15 @@ const  WatchVideo = () =>{
   return (
     <>
     {pdfFilePath ? (
-      <div className="mt-52 flex justify-center items-center">
+      <div className="mt-44 flex justify-center items-center">
   <iframe
     src={pdfFilePath}
-    width="640"
-    height="480"
-    className="border-2 border-gray-200 shadow-md rounded-lg"
+    width="1165"
+    height="590"
+    className="rounded-3xl"
     title="PDF Viewer"
     id="pdfIframe"
+    sandbox="allow-scripts allow-same-origin"
   />
 
 
