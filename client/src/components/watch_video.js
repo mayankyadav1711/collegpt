@@ -25,7 +25,7 @@ const  WatchVideo = () =>{
   const [uploadTimestamp, setUploadTimestamp] = useState("");
   const [pdfdownloadlink, setPdfDownloadLink] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [downloadTimer, setDownloadTimer] = useState(20); // Timer starts from 10 seconds
+  const [downloadTimer, setDownloadTimer] = useState(30); // Timer starts from 10 seconds
 
   const { code } = useParams();
 
