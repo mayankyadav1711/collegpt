@@ -52,12 +52,28 @@ router.post("/contribute", requireLogin, async (req, res) => {
     // Save the contribution
     await contribution.save();
 
+    // Send email notification about the new contribution
+    await transporter.sendMail({
+      from: "collegpt@gmail.com",
+      to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
+      subject: "New Contribution Submitted",
+      html: `
+        <h1>New Contribution Submitted</h1>
+        <p>Semester: ${semester}</p>
+        <p>Subject: ${subjectName}</p>
+        <p>PDF Description: ${pdfDescription}</p>
+        <p>Posted By Name: ${req.user.name}</p>
+        <p>Posted By Email: ${req.user.email}</p>
+      `,
+    });
+
     res.status(201).json({ message: "Contribution submitted successfully." });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error submitting contribution." });
   }
 });
+
 
 router.post("/doubt", requireLogin, async (req, res) => {
   try {
