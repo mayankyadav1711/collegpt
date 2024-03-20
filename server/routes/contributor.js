@@ -62,6 +62,7 @@ router.post("/contribute", requireLogin, async (req, res) => {
         <p>Semester: ${semester}</p>
         <p>Subject: ${subjectName}</p>
         <p>PDF Description: ${pdfDescription}</p>
+        <p>PDF Link: ${fileLinks}</p>
         <p>Posted By Name: ${req.user.name}</p>
         <p>Posted By Email: ${req.user.email}</p>
       `,
