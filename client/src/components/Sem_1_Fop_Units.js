@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
-import FOP from "./images/Thumbnail/Sem-1/FOP.png";
+import FOP from "./images/Thumbnail/Sem-1/FOP.webp";
 import handledarkmode from "./handledarkmode";
 
 function Sem_1_Fop_Units() {

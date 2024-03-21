@@ -2,10 +2,10 @@
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 // import profilepic from './images/pic-1.jpg'
-// import thumb from "./images/Thumbnail/Sem-2/BEEE.png";
-import postpic from "./images/Thumbnail/Sem-2/BEEE.png";
+// import thumb from "./images/Thumbnail/Sem-2/BEEE.webp";
+import postpic from "./images/Thumbnail/Sem-2/BEEE.webp";
 
-// import newpic from "./images/Thumbnail/Sem-2/BEEE.png";
+// import newpic from "./images/Thumbnail/Sem-2/BEEE.webp";
 import handledarkmode from "./handledarkmode";
 function Sem_2_Beee_Units() {
    useEffect(() => {

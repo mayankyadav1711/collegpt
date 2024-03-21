@@ -3,7 +3,7 @@ import React, {  useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
-import postpic from "./images/Thumbnail/Sem-1/EP.png"
+import postpic from "./images/Thumbnail/Sem-1/EP.webp"
 import handledarkmode from "./handledarkmode";
 function Sem_1_Ep_Units() {
    useEffect(() => {

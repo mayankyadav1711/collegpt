@@ -2,9 +2,9 @@
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 // import profilepic from './images/pic-1.jpg'
-// import thumb from "./images/Thumbnail/Sem-2/OOPC.png"
-import postpic from "./images/Thumbnail/Sem-2/OOPC.png"
-// import newpic from "./images/Thumbnail/Sem-2/OOPC.png"
+// import thumb from "./images/Thumbnail/Sem-2/OOPC.webp"
+import postpic from "./images/Thumbnail/Sem-2/OOPC.webp"
+// import newpic from "./images/Thumbnail/Sem-2/OOPC.webp"
 import handledarkmode from "./handledarkmode";
 function Sem_2_Oopc_Units() {
    useEffect(() => {

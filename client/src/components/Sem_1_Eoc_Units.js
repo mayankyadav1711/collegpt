@@ -3,7 +3,7 @@ import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 // import profilepic from './images/pic-1.jpg'
 
-import postpic from "./images/Thumbnail/Sem-1/EOC.png"
+import postpic from "./images/Thumbnail/Sem-1/EOC.webp"
 
 import handledarkmode from "./handledarkmode";
 

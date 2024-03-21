@@ -2,10 +2,10 @@
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 // import profilepic from './images/pic-1.jpg'
-// import thumb from "./images/Thumbnail/Sem-2/Maths-2.png"
-import postpic from "./images/Thumbnail/Sem-2/Maths-2.png"
+// import thumb from "./images/Thumbnail/Sem-2/Maths-2.webp"
+import postpic from "./images/Thumbnail/Sem-2/Maths-2.webp"
 
-// import newpic from "./images/Thumbnail/Sem-2/Maths-2.png"
+// import newpic from "./images/Thumbnail/Sem-2/Maths-2.webp"
 import handledarkmode from "./handledarkmode";
 function Sem_2_Maths_Units() {
    useEffect(() => {
