@@ -6950,7 +6950,7 @@ width: 65rem;
 
  
   .comments .add-comment{
-    margin-left: 0rem;
+    /* margin-left: 0rem; */
   }
   .form-container form{
     width: 45rem;
@@ -7209,7 +7209,7 @@ width: 65rem;
   }
 
   .comments .add-comment{
-    margin-left: 0rem;
+    /* margin-left: 0rem; */
   }
   #search-btn {
     display: inline-block;
@@ -7553,7 +7553,7 @@ height: 70rem;
   }
  
   .comments .add-comment{
-    margin-left: 0rem;
+    /* margin-left: 0rem; */
   }
   
   #search-btn {
@@ -7862,8 +7862,8 @@ height: 70rem;
 }
 
   .comments .add-comment{
-    margin-left: 6rem !important;
-    width: 68rem;
+    /* margin-left: 6rem !important; */
+    width: auto;
   }
   .reviews .add-comment{
     margin-left: 0rem !important;

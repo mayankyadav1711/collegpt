@@ -183,7 +183,7 @@ const Youtube_Lecture = () => {
         {subscribers} Subscribers
       </span>
     </div>
-    <div className="flex  ml-auto">
+    <div className="flex ml-auto">
       <span className="text-gray-900 dark:text-white font-semibold flex">
         <FaEye /> Views: {views}
       </span>
