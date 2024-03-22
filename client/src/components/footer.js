@@ -292,7 +292,7 @@ const Footer = () => {
                 </div>
             </div>
             </div>
-            <div class="row bg-[#c0e8eb] w-screen dark:bg-[#151e3689] text-center flex justify-center">
+            <div class="row bg-[#c0e8eb] w-screen dark:bg-[#151e3689] text-center flex justify-center dark:text-gray-100">
                 <div class="col-xl-6 col-lg-6 text-center flex justify-center">
                     <div class="lg:text-4xl text-3xl py-10 px-10 text-center flex justify-center">
                         <p>
