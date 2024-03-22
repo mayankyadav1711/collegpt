@@ -15,7 +15,7 @@
   --github: #24292f;
   --white: #fff;
   --border: 0.1rem solid rgba(0, 0, 0, 0.2);
-  --sidebar-margin-closed: 11.5rem;
+  /* --sidebar-margin-closed: 11.5rem; */
   --sidebar-transition-speed: 0.3s;
   --body-color: #e7e7e7;
   --sidebar-color: #fff;
@@ -27,7 +27,7 @@
   --tran-03: all 0.3s ease;
   --tran-04: all 0.3s ease;
   --tran-05: all 0.3s ease;
-  --sidebar-width: 20rem;
+  /* --sidebar-width: 20rem; */
   --event-theme:rgb(0 0 255 / 55%);
  --commentShadow:0 0 1rem rgb(0 0 0 / 27%);
   --bgTransperent:#5badad12;
@@ -353,7 +353,7 @@ body.active {
 }
 
 section {
-  padding: 0rem 4.1rem 2rem 4.1rem;
+  padding: 0rem 4.1rem 2rem 2rem;
   margin: 0 auto;
   max-width: 125rem;
 }
@@ -6435,12 +6435,7 @@ form .custom-toast{
   .form-container form{
     width: 60rem;
   }
-  .courses{
-    /* margin-left: 3.5rem; */
-  }
-  /* .comments .add-comment{
-    margin-left: 8rem;
-  } */
+  
 }
 
 @media only screen and (max-width: 1080px) {
@@ -6500,7 +6495,7 @@ form .custom-toast{
     margin-left: -16rem !important;
   }
   .watch-video .video-container{
-    margin-left: 7rem;
+    /* margin-left: 7rem; */
   }
   .comments{
     margin-left: 7rem;
@@ -6620,7 +6615,7 @@ width: 80rem;
     width: 80rem;
   }
   .watch-video .video-container{
-    margin-left: 9rem;
+    /* margin-left: 9rem; */
   }
   .comments{
     margin-left: 0rem;
@@ -6675,12 +6670,9 @@ width: 80rem;
   margin-left: 8rem;
   margin-bottom: 1rem;
 }
-  .watch-video{
-    margin-left: 5rem;
-    margin-right: -5rem;
-  }
+ 
   .comments .add-comment{
-    margin-left: 0rem;
+    /* margin-left: 0rem; */
   }
   .about .box-container{
     margin-left: 20%;
@@ -6864,20 +6856,14 @@ width: 65rem;
   .comments{
     margin-left: 4rem;
   }
-  .watch-video{
-    margin-left: 6rem;
-    margin-right: 0rem !important;
-  }
+ 
   .comments .add-comment{
-    margin-left: 6rem !important;
-    width: 64rem;
+    /* margin-left: 6rem !important; */
+    width: auto;
   }
 }
 @media (min-width: 680px) and (max-width:769px){
-  .watch-video{
-    margin-left: 6rem;
-    margin-right: 0rem !important;
-  }
+  
   .welcome-center-container {
     /* background: rgba(20, 20, 20, 0.103); */
     /* text-align: center; */
@@ -6899,8 +6885,8 @@ width: 65rem;
   margin-bottom: 0.2rem;
 }
   .comments .add-comment{
-    margin-left: 6rem !important;
-    width: 60rem;
+    /* margin-left: 6rem !important; */
+    width: auto;
   }
   .container-roadmap{
     margin-top: 25rem !important;
@@ -6959,10 +6945,7 @@ width: 65rem;
   
   /* Adjust the width of the slider container */
 
-  .watch-video{
-    margin-left: 5rem;
-    margin-right: -5rem;
-  }
+ 
   .comments .add-comment{
     margin-left: 0rem;
   }
@@ -7175,13 +7158,10 @@ width: 65rem;
   margin-right: 0.7rem;
   margin-bottom: 0.2rem;
 }
-  .watch-video{
-    margin-left: 6rem;
-    margin-right: 0rem !important;
-  }
+ 
   .comments .add-comment{
-    margin-left: 6rem !important;
-    width: 60rem;
+    /* margin-left: 6rem !important; */
+    width: auto;
   }
   .welcome-container{
     margin-top: -5rem !important;
@@ -7224,10 +7204,7 @@ width: 65rem;
     left: 3%;
     transform: translate(-50%, -50%);
   }
-  .watch-video{
-    margin-left: 5rem;
-    margin-right: -5rem;
-  }
+
   .comments .add-comment{
     margin-left: 0rem;
   }
@@ -7571,10 +7548,7 @@ height: 70rem;
     font-size: 2.5rem;
     margin-left: 5rem;
   }
-  .watch-video{
-    margin-left: 5rem;
-    margin-right: -5rem;
-  }
+ 
   .comments .add-comment{
     margin-left: 0rem;
   }
@@ -7883,10 +7857,7 @@ height: 70rem;
   margin-right: 0.7rem;
   margin-bottom: 0.2rem;
 }
-  .watch-video{
-    margin-left: 6rem;
-    margin-right: 0rem !important;
-  }
+
   .comments .add-comment{
     margin-left: 6rem !important;
     width: 68rem;
@@ -7941,10 +7912,7 @@ height: 70rem;
     left: 10%;
     transform: translate(-50%, -50%);
   }
-  .watch-video{
-    margin-left: 5rem;
-    margin-right: -5rem;
-  }
+
   .comments .add-comment{
     margin-left: 0rem;
   }
@@ -8371,10 +8339,7 @@ height: 70rem;
     position: relative;
     width: 100vw;
   }
-  .watch-video{
-    margin-left: 5rem;
-    margin-right: -5rem;
-  }
+ 
   .comments .add-comment{
     margin-left: 0rem;
   }
@@ -8502,10 +8467,7 @@ height: 70rem;
   .cheatsheet-box .flex a:hover .fa-js{
     font-size: 4rem;
   }
-  .watch-video{
-    margin-left: 6rem;
-    margin-right: -1.5rem;
-  }
+
   .comments .add-comment{
     margin-left: 6rem;
     width: 50rem;
@@ -8870,13 +8832,10 @@ height: 70rem;
     position: relative;
     width: 100vw;
   }
-  .watch-video{
-    margin-left: 6rem;
-    margin-right: -1.5rem;
-  }
+
   .comments .add-comment{
-    margin-left: 6rem;
-    width: 45rem;
+    /* margin-left: 6rem; */
+    width: auto;
   }
   .reviews .add-comment{
     margin-left: 0rem;
@@ -9542,13 +9501,7 @@ height: 70rem;
     position: relative;
     width: 100vw;
   }
-  .watch-video{
-    margin-left: 5rem;
-    margin-right: -5rem;
-  }
-  .comments .add-comment{
-    margin-left: 0rem !important;
-  }
+
   .slider {
     margin: 4rem 0; /* Decrease the top margin */
   }

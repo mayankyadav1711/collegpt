@@ -157,8 +157,8 @@ const Youtube_Lecture = () => {
         <div className="mt-40">
           <section className="youtube-preview">
             <iframe
-              width="400"
-              height="800"
+              width={100}
+              className="pr-32"
               src={youtube}
               title="YouTube video player"
               frameBorder="0"
@@ -168,50 +168,37 @@ const Youtube_Lecture = () => {
           </section>
           <section className="watch-video">
             <div className="video-container">
-     
-              <h3 className="title text-left">
-              
-               {unit}</h3>
-              <div className="info">
-                <p className="date">
-                  <i className="fas fa-calendar"></i>
-                  <span>{uploadTimestamp}</span>
-                </p>
-              </div>
-              <Link to="https://www.youtube.com/@ColleGPT" target="blank">
-                <div className="tutor">
-                  <img src="https://yt3.ggpht.com/3zPQXWu3swZ9FbRjspX0A3pIYq2zYZNGc65Qv7fTqOfI-eMuA1V31dDMGT6Vxf9NwcXvszp7=s48-c-k-c0x00ffffff-no-rj" className="mt-4" alt="" />
-   
-                  <div className="flex items-start">
-                  
-                    <h3 className="font-semibold  absolute ">ColleGPT</h3>
-                    <div className="mt-20 w-auto flex items-start">
-                    
-                    <span className="text-gray-900 dark:text-white font-semibold mr-2">
-                 
-                  {subscribers} Subscribers
-             </span></div>
-                    <div className="text-gray-900 dark:text-white text-2xl ml-36 relative mt-2 ">
-                  
-                 
-                  </div></div>
-                  
-              <span className="text-gray-900 dark:text-white font-semibold flex">
-                    <FaEye />
-                  Views: {views}
-             </span>
-                    <span className="text-gray-900 dark:text-white font-semibold flex">
-                    <BiSolidLike />
-                  Likes: {likes}
-             </span>
+            <div className="flex">
+  <h3 className="title text-left">{unit}</h3>
+  <div className="info flex justify-end">
+    <p className="date">
+      <i className="fas fa-calendar"></i>
+      <span>{uploadTimestamp}</span>
+    </p>
+  </div>
+</div>
+<Link to="https://www.youtube.com/@ColleGPT" target="blank">
+  <div className="tutor flex">
+    <img src="https://yt3.ggpht.com/3zPQXWu3swZ9FbRjspX0A3pIYq2zYZNGc65Qv7fTqOfI-eMuA1V31dDMGT6Vxf9NwcXvszp7=s48-c-k-c0x00ffffff-no-rj" className="mt-4" alt="" />
+    <div className="absolute items-start ml-24 mt-9">
+      <h3 className="font-semibold">ColleGPT</h3>
+      <span className="text-gray-900 dark:text-white font-semibold mr-2">
+        {subscribers} Subscribers
+      </span>
+    </div>
+    <div className="flex flex-col ml-auto">
+      <span className="text-gray-900 dark:text-white font-semibold flex">
+        <FaEye /> Views: {views}
+      </span>
+      <span className="text-gray-900 dark:text-white font-semibold flex">
+        <BiSolidLike /> Likes: {likes}
+      </span>
+    </div>
+  </div>
+</Link>
+<p className="description text-justify max-w-full overflow-wrap-normal break-all">{description}</p>
 
-                    </div>
-                
-             
-         
-              </Link>
-              <p className="description text-justify text-wrap whitespace-pre-wrap">{description}</p>
-            </div>
+</div>
           </section>
          
         </div>
