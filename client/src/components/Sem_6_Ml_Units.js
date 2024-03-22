@@ -59,18 +59,13 @@ provide an overview of the machine leaning and advance topics.
         <h1 class="heading">Unit List</h1>
 
         <div class="box-container">
+        <Link to="/watchvideo/641" class="box">
+  <a>
 
-        <Link to="/watchvideo/641" className="box flex flex-col items-center justify-center relative">
-    <img src={postpic} alt="" className="mb-32 mr-8"/>
+    <img src={postpic} alt="" />
+    <h3 className="mt-5">Introduction</h3>
+  </a>
 </Link>
-<div className="absolute" style={{transform: 'translate(70%, 610%)' }}>
-    <Link to="/watchvideo/641" className="flex items-center text-3xl text-white">
-        <h3 className="hover:text-[#394d7f] -mt-2">Introduction</h3>
-        <Link to="/youtube/checking" className="ml-16">
-            <img src={yt} className="w-16 h-16 object-contain" alt="" />
-        </Link>
-    </Link>
-</div>
 
 
 
