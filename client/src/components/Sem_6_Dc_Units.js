@@ -33,13 +33,13 @@ function Sem_6_Dc_Units() {
                          {/* <div class="tutor">
                             <img src={profilepic} alt="" />
                             <div>
-                                <h3>john deo</h3>
+                                <h3 className="mt-5">john deo</h3>
                                 <span>21-10-2022</span>
                             </div>
                         </div> */}
 
                         <div class="details">
-                            <h3>Data Compression [IT603-N]</h3>
+                            <h3 className="mt-5">Data Compression [IT603-N]</h3>
                             <p>
                                 To introduce students to basic applications ,
                                 concepts, and techniques of Data Compression. To
@@ -65,7 +65,7 @@ function Sem_6_Dc_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Compression Techniques</h3>
+                            <h3 className="mt-5">Compression Techniques</h3>
                         </a>
                     </Link>
 
@@ -73,7 +73,7 @@ function Sem_6_Dc_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>
+                            <h3 className="mt-5">
                                 Mathematical Preliminaries for Lossless
                                 Compression Models
                             </h3>
@@ -84,7 +84,7 @@ function Sem_6_Dc_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Huffman Coding</h3>
+                            <h3 className="mt-5">Huffman Coding</h3>
                         </a>
                     </Link>
 
@@ -92,7 +92,7 @@ function Sem_6_Dc_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Arithmetic Coding</h3>
+                            <h3 className="mt-5">Arithmetic Coding</h3>
                         </a>
                     </Link>
 
@@ -100,7 +100,7 @@ function Sem_6_Dc_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Dictionary Techniques</h3>
+                            <h3 className="mt-5">Dictionary Techniques</h3>
                         </a>
                     </Link>
 
@@ -108,7 +108,7 @@ function Sem_6_Dc_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Context-Based Compression</h3>
+                            <h3 className="mt-5">Context-Based Compression</h3>
                         </a>
                     </Link>
 
@@ -116,7 +116,7 @@ function Sem_6_Dc_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Lossless Image Compression</h3>
+                            <h3 className="mt-5">Lossless Image Compression</h3>
                         </a>
                     </Link>
 
@@ -124,7 +124,7 @@ function Sem_6_Dc_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Quantization</h3>
+                            <h3 className="mt-5">Quantization</h3>
                         </a>
                     </Link>
                 </div>

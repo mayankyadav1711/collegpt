@@ -58,7 +58,7 @@ const Homepage = () => {
             <section class="home-grid h-screen">
     <section class="flex items-center justify-center h-full">
         <div class="py-14 px-4 mx-auto max-w-screen-xl text-center lg:py-52 lg:px-12 mb-16">
-            <a href="#" onClick={scrollToNextSection} class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-12 text-xl lg:text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
+            <a href="#"  onClick={scrollToNextSection} class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-12 text-xl lg:text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
                 <span class="text-4xl lg:text-2xl bg-primary-600 rounded-full text-white px-8 lg:px-4 py-3.5 lg:py-1.5 mr-3">New</span>
                 <span class="text-4xl lg:text-2xl font-medium">ColleGPT is Live! 🚀</span>
                 <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

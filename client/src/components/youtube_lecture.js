@@ -20,7 +20,7 @@ const Youtube_Lecture = () => {
   const [extra, setExtra] = useState("");
   const [youtube, setYoutube] = useState("");
   const [doubt, setDoubt] = useState("");
-  const [uploadTimestamp, setUploadTimestamp] = useState("");
+  // const [uploadTimestamp, setUploadTimestamp] = useState("");
   const [views, setViews] = useState("");
   const [likes, setLikes] = useState("");
   const [dislikes, setDislikes] = useState("");
@@ -47,7 +47,7 @@ const Youtube_Lecture = () => {
           setDescription(data.description);
           setExtra(data.extra);
           setYoutube(data.youtube);
-          setUploadTimestamp(new Date(data.timestamp).toLocaleString());
+          // setUploadTimestamp(new Date(data.timestamp).toLocaleString());
 
           // Fetch YouTube video details
           if (data.youtube) {
@@ -171,10 +171,7 @@ const Youtube_Lecture = () => {
             <div className="flex">
   <h3 className="title text-left">{unit}</h3>
   <div className="info flex justify-end">
-    <p className="date">
-      <i className="fas fa-calendar"></i>
-      <span>{uploadTimestamp}</span>
-    </p>
+    
   </div>
 </div>
 <Link to="https://www.youtube.com/@ColleGPT" target="blank">
@@ -186,7 +183,7 @@ const Youtube_Lecture = () => {
         {subscribers} Subscribers
       </span>
     </div>
-    <div className="flex flex-col ml-auto">
+    <div className="flex  ml-auto">
       <span className="text-gray-900 dark:text-white font-semibold flex">
         <FaEye /> Views: {views}
       </span>

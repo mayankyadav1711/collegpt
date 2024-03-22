@@ -38,13 +38,13 @@ function Sem_5_Map_Units() {
             <div class="tutor">
                             {/* <img src={profilepic} alt=""/> */}
                 <div>
-                    <h3>john deo</h3>
+                    <h3 className="mt-5">john deo</h3>
                     <span>21-10-2022</span>
                 </div>
             </div>
 
             <div class="details">
-                <h3>Microprocessor Architecture and Programming [CE502-N]</h3>
+                <h3 className="mt-5">Microprocessor Architecture and Programming [CE502-N]</h3>
                 <p>Develop understanding of number systems and Boolean algebra. Understand the functioning of logic gates, their implementation and verification of truth tables. </p>
                 <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link>             </div>
         </div>
@@ -61,7 +61,7 @@ function Sem_5_Map_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Introduction of 8085/80x86/8088</h3>
+      <h3 className="mt-5">Introduction of 8085/80x86/8088</h3>
     </a> 
   </Link>
 
@@ -69,7 +69,7 @@ function Sem_5_Map_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Programming of 8085/8086</h3>
+      <h3 className="mt-5">Programming of 8085/8086</h3>
     </a> 
   </Link>
 
@@ -77,7 +77,7 @@ function Sem_5_Map_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Interrupts and Interrupt processing</h3>
+      <h3 className="mt-5">Interrupts and Interrupt processing</h3>
     </a> 
   </Link>
 
@@ -85,7 +85,7 @@ function Sem_5_Map_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Memories</h3>
+      <h3 className="mt-5">Memories</h3>
     </a> 
   </Link>
 
@@ -93,7 +93,7 @@ function Sem_5_Map_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Interfacing peripherals and applications</h3>
+      <h3 className="mt-5">Interfacing peripherals and applications</h3>
     </a> 
   </Link>
 
@@ -101,7 +101,7 @@ function Sem_5_Map_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Intel microprocessors</h3>
+      <h3 className="mt-5">Intel microprocessors</h3>
     </a> 
   </Link>
 
@@ -109,7 +109,7 @@ function Sem_5_Map_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>ARM Processor</h3>
+      <h3 className="mt-5">ARM Processor</h3>
     </a> 
   </Link>
 </div>

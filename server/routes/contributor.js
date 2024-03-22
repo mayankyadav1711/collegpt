@@ -33,19 +33,12 @@ router.post("/contribute", requireLogin, async (req, res) => {
       // Add other required fields here
     } = req.body;
 
-    if (
-      !semester ||
-      !subjectName ||
-      !fileLinks ||
-      !pdfDescription
-      // Add conditions for other required fields
-    ) {
+    // Check if all required fields are provided
+    if (!semester || !subjectName || !fileLinks || !pdfDescription) {
       return res
         .status(422)
         .json({ error: "Please fill in all required fields." });
     }
-
-    // Assuming you have user authentication and can get the logged-in user's ID
 
     // Create a new contribution
     const contribution = new Contributor({
@@ -57,8 +50,23 @@ router.post("/contribute", requireLogin, async (req, res) => {
     });
 
     // Save the contribution
-    console.log(req.user);
     await contribution.save();
+
+    // Send email notification about the new contribution
+    await transporter.sendMail({
+      from: "collegpt@gmail.com",
+      to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
+      subject: "New Contribution Submitted",
+      html: `
+        <h1>New Contribution Submitted</h1>
+        <p>Semester: ${semester}</p>
+        <p>Subject: ${subjectName}</p>
+        <p>PDF Description: ${pdfDescription}</p>
+        <p>PDF Link: ${fileLinks}</p>
+        <p>Posted By Name: ${req.user.name}</p>
+        <p>Posted By Email: ${req.user.email}</p>
+      `,
+    });
 
     res.status(201).json({ message: "Contribution submitted successfully." });
   } catch (error) {
@@ -66,6 +74,8 @@ router.post("/contribute", requireLogin, async (req, res) => {
     res.status(500).json({ message: "Error submitting contribution." });
   }
 });
+
+
 router.post("/doubt", requireLogin, async (req, res) => {
   try {
     const {
@@ -77,16 +87,16 @@ router.post("/doubt", requireLogin, async (req, res) => {
       doubt,
       // Add other required fields here
     } = req.body;
+
+    // Check if doubt field is provided
     if (!doubt) {
       return res
         .status(422)
         .json({ error: "Please fill in all required fields." });
     }
 
-    // Assuming you have user authentication and can get the logged-in user's ID
-
-    // Create a new contribution
-    const doubts = new Doubt({
+    // Create a new doubt entry
+    const newDoubt = new Doubt({
       code,
       semester,
       subjectName,
@@ -96,12 +106,13 @@ router.post("/doubt", requireLogin, async (req, res) => {
       postedBy: req.user,
     });
 
-    // Save the contribution
-    await doubts.save();
+    // Save the doubt entry
+    await newDoubt.save();
 
-    transporter.sendMail({
-      from: "collegpt@gmail.com", // Your email address
-      to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"], // Your email address
+    // Send email notification about the new doubt
+    await transporter.sendMail({
+      from: "collegpt@gmail.com",
+      to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
       subject: "New Doubt Submitted",
       html: `
         <h1>New Doubt Submitted</h1>
@@ -119,9 +130,10 @@ router.post("/doubt", requireLogin, async (req, res) => {
     res.status(201).json({ message: "Doubt submitted successfully." });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error submitting contribution." });
+    res.status(500).json({ message: "Error submitting doubt." });
   }
 });
+
 router.post("/contact", requireLogin, async (req, res) => {
   try {
     const {
@@ -130,48 +142,47 @@ router.post("/contact", requireLogin, async (req, res) => {
       message,
       // Add other required fields here
     } = req.body;
+
+    // Check if all required fields are provided
     if (!email || !name || !message) {
       return res
         .status(422)
         .json({ error: "Please fill in all required fields." });
     }
 
-    // Assuming you have user authentication and can get the logged-in user's ID
-
-    // Create a new contribution
-    const contacts = new Contact({
+    // Create a new contact entry
+    const newContact = new Contact({
       name,
       email,
       message,
       postedBy: req.user,
     });
 
-    // Save the contribution
-    await contacts.save();
+    // Save the contact entry
+    await newContact.save();
 
-    transporter.sendMail({
-      from: "collegpt@gmail.com", // Your email address
-      to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"], // Your email address
+    // Send email notification about the new contact form submission
+    await transporter.sendMail({
+      from: "collegpt@gmail.com",
+      to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
       subject: "Someone tried to reach you (Contact Us Form)",
       html: `
         <h1>New Contact Submitted</h1>
         <p>Name: ${name}</p>
         <p>Email: ${email}</p>
         <p>Message: ${message}</p>
-   
         <p>Posted By Name: ${req.user.name}</p>
         <p>Posted By Email: ${req.user.email}</p>
       `,
     });
 
-    res
-      .status(201)
-      .json({ message: "Contact Us form  submitted successfully." });
+    res.status(201).json({ message: "Contact Us form submitted successfully." });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error submitting Contact Us Form." });
   }
 });
+
 
 router.post("/event-form", requireAdmin, async (req, res) => {
   try {
@@ -226,50 +237,51 @@ router.post("/feedback", requireLogin, async (req, res) => {
     const {
       feedback,
       rating,
-
       // Add other required fields here
     } = req.body;
+
+    // Check if feedback field is provided
     if (!feedback) {
       return res
         .status(422)
         .json({ error: "Please fill in all required fields." });
     }
 
-    // Assuming you have user authentication and can get the logged-in user's ID
-
-    // Create a new contribution
-    const feedbacks = new Feedback({
+    // Create a new feedback entry
+    const newFeedback = new Feedback({
       feedback,
       rating,
-
       postedBy: req.user,
     });
 
-    // Save the contribution
-    await feedbacks.save();
+    // Save the feedback entry
+    await newFeedback.save();
+
+    // Construct star rating emoji based on the rating
     const stars = "⭐".repeat(rating);
-    transporter.sendMail({
-      from: "collegpt@gmail.com", // Your email address
-      to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"], // Your email address
-      subject: "New Feedback Recieved",
+
+    // Send email notification about the new feedback
+    await transporter.sendMail({
+      from: "collegpt@gmail.com",
+      to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
+      subject: "New Feedback Received",
       html: `
-      <div style="text-align: center;">
-   
-      <h2 style="color: purple;">${req.user.name}</h2>
-      <h3 style="color: purple;">${req.user.email}</h3>
-      <h3><span >Feedback:</span>  ${feedback}</h3>
-      <h3><span >Rating:</span> ${stars}</h3>
-    </div>
-        
+        <div style="text-align: center;">
+          <h2 style="color: purple;">${req.user.name}</h2>
+          <h3 style="color: purple;">${req.user.email}</h3>
+          <h3><span>Feedback:</span> ${feedback}</h3>
+          <h3><span>Rating:</span> ${stars}</h3>
+        </div>
       `,
     });
 
-    res.status(201).json({ message: "Doubt submitted successfully." });
+    res.status(201).json({ message: "Feedback submitted successfully." });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error submitting contribution." });
+    res.status(500).json({ message: "Error submitting feedback." });
   }
 });
+
 
 router.get("/feedbacks", async (req, res) => {
   try {

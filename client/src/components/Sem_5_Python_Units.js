@@ -38,13 +38,13 @@ function Sem_5_Python_Units() {
             <div class="tutor">
                             {/* <img src={profilepic} alt=""/> */}
                 <div>
-                    <h3>john deo</h3>
+                    <h3 className="mt-5">john deo</h3>
                     <span>21-10-2022</span>
                 </div>
             </div>
 
             <div class="details">
-                <h3>Python Programming [IT506F-N]</h3>
+                <h3 className="mt-5">Python Programming [IT506F-N]</h3>
                 <p>The course is designed to provide understanding of the basic components of computer programming using the Python language – and
 might be a gentle introduction to programming for those who think they might have a longer term
 interest in the subject area.
@@ -64,7 +64,7 @@ interest in the subject area.
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Introduction to Python Programming Language</h3>
+      <h3 className="mt-5">Introduction to Python Programming Language</h3>
     </a> 
   </Link>
 
@@ -72,7 +72,7 @@ interest in the subject area.
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Data Collections and Language Component</h3>
+      <h3 className="mt-5">Data Collections and Language Component</h3>
     </a> 
   </Link>
 
@@ -80,7 +80,7 @@ interest in the subject area.
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Object and Classes :</h3>
+      <h3 className="mt-5">Object and Classes :</h3>
     </a> 
   </Link>
 
@@ -88,7 +88,7 @@ interest in the subject area.
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Functions and Modules</h3>
+      <h3 className="mt-5">Functions and Modules</h3>
     </a> 
   </Link>
 
@@ -96,7 +96,7 @@ interest in the subject area.
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>I/O and Error Handling In Python</h3>
+      <h3 className="mt-5">I/O and Error Handling In Python</h3>
     </a> 
   </Link>
 
@@ -104,7 +104,7 @@ interest in the subject area.
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Simple Algorithms and Data structures</h3>
+      <h3 className="mt-5">Simple Algorithms and Data structures</h3>
     </a> 
   </Link>
 

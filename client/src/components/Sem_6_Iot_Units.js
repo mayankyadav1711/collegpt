@@ -33,13 +33,13 @@ function Sem_6_Iot_Units() {
                          {/* <div class="tutor">
                             <img src={profilepic} alt="" />
                             <div>
-                                <h3>john deo</h3>
+                                <h3 className="mt-5">john deo</h3>
                                 <span>21-10-2022</span>
                             </div>
                         </div> */}
 
                         <div class="details">
-                            <h3>Internet of Things [CE605D-N]</h3>
+                            <h3 className="mt-5">Internet of Things [CE605D-N]</h3>
                             <p>
                                 The aim of this course is to make students aware
                                 about 'Internet of Things'-IOT, which is an
@@ -64,7 +64,7 @@ function Sem_6_Iot_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Introduction to IoT</h3>
+                            <h3 className="mt-5">Introduction to IoT</h3>
                         </a>
                     </Link>
 
@@ -72,7 +72,7 @@ function Sem_6_Iot_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>IoT & M2M</h3>
+                            <h3 className="mt-5">IoT & M2M</h3>
                         </a>
                     </Link>
 
@@ -80,7 +80,7 @@ function Sem_6_Iot_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Network & Communication aspects</h3>
+                            <h3 className="mt-5">Network & Communication aspects</h3>
                         </a>
                     </Link>
 
@@ -88,7 +88,7 @@ function Sem_6_Iot_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>
+                            <h3 className="mt-5">
                                 Web Infrastructure for Managing IoT Resources
                             </h3>
                         </a>
@@ -98,7 +98,7 @@ function Sem_6_Iot_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Challenges in IoT</h3>
+                            <h3 className="mt-5">Challenges in IoT</h3>
                         </a>
                     </Link>
 
@@ -106,7 +106,7 @@ function Sem_6_Iot_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Domain specific applications Of IoT</h3>
+                            <h3 className="mt-5">Domain specific applications Of IoT</h3>
                         </a>
                     </Link>
 
@@ -114,7 +114,7 @@ function Sem_6_Iot_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Developing IoTs</h3>
+                            <h3 className="mt-5">Developing IoTs</h3>
                         </a>
                     </Link>
 
@@ -122,7 +122,7 @@ function Sem_6_Iot_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>IoT Tools</h3>
+                            <h3 className="mt-5">IoT Tools</h3>
                         </a>
                     </Link>
                 </div>

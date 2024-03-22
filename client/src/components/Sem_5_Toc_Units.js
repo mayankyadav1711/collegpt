@@ -34,13 +34,13 @@ function Sem_5_Toc_Units() {
             <div class="tutor">
               {/* <img src={profilepic} alt="" /> */}
               <div>
-                <h3>john deo</h3>
+                <h3 className="mt-5">john deo</h3>
                 <span>21-10-2022</span>
               </div>
             </div>
 
             <div class="details">
-              <h3>Theory of Computation [CE503-N]</h3>
+              <h3 className="mt-5">Theory of Computation [CE503-N]</h3>
               <p>
                 Develop understanding of number systems and Boolean algebra.
                 Understand the functioning of logic gates, their implementation
@@ -60,7 +60,7 @@ function Sem_5_Toc_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Introduction</h3>
+              <h3 className="mt-5">Introduction</h3>
             </a>
           </Link>
 
@@ -68,7 +68,7 @@ function Sem_5_Toc_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Regular Languages</h3>
+              <h3 className="mt-5">Regular Languages</h3>
             </a>
           </Link>
 
@@ -76,7 +76,7 @@ function Sem_5_Toc_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Finite Automata</h3>
+              <h3 className="mt-5">Finite Automata</h3>
             </a>
           </Link>
 
@@ -84,7 +84,7 @@ function Sem_5_Toc_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Context-Free Languages</h3>
+              <h3 className="mt-5">Context-Free Languages</h3>
             </a>
           </Link>
 
@@ -92,7 +92,7 @@ function Sem_5_Toc_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Pushdown Automata</h3>
+              <h3 className="mt-5">Pushdown Automata</h3>
             </a>
           </Link>
 
@@ -100,7 +100,7 @@ function Sem_5_Toc_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Pumping Lemma</h3>
+              <h3 className="mt-5">Pumping Lemma</h3>
             </a>
           </Link>
 
@@ -108,7 +108,7 @@ function Sem_5_Toc_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Context-Sensitive Languages</h3>
+              <h3 className="mt-5">Context-Sensitive Languages</h3>
             </a>
           </Link>
 
@@ -116,7 +116,7 @@ function Sem_5_Toc_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Turing Machines</h3>
+              <h3 className="mt-5">Turing Machines</h3>
             </a>
           </Link>
         </div>

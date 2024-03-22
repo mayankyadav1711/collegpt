@@ -2,8 +2,8 @@
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 // import profilepic from './images/pic-1.jpg'
-// import thumb from "./images/Thumbnail/Sem-1/ES.png"
-import postpic from "./images/Thumbnail/Sem-1/ES.png"
+// import thumb from "./images/Thumbnail/Sem-1/ES.webp"
+import postpic from "./images/Thumbnail/Sem-1/ES.webp"
 
 
 import handledarkmode from "./handledarkmode";
@@ -38,13 +38,13 @@ function Sem_1_Es_Units() {
          <div class="tutor">
                         {/* <img src={profilepic} alt=""/> */}
             <div>
-               <h3>john deo</h3>
+               <h3 className="mt-5">john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
    
          <div class="details">
-            <h3>Enviromental Science [UE101]</h3>
+            <h3 className="mt-5">Enviromental Science [UE101]</h3>
             <p>To create awareness, acquire knowledge such that students manage their society properly inculcate skills for identifying problems associated with environment and develop ability to evaluate participate in environmental protection activities that is helpful to all living things.</p>
             <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link>          </div>
       </div>
@@ -63,7 +63,7 @@ function Sem_1_Es_Units() {
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
 
-      <h3>Introduction to environment, Ecology and Ecosystem</h3>
+      <h3 className="mt-5">Introduction to environment, Ecology and Ecosystem</h3>
    </a>
 </Link>
 
@@ -71,7 +71,7 @@ function Sem_1_Es_Units() {
    <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Ecology & Ecosystem</h3>
+      <h3 className="mt-5">Ecology & Ecosystem</h3>
    </a>
 </Link>
 
@@ -79,7 +79,7 @@ function Sem_1_Es_Units() {
    <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Population & Natural Resources</h3>
+      <h3 className="mt-5">Population & Natural Resources</h3>
    </a>
 </Link>
 
@@ -87,7 +87,7 @@ function Sem_1_Es_Units() {
    <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Environmental Pollution</h3>
+      <h3 className="mt-5">Environmental Pollution</h3>
    </a>
 </Link>
 
@@ -95,7 +95,7 @@ function Sem_1_Es_Units() {
    <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Social Issues</h3>
+      <h3 className="mt-5">Social Issues</h3>
    </a>
 </Link>
 

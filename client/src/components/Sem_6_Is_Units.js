@@ -34,13 +34,13 @@ function Sem_6_Is_Units() {
             <div class="tutor">
               {/* <img src={profilepic} alt="" /> */}
               <div>
-                <h3>john deo</h3>
+                <h3 className="mt-5">john deo</h3>
                 <span>21-10-2022</span>
               </div>
             </div>
 
             <div class="details">
-              <h3>Information Security [IT602-N]</h3>
+              <h3 className="mt-5">Information Security [IT602-N]</h3>
               <p>
               The course is intended to familiarize the student to the domain of information and network security. After
 introducing the basics of cryptography and security along with the essential mathematical background, the
@@ -61,7 +61,7 @@ symmetric/asymmetric key encryption, hash, MAC, key management, digital signatur
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Introduction</h3>
+    <h3 className="mt-5">Introduction</h3>
   </a>
 </Link>
 
@@ -69,7 +69,7 @@ symmetric/asymmetric key encryption, hash, MAC, key management, digital signatur
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Conventional Cryptography</h3>
+    <h3 className="mt-5">Conventional Cryptography</h3>
   </a>
 </Link>
 
@@ -77,7 +77,7 @@ symmetric/asymmetric key encryption, hash, MAC, key management, digital signatur
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Network Security</h3>
+    <h3 className="mt-5">Network Security</h3>
   </a>
 </Link>
 
@@ -85,7 +85,7 @@ symmetric/asymmetric key encryption, hash, MAC, key management, digital signatur
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Security Protocols</h3>
+    <h3 className="mt-5">Security Protocols</h3>
   </a>
 </Link>
 
@@ -93,7 +93,7 @@ symmetric/asymmetric key encryption, hash, MAC, key management, digital signatur
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Mathematical Background</h3>
+    <h3 className="mt-5">Mathematical Background</h3>
   </a>
 </Link>
 
@@ -101,7 +101,7 @@ symmetric/asymmetric key encryption, hash, MAC, key management, digital signatur
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Symmetric and Asymmetric Cryptographic Techniques</h3>
+    <h3 className="mt-5">Symmetric and Asymmetric Cryptographic Techniques</h3>
   </a>
 </Link>
 
@@ -109,7 +109,7 @@ symmetric/asymmetric key encryption, hash, MAC, key management, digital signatur
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Authentication Techniques</h3>
+    <h3 className="mt-5">Authentication Techniques</h3>
   </a>
 </Link>
 

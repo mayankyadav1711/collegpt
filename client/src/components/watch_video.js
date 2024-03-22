@@ -23,7 +23,9 @@ const  WatchVideo = () =>{
   const [extra, setExtra] = useState("");
   const [doubt, setDoubt] = useState("");
   const [uploadTimestamp, setUploadTimestamp] = useState("");
+  const [pdfdownloadlink, setPdfDownloadLink] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [downloadTimer, setDownloadTimer] = useState(30); // Timer starts from 10 seconds
 
   const { code } = useParams();
 
@@ -37,7 +39,7 @@ const  WatchVideo = () =>{
   
         if (response.ok) {
           const pdfPreviewUrl = `${data.link.replace('/view?usp=drive_link', '/preview')}`;
-
+          setPdfDownloadLink(data.link)
           setPdfFilePath(pdfPreviewUrl);
           setSem(data.sem);
           setSub(data.sub);
@@ -59,6 +61,28 @@ const  WatchVideo = () =>{
     handledarkmode();
   }, [code]);
 
+  const startDownloadTimer = () => {
+    if (downloadTimer === 0) {
+      return; // Timer reached 0, do nothing
+    }
+    const timer = setTimeout(() => {
+      setDownloadTimer(prevTimer => prevTimer - 1); // Decrease timer by 1 second
+    }, 1000); // Update timer every second
+    return () => clearTimeout(timer); // Clear timer on component unmount
+  };
+
+  useEffect(() => {
+    if (downloadTimer > 0) {
+      startDownloadTimer();
+    }
+  }, [downloadTimer]);
+
+  const handleDownloadClick = () => {
+    if (downloadTimer === 0) {
+      // Timer reached 0, allow download
+      window.open(pdfdownloadlink, "_blank");
+    }
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!state?._id) {
@@ -103,14 +127,16 @@ const  WatchVideo = () =>{
   return (
     <>
     {pdfFilePath ? (
-      <div className="mt-52 flex justify-center items-center">
+      <> 
+      <div className="mt-44 flex justify-center items-center">
   <iframe
     src={pdfFilePath}
-    width="640"
-    height="480"
-    className="border-2 border-gray-200 shadow-md rounded-lg"
+    width="1165"
+    height="590"
+    className="rounded-3xl"
     title="PDF Viewer"
     id="pdfIframe"
+    sandbox="allow-scripts allow-same-origin"
   />
 
 
@@ -118,6 +144,17 @@ const  WatchVideo = () =>{
 
 
             </div>
+
+<br/>
+<div className="flex  mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+            <button onClick={handleDownloadClick} disabled={downloadTimer !== 0} className="text-5xl lg:text-2xl inline-flex justify-center items-center py-3 px-5 font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+              {downloadTimer === 0 ? "Download" : `Please wait ${downloadTimer} seconds`}
+              <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+            </>
           ) : (
             <div className="title-apple-coming-soon">Coming Soon</div>
           )}

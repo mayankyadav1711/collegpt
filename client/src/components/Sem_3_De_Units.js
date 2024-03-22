@@ -37,13 +37,13 @@ function Sem_3_De_Units() {
          <div class="tutor">
                         {/* <img src={profilepic} alt=""/> */}
             <div>
-               <h3>john deo</h3>
+               <h3 className="mt-5">john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
    
          <div class="details">
-            <h3>Digital Electronics [CT304-N]</h3>
+            <h3 className="mt-5">Digital Electronics [CT304-N]</h3>
             <p>Develop understanding of number systems and Boolean algebra. Understand the functioning of logic gates, their implementation and verification of truth
 tables. </p>
 <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link> 
@@ -62,7 +62,7 @@ tables. </p>
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Number Systems and Codes</h3>
+      <h3 className="mt-5">Number Systems and Codes</h3>
     </a> 
   </Link>
 
@@ -70,7 +70,7 @@ tables. </p>
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Boolean Algebra and Logic Gates</h3>
+      <h3 className="mt-5">Boolean Algebra and Logic Gates</h3>
     </a> 
   </Link>
   
@@ -78,7 +78,7 @@ tables. </p>
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Combinational Logic Circuit</h3>
+      <h3 className="mt-5">Combinational Logic Circuit</h3>
     </a> 
   </Link>
 
@@ -86,7 +86,7 @@ tables. </p>
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Flip Flops and Sequential Logic and Circuits</h3>
+      <h3 className="mt-5">Flip Flops and Sequential Logic and Circuits</h3>
     </a> 
   </Link>
   
@@ -94,7 +94,7 @@ tables. </p>
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Introduction to State Machines</h3>
+      <h3 className="mt-5">Introduction to State Machines</h3>
     </a> 
   </Link>
 
@@ -102,7 +102,7 @@ tables. </p>
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Programmable Logic Devices</h3>
+      <h3 className="mt-5">Programmable Logic Devices</h3>
     </a> 
   </Link>
 
@@ -110,7 +110,7 @@ tables. </p>
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>D/A and A/D Converters</h3>
+      <h3 className="mt-5">D/A and A/D Converters</h3>
     </a> 
   </Link>
 </div>

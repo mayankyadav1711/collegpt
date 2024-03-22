@@ -38,13 +38,13 @@ function Sem_5_SOA_Units() {
             <div class="tutor">
                             {/* <img src={profilepic} alt=""/> */}
                 <div>
-                    <h3>john deo</h3>
+                    <h3 className="mt-5">john deo</h3>
                     <span>21-10-2022</span>
                 </div>
             </div>
 
             <div class="details">
-                <h3>Service Oriented Architecture [IT502-N]</h3>
+                <h3 className="mt-5">Service Oriented Architecture [IT502-N]</h3>
                 <p>This course provides a comprehensive overview of service orientation principles, covering fundamental concepts, analysis techniques, and underlying technologies. Participants delve into advanced topics such as service composition, orchestration, and choreography, while exploring various WS-* specification standards.
 </p>
                 <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link>             </div>
@@ -62,7 +62,7 @@ function Sem_5_SOA_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Introduction To distributed Computing and SOA</h3>
+      <h3 className="mt-5">Introduction To distributed Computing and SOA</h3>
     </a> 
   </Link>
 
@@ -70,7 +70,7 @@ function Sem_5_SOA_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Web Services Fundamental and Standard</h3>
+      <h3 className="mt-5">Web Services Fundamental and Standard</h3>
     </a> 
   </Link>
 
@@ -78,7 +78,7 @@ function Sem_5_SOA_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Principles of Service-Oriented Architecture</h3>
+      <h3 className="mt-5">Principles of Service-Oriented Architecture</h3>
     </a> 
   </Link>
 
@@ -86,7 +86,7 @@ function Sem_5_SOA_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>SOA and WS-* Extension</h3>
+      <h3 className="mt-5">SOA and WS-* Extension</h3>
     </a> 
   </Link>
 
@@ -94,7 +94,7 @@ function Sem_5_SOA_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Principle of Service Oriented Computing</h3>
+      <h3 className="mt-5">Principle of Service Oriented Computing</h3>
     </a> 
   </Link>
 
@@ -102,7 +102,7 @@ function Sem_5_SOA_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>SOA Platforms</h3>
+      <h3 className="mt-5">SOA Platforms</h3>
     </a> 
   </Link>
 

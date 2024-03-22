@@ -34,13 +34,13 @@ function Sem_6_Ap_Units() {
             <div class="tutor">
               {/* <img src={profilepic} alt="" /> */}
               <div>
-                <h3>john deo</h3>
+                <h3 className="mt-5">john deo</h3>
                 <span>21-10-2022</span>
               </div>
             </div>
 
             <div class="details">
-              <h3>Android Programming [CT604A-N]</h3>
+              <h3 className="mt-5">Android Programming [CT604A-N]</h3>
               <p>
               An Android technology is generally used in mobile system, where android is an open source technology.
 This technology is used for mobile application development. Using android technology, student can
@@ -61,7 +61,7 @@ make own mobile applications and upload easily on mobile devices.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Introduction to Android</h3>
+    <h3 className="mt-5">Introduction to Android</h3>
   </a>
 </Link>
 
@@ -69,7 +69,7 @@ make own mobile applications and upload easily on mobile devices.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Android Application Design and Resources</h3>
+    <h3 className="mt-5">Android Application Design and Resources</h3>
   </a>
 </Link>
 
@@ -77,7 +77,7 @@ make own mobile applications and upload easily on mobile devices.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Exploring User Interfaces screen elements</h3>
+    <h3 className="mt-5">Exploring User Interfaces screen elements</h3>
   </a>
 </Link>
 
@@ -85,7 +85,7 @@ make own mobile applications and upload easily on mobile devices.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Designing User Interfaces with Layouts</h3>
+    <h3 className="mt-5">Designing User Interfaces with Layouts</h3>
   </a>
 </Link>
 
@@ -93,7 +93,7 @@ make own mobile applications and upload easily on mobile devices.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Drawing and working with Animation</h3>
+    <h3 className="mt-5">Drawing and working with Animation</h3>
   </a>
 </Link>
 
@@ -101,7 +101,7 @@ make own mobile applications and upload easily on mobile devices.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Android Storage APIs</h3>
+    <h3 className="mt-5">Android Storage APIs</h3>
   </a>
 </Link>
 
@@ -109,7 +109,7 @@ make own mobile applications and upload easily on mobile devices.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Sharing Data Between Applications with Content Providers</h3>
+    <h3 className="mt-5">Sharing Data Between Applications with Content Providers</h3>
   </a>
 </Link>
 
@@ -117,14 +117,14 @@ make own mobile applications and upload easily on mobile devices.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Using Android Network, Web and Multimedia APIs</h3>
+    <h3 className="mt-5">Using Android Network, Web and Multimedia APIs</h3>
   </a>
 </Link>
 <Link to="/watchvideo/659" class="box">
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Telephony API and Notifications</h3>
+    <h3 className="mt-5">Telephony API and Notifications</h3>
   </a>
 </Link>
 

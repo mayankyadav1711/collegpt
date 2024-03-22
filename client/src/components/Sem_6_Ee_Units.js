@@ -34,13 +34,13 @@ function Sem_6_Ee_Units() {
             <div class="tutor">
               {/* <img src={profilepic} alt="" /> */}
               <div>
-                <h3>john deo</h3>
+                <h3 className="mt-5">john deo</h3>
                 <span>21-10-2022</span>
               </div>
             </div>
 
             <div class="details">
-              <h3>E-Commerce and E-Business [IT605G-N]</h3>
+              <h3 className="mt-5">E-Commerce and E-Business [IT605G-N]</h3>
               <p>
               Define E-Marketplaces and list their components.
 List the Major types of Electronic Markets and describe their features.
@@ -62,7 +62,7 @@ Describe the various types of Auctions and list their characteristics.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Introduction to E-Business and E-Commerce</h3>
+    <h3 className="mt-5">Introduction to E-Business and E-Commerce</h3>
   </a>
 </Link>
 
@@ -70,7 +70,7 @@ Describe the various types of Auctions and list their characteristics.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>E-Marketplaces: Structures, Mechanisms, Economics, & impacts</h3>
+    <h3 className="mt-5">E-Marketplaces: Structures, Mechanisms, Economics, & impacts</h3>
   </a>
 </Link>
 
@@ -78,7 +78,7 @@ Describe the various types of Auctions and list their characteristics.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>E-Business applications, E-Procurement and E-Payment Systems</h3>
+    <h3 className="mt-5">E-Business applications, E-Procurement and E-Payment Systems</h3>
   </a>
 </Link>
 
@@ -86,7 +86,7 @@ Describe the various types of Auctions and list their characteristics.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>The Impact of E-Business on Different Fields and Industries</h3>
+    <h3 className="mt-5">The Impact of E-Business on Different Fields and Industries</h3>
   </a>
 </Link>
 
@@ -94,7 +94,7 @@ Describe the various types of Auctions and list their characteristics.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>E-Learning and Online Education</h3>
+    <h3 className="mt-5">E-Learning and Online Education</h3>
   </a>
 </Link>
 
@@ -102,7 +102,7 @@ Describe the various types of Auctions and list their characteristics.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>E-Government</h3>
+    <h3 className="mt-5">E-Government</h3>
   </a>
 </Link>
 
@@ -110,7 +110,7 @@ Describe the various types of Auctions and list their characteristics.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Lunching Online Business and E-Commerce Projects</h3>
+    <h3 className="mt-5">Lunching Online Business and E-Commerce Projects</h3>
   </a>
 </Link>
 
@@ -118,7 +118,7 @@ Describe the various types of Auctions and list their characteristics.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>M-Commerce</h3>
+    <h3 className="mt-5">M-Commerce</h3>
   </a>
 </Link>
 

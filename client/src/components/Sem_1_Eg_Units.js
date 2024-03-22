@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {  useEffect} from "react";
 import {   Link } from "react-router-dom";
-import postpic from "./images/Thumbnail/Sem-1/EG.png"
+import postpic from "./images/Thumbnail/Sem-1/EG.webp"
 import handledarkmode from "./handledarkmode";
 
 function Sem_1_Eg_Units() {
@@ -33,7 +33,7 @@ function Sem_1_Eg_Units() {
          
    
          <div class="details">
-            <h3>Engineering Graphics [CC110-N]</h3>
+            <h3 className="mt-5">Engineering Graphics [CC110-N]</h3>
             <p>Importance of graphics in engineering applications – Use of drafting instruments – BIS conventions and specifications – Size, layout and folding of drawing sheets – Lettering and dimensioning.</p>
             <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link>          </div>
       </div>
@@ -50,84 +50,84 @@ function Sem_1_Eg_Units() {
    <Link to='/watchvideo/141' class="box">
   <a>
     <img src={postpic} alt=""/>
-    <h3>Introduction</h3>
+    <h3 className="mt-5">Introduction</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/142' class="box">
   <a>
     <img src={postpic} alt=""/>
-    <h3>Scales</h3>
+    <h3 className="mt-5">Scales</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/143' class="box">
   <a>
     <img src={postpic} alt=""/>
-    <h3>Engineering Curves</h3>
+    <h3 className="mt-5">Engineering Curves</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/144' class="box">
   <a>
     <img src={postpic} alt=""/>
-    <h3>Loci of Points</h3>
+    <h3 className="mt-5">Loci of Points</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/145' class="box">
   <a>
     <img src={postpic} alt=""/>
-    <h3>Projections of Points & Lines</h3>
+    <h3 className="mt-5">Projections of Points & Lines</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/146' class="box">
   <a>
     <img src={postpic} alt=""/>
-    <h3>Projections of Planes</h3>
+    <h3 className="mt-5">Projections of Planes</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/147' class="box">
   <a>
     <img src={postpic} alt=""/>
-    <h3>Projections of Solids</h3>
+    <h3 className="mt-5">Projections of Solids</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/148' class="box">
   <a>
     <img src={postpic} alt=""/>
-    <h3>Section of Solids</h3>
+    <h3 className="mt-5">Section of Solids</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/149' class="box">
   <a>
     <img src={postpic} alt=""/>
-    <h3>Development of Lateral Surfaces</h3>
+    <h3 className="mt-5">Development of Lateral Surfaces</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/1410' class="box">
   <a>
     <img src={postpic} alt=""/>
-    <h3>Orthographic Projections</h3>
+    <h3 className="mt-5">Orthographic Projections</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/1411' class="box">
   <a>
     <img src={postpic} alt=""/>
-    <h3>Isometric Projections and Isometric View or Drawing</h3>
+    <h3 className="mt-5">Isometric Projections and Isometric View or Drawing</h3>
   </a>
 </Link>
 
 <Link to='/watchvideo/1412' class="box">
   <a>
     <img src={postpic} alt=""/>
-    <h3>Machine Drawing</h3>
+    <h3 className="mt-5">Machine Drawing</h3>
   </a>
 </Link>
 

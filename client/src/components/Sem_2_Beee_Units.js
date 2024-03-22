@@ -2,10 +2,10 @@
 import React, {  useEffect } from "react";
 import {  Link } from "react-router-dom";
 // import profilepic from './images/pic-1.jpg'
-// import thumb from "./images/Thumbnail/Sem-2/BEEE.png";
-import postpic from "./images/Thumbnail/Sem-2/BEEE.png";
+// import thumb from "./images/Thumbnail/Sem-2/BEEE.webp";
+import postpic from "./images/Thumbnail/Sem-2/BEEE.webp";
 
-// import newpic from "./images/Thumbnail/Sem-2/BEEE.png";
+// import newpic from "./images/Thumbnail/Sem-2/BEEE.webp";
 import handledarkmode from "./handledarkmode";
 function Sem_2_Beee_Units() {
    useEffect(() => {
@@ -38,13 +38,13 @@ function Sem_2_Beee_Units() {
          <div class="tutor">
                         {/* <img src={profilepic} alt=""/> */}
             <div>
-               <h3>john deo</h3>
+               <h3 className="mt-5">john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
    
          <div class="details">
-            <h3>Basic Electrical and Electronics Engineering [CC102-N]</h3>
+            <h3 className="mt-5">Basic Electrical and Electronics Engineering [CC102-N]</h3>
             <p>To present a problem oriented introductory knowledge of Electrical Engineering Fundamentals. To focus on the study of electrical parameters & different engineering application based principles.</p>
             <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link> 
          </div>
@@ -63,50 +63,50 @@ function Sem_2_Beee_Units() {
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
 
-         <h3>An Introduction to D.C. Circuits</h3>
+         <h3 className="mt-5">An Introduction to D.C. Circuits</h3>
       </a> </Link>
 
       <Link to='/watchvideo/232'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
 
-         <h3>Work, Power and energy</h3>
+         <h3 className="mt-5">Work, Power and energy</h3>
       </a> </Link>
 
       <Link to='/watchvideo/233'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Electrostatics & Capacitance</h3>
+         <h3 className="mt-5">Electrostatics & Capacitance</h3>
       </a> </Link>
 
       <Link to='/watchvideo/234'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Electromagnetic</h3>
+         <h3 className="mt-5">Electromagnetic</h3>
       </a> </Link>
 
       <Link to='/watchvideo/235'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>AC Fundamentals</h3>
+         <h3 className="mt-5">AC Fundamentals</h3>
       </a> </Link>
 
       <Link to='/watchvideo/236'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Analysis of A.C. Circuit</h3>
+         <h3 className="mt-5">Analysis of A.C. Circuit</h3>
       </a> </Link>
 
       <Link to='/watchvideo/237'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Polyphase Circuits</h3>
+         <h3 className="mt-5">Polyphase Circuits</h3>
       </a> </Link>
 
       <Link to='/watchvideo/238'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Basics of Electronics</h3>
+         <h3 className="mt-5">Basics of Electronics</h3>
       </a> </Link>
 
    </div>

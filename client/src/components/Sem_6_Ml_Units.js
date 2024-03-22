@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 // import thumb from "./images/Thumbnail/Sem-5/TOC.webp";
 import postpic from "./images/Thumbnail/Sem-6/ml.webp";
 import handledarkmode from "./handledarkmode";
+import yt from "./images/yt.png";
+
 function Sem_6_Ml_Units() {
   useEffect(() => {
 
@@ -34,13 +36,13 @@ function Sem_6_Ml_Units() {
             <div class="tutor">
               {/* <img src={profilepic} alt="" /> */}
               <div>
-                <h3>john deo</h3>
+                <h3 className="mt-5">john deo</h3>
                 <span>21-10-2022</span>
               </div>
             </div>
 
             <div class="details">
-              <h3>Machine Learning [CT604E-N]</h3>
+              <h3 className="mt-5">Machine Learning [CT604E-N]</h3>
               <p>
               Machine learning concerns with designing and developing of algorithms that allow machines, essentially
 computers, to evolve realistic or human like behavior based on the empirical data available. This course
@@ -57,35 +59,43 @@ provide an overview of the machine leaning and advance topics.
         <h1 class="heading">Unit List</h1>
 
         <div class="box-container">
-        <Link to="/watchvideo/641" class="box">
-  <a>
-    {/* <i class="fas fa-play"></i> */}
-    <img src={postpic} alt="" />
-    <h3>Introduction</h3>
-  </a>
+
+        <Link to="/watchvideo/641" className="box flex flex-col items-center justify-center relative">
+    <img src={postpic} alt="" className="mb-32 mr-8"/>
 </Link>
+<div className="absolute" style={{transform: 'translate(70%, 610%)' }}>
+    <Link to="/watchvideo/641" className="flex items-center text-3xl text-white">
+        <h3 className="hover:text-[#394d7f] -mt-2">Introduction</h3>
+        <Link to="/youtube/checking" className="ml-16">
+            <img src={yt} className="w-16 h-16 object-contain" alt="" />
+        </Link>
+    </Link>
+</div>
+
+
+
 
 <Link to="/watchvideo/642" class="box">
   <a>
-    {/* <i class="fas fa-play"></i> */}
+
     <img src={postpic} alt="" />
-    <h3>Linear Regression</h3>
+    <h3 className="mt-5">Linear Regression</h3>
   </a>
 </Link>
 
 <Link to="/watchvideo/643" class="box">
   <a>
-    {/* <i class="fas fa-play"></i> */}
+
     <img src={postpic} alt="" />
-    <h3>Classification</h3>
+    <h3 className="mt-5">Classification</h3>
   </a>
 </Link>
 
 <Link to="/watchvideo/644" class="box">
   <a>
-    {/* <i class="fas fa-play"></i> */}
+
     <img src={postpic} alt="" />
-    <h3>Resampling Methods and Evaluation</h3>
+    <h3 className="mt-5">Resampling Methods and Evaluation</h3>
   </a>
 </Link>
 
@@ -93,7 +103,7 @@ provide an overview of the machine leaning and advance topics.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Neural Network Representation and Learning</h3>
+    <h3 className="mt-5">Neural Network Representation and Learning</h3>
   </a>
 </Link>
 
@@ -101,7 +111,7 @@ provide an overview of the machine leaning and advance topics.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Ensemble method</h3>
+    <h3 className="mt-5">Ensemble method</h3>
   </a>
 </Link>
 
@@ -109,7 +119,7 @@ provide an overview of the machine leaning and advance topics.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Clustering</h3>
+    <h3 className="mt-5">Clustering</h3>
   </a>
 </Link>
 
@@ -117,7 +127,7 @@ provide an overview of the machine leaning and advance topics.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Dimensionality Reduction Graphical Model</h3>
+    <h3 className="mt-5">Dimensionality Reduction Graphical Model</h3>
   </a>
 </Link>
 
@@ -125,7 +135,7 @@ provide an overview of the machine leaning and advance topics.
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt="" />
-      <h3>Introduction Reinforcement Learning</h3>
+      <h3 className="mt-5">Introduction Reinforcement Learning</h3>
     </a>
   </Link>
 
@@ -133,7 +143,7 @@ provide an overview of the machine leaning and advance topics.
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt="" />
-      <h3>Machine Learning Applications</h3>
+      <h3 className="mt-5">Machine Learning Applications</h3>
     </a>
   </Link>
 

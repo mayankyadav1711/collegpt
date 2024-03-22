@@ -3,20 +3,20 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
-import s11 from "./images/Thumbnail/Sem-1/FOP.png";
-import s12 from "./images/Thumbnail/Sem-1/Maths-1.png";
-import s13 from "./images/Thumbnail/Sem-1/EOC.png";
-import s14 from "./images/Thumbnail/Sem-1/EG.png";
-import s15 from "./images/Thumbnail/Sem-1/EP.png";
-import s16 from "./images/Thumbnail/Sem-1/ES.png";
+import s11 from "./images/Thumbnail/Sem-1/FOP.webp";
+import s12 from "./images/Thumbnail/Sem-1/Maths-1.webp";
+import s13 from "./images/Thumbnail/Sem-1/EOC.webp";
+import s14 from "./images/Thumbnail/Sem-1/EG.webp";
+import s15 from "./images/Thumbnail/Sem-1/EP.webp";
+import s16 from "./images/Thumbnail/Sem-1/ES.webp";
 
-import s21 from "./images/Thumbnail/Sem-2/OOPC.png";
-import s22 from "./images/Thumbnail/Sem-2/Maths-2.png";
-import s23 from "./images/Thumbnail/Sem-2/BEEE.png";
-import s24 from "./images/Thumbnail/Sem-2/FME.png";
-import s25 from "./images/Thumbnail/Sem-2/BCPS.png";
-import s26 from "./images/Thumbnail/Sem-2/WORKSHOP.png";
-import s27 from "./images/Thumbnail/Sem-2/IICT.png";
+import s21 from "./images/Thumbnail/Sem-2/OOPC.webp";
+import s22 from "./images/Thumbnail/Sem-2/Maths-2.webp";
+import s23 from "./images/Thumbnail/Sem-2/BEEE.webp";
+import s24 from "./images/Thumbnail/Sem-2/FME.webp";
+import s25 from "./images/Thumbnail/Sem-2/BCPS.webp";
+import s26 from "./images/Thumbnail/Sem-2/WORKSHOP.webp";
+import s27 from "./images/Thumbnail/Sem-2/IICT.webp";
 
 import s31 from "./images/Thumbnail/Sem-3/DSA.webp";
 import s32 from "./images/Thumbnail/Sem-3/Maths-3.webp";
@@ -169,9 +169,10 @@ const Courses = () => {
               <img src={course.thumbnail} alt="" />
               <span>{course.units} Units</span>
             </div>
-            <Link to={`/sem_${activeTab + 1}_${index + 1}_units`}>
-              <a className="inline-btn">View Units</a>
+            <Link to={`/sem_${activeTab + 1}_${index + 1}_units`} className="inline-btn">
+           View Units
             </Link>
+
           </div>
         ))}
       </div>
