@@ -7917,7 +7917,7 @@ height: 70rem;
   }
 
   .comments .add-comment{
-    margin-left: 0rem;
+    /* margin-left: 0rem; */
   }
   .reviews .add-comment{
     margin-left: 0rem;
@@ -8344,7 +8344,7 @@ height: 70rem;
   }
  
   .comments .add-comment{
-    margin-left: 0rem;
+    /* margin-left: 0rem; */
   }
   
   .gita{
@@ -8472,8 +8472,8 @@ height: 70rem;
   }
 
   .comments .add-comment{
-    margin-left: 6rem;
-    width: 50rem;
+    /* margin-left: 6rem; */
+    width: auto;
   }
   .reviews .add-comment{
     margin-left: 0rem;
