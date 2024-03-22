@@ -185,10 +185,10 @@ const Youtube_Lecture = () => {
     </div>
     <div className="flex ml-auto">
       <span className="text-gray-900 dark:text-white font-semibold flex">
-        <FaEye /> Views: {views}
+        <FaEye /> {views}
       </span>
       <span className="text-gray-900 dark:text-white font-semibold flex">
-        <BiSolidLike /> Likes: {likes}
+        <BiSolidLike /> {likes}
       </span>
     </div>
   </div>

@@ -42,29 +42,26 @@ const Footer = () => {
 
     return (
         <>
-        <footer class="footer-section ">
-        <div class="container mx-auto px-4 sm:px-10 py-8 lg:flex lg:justify-center">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-40">
+        <footer class="footer-section flex flex-col items-center">
+    <div class="container mx-auto px-4 sm:px-10 py-8 lg:flex justify-center">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-40">
             {/* Left side: Logo and contact info */}
-            <div class="flex flex-col space-y-5">
-                                        {/* <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">ColleGPT</h3> */}
+            <div class="flex flex-col items-center lg:items-start space-y-5">                                        {/* <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">ColleGPT</h3> */}
                     <Link to="/">
                     <div className=" text-gray-900 dark:text-white">
     <span
-      style={{ fontSize: "4rem" }}
-      className="flex items-center font-bold"
+      className="flex items-center font-bold lg:text-[4rem] text-[8rem]"
     >
       <span>C</span>
       <img
         src={logo}
-        className="inline align-middle h-auto mx-1 md:mx-2"
+        className="inline align-middle mx-1 md:mx-2 lg:w-[2.75rem] h-auto w-[4.75rem]"
         alt="Logo"
-        style={{ height: "2.75rem", width: "2.75rem" }}
       />
       <span>LLEGPT</span>
     </span>
   </div></Link>
-                    <div className="mt-4 text-xl text-gray-900 dark:text-white">
+                    <div className="mt-4 lg:text-xl text-gray-900 dark:text-white text-3xl">
                         <p><Link to="mailto:collegpt@gmail.com">Mail Us: collegpt@gmail.com</Link></p>
                     </div>
                 </div>
@@ -76,9 +73,9 @@ const Footer = () => {
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="px-4 py-2 rounded-lg border border-gray-600 focus:outline-none focus:border-gray-400 text-2xl"
+                                className="lg:px-4 px-8 lg:py-2 py-4 rounded-lg border border-gray-600 focus:outline-none focus:border-gray-400 lg:text-2xl text-4xl"
                             />
-                            <button className="px-4 py-2 bg-[#12b8ff] text-white rounded-lg ml-2 text-2xl">
+                            <button className="lg:px-4 px-8 lg:py-2 py-4 bg-[#12b8ff] text-white rounded-lg ml-2 lg:text-2xl text-4xl">
                                 Subscribe
                             </button>
                         </form>
@@ -241,9 +238,9 @@ const Footer = () => {
 
                 {/* Right side: Social media links and legal info */}
                 <div className="flex lg:justify-between justify-center">
-                    <div className="w-5/12 flex flex-col text-2xl">
+                    <div className="w-5/12 flex flex-col lg:text-2xl text-4xl">
                     <Link to="/">
-                        <h2 className="font-bold text-2xl text-gray-900 dark:text-white">
+                        <h2 className="font-bold lg:text-2xl text-4xl text-gray-900 dark:text-white">
                             ColleGPT
                         </h2>
                         </Link>
@@ -274,8 +271,8 @@ const Footer = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className="w-10/2 flex flex-col text-2xl">
-                        <h2 className="font-bold text-2xl text-gray-900 dark:text-white">
+                    <div className="w-10/2 flex flex-col lg:text-2xl text-4xl">
+                        <h2 className="font-bold lg:text-2xl text-4xl text-gray-900 dark:text-white">
                             Legal
                         </h2>
                         <div className="mt-2">
