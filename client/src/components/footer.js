@@ -43,14 +43,14 @@ const Footer = () => {
     return (
         <>
         <footer class="footer-section flex flex-col items-center">
-    <div class="container mx-auto px-4 sm:px-10 py-8 lg:flex justify-center">
+    <div class="container mx-auto lg:flex justify-center">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-40">
             {/* Left side: Logo and contact info */}
             <div class="flex flex-col items-center lg:items-start space-y-5">                                        {/* <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">ColleGPT</h3> */}
                     <Link to="/">
                     <div className=" text-gray-900 dark:text-white">
     <span
-      className="flex items-center font-bold lg:text-[4rem] text-[8rem]"
+      className="flex items-center font-bold lg:text-[4rem] text-[6rem]"
     >
       <span>C</span>
       <img
@@ -292,12 +292,12 @@ const Footer = () => {
                 </div>
             </div>
             </div>
-            <div class="row bg-[#c0e8eb] dark:bg-[#151e3689]">
-                <div class="col-xl-6 col-lg-6 text-center text-lg-left">
-                    <div class="copyright-text">
+            <div class="row bg-[#c0e8eb] w-screen dark:bg-[#151e3689] text-center flex justify-center">
+                <div class="col-xl-6 col-lg-6 text-center flex justify-center">
+                    <div class="lg:text-4xl text-3xl py-10 px-10 text-center flex justify-center">
                         <p>
                             Copyright &copy; 2024, All Right Reserved{" "}
-                            <a href="www.collegpt.com">ColleGPT</a>
+                            <a href="www.collegpt.com" className="text-[#12b8ff]">ColleGPT</a>
                         </p>
                     </div>
                 </div>
