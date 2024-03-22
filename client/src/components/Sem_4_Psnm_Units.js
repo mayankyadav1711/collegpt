@@ -39,13 +39,13 @@ function Sem_4_Psnm_Units() {
             <div class="tutor">
                             {/* <img src={profilepic} alt=""/> */}
                 <div>
-                    <h3>john deo</h3>
+                    <h3 className="mt-5">john deo</h3>
                     <span>21-10-2022</span>
                 </div>
             </div>
 
             <div class="details">
-                <h3>Probability, Statistics and Numerical Methods [CC402B-N]</h3>
+                <h3 className="mt-5">Probability, Statistics and Numerical Methods [CC402B-N]</h3>
                 <p>Develop understanding of number systems and Boolean algebra. Understand the functioning of logic gates, their implementation and verification of truth tables. </p>
                 <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link> 
             </div>
@@ -63,7 +63,7 @@ function Sem_4_Psnm_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Probability Axioms</h3>
+      <h3 className="mt-5">Probability Axioms</h3>
     </a> 
   </Link>
 
@@ -71,7 +71,7 @@ function Sem_4_Psnm_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Discrete Random Variables</h3>
+      <h3 className="mt-5">Discrete Random Variables</h3>
     </a> 
   </Link>
 
@@ -79,7 +79,7 @@ function Sem_4_Psnm_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Continuous Random Variables</h3>
+      <h3 className="mt-5">Continuous Random Variables</h3>
     </a> 
   </Link>
 
@@ -87,7 +87,7 @@ function Sem_4_Psnm_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Correlation and Regression</h3>
+      <h3 className="mt-5">Correlation and Regression</h3>
     </a> 
   </Link>
 
@@ -95,7 +95,7 @@ function Sem_4_Psnm_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Interpolation</h3>
+      <h3 className="mt-5">Interpolation</h3>
     </a> 
   </Link>
 
@@ -103,7 +103,7 @@ function Sem_4_Psnm_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Numerical Integration</h3>
+      <h3 className="mt-5">Numerical Integration</h3>
     </a> 
   </Link>
 
@@ -111,7 +111,7 @@ function Sem_4_Psnm_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Solution of Non-linear and Linear Equations</h3>
+      <h3 className="mt-5">Solution of Non-linear and Linear Equations</h3>
     </a> 
   </Link>
 </div>

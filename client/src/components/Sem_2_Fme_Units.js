@@ -38,13 +38,13 @@ function Sem_2_Fme_Units() {
          <div class="tutor">
                         {/* <img src={profilepic} alt=""/> */}
             <div>
-               <h3>john deo</h3>
+               <h3 className="mt-5">john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
    
          <div class="details">
-            <h3>Fundamental Of Mechanical Engineering [CC104-N]</h3>
+            <h3 className="mt-5">Fundamental Of Mechanical Engineering [CC104-N]</h3>
             <p>To present a problem oriented introductory knowledge of Fundamentals of Mechanical Engineering. To address the underlying concepts and methods behind mechanical engineering. </p>
             <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link> 
          </div>
@@ -63,7 +63,7 @@ function Sem_2_Fme_Units() {
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
 
-        <h3>Introduction</h3>
+        <h3 className="mt-5">Introduction</h3>
       </a> 
     </Link>
 
@@ -72,7 +72,7 @@ function Sem_2_Fme_Units() {
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
 
-        <h3>Properties of Gases</h3>
+        <h3 className="mt-5">Properties of Gases</h3>
       </a> 
     </Link>
 
@@ -80,7 +80,7 @@ function Sem_2_Fme_Units() {
       <a>
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
-        <h3>Heat Engines</h3>
+        <h3 className="mt-5">Heat Engines</h3>
       </a> 
     </Link>
 
@@ -89,7 +89,7 @@ function Sem_2_Fme_Units() {
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
 
-        <h3>Properties of Steam</h3>
+        <h3 className="mt-5">Properties of Steam</h3>
       </a> 
     </Link>
 
@@ -97,7 +97,7 @@ function Sem_2_Fme_Units() {
       <a>
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
-        <h3>Steam and Steam Generator</h3>
+        <h3 className="mt-5">Steam and Steam Generator</h3>
       </a> 
     </Link>
 
@@ -105,7 +105,7 @@ function Sem_2_Fme_Units() {
       <a>
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
-        <h3>Refrigeration and Air conditioning</h3>
+        <h3 className="mt-5">Refrigeration and Air conditioning</h3>
       </a> 
     </Link>
 
@@ -113,7 +113,7 @@ function Sem_2_Fme_Units() {
       <a>
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
-        <h3>I.C. Engine</h3>
+        <h3 className="mt-5">I.C. Engine</h3>
       </a> 
     </Link>
 
@@ -121,7 +121,7 @@ function Sem_2_Fme_Units() {
       <a>
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
-        <h3>Air Compressor</h3>
+        <h3 className="mt-5">Air Compressor</h3>
       </a> 
     </Link>
 
@@ -129,7 +129,7 @@ function Sem_2_Fme_Units() {
       <a>
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
-        <h3>Speed Control</h3>
+        <h3 className="mt-5">Speed Control</h3>
       </a> 
     </Link>
 
@@ -137,7 +137,7 @@ function Sem_2_Fme_Units() {
       <a>
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
-        <h3>Fuels and Combustion</h3>
+        <h3 className="mt-5">Fuels and Combustion</h3>
       </a> 
     </Link>
 
@@ -145,7 +145,7 @@ function Sem_2_Fme_Units() {
       <a>
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
-        <h3>Power Transmission Methods and Devices</h3>
+        <h3 className="mt-5">Power Transmission Methods and Devices</h3>
       </a> 
     </Link>
 
@@ -153,7 +153,7 @@ function Sem_2_Fme_Units() {
       <a>
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
-        <h3>Pump</h3>
+        <h3 className="mt-5">Pump</h3>
       </a> 
     </Link>
 
@@ -161,7 +161,7 @@ function Sem_2_Fme_Units() {
       <a>
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
-        <h3>Engineering Materials</h3>
+        <h3 className="mt-5">Engineering Materials</h3>
       </a> 
     </Link>
 
@@ -169,7 +169,7 @@ function Sem_2_Fme_Units() {
       <a>
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
-        <h3>Mechanical Working of Metals and Press Operations</h3>
+        <h3 className="mt-5">Mechanical Working of Metals and Press Operations</h3>
       </a> 
     </Link>
 
@@ -177,7 +177,7 @@ function Sem_2_Fme_Units() {
       <a>
         {/* <i class="fas fa-play"></i> */}
         <img src={postpic} alt=""/>
-        <h3>Heat Transfer & Turbines</h3>
+        <h3 className="mt-5">Heat Transfer & Turbines</h3>
       </a> 
     </Link>
   </div>

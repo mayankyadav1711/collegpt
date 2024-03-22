@@ -38,13 +38,13 @@ function Sem_2_Bcps_Units() {
          <div class="tutor">
                         {/* <img src={profilepic} alt=""/> */}
             <div>
-               <h3>john deo</h3>
+               <h3 className="mt-5">john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
    
          <div class="details">
-            <h3>Business communication and presentation skills [CC106-N]</h3>
+            <h3 className="mt-5">Business communication and presentation skills [CC106-N]</h3>
             <p>To enhance learners communication skills in both social and professional contexts. Employ principles of effective group communication to increase open participation, and strengthen decision making in work groups and teams.</p>
             <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link>          </div>
       </div>
@@ -62,50 +62,50 @@ function Sem_2_Bcps_Units() {
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
 
-         <h3>Soon</h3>
+         <h3 className="mt-5">Soon</h3>
       </a> </Link>
 
       <Link to='/watchvideo'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
 
-         <h3>Soon</h3>
+         <h3 className="mt-5">Soon</h3>
       </a> </Link>
 
       <Link to='/watchvideo'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Soon</h3>
+         <h3 className="mt-5">Soon</h3>
       </a> </Link>
 
       <Link to='/watchvideo'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Soon</h3>
+         <h3 className="mt-5">Soon</h3>
       </a> </Link>
 
       <Link to='/watchvideo'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>AC Fundamentals</h3>
+         <h3 className="mt-5">AC Fundamentals</h3>
       </a> </Link>
 
       <Link to='/watchvideo'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Analysis of A.C. Circuit</h3>
+         <h3 className="mt-5">Analysis of A.C. Circuit</h3>
       </a> </Link>
 
       <Link to='/watchvideo'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Polyphase Circuits</h3>
+         <h3 className="mt-5">Polyphase Circuits</h3>
       </a> </Link>
 
       <Link to='/watchvideo'  class="box">  <a >
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Basics of Electronics</h3>
+         <h3 className="mt-5">Basics of Electronics</h3>
       </a> </Link> 
 
    </div>

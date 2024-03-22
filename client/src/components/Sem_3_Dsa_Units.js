@@ -38,13 +38,13 @@ function Sem_3_Dsa_Units() {
          <div class="tutor">
                         {/* <img src={profilepic} alt=""/> */}
             <div>
-               <h3>john deo</h3>
+               <h3 className="mt-5">john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
    
          <div class="details">
-            <h3>Data Structures & Algorithms [CT303-N]</h3>
+            <h3 className="mt-5">Data Structures & Algorithms [CT303-N]</h3>
             <p>To introduce the fundamentals of data structures, abstract concepts and how these concepts are useful in problem solving. To learn to develop algorithms and step by step approach to solve various problems.</p>
             <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link> 
         </div>
@@ -63,7 +63,7 @@ function Sem_3_Dsa_Units() {
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
 
-      <h3>Introduction</h3>
+      <h3 className="mt-5">Introduction</h3>
     </a> 
   </Link>
 
@@ -71,7 +71,7 @@ function Sem_3_Dsa_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Linear Data Structures</h3>
+      <h3 className="mt-5">Linear Data Structures</h3>
     </a> 
   </Link>
   
@@ -79,7 +79,7 @@ function Sem_3_Dsa_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Nonlinear Data Structures</h3>
+      <h3 className="mt-5">Nonlinear Data Structures</h3>
     </a> 
   </Link>
 
@@ -87,7 +87,7 @@ function Sem_3_Dsa_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Sorting and Searching</h3>
+      <h3 className="mt-5">Sorting and Searching</h3>
     </a> 
   </Link>
   
@@ -95,7 +95,7 @@ function Sem_3_Dsa_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Hashing</h3>
+      <h3 className="mt-5">Hashing</h3>
     </a> 
   </Link>
 
@@ -103,7 +103,7 @@ function Sem_3_Dsa_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>File Structures</h3>
+      <h3 className="mt-5">File Structures</h3>
     </a> 
   </Link>
 </div>

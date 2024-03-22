@@ -37,13 +37,13 @@ function Sem_4_Coa_Units() {
             <div class="tutor">
                             {/* <img src={profilepic} alt=""/> */}
                 <div>
-                    <h3>john deo</h3>
+                    <h3 className="mt-5">john deo</h3>
                     <span>21-10-2022</span>
                 </div>
             </div>
 
             <div class="details">
-                <h3>Computer Organization & Architecture [CT403-N]</h3>
+                <h3 className="mt-5">Computer Organization & Architecture [CT403-N]</h3>
                 <p>Develop understanding of number systems and Boolean algebra. Understand the functioning of logic gates, their implementation and verification of truth tables. </p>
                 <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link> 
             </div>
@@ -61,7 +61,7 @@ function Sem_4_Coa_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Overview of Register Transfer and Micro-operations</h3>
+      <h3 className="mt-5">Overview of Register Transfer and Micro-operations</h3>
     </a> 
   </Link>
 
@@ -69,7 +69,7 @@ function Sem_4_Coa_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Basic Computer Organization and Design</h3>
+      <h3 className="mt-5">Basic Computer Organization and Design</h3>
     </a> 
   </Link>
 
@@ -77,7 +77,7 @@ function Sem_4_Coa_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Programming the Basic Computer</h3>
+      <h3 className="mt-5">Programming the Basic Computer</h3>
     </a> 
   </Link>
 
@@ -85,7 +85,7 @@ function Sem_4_Coa_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Central Processing Unit</h3>
+      <h3 className="mt-5">Central Processing Unit</h3>
     </a> 
   </Link>
 
@@ -93,7 +93,7 @@ function Sem_4_Coa_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Pipeline Processing</h3>
+      <h3 className="mt-5">Pipeline Processing</h3>
     </a> 
   </Link>
 
@@ -101,7 +101,7 @@ function Sem_4_Coa_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Memory Organization</h3>
+      <h3 className="mt-5">Memory Organization</h3>
     </a> 
   </Link>
 </div>

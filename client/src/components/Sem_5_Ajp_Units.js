@@ -38,13 +38,13 @@ function Sem_5_Ajp_Units() {
             <div class="tutor">
                             {/* <img src={profilepic} alt=""/> */}
                 <div>
-                    <h3>john deo</h3>
+                    <h3 className="mt-5">john deo</h3>
                     <span>21-10-2022</span>
                 </div>
             </div>
 
             <div class="details">
-                <h3>Advanced Java Programming [CT506A-N]</h3>
+                <h3 className="mt-5">Advanced Java Programming [CT506A-N]</h3>
                 <p>Develop understanding of number systems and Boolean algebra. Understand the functioning of logic gates, their implementation and verification of truth tables. </p>
                 <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link> 
             </div>
@@ -62,7 +62,7 @@ function Sem_5_Ajp_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Swing</h3>
+      <h3 className="mt-5">Swing</h3>
     </a> 
   </Link>
 
@@ -70,7 +70,7 @@ function Sem_5_Ajp_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>JDBC</h3>
+      <h3 className="mt-5">JDBC</h3>
     </a> 
   </Link>
 
@@ -78,7 +78,7 @@ function Sem_5_Ajp_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Java Networking and J2EE</h3>
+      <h3 className="mt-5">Java Networking and J2EE</h3>
     </a> 
   </Link>
 
@@ -86,7 +86,7 @@ function Sem_5_Ajp_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Servlets, Event Listeners and Filters</h3>
+      <h3 className="mt-5">Servlets, Event Listeners and Filters</h3>
     </a> 
   </Link>
 
@@ -94,7 +94,7 @@ function Sem_5_Ajp_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Java Server Pages and JSTL</h3>
+      <h3 className="mt-5">Java Server Pages and JSTL</h3>
     </a> 
   </Link>
 
@@ -102,7 +102,7 @@ function Sem_5_Ajp_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Hibernate 4.0</h3>
+      <h3 className="mt-5">Hibernate 4.0</h3>
     </a> 
   </Link>
 
@@ -110,7 +110,7 @@ function Sem_5_Ajp_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Spring MVC</h3>
+      <h3 className="mt-5">Spring MVC</h3>
     </a> 
   </Link>
 </div>

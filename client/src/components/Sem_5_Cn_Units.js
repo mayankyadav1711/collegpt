@@ -37,13 +37,13 @@ function Sem_5_Cn_Units() {
             <div class="tutor">
                             {/* <img src={profilepic} alt=""/> */}
                 <div>
-                    <h3>john deo</h3>
+                    <h3 className="mt-5">john deo</h3>
                     <span>21-10-2022</span>
                 </div>
             </div>
 
             <div class="details">
-                <h3>Computer Networks [CE505-N]</h3>
+                <h3 className="mt-5">Computer Networks [CE505-N]</h3>
                 <p>Develop understanding of number systems and Boolean algebra. Understand the functioning of logic gates, their implementation and verification of truth tables. </p>
             <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link> 
             </div>
@@ -61,7 +61,7 @@ function Sem_5_Cn_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Overview of Networks and Data Communications</h3>
+      <h3 className="mt-5">Overview of Networks and Data Communications</h3>
     </a> 
   </Link>
 
@@ -69,7 +69,7 @@ function Sem_5_Cn_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Physical layer</h3>
+      <h3 className="mt-5">Physical layer</h3>
     </a> 
   </Link>
 
@@ -77,7 +77,7 @@ function Sem_5_Cn_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Data Link layer</h3>
+      <h3 className="mt-5">Data Link layer</h3>
     </a> 
   </Link>
 
@@ -85,7 +85,7 @@ function Sem_5_Cn_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Medium Access control sub layer</h3>
+      <h3 className="mt-5">Medium Access control sub layer</h3>
     </a> 
   </Link>
 
@@ -93,7 +93,7 @@ function Sem_5_Cn_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Network layer</h3>
+      <h3 className="mt-5">Network layer</h3>
     </a> 
   </Link>
 
@@ -101,7 +101,7 @@ function Sem_5_Cn_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Transport layer</h3>
+      <h3 className="mt-5">Transport layer</h3>
     </a> 
   </Link>
 
@@ -109,7 +109,7 @@ function Sem_5_Cn_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Application layer</h3>
+      <h3 className="mt-5">Application layer</h3>
     </a> 
   </Link>
 </div>

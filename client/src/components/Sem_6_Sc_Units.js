@@ -34,13 +34,13 @@ function Sem_6_Sc_Units() {
             <div class="tutor">
               {/* <img src={profilepic} alt="" /> */}
               <div>
-                <h3>john deo</h3>
+                <h3 className="mt-5">john deo</h3>
                 <span>21-10-2022</span>
               </div>
             </div>
 
             <div class="details">
-              <h3>Soft Computing [CT605A-N]</h3>
+              <h3 className="mt-5">Soft Computing [CT605A-N]</h3>
               <p>
               Soft computing is an emerging approach to computing which parallel the remarkable ability of the human
 mind to reason and learn in an environment of uncertainty and imprecision. Soft computing is based on
@@ -61,7 +61,7 @@ human nervous systems, etc.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Introduction of Soft computing and Hard computing</h3>
+    <h3 className="mt-5">Introduction of Soft computing and Hard computing</h3>
   </a>
 </Link>
 
@@ -69,7 +69,7 @@ human nervous systems, etc.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Neural Networks</h3>
+    <h3 className="mt-5">Neural Networks</h3>
   </a>
 </Link>
 
@@ -77,7 +77,7 @@ human nervous systems, etc.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Fuzzy Logic</h3>
+    <h3 className="mt-5">Fuzzy Logic</h3>
   </a>
 </Link>
 
@@ -85,7 +85,7 @@ human nervous systems, etc.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Genetic Algorithm</h3>
+    <h3 className="mt-5">Genetic Algorithm</h3>
   </a>
 </Link>
 
@@ -93,7 +93,7 @@ human nervous systems, etc.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Hybrid System</h3>
+    <h3 className="mt-5">Hybrid System</h3>
   </a>
 </Link>
 
@@ -101,7 +101,7 @@ human nervous systems, etc.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Genetic Algorithm</h3>
+    <h3 className="mt-5">Genetic Algorithm</h3>
   </a>
 </Link>
 
@@ -109,7 +109,7 @@ human nervous systems, etc.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Fuzzy based Backpropagation Network</h3>
+    <h3 className="mt-5">Fuzzy based Backpropagation Network</h3>
   </a>
 </Link>
 

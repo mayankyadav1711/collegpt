@@ -31,7 +31,7 @@ function Sem_1_Fop_Units() {
            
 
             <div class="details">
-              <h3>Fundamental Of Programming [CC103-N]</h3>
+              <h3 className="mt-5">Fundamental Of Programming [CC103-N]</h3>
               <p>
                 The basic programming concepts include variables, basic control
                 structures, data structures, object-oriented programming,
@@ -53,7 +53,7 @@ function Sem_1_Fop_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={FOP} alt="" />
-              <h3>Introduction to computer</h3>
+              <h3 className="mt-5">Introduction to computer</h3>
             </a>
           </Link>
 
@@ -61,7 +61,7 @@ function Sem_1_Fop_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={FOP} alt="" />
-              <h3>Introduction to Programming</h3>
+              <h3 className="mt-5">Introduction to Programming</h3>
             </a>
           </Link>
 
@@ -69,7 +69,7 @@ function Sem_1_Fop_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={FOP} alt="" />
-              <h3>Fundamentals of ‘C’</h3>
+              <h3 className="mt-5">Fundamentals of ‘C’</h3>
             </a>
           </Link>
 
@@ -77,7 +77,7 @@ function Sem_1_Fop_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={FOP} alt="" />
-              <h3>Control Structures in ‘C’</h3>
+              <h3 className="mt-5">Control Structures in ‘C’</h3>
             </a>
           </Link>
 
@@ -85,7 +85,7 @@ function Sem_1_Fop_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={FOP} alt="" />
-              <h3>Array & String</h3>
+              <h3 className="mt-5">Array & String</h3>
             </a>
           </Link>
 
@@ -93,7 +93,7 @@ function Sem_1_Fop_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={FOP} alt="" />
-              <h3>Functions</h3>
+              <h3 className="mt-5">Functions</h3>
             </a>
           </Link>
 
@@ -101,7 +101,7 @@ function Sem_1_Fop_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={FOP} alt="" />
-              <h3>Structure and Union, Pointers, File Management</h3>
+              <h3 className="mt-5">Structure and Union, Pointers, File Management</h3>
             </a>
           </Link>
         </div>

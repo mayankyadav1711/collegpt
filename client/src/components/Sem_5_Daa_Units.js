@@ -34,13 +34,13 @@ function Sem_5_Daa_Units() {
             <div class="tutor">
               {/* <img src={profilepic} alt="" /> */}
               <div>
-                <h3>john deo</h3>
+                <h3 className="mt-5">john deo</h3>
                 <span>21-10-2022</span>
               </div>
             </div>
 
             <div class="details">
-              <h3>Design & Analysis of Algorithms [CE504-N]</h3>
+              <h3 className="mt-5">Design & Analysis of Algorithms [CE504-N]</h3>
               <p>
                 Develop understanding of number systems and Boolean algebra.
                 Understand the functioning of logic gates, their implementation
@@ -60,7 +60,7 @@ function Sem_5_Daa_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Basics of Algorithms & Mathematics</h3>
+              <h3 className="mt-5">Basics of Algorithms & Mathematics</h3>
             </a>
           </Link>
 
@@ -68,7 +68,7 @@ function Sem_5_Daa_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Analysis of Algorithms</h3>
+              <h3 className="mt-5">Analysis of Algorithms</h3>
             </a>
           </Link>
 
@@ -76,7 +76,7 @@ function Sem_5_Daa_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Divide and Conquer Algorithms</h3>
+              <h3 className="mt-5">Divide and Conquer Algorithms</h3>
             </a>
           </Link>
 
@@ -84,7 +84,7 @@ function Sem_5_Daa_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Greedy Algorithms</h3>
+              <h3 className="mt-5">Greedy Algorithms</h3>
             </a>
           </Link>
 
@@ -92,7 +92,7 @@ function Sem_5_Daa_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Dynamic Programming</h3>
+              <h3 className="mt-5">Dynamic Programming</h3>
             </a>
           </Link>
 
@@ -100,7 +100,7 @@ function Sem_5_Daa_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Graph Algorithms</h3>
+              <h3 className="mt-5">Graph Algorithms</h3>
             </a>
           </Link>
 
@@ -108,21 +108,21 @@ function Sem_5_Daa_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>(CE) Backtracking and Branch and Bound</h3>
+              <h3 className="mt-5">(CE) Backtracking and Branch and Bound</h3>
             </a>
           </Link>
           <Link to="/watchvideo/539" class="box">
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>(IT) String Matching Algorithms</h3>
+              <h3 className="mt-5">(IT) String Matching Algorithms</h3>
             </a>
           </Link>
           <Link to="/watchvideo/538" class="box">
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Introduction to Complexity Theory</h3>
+              <h3 className="mt-5">Introduction to Complexity Theory</h3>
             </a>
           </Link>
         </div>

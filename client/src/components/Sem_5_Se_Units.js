@@ -37,13 +37,13 @@ function Sem_5_Se_Units() {
             <div class="tutor">
               {/* <img src={profilepic} alt="" /> */}
               <div>
-                <h3>john deo</h3>
+                <h3 className="mt-5">john deo</h3>
                 <span>21-10-2022</span>
               </div>
             </div>
 
             <div class="details">
-              <h3>Software Engineering [CT501-N]</h3>
+              <h3 className="mt-5">Software Engineering [CT501-N]</h3>
               <p>
                 Develop understanding of number systems and Boolean algebra.
                 Understand the functioning of logic gates, their implementation
@@ -63,7 +63,7 @@ function Sem_5_Se_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Software and Software Engineering</h3>
+              <h3 className="mt-5">Software and Software Engineering</h3>
             </a>
           </Link>
 
@@ -71,7 +71,7 @@ function Sem_5_Se_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Software Process Model</h3>
+              <h3 className="mt-5">Software Process Model</h3>
             </a>
           </Link>
 
@@ -79,7 +79,7 @@ function Sem_5_Se_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Software Requirement Analysis and Specification</h3>
+              <h3 className="mt-5">Software Requirement Analysis and Specification</h3>
             </a>
           </Link>
 
@@ -87,7 +87,7 @@ function Sem_5_Se_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Software Design</h3>
+              <h3 className="mt-5">Software Design</h3>
             </a>
           </Link>
 
@@ -95,7 +95,7 @@ function Sem_5_Se_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Coding</h3>
+              <h3 className="mt-5">Coding</h3>
             </a>
           </Link>
 
@@ -103,7 +103,7 @@ function Sem_5_Se_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Software Testing Strategies</h3>
+              <h3 className="mt-5">Software Testing Strategies</h3>
             </a>
           </Link>
 
@@ -111,7 +111,7 @@ function Sem_5_Se_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Estimation</h3>
+              <h3 className="mt-5">Estimation</h3>
             </a>
           </Link>
 
@@ -119,7 +119,7 @@ function Sem_5_Se_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Risk Management</h3>
+              <h3 className="mt-5">Risk Management</h3>
             </a>
           </Link>
 
@@ -127,7 +127,7 @@ function Sem_5_Se_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Quality Management</h3>
+              <h3 className="mt-5">Quality Management</h3>
             </a>
           </Link>
 
@@ -135,7 +135,7 @@ function Sem_5_Se_Units() {
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Current trends in Software Engineering</h3>
+              <h3 className="mt-5">Current trends in Software Engineering</h3>
             </a>
           </Link>
         </div>

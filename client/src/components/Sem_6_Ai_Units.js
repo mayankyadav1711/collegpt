@@ -33,13 +33,13 @@ function Sem_6_Ai_Units() {
             <div class="tutor">
               <img src={postpic} alt="" />
               <div>
-                <h3>john deo</h3>
+                <h3 className="mt-5">john deo</h3>
                 <span>21-10-2022</span>
               </div>
             </div>
 
             <div class="details">
-              <h3>Artificial Intelligence [CT601-N]</h3>
+              <h3 className="mt-5">Artificial Intelligence [CT601-N]</h3>
               <p>
               The search and problem solving methods are applicable throughout a large range of industrial, civil,
 medical, financial, robotic, and information systems. 
@@ -58,7 +58,7 @@ medical, financial, robotic, and information systems.
             <a>
               {/* <i class="fas fa-play"></i> */}
               <img src={postpic} alt="" />
-              <h3>Introduction</h3>
+              <h3 className="mt-5">Introduction</h3>
             </a>
           </Link>
 
@@ -66,7 +66,7 @@ medical, financial, robotic, and information systems.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Intelligent Agents</h3>
+    <h3 className="mt-5">Intelligent Agents</h3>
   </a>
 </Link>
 
@@ -74,7 +74,7 @@ medical, financial, robotic, and information systems.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Problem Spaces and Search</h3>
+    <h3 className="mt-5">Problem Spaces and Search</h3>
   </a>
 </Link>
 
@@ -82,7 +82,7 @@ medical, financial, robotic, and information systems.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Adversarial search and Game Playing</h3>
+    <h3 className="mt-5">Adversarial search and Game Playing</h3>
   </a>
 </Link>
 
@@ -90,7 +90,7 @@ medical, financial, robotic, and information systems.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Knowledge and Reasoning</h3>
+    <h3 className="mt-5">Knowledge and Reasoning</h3>
   </a>
 </Link>
 
@@ -98,7 +98,7 @@ medical, financial, robotic, and information systems.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Knowledge Engineering</h3>
+    <h3 className="mt-5">Knowledge Engineering</h3>
   </a>
 </Link>
 
@@ -106,7 +106,7 @@ medical, financial, robotic, and information systems.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Introduction to PROLOG</h3>
+    <h3 className="mt-5">Introduction to PROLOG</h3>
   </a>
 </Link>
 
@@ -114,7 +114,7 @@ medical, financial, robotic, and information systems.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3>Uncertain knowledge and reasoning</h3>
+    <h3 className="mt-5">Uncertain knowledge and reasoning</h3>
   </a>
 </Link>
 

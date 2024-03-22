@@ -38,13 +38,13 @@ function Sem_1_Eoc_Units() {
          <div class="tutor">
                         {/* <img src={profilepic} alt=""/> */}
             <div>
-               <h3>john deo</h3>
+               <h3 className="mt-5">john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
    
          <div class="details">
-            <h3>Elements Of Civil Engineering [CC109-N]</h3>
+            <h3 className="mt-5">Elements Of Civil Engineering [CC109-N]</h3>
             <p>The motto of the civil engineering is the “protection of the welfare and safety of the public”. Indeed, the term civil in civil engineering refers to the discipline’s involvement in public works, including government buildings, military bases, mass transit systems (i.e., highways, railways, airports, and water ways), water treatment works, waste management, irrigation etc.</p>
             <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link>          </div>
       </div>
@@ -63,7 +63,7 @@ function Sem_1_Eoc_Units() {
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt=""/>
 
-    <h3>Introduction and Scope of Civil Engineering</h3>
+    <h3 className="mt-5">Introduction and Scope of Civil Engineering</h3>
   </a>
 </Link>
 
@@ -71,7 +71,7 @@ function Sem_1_Eoc_Units() {
   <a>
     <img src={postpic} alt=""/>
 
-    <h3>Surveying</h3>
+    <h3 className="mt-5">Surveying</h3>
   </a>
 </Link>
 
@@ -79,7 +79,7 @@ function Sem_1_Eoc_Units() {
   <a>
     <img src={postpic} alt=""/>
 
-    <h3>Linear measurements</h3>
+    <h3 className="mt-5">Linear measurements</h3>
   </a>
 </Link>
 
@@ -87,7 +87,7 @@ function Sem_1_Eoc_Units() {
   <a>
     <img src={postpic} alt=""/>
 
-    <h3>Angular Measurements</h3>
+    <h3 className="mt-5">Angular Measurements</h3>
   </a>
 </Link>
 
@@ -95,7 +95,7 @@ function Sem_1_Eoc_Units() {
   <a>
     <img src={postpic} alt=""/>
 
-    <h3>Elevation measurements</h3>
+    <h3 className="mt-5">Elevation measurements</h3>
   </a>
 </Link>
 
@@ -103,7 +103,7 @@ function Sem_1_Eoc_Units() {
   <a>
     <img src={postpic} alt=""/>
 
-    <h3>Modern Tools of Surveying and Mapping</h3>
+    <h3 className="mt-5">Modern Tools of Surveying and Mapping</h3>
   </a>
 </Link>
 
@@ -111,7 +111,7 @@ function Sem_1_Eoc_Units() {
   <a>
     <img src={postpic} alt=""/>
 
-    <h3>Construction Materials</h3>
+    <h3 className="mt-5">Construction Materials</h3>
   </a>
 </Link>
 
@@ -119,7 +119,7 @@ function Sem_1_Eoc_Units() {
   <a>
     <img src={postpic} alt=""/>
 
-    <h3>Elements of Building Construction</h3>
+    <h3 className="mt-5">Elements of Building Construction</h3>
   </a>
 </Link>
 
@@ -127,7 +127,7 @@ function Sem_1_Eoc_Units() {
   <a>
     <img src={postpic} alt=""/>
 
-    <h3>Water Resources Development</h3>
+    <h3 className="mt-5">Water Resources Development</h3>
   </a>
 </Link>
 
@@ -135,7 +135,7 @@ function Sem_1_Eoc_Units() {
   <a>
     <img src={postpic} alt=""/>
 
-    <h3>Transportation Engineering</h3>
+    <h3 className="mt-5">Transportation Engineering</h3>
   </a>
 </Link>
 

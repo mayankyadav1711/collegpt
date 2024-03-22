@@ -38,13 +38,13 @@ function Sem_2_Maths_Units() {
          <div class="tutor">
                         {/* <img src={profilepic} alt=""/> */}
             <div>
-               <h3>john deo</h3>
+               <h3 className="mt-5">john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
    
          <div class="details">
-            <h3>Engineering Mathematics – 2 [CC201-N]</h3>
+            <h3 className="mt-5">Engineering Mathematics – 2 [CC201-N]</h3>
             <p>To present the foundations of many basic Mathematical tools and concepts related Engineering.To provide a coherent development to the students for the courses of various branches of Engineering like Control Theory , Circuits and Networks, Digital Logic design ,Fluid Mechanics, Machine Design etc</p>
             <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link> 
          </div>
@@ -64,7 +64,7 @@ function Sem_2_Maths_Units() {
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
 
-      <h3>Matrix Theory and Application of Matrices</h3>
+      <h3 className="mt-5">Matrix Theory and Application of Matrices</h3>
    </a>
 </Link>
 
@@ -73,7 +73,7 @@ function Sem_2_Maths_Units() {
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
 
-      <h3>Eigen value and Eigenvector and Applications</h3>
+      <h3 className="mt-5">Eigen value and Eigenvector and Applications</h3>
    </a>
 </Link>
 
@@ -81,7 +81,7 @@ function Sem_2_Maths_Units() {
    <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Vectors in R<sup>n</sup></h3>
+      <h3 className="mt-5">Vectors in R<sup>n</sup></h3>
    </a>
 </Link>
 
@@ -89,7 +89,7 @@ function Sem_2_Maths_Units() {
    <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Vector Space</h3>
+      <h3 className="mt-5">Vector Space</h3>
    </a>
 </Link>
 
@@ -97,7 +97,7 @@ function Sem_2_Maths_Units() {
    <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Linear Transformation</h3>
+      <h3 className="mt-5">Linear Transformation</h3>
    </a>
 </Link>
 
@@ -105,7 +105,7 @@ function Sem_2_Maths_Units() {
    <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Vector differential Calculus</h3>
+      <h3 className="mt-5">Vector differential Calculus</h3>
    </a>
 </Link>
 
@@ -113,7 +113,7 @@ function Sem_2_Maths_Units() {
    <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Vector Integral Calculus</h3>
+      <h3 className="mt-5">Vector Integral Calculus</h3>
    </a>
 </Link>
 
@@ -121,7 +121,7 @@ function Sem_2_Maths_Units() {
    <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>New Title</h3>
+      <h3 className="mt-5">New Title</h3>
    </a>
 </Link>
 
@@ -131,7 +131,7 @@ function Sem_2_Maths_Units() {
    <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Another Title</h3>
+      <h3 className="mt-5">Another Title</h3>
    </a>
 </Link>
 
@@ -139,7 +139,7 @@ function Sem_2_Maths_Units() {
    <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Final Title</h3>
+      <h3 className="mt-5">Final Title</h3>
    </a>
 </Link>
 

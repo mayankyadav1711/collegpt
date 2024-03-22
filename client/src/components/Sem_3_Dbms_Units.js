@@ -38,13 +38,13 @@ function Sem_3_Dbms_Units() {
          <div class="tutor">
                         {/* <img src={profilepic} alt=""/> */}
             <div>
-               <h3>john deo</h3>
+               <h3 className="mt-5">john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
    
          <div class="details">
-            <h3>Database Management Systems [CT306-N]</h3>
+            <h3 className="mt-5">Database Management Systems [CT306-N]</h3>
             <p>To understand the different issues involved in the design and implementation of a database system. To design and build a simple database system and demonstrate competence with the fundamental tasks involved with modeling, designing, and implementing a DBMS.</p>
             <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link> 
         </div>
@@ -63,7 +63,7 @@ function Sem_3_Dbms_Units() {
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
 
-      <h3>Database System Architecture</h3>
+      <h3 className="mt-5">Database System Architecture</h3>
     </a> 
   </Link>
 
@@ -71,7 +71,7 @@ function Sem_3_Dbms_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Data Models</h3>
+      <h3 className="mt-5">Data Models</h3>
     </a> 
   </Link>
   
@@ -79,7 +79,7 @@ function Sem_3_Dbms_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Relational Query Languages</h3>
+      <h3 className="mt-5">Relational Query Languages</h3>
     </a> 
   </Link>
 
@@ -87,7 +87,7 @@ function Sem_3_Dbms_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Relational Database Design</h3>
+      <h3 className="mt-5">Relational Database Design</h3>
     </a> 
   </Link>
   
@@ -95,7 +95,7 @@ function Sem_3_Dbms_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Query Processing and Optimization</h3>
+      <h3 className="mt-5">Query Processing and Optimization</h3>
     </a> 
   </Link>
 
@@ -103,7 +103,7 @@ function Sem_3_Dbms_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Storage Strategies</h3>
+      <h3 className="mt-5">Storage Strategies</h3>
     </a> 
   </Link>
 
@@ -111,7 +111,7 @@ function Sem_3_Dbms_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Transaction Processing</h3>
+      <h3 className="mt-5">Transaction Processing</h3>
     </a> 
   </Link>
 
@@ -119,7 +119,7 @@ function Sem_3_Dbms_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Database Security</h3>
+      <h3 className="mt-5">Database Security</h3>
     </a> 
   </Link>
 
@@ -127,7 +127,7 @@ function Sem_3_Dbms_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Advanced Topics</h3>
+      <h3 className="mt-5">Advanced Topics</h3>
     </a> 
   </Link>
 </div>

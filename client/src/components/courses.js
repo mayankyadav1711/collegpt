@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import yt from "./images/yt.png";
+
 
 import s11 from "./images/Thumbnail/Sem-1/FOP.webp";
 import s12 from "./images/Thumbnail/Sem-1/Maths-1.webp";
@@ -172,9 +172,7 @@ const Courses = () => {
             <Link to={`/sem_${activeTab + 1}_${index + 1}_units`} className="inline-btn">
            View Units
             </Link>
-            <Link to="/youtube/checking">
-            <img src={yt} className="w-16 h-16 -mt-24 ml-[22rem]" alt="" />
-            </Link>
+
           </div>
         ))}
       </div>

@@ -35,13 +35,13 @@ function Sem_1_Ep_Units() {
          <div class="tutor">
                         {/* <img src={profilepic} alt=""/> */}
             <div>
-               <h3>john deo</h3>
+               <h3 className="mt-5">john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
    
          <div class="details">
-            <h3>Engineering Physics [CC107-N]</h3>
+            <h3 className="mt-5">Engineering Physics [CC107-N]</h3>
             <p>The syllabus of Engineering Physics highlights the basic concepts of Physics and its technological applications to all branches of Engineering via ability to design and conduct experiments, as well as to analyse and interpret data.</p>
 <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link>          </div>
       </div>
@@ -60,7 +60,7 @@ function Sem_1_Ep_Units() {
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
 
-         <h3>Ultrasonics & Architectural Acoustic</h3>
+         <h3 className="mt-5">Ultrasonics & Architectural Acoustic</h3>
       </a>
    </Link>
 
@@ -68,7 +68,7 @@ function Sem_1_Ep_Units() {
       <a>
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Elasticity</h3>
+         <h3 className="mt-5">Elasticity</h3>
       </a>
    </Link>
 
@@ -76,7 +76,7 @@ function Sem_1_Ep_Units() {
       <a>
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Laser</h3>
+         <h3 className="mt-5">Laser</h3>
       </a>
    </Link>
 
@@ -84,7 +84,7 @@ function Sem_1_Ep_Units() {
       <a>
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Fibre Optics</h3>
+         <h3 className="mt-5">Fibre Optics</h3>
       </a>
    </Link>
 
@@ -92,7 +92,7 @@ function Sem_1_Ep_Units() {
       <a>
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Optoelectronic devices</h3>
+         <h3 className="mt-5">Optoelectronic devices</h3>
       </a>
    </Link>
 
@@ -100,7 +100,7 @@ function Sem_1_Ep_Units() {
       <a>
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Artificial Radioactivity</h3>
+         <h3 className="mt-5">Artificial Radioactivity</h3>
       </a>
    </Link>
 
@@ -108,7 +108,7 @@ function Sem_1_Ep_Units() {
       <a>
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Crystal Structure And X-rays Diffraction</h3>
+         <h3 className="mt-5">Crystal Structure And X-rays Diffraction</h3>
       </a>
    </Link>
 
@@ -116,7 +116,7 @@ function Sem_1_Ep_Units() {
       <a>
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Instrumentation</h3>
+         <h3 className="mt-5">Instrumentation</h3>
       </a>
    </Link>
 
@@ -124,7 +124,7 @@ function Sem_1_Ep_Units() {
       <a>
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Band Theory Of Solids</h3>
+         <h3 className="mt-5">Band Theory Of Solids</h3>
       </a>
    </Link>
 
@@ -132,7 +132,7 @@ function Sem_1_Ep_Units() {
       <a>
          {/* <i class="fas fa-play"></i> */}
          <img src={postpic} alt=""/>
-         <h3>Nanomaterials And NDT</h3>
+         <h3 className="mt-5">Nanomaterials And NDT</h3>
       </a>
    </Link>
 

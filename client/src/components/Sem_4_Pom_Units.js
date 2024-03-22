@@ -34,13 +34,13 @@ function Sem_4_Pom_Units() {
                          {/* <div class="tutor">
                             <img src={profilepic} alt="" />
                             <div>
-                                <h3>john deo</h3>
+                                <h3 className="mt-5">john deo</h3>
                                 <span>21-10-2022</span>
                             </div>
                         </div> */} 
 
                         <div class="details">
-                            <h3>Principles of Management [CC301-N]</h3>
+                            <h3 className="mt-5">Principles of Management [CC301-N]</h3>
                             <p>
                                 Develop understanding of number systems and
                                 Boolean algebra. Understand the functioning of
@@ -64,35 +64,35 @@ function Sem_4_Pom_Units() {
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Introduction to Management and Organizations</h3>
+                            <h3 className="mt-5">Introduction to Management and Organizations</h3>
                         </a>
                     </Link>
                     <Link to="/watchvideo/452" class="box">
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Schools of Management thoughts</h3>
+                            <h3 className="mt-5">Schools of Management thoughts</h3>
                         </a>
                     </Link>
                     <Link to="/watchvideo/453" class="box">
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Organizational Structure and Design</h3>
+                            <h3 className="mt-5">Organizational Structure and Design</h3>
                         </a>
                     </Link>
                     <Link to="/watchvideo/454" class="box">
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Organizational Culture and Environment</h3>
+                            <h3 className="mt-5">Organizational Culture and Environment</h3>
                         </a>
                     </Link>
                     <Link to="/watchvideo/455" class="box">
                         <a>
                             {/* <i class="fas fa-play"></i> */}
                             <img src={postpic} alt="" />
-                            <h3>Understanding Basics of Financial Management and Accounting</h3>
+                            <h3 className="mt-5">Understanding Basics of Financial Management and Accounting</h3>
                         </a>
                     </Link>
                 </div>

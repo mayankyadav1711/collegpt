@@ -37,13 +37,13 @@ function Sem_4_Os_Units() {
             <div class="tutor">
                             {/* <img src={profilepic} alt=""/> */}
                 <div>
-                    <h3>john deo</h3>
+                    <h3 className="mt-5">john deo</h3>
                     <span>21-10-2022</span>
                 </div>
             </div>
 
             <div class="details">
-                <h3>Operating Systems [CT404-N]</h3>
+                <h3 className="mt-5">Operating Systems [CT404-N]</h3>
                 <p>Develop understanding of number systems and Boolean algebra. Understand the functioning of logic gates, their implementation and verification of truth tables. </p>
                 <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link> 
             </div>
@@ -61,7 +61,7 @@ function Sem_4_Os_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Introduction</h3>
+      <h3 className="mt-5">Introduction</h3>
     </a> 
   </Link>
 
@@ -69,7 +69,7 @@ function Sem_4_Os_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Process</h3>
+      <h3 className="mt-5">Process</h3>
     </a> 
   </Link>
 
@@ -77,7 +77,7 @@ function Sem_4_Os_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Inter-process Communication</h3>
+      <h3 className="mt-5">Inter-process Communication</h3>
     </a> 
   </Link>
 
@@ -85,7 +85,7 @@ function Sem_4_Os_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Deadlock</h3>
+      <h3 className="mt-5">Deadlock</h3>
     </a> 
   </Link>
 
@@ -93,7 +93,7 @@ function Sem_4_Os_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Memory Management</h3>
+      <h3 className="mt-5">Memory Management</h3>
     </a> 
   </Link>
 
@@ -101,7 +101,7 @@ function Sem_4_Os_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>I/O Hardware</h3>
+      <h3 className="mt-5">I/O Hardware</h3>
     </a> 
   </Link>
 
@@ -109,7 +109,7 @@ function Sem_4_Os_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Security</h3>
+      <h3 className="mt-5">Security</h3>
     </a> 
   </Link>
 </div>

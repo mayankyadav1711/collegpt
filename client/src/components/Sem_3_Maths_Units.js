@@ -38,13 +38,13 @@ function Sem_3_Maths_Units() {
          <div class="tutor">
                         {/* <img src={profilepic} alt=""/> */}
             <div>
-               <h3>john deo</h3>
+               <h3 className="mt-5">john deo</h3>
                <span>21-10-2022</span>
             </div>
          </div>
    
          <div class="details">
-            <h3>Discrete Mathematics - 3 [CC302B-N]</h3>
+            <h3 className="mt-5">Discrete Mathematics - 3 [CC302B-N]</h3>
             <p>1. Use mathematically correct terminology and notation.
                  2. Construct correct direct and indirect proofs.
                  3. Use division into cases in a proof.
@@ -67,7 +67,7 @@ function Sem_3_Maths_Units() {
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
 
-      <h3>Set, Relation & Function</h3>
+      <h3 className="mt-5">Set, Relation & Function</h3>
     </a> 
   </Link>
 
@@ -75,7 +75,7 @@ function Sem_3_Maths_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Lattices</h3>
+      <h3 className="mt-5">Lattices</h3>
     </a> 
   </Link>
   
@@ -83,7 +83,7 @@ function Sem_3_Maths_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Propositional Logic</h3>
+      <h3 className="mt-5">Propositional Logic</h3>
     </a> 
   </Link>
 
@@ -91,7 +91,7 @@ function Sem_3_Maths_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Algebraic Structures and Morphism</h3>
+      <h3 className="mt-5">Algebraic Structures and Morphism</h3>
     </a> 
   </Link>
   
@@ -99,7 +99,7 @@ function Sem_3_Maths_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Graphs and Trees</h3>
+      <h3 className="mt-5">Graphs and Trees</h3>
     </a> 
   </Link>
 </div>

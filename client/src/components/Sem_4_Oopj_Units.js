@@ -38,13 +38,13 @@ function Sem_4_Oopj_Units() {
             <div class="tutor">
                             {/* <img src={profilepic} alt=""/> */}
                 <div>
-                    <h3>john deo</h3>
+                    <h3 className="mt-5">john deo</h3>
                     <span>21-10-2022</span>
                 </div>
             </div>
 
             <div class="details">
-                <h3>Object Oriented Programming Using Java [CT405-N]</h3>
+                <h3 className="mt-5">Object Oriented Programming Using Java [CT405-N]</h3>
                 <p>Develop understanding of number systems and Boolean algebra. Understand the functioning of logic gates, their implementation and verification of truth tables. </p>
                 <Link to='/teacherProfile' >   <a  class="inline-btnd">view profile</a> </Link> 
             </div>
@@ -62,7 +62,7 @@ function Sem_4_Oopj_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Introduction to Java</h3>
+      <h3 className="mt-5">Introduction to Java</h3>
     </a> 
   </Link>
 
@@ -70,7 +70,7 @@ function Sem_4_Oopj_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Objects and Classes</h3>
+      <h3 className="mt-5">Objects and Classes</h3>
     </a> 
   </Link>
 
@@ -78,7 +78,7 @@ function Sem_4_Oopj_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Inheritance and Polymorphism</h3>
+      <h3 className="mt-5">Inheritance and Polymorphism</h3>
     </a> 
   </Link>
 
@@ -86,7 +86,7 @@ function Sem_4_Oopj_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Collection Interface and Classes</h3>
+      <h3 className="mt-5">Collection Interface and Classes</h3>
     </a> 
   </Link>
 
@@ -94,7 +94,7 @@ function Sem_4_Oopj_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Exception Handling in Java</h3>
+      <h3 className="mt-5">Exception Handling in Java</h3>
     </a> 
   </Link>
 
@@ -102,7 +102,7 @@ function Sem_4_Oopj_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Multithreading in Java</h3>
+      <h3 className="mt-5">Multithreading in Java</h3>
     </a> 
   </Link>
 
@@ -110,7 +110,7 @@ function Sem_4_Oopj_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>I/O Programming</h3>
+      <h3 className="mt-5">I/O Programming</h3>
     </a> 
   </Link>
 
@@ -118,7 +118,7 @@ function Sem_4_Oopj_Units() {
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt=""/>
-      <h3>Event and GUI Programming</h3>
+      <h3 className="mt-5">Event and GUI Programming</h3>
     </a> 
   </Link>
 </div>
