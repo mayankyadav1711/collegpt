@@ -1246,10 +1246,10 @@ backdrop-filter: var(--eventPostFilter);
 }
 .column {
   margin-left: 1.5rem;
-  width: 33rem;
-  padding: 0 2.5rem;
+  width: auto;
+  /* padding: 0 2.5rem; */
   float: left;
-  padding-bottom: 10rem;
+  /* padding-bottom: 10rem; */
 }
 .column .box-size {
   width: 100%;
@@ -2962,6 +2962,10 @@ body.dark .card-item-title {
 /* Courses css ends  here*/
 
 /* Playlist css starts here */
+.playlist-details{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
 .playlist-details .row {
   display: flex;
   align-items: flex-end;
@@ -3033,7 +3037,7 @@ visibility: hidden;
 }
 
 .playlist-details .row .column .thumb img {
-  height: 30rem;
+  height: auto;
   width: 100%;
   object-fit: cover;
   border-radius: 0.5rem;
@@ -3096,7 +3100,7 @@ visibility: hidden;
 .playlist-videos .box-container .box {
   text-align: center;
   background-color: var(--bgTransperent);
-  height: 30rem;
+  height: auto;
   backdrop-filter: blur(20px);
   box-shadow: var(--reviewBShadow);
   border-radius: 0.5rem;
@@ -3131,7 +3135,7 @@ visibility: hidden;
   margin-left: 2rem;
   margin-top: 2rem;
   width: 90%;
-  height: 20rem;
+  height: auto;
   object-fit:fill;
   border-radius: 0.5rem;
 }
@@ -3146,6 +3150,7 @@ visibility: hidden;
   margin-top: 1.5rem;
   font-size: 1.8rem;
   color: var(--black);
+  margin-bottom: 2rem;
 }
 
 .playlist-videos .box-container .box:hover h3 {
@@ -6551,9 +6556,7 @@ form .custom-toast{
   }
   
 
-  .playlist-videos{
-    margin-left: 4.5rem;
-  }
+
   .welcome-container{
     margin-top: -5rem !important;
   }
@@ -8356,8 +8359,8 @@ height: 70rem;
     /* margin-left: 8rem; */
   }
   .playlist-videos{
-    width: 57rem;
-    margin-left: 8rem;
+    width: auto;
+    /* margin-left: 8rem; */
   }
   .form-container form{
     width: 40rem;
@@ -8849,8 +8852,8 @@ height: 70rem;
     /* margin-left: 8rem; */
   }
   .playlist-videos{
-    width: 48rem;
-    margin-left: 8rem;
+    width: auto;
+    /* margin-left: 8rem; */
   }
   .user-list{
     margin-left: 10rem;
@@ -9553,7 +9556,7 @@ height: 70rem;
     width: auto;
   }
   .playlist-videos{
-    width: 60rem;
+    width: auto;
   }
   .form-container{
     width: 60rem;
