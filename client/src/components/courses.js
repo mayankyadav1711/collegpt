@@ -126,16 +126,17 @@ const Courses = () => {
     {
       title: "Sem 6",
       courses: [
-        { title: "Artificial Intelligence", units: 8, thumbnail: s61 },
+        { title: "Machine Learning", units: 8, thumbnail: s64 },
+
         { title: "Python Programming", units: 6, thumbnail: s62 },
         { title: "Cryptography and Network Security", units: 10, thumbnail: s63 },
-        { title: "Machine Learning", units: 8, thumbnail: s64 },
-        { title: "Android Programming", units: 7, thumbnail: s65 },
-        { title: "Internet of Things", units: 6, thumbnail: s66 },
-        { title: "Soft Computing", units: 7, thumbnail: s67 },
         { title: "Information Security", units: 7, thumbnail: s68 },
         { title: "Data Compression", units: 7, thumbnail: s69 },
-        { title: "E-Commerce and E-Business", units: 7, thumbnail: s70 }
+        { title: "E-Commerce and E-Business", units: 7, thumbnail: s70 },
+        { title: "Soft Computing", units: 7, thumbnail: s67 },
+        { title: "Artificial Intelligence", units: 8, thumbnail: s61 },
+        { title: "Android Programming", units: 7, thumbnail: s65 },
+        { title: "Internet of Things", units: 6, thumbnail: s66 },
       ]
     }
   ];

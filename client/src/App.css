@@ -6550,9 +6550,7 @@ form .custom-toast{
     margin-bottom: 1rem;
   }
   
-  .playlist-details{
-    margin-left: 4.5rem;
-  }
+
   .playlist-videos{
     margin-left: 4.5rem;
   }
@@ -8354,8 +8352,8 @@ height: 70rem;
     margin-left: 8rem;
   }
   .playlist-details{
-    width: 55rem;
-    margin-left: 8rem;
+    width: auto;
+    /* margin-left: 8rem; */
   }
   .playlist-videos{
     width: 57rem;
@@ -8847,8 +8845,8 @@ height: 70rem;
     margin-left: 5rem;
   }
   .playlist-details{
-    width: 48rem;
-    margin-left: 8rem;
+    width: auto;
+    /* margin-left: 8rem; */
   }
   .playlist-videos{
     width: 48rem;
@@ -9552,7 +9550,7 @@ height: 70rem;
     margin-left: 5rem;
   }
   .playlist-details{
-    width: 60rem;
+    width: auto;
   }
   .playlist-videos{
     width: 60rem;
