@@ -2963,10 +2963,16 @@ body.dark .card-item-title {
 .playlist-details{
   margin-left: 1rem;
   margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+ min-width: fit-content;
 }
 .playlist-details .row {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  justify-self: center;
   gap: 3rem;
   flex-wrap: wrap;
   background-color: var(--bgTransperent);
