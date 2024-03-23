@@ -2,27 +2,38 @@ import React, { useState } from "react";
 import qr from "./images/qr.jpg";
 
 const Support = () => {
-  // State to manage the visibility of the QR code modal
-  const [showPopup, setShowPopup] = useState(false);
+
 
   return (
     <>
       <section class="px-2 py-32 mt-10 md:px-0">
-        <div class="container items-center max-w-6xl px-8 mx-auto xl:px-5">
-          <div class="flex flex-wrap items-center sm:-mx-3">
+        <div class="container items-center px-8 mx-auto xl:px-5">
+          <div class="flex sm:-mx-3">
             <div class="w-full md:w-1/2 md:px-3">
-              <div class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
-                <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
-                  <span class="block xl:inline">Useful Tools to</span>
-                  <span class="block text-[#12b8ff] xl:inline">
-                    Help You Build Faster.
-                  </span>
+            
+                <h1 class="text-4xl mt-3 font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+              
+                Welcome to our <span className="text-[#12b8ff]"> Support Page!</span>
+                 
                 </h1>
-                <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">
-                  It's never been easier to build beautiful websites that convey
-                  your message and tell your story.
+                <p class="lg:w-full mt-5  text-3xl text-justify text-gray-500 dark:text-neutral-400 sm:max-w-md  md:max-w-4xl">
+                At ColleGPT, we are dedicated to providing <span className="text-[#12b8ff]">free educational resources to all</span>, ensuring that knowledge is accessible to everyone, regardless of their financial situation. We believe in the power of education to transform lives and communities.
+
+
+
+
+
+
                 </p>
-                <div class="relative flex flex-col sm:flex-row sm:space-x-4">
+                <p class="lg:w-full  mt-5  text-3xl text-justify text-gray-500 dark:text-neutral-400 sm:max-w-md  md:max-w-4xl">
+                To continue offering these valuable resources, we rely on the generosity of our users like you. <span className="text-[#12b8ff]">Your support helps cover the costs of domain and hosting charges, allowing us to keep the website up and running smoothly.</span>
+                </p>
+                <p class="lg:w-full mt-5  text-3xl text-justify text-gray-500 dark:text-neutral-400 sm:max-w-md  md:max-w-4xl">
+                If you find our website helpful and want to contribute to its sustainability, you can show your support by scanning the QR code below and making a small donation through <span className="text-[#12b8ff]">Online Payment</span>. Every contribution, no matter how big or small, makes a difference and helps us maintain our commitment to providing free educational content.
+                </p>
+                <p class="lg:w-full mt-5  text-3xl text-justify text-gray-500 dark:text-neutral-400 sm:max-w-md  md:max-w-4xl">
+                <span className="text-[#12b8ff]">Thank you </span>for being a part of our community and for helping us make education accessible to all. Together, we can empower individuals and enrich lives through learning.                </p>
+                {/* <div class="relative flex flex-col sm:flex-row sm:space-x-4">
                   <a
                     href="#_"
                     class="flex items-center w-full px-6 py-2 mb-3 text-lg text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto"
@@ -48,38 +59,20 @@ const Support = () => {
                   >
                     Learn More
                   </a>
-                </div>
-              </div>
+                </div> */}
+       
             </div>
-            <div class="w-full md:w-1/2">
+            <div class=" mt-2 md:w-1/2">
          
               <div class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
-              <img src={qr} alt=""/>              </div>
+              <img src={qr} alt=""/>             
+               </div>
             </div>
           </div>
         </div>
       </section>
-       {/* Popup Button */}
 
-      <button      
-      onClick={() => setShowPopup(true)}
-      className="before:ease  fixed right-5 bottom-5 p-2 w-20 z-50 h-20 rounded-full overflow-hidden  bg-[#12b8ff] text-3xl text-white shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-20 before:w-20 before:translate-x-20 before:rotate-6 before:bg-white before:opacity-10 before:duration-700  hover:before:-translate-x-40">
-      QR
-    </button>
-      {/* Popup */}
-      {showPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 flex justify-center items-center">
-          <div className="bg-white p-5 rounded-lg shadow-xl max-w-sm">
-            <img src={qr} alt="QR Code" className="w-full" />
-            <button
-              onClick={() => setShowPopup(false)}
-              className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 transition"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+   
     </>
   );
 };
