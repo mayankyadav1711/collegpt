@@ -104,6 +104,12 @@ const Header = () => {
           >
             Contact
           </Link>
+          <Link
+            to="/support"
+            className="text-gray-900  dark:text-white  font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
+          >
+            Support
+          </Link>
         </nav>
 
         <div className="flex items-center space-x-0 mr-0 ml-auto">
@@ -240,6 +246,13 @@ const Header = () => {
             onClick={closeMenu}
           >
             Contact
+          </Link>
+          <Link
+            to="/support"
+            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            onClick={closeMenu}
+          >
+            Support
           </Link>
         </nav>
       </div>
