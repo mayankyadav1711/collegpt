@@ -104,12 +104,12 @@ const Header = () => {
           >
             Contact
           </Link>
-          <Link
+          {/* <Link
             to="/support"
             className="text-gray-900  dark:text-white  font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
             Support
-          </Link>
+          </Link> */}
         </nav>
 
         <div className="flex items-center space-x-0 mr-0 ml-auto">
@@ -203,57 +203,57 @@ const Header = () => {
 
         <nav
           ref={menuRef}
-          className="flex flex-col bg-[#ffffff] dark:bg-[#020813] text-white items-center justify-center min-h-screen w-full backdrop-filter backdrop-blur-lg"
+          className="flex flex-col bg-[#ffffff] dark:bg-[#020813] text-white items-center justify-center min-h-screen w-full backdrop-filter backdrop-blur-lg "
         >
           <Link
             to="/"
-            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+            className="py-5 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
             onClick={closeMenu}
           >
             Home
           </Link>
           <Link
             to="/courses"
-            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+            className="py-5 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
             onClick={closeMenu}
           >
             X-Notes
           </Link>
           <Link
             to="/userlist"
-            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+            className="py-5 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
             onClick={closeMenu}
           >
             Community
           </Link>
           <Link
             to="/about"
-            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+            className="py-5 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
             onClick={closeMenu}
           >
             About
           </Link>
           <Link
             to="/contributor_form"
-            className="py-4 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
+            className="py-5 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
             onClick={closeMenu}
           >
             Contribute
           </Link>
           <Link
             to="/contact"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            className="py-5 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
             onClick={closeMenu}
           >
             Contact
           </Link>
-          <Link
+          {/* <Link
             to="/support"
-            className="py-4 text-5xl text-white dark:text-white hover:text-blue-900 dark:hover:text-blue-700"
+            className="py-5 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
             onClick={closeMenu}
           >
             Support
-          </Link>
+          </Link> */}
         </nav>
       </div>
     </header>
