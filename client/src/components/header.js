@@ -82,7 +82,7 @@ const Header = () => {
           <Welcome_Collegpt />
         </Link>
         {/* Desktop Menu  */}
-        <nav className="hidden md:flex items-center space-x-20 ml-auto">
+        <nav className="hidden lg:flex items-center space-x-20 ml-auto">
           <div className="text-gray-900 dark:text-white font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
             <Link to="/">Home</Link>
           </div>
@@ -174,7 +174,7 @@ const Header = () => {
         </div>
 
         {/* Hamburger icon for menu  */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <FontAwesomeIcon
             icon={faBars}
             onClick={toggleMenu}
@@ -186,7 +186,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-0 left-0 w-full h-full bg-[#ffffff] dark:bg-[#020813] transition-transform duration-300 ease-in-out transform ${
+        className={`lg:hidden fixed top-0 left-0 w-full h-full bg-[#ffffff] dark:bg-[#020813] transition-transform duration-300 ease-in-out transform ${
           isMenuOpen ? "" : "opacity-0 pointer-events-none"
         }`}
         onClick={closeMenu}
