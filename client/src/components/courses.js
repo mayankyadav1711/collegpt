@@ -127,7 +127,6 @@ const Courses = () => {
       title: "Sem 6",
       courses: [
         { title: "Machine Learning", units: 8, thumbnail: s64 },
-
         { title: "Python Programming", units: 6, thumbnail: s62 },
         { title: "Cryptography and Network Security", units: 10, thumbnail: s63 },
         { title: "Information Security", units: 7, thumbnail: s68 },
@@ -146,17 +145,52 @@ const Courses = () => {
 
   return (
     <section className="courses">
-      <ul id="tabs">
-        {semesters.map((semester, index) => (
+     <div className="flex flex-col items-center justify-center">
+  {/* Tabs for large screens */}
+  <div className="hidden lg:flex lg:justify-center lg:space-x-4">
+    <ul id="tabs" className="flex flex-row space-x-4">
+      {semesters.map((semester, index) => (
+        <li
+          key={index}
+          className={`mb-4 ${activeTab === index ? "active" : ""}`}
+          onClick={() => handleTabClick(index)}
+        >
+          <h3>{semester.title}</h3>
+        </li>
+      ))}
+    </ul>
+  </div>
+  
+  {/* Tabs for small screens */}
+  <div className="lg:hidden">
+    <div className="flex flex-col">
+      <ul id="tabs" className="flex flex-row space-x-4">
+        {semesters.slice(0, 3).map((semester, index) => (
           <li
             key={index}
-            className={activeTab === index ? "active" : ""}
+            className={`mb-4 ${activeTab === index ? "active" : ""}`}
             onClick={() => handleTabClick(index)}
           >
             <h3>{semester.title}</h3>
           </li>
         ))}
       </ul>
+      <ul id="tabs" className="flex flex-row space-x-4">
+        {semesters.slice(3).map((semester, index) => (
+          <li
+            key={index + 3}
+            className={`mb-4 ${activeTab === index + 3 ? "active" : ""}`}
+            onClick={() => handleTabClick(index + 3)}
+          >
+            <h3>{semester.title}</h3>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
+
+
 
       <div className="box-container">
         {semesters[activeTab].courses.map((course, index) => (
