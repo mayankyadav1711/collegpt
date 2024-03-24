@@ -53,22 +53,22 @@ const Userlist = () => {
     return () => clearInterval(interval);
   }, [counter, userProfiles.length]);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-useEffect(() => {
-  // Load the Google Ads script
-  const adsbygoogleScript = document.createElement('script');
-  adsbygoogleScript.async = true;
-  adsbygoogleScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
-  adsbygoogleScript.crossOrigin = "anonymous";
-  document.body.appendChild(adsbygoogleScript);
+// useEffect(() => {
+//   // Load the Google Ads script
+//   const adsbygoogleScript = document.createElement('script');
+//   adsbygoogleScript.async = true;
+//   adsbygoogleScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+//   adsbygoogleScript.crossOrigin = "anonymous";
+//   document.body.appendChild(adsbygoogleScript);
 
-  // Initialize ads
-  (window.adsbygoogle = window.adsbygoogle || []).push({});
+//   // Initialize ads
+//   (window.adsbygoogle = window.adsbygoogle || []).push({});
 
-  return () => {
-    // Cleanup the script when the component unmounts
-    document.body.removeChild(adsbygoogleScript);
-  };
-}, []);
+//   return () => {
+//     // Cleanup the script when the component unmounts
+//     document.body.removeChild(adsbygoogleScript);
+//   };
+// }, []);
 
   const indexOfLastProfile = currentPage * profilesPerPage;
   const indexOfFirstProfile = indexOfLastProfile - profilesPerPage;
@@ -174,12 +174,12 @@ useEffect(() => {
         ) : (
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center mx-44 my-10">
-                        <ins className="adsbygoogle"
+                        {/* <ins className="adsbygoogle"
            style={{ display: "block" }}
            data-ad-client="ca-pub-2443682363346742"
            data-ad-slot="2738377151"
            data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
+           data-full-width-responsive="true"></ins> */}
 
             {currentProfiles.map((userProfile) => (
               <div
@@ -233,12 +233,12 @@ useEffect(() => {
                 </div>
               </div>
             ))}
-                        <ins className="adsbygoogle"
+                        {/* <ins className="adsbygoogle"
            style={{ display: "block" }}
            data-ad-client="ca-pub-2443682363346742"
            data-ad-slot="2738377151"
            data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
+           data-full-width-responsive="true"></ins> */}
           </div>
         )}
 
