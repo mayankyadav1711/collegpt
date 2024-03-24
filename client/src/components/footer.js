@@ -46,8 +46,8 @@ const Footer = () => {
     <div class="container mx-auto lg:flex justify-center">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-40">
             {/* Left side: Logo and contact info */}
-            <div class="flex flex-col items-center lg:items-start space-y-5">                                        {/* <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">ColleGPT</h3> */}
-                    <Link to="/">
+            <div class="flex flex-col items-center -mt-5 lg:items-start space-y-5">                                        {/* <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">ColleGPT</h3> */}
+                    <Link to="www.collegpt.com">
                     <div className=" text-gray-900 dark:text-white">
     <span
       className="flex items-center font-bold lg:text-[4rem] text-[6rem]"
@@ -73,9 +73,9 @@ const Footer = () => {
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="lg:px-4 px-8 lg:py-2 py-4 rounded-lg border border-gray-600 focus:outline-none focus:border-gray-400 lg:text-2xl text-4xl"
+                                className="lg:px-4 px-8 lg:py-2 py-2 rounded-lg border border-gray-600 focus:outline-none focus:border-gray-400 lg:text-2xl text-4xl"
                             />
-                            <button className="lg:px-4 px-8 lg:py-2 py-4 bg-[#12b8ff] text-white rounded-lg ml-2 lg:text-2xl text-4xl">
+                            <button className="lg:px-4 px-8 lg:py-2 py-2 bg-[#12b8ff] text-white rounded-lg ml-2 lg:text-2xl text-4xl">
                                 Subscribe
                             </button>
                         </form>
@@ -292,9 +292,9 @@ const Footer = () => {
                 </div>
             </div>
             </div>
-            <div class="row bg-[#c0e8eb] w-screen dark:bg-[#151e3689] text-center flex justify-center dark:text-gray-100">
+            <div class="row bg-[#c0e8eb] w-screen dark:bg-[#151e3689] text-center mt-4 flex justify-center dark:text-gray-100">
                 <div class="col-xl-6 col-lg-6 text-center flex justify-center">
-                    <div class="lg:text-4xl text-3xl py-10 px-10 text-center flex justify-center">
+                    <div class="lg:text-2xl text-3xl py-10 px-10 text-center flex justify-center">
                         <p>
                             Copyright &copy; 2024, All Right Reserved{" "}
                             <a href="www.collegpt.com" className="text-[#12b8ff]">ColleGPT</a>
