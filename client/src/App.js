@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
-import React, { createContext, useReducer, useEffect, useContext, Suspense, lazy } from "react";
+import React, { createContext, useReducer, useEffect, useContext, useRef, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Routes  } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./App.css";
@@ -9,6 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 import toast, { Toaster } from 'react-hot-toast';
 import spinnerlogo from "./components/images/Group.svg";
 import MainLayout from "./layout/mainLayout";
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
+import LocomotiveScroll from "locomotive-scroll";
+import "./locomotive-scroll.css"
 
 
 export const UserContext = createContext();
@@ -197,11 +200,29 @@ const Routing = () => {
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
  
-  
-  return (
+  const scrollContainerRef = useRef(null);
+  useEffect(() => {
+    const container = document.querySelector("#scroll-container");
+    if (!container) {
+      console.error("Scroll container element not found.");
+      return;
+    }
+  console.log("Scroll container element is working properly.");
+    const scroll = new LocomotiveScroll({
+      el: container,
+      smooth: true,
+      // Add any other options here
+    });
 
+    return () => {
+      scroll.destroy();
+    };
+  }, []);
+
+  return (
+    <LocomotiveScrollProvider options={{ smooth: true }}>
       <UserContext.Provider value={{ state, dispatch }}>
- 
+      <div ref={scrollContainerRef} id="scroll-container">
           <Router>
             <Routing />
             <Toaster
@@ -226,8 +247,9 @@ function App() {
 />
 
           </Router>
-      
+          </div>
       </UserContext.Provider>
+      </LocomotiveScrollProvider>
   
   );
 }
