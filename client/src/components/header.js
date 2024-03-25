@@ -98,7 +98,10 @@ const Header = () => {
           <div className="text-gray-900 dark:text-white font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
             <Link to="/contributor_form">Contribute</Link>
           </div>
-          <Link
+          <div className="text-gray-900 dark:text-white font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
+            <Link to="/support">Support</Link>
+          </div>
+          {/* <Link
             to="/contact"
             className="text-gray-900  dark:text-white  font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
@@ -109,7 +112,7 @@ const Header = () => {
             className="text-gray-900  dark:text-white  font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
           >
             Support
-          </Link>
+          </Link> */}
         </nav>
 
         <div className="flex items-center space-x-0 mr-0 ml-auto">
@@ -240,13 +243,13 @@ const Header = () => {
           >
             Contribute
           </Link>
-          <Link
+          {/* <Link
             to="/contact"
             className="py-5 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
             onClick={closeMenu}
           >
             Contact
-          </Link>
+          </Link> */}
           <Link
             to="/support"
             className="py-5 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
