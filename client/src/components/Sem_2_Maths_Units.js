@@ -61,7 +61,7 @@ function Sem_2_Maths_Units() {
 
 <Link to='/watchvideo/221' class="box">
    <a>
-      {/* <i class="fas fa-play"></i> */}
+     
       <img src={postpic} alt=""/>
 
       <h3 className="mt-5">Matrix Theory and Application of Matrices</h3>
@@ -70,7 +70,7 @@ function Sem_2_Maths_Units() {
 
 <Link to='/watchvideo/222' class="box">
    <a>
-      {/* <i class="fas fa-play"></i> */}
+     
       <img src={postpic} alt=""/>
 
       <h3 className="mt-5">Eigen value and Eigenvector and Applications</h3>
@@ -79,7 +79,7 @@ function Sem_2_Maths_Units() {
 
 <Link to='/watchvideo/223' class="box">
    <a>
-      {/* <i class="fas fa-play"></i> */}
+     
       <img src={postpic} alt=""/>
       <h3 className="mt-5">Vectors in R<sup>n</sup></h3>
    </a>
@@ -87,7 +87,7 @@ function Sem_2_Maths_Units() {
 
 <Link to='/watchvideo/224' class="box">
    <a>
-      {/* <i class="fas fa-play"></i> */}
+     
       <img src={postpic} alt=""/>
       <h3 className="mt-5">Vector Space</h3>
    </a>
@@ -95,7 +95,7 @@ function Sem_2_Maths_Units() {
 
 <Link to='/watchvideo/225' class="box">
    <a>
-      {/* <i class="fas fa-play"></i> */}
+     
       <img src={postpic} alt=""/>
       <h3 className="mt-5">Linear Transformation</h3>
    </a>
@@ -103,7 +103,7 @@ function Sem_2_Maths_Units() {
 
 <Link to='/watchvideo/226' class="box">
    <a>
-      {/* <i class="fas fa-play"></i> */}
+     
       <img src={postpic} alt=""/>
       <h3 className="mt-5">Vector differential Calculus</h3>
    </a>
@@ -111,15 +111,15 @@ function Sem_2_Maths_Units() {
 
 <Link to='/watchvideo/227' class="box">
    <a>
-      {/* <i class="fas fa-play"></i> */}
+     
       <img src={postpic} alt=""/>
       <h3 className="mt-5">Vector Integral Calculus</h3>
    </a>
 </Link>
 
-<Link to='/watchvideo/228' class="box">
+{/* <Link to='/watchvideo/228' class="box">
    <a>
-      {/* <i class="fas fa-play"></i> */}
+     
       <img src={postpic} alt=""/>
       <h3 className="mt-5">New Title</h3>
    </a>
@@ -129,7 +129,7 @@ function Sem_2_Maths_Units() {
 
 <Link to='/watchvideo/229' class="box">
    <a>
-      {/* <i class="fas fa-play"></i> */}
+     
       <img src={postpic} alt=""/>
       <h3 className="mt-5">Another Title</h3>
    </a>
@@ -137,11 +137,11 @@ function Sem_2_Maths_Units() {
 
 <Link to='/watchvideo/2210' class="box">
    <a>
-      {/* <i class="fas fa-play"></i> */}
+     
       <img src={postpic} alt=""/>
       <h3 className="mt-5">Final Title</h3>
    </a>
-</Link>
+</Link> */}
 
 </div>
 

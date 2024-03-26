@@ -151,18 +151,7 @@ const Darshit = () => {
                                         <b>SDE Intern at Hackingly</b>
                                     </div>
                                     <div class="card-item-desc">
-                                        An online platform that helps students
-                                        and early talent find opportunities,
-                                        such as competitions, hackathons.
-                                        Organizers can use{" "}
-                                        <Link
-                                            to="Hackingly.in"
-                                            target="_blank"
-                                            rel="noreferrer">
-                                            Hackingly
-                                        </Link>{" "}
-                                        to list opportunities and create a
-                                        microsite for them.
+                                    Interned as a Next.JS developer and UI/UX designer, focusing on web development within Agile framework.
                                     </div>
                                 </div>
                                 <div class="card-item" data-year="2023">

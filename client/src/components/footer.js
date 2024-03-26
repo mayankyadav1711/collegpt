@@ -47,7 +47,7 @@ const Footer = () => {
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-40">
             {/* Left side: Logo and contact info */}
             <div class="flex flex-col items-center -mt-5 lg:items-start space-y-5">                                        {/* <h3 className="text-3xl font-bold  text-gray-900 dark:text-white">ColleGPT</h3> */}
-                    <Link to="www.collegpt.com">
+                    <Link to="/">
                     <div className=" text-gray-900 dark:text-white">
     <span
       className="flex items-center font-bold lg:text-[4rem] text-[6rem]"
@@ -297,7 +297,7 @@ const Footer = () => {
                     <div class="lg:text-2xl text-3xl py-10 px-10 text-center flex justify-center">
                         <p>
                             Copyright &copy; 2024, All Right Reserved{" "}
-                            <a href="www.collegpt.com" className="text-[#12b8ff]">ColleGPT</a>
+                            <a href="www.collegpt.com" target="_blank" className="text-[#12b8ff]">ColleGPT</a>
                         </p>
                     </div>
                 </div>
