@@ -260,15 +260,15 @@ const Footer = () => {
                                 Our Community
                             </Link>
                             <br />
-                            <Link to="/watchvideo/cs_html"
+                            <Link to="/contact"
                                 className=" hover:text-gray-400 text-gray-900 dark:text-white">
-                                Cheatsheets
+                                Contact Us
                             </Link>
-                            <br />
+                            {/* <br />
                             <Link to="/roadmap_mern"
                                 className="hover:text-gray-400 text-gray-900 dark:text-white">
                                 Roadmaps
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                     <div className="w-10/2 flex flex-col lg:text-2xl text-4xl">
