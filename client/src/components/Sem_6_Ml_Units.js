@@ -122,11 +122,18 @@ provide an overview of the machine leaning and advance topics.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3 className="mt-5">Dimensionality Reduction Graphical Model</h3>
+    <h3 className="mt-5">Dimensionality Reduction</h3>
+  </a>
+</Link>
+<Link to="/watchvideo/649" class="box">
+  <a>
+    {/* <i class="fas fa-play"></i> */}
+    <img src={postpic} alt="" />
+    <h3 className="mt-5">Graphical Model</h3>
   </a>
 </Link>
 
-  <Link to="/watchvideo/649" class="box">
+  <Link to="/watchvideo/6410" class="box">
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt="" />
@@ -134,7 +141,7 @@ provide an overview of the machine leaning and advance topics.
     </a>
   </Link>
 
-  <Link to="/watchvideo/6410" class="box">
+  <Link to="/watchvideo/6411" class="box">
     <a>
       {/* <i class="fas fa-play"></i> */}
       <img src={postpic} alt="" />
