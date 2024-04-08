@@ -6,17 +6,17 @@ const Support = () => {
 
   return (
     <>
-      <section class="px-2 py-32 mt-10 md:px-0">
-        <div class="container items-center px-8 mx-auto xl:px-5">
-          <div class="flex sm:-mx-3">
-            <div class="w-full md:w-1/2 md:px-3">
+      <section class="px-2 py-32 mt-10 ">
+        <div class="items-center px-8 mx-auto xl:px-5">
+          <div class="flex flex-col lg:flex-row items-center justify-center">
+            <div class="w-full md:px-3">
             
                 <h1 class="text-4xl mt-3 font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
               
                 Welcome to our <span className="text-[#12b8ff]"> Support Page!</span>
                  
                 </h1>
-                <p class="lg:w-full mt-5  text-3xl text-justify text-gray-500 dark:text-neutral-400 sm:max-w-md  md:max-w-4xl">
+                <p class="min-w-full mt-5  text-3xl  text-gray-500 dark:text-neutral-400 sm:max-w-md  md:max-w-4xl">
                 At ColleGPT, we are dedicated to providing <span className="text-[#12b8ff]">free educational resources to all</span>, ensuring that knowledge is accessible to everyone, regardless of their financial situation. We believe in the power of education to transform lives and communities.
 
 
@@ -25,13 +25,13 @@ const Support = () => {
 
 
                 </p>
-                <p class="lg:w-full  mt-5  text-3xl text-justify text-gray-500 dark:text-neutral-400 sm:max-w-md  md:max-w-4xl">
+                <p class="min-w-full  mt-5  text-3xl text-justify text-gray-500 dark:text-neutral-400 sm:max-w-md  md:max-w-4xl">
                 To continue offering these valuable resources, we rely on the generosity of our users like you. <span className="text-[#12b8ff]">Your support helps cover the costs of domain and hosting charges, allowing us to keep the website up and running smoothly.</span>
                 </p>
-                <p class="lg:w-full mt-5  text-3xl text-justify text-gray-500 dark:text-neutral-400 sm:max-w-md  md:max-w-4xl">
+                <p class="min-w-full mt-5  text-3xl text-justify text-gray-500 dark:text-neutral-400 sm:max-w-md  md:max-w-4xl">
                 If you find our website helpful and want to contribute to its sustainability, you can show your support by scanning the QR code below and making a small donation through <span className="text-[#12b8ff]">Online Payment</span>. Every contribution, no matter how big or small, makes a difference and helps us maintain our commitment to providing free educational content.
                 </p>
-                <p class="lg:w-full mt-5  text-3xl text-justify text-gray-500 dark:text-neutral-400 sm:max-w-md  md:max-w-4xl">
+                <p class="min-w-full mt-5  text-3xl text-justify text-gray-500 dark:text-neutral-400 sm:max-w-md  md:max-w-4xl">
                 <span className="text-[#12b8ff]">Thank you </span>for being a part of our community and for helping us make education accessible to all. Together, we can empower individuals and enrich lives through learning.                </p>
                 {/* <div class="relative flex flex-col sm:flex-row sm:space-x-4">
                   <a
@@ -62,7 +62,7 @@ const Support = () => {
                 </div> */}
        
             </div>
-            <div class=" mt-2 md:w-1/2">
+            <div class=" mt-12 md:w-1/3 lg:ml-5 lg:w-1/2 w-96 flex justify-center">
          
               <div class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
               <img src={qr} alt=""/>             
