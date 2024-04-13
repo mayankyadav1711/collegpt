@@ -101,7 +101,7 @@ human nervous systems, etc.
   <a>
     {/* <i class="fas fa-play"></i> */}
     <img src={postpic} alt="" />
-    <h3 className="mt-5">Genetic Algorithm</h3>
+    <h3 className="mt-5">GA based Backpropagation Networks</h3>
   </a>
 </Link>
 

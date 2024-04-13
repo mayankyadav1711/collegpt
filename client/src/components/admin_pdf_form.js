@@ -422,7 +422,7 @@ const Admin_Pdf_Form = () => {
             "Fuzzy Logic",
             "Genetic Algorithm",
             "Hybrid System",
-            "Genetic Algorithm",
+            "GA based Backpropagation Networks",
             "Fuzzy based Backpropagation Network",
         ],
         "Information Security": [
