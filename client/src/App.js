@@ -22,6 +22,8 @@ const Contact = lazy(() => import("./components/contact"));
 const OTP = lazy(() => import("./components/OTP"));
 const Term = lazy(() => import("./components/term"));
 const Privacy = lazy(() => import("./components/privacy"));
+const Resume = lazy(() => import("./components/resume"));
+const Gate = lazy(() => import("./components/gate"));
 const ResetPassword = lazy(() => import("./components/ResetPassword"));
 const ForgotPassword = lazy(() => import("./components/ForgotPassword"));
 const WatchVideo = lazy(() => import("./components/watch_video"));
@@ -131,6 +133,8 @@ const Routing = () => {
           <Route path="/watchvideo/:code" element={<WatchVideo />} />
           <Route path="/youtube/:code" element={<Youtube_Lecture />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/gate" element={<Gate />} />
           <Route path="/roadmap_mern" element={<Roadmap_Mern />} />
           <Route path="/roadmap_frontend" element={<Roadmap_Frontend />} />
           <Route path="/roadmap_backend" element={<Roadmap_Backend />} />

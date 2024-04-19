@@ -9671,6 +9671,18 @@ height: 70rem;
     var(--signboard-wrapper-sign-move-time) sign-move var(--signboard-wrapper-sign-move-delay-time) infinite;
 }
 
+.animate-bounce {
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-20px);
+  }
+}
 /* Signboard */
 .signboard {
   color: var(--signboard-color);
@@ -9803,5 +9815,4 @@ z-index: 2;
  /* max-width: 117rem; */
   position: absolute;
 }
-
 
