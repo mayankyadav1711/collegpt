@@ -74,7 +74,7 @@ const Event_Form = lazy(() => import("./components/event_form"));
 const Roadmap_Frontend = lazy(() => import("./components/roadmap_frontend"));
 const Roadmap_Mern = lazy(() => import("./components/roadmap_mern"));
 const Roadmap_Backend = lazy(() => import("./components/roadmap_backend"));
-
+const Form = lazy(() => import("./components/Form"));
 const NewHome = lazy(() => import("./components/newhome"));
 const Blog = lazy(() => import("./components/Blog"));
 const Youtube_Lecture = lazy(() => import("./components/youtube_lecture"));
@@ -138,7 +138,7 @@ const Routing = () => {
           <Route path="/roadmap_mern" element={<Roadmap_Mern />} />
           <Route path="/roadmap_frontend" element={<Roadmap_Frontend />} />
           <Route path="/roadmap_backend" element={<Roadmap_Backend />} />
-          
+          <Route path="/form" element={<Form />} />
           <Route path="/sem_1_1_units" element={<Sem_1_Fop_Units />} />
           <Route path="/sem_1_2_units" element={<Sem_1_Maths_Units />} />
           <Route path="/sem_1_3_units" element={<Sem_1_Eoc_Units />} />
