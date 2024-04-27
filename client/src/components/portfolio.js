@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import aptitude from "./images/m.webp";
-import portfolio from "./images/portfolio.webp";
+import aptitude from "./images/mayank.webp";
+import portfolio from "./images/darshit.webp";
 import qr from "./images/qr.webp";
 import AOS from "aos";
 import Tilt from "react-parallax-tilt";
