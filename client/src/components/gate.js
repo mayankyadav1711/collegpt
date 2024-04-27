@@ -40,6 +40,7 @@ const Gate = () => {
 
   return (
     <>
+    
     <section class="home-grid h-screen">
     <section class="flex items-center justify-center text-center h-full">
         <div class="py-14 px-4 mx-auto max-w-screen-xl text-center lg:py-52 lg:px-12 mb-16">
