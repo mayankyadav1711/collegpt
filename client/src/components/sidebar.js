@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../App";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import defaultprofilepic from "./images/60111.png";
+import defaultprofilepic from "./images/60111.webp";
 
 import handledarkmode from "./handledarkmode";
 

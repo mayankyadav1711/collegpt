@@ -5,7 +5,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../App";
 import { useParams, Link,useNavigate } from "react-router-dom";
-import profilepic from "./images/60111.png";
+import profilepic from "./images/60111.webp";
 import handledarkmode from "./handledarkmode";
 import toast from 'react-hot-toast';
 

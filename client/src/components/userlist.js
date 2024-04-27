@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons"; // Import social media icons
 
 import handledarkmode from "./handledarkmode";
-import defaultprofilepic from "./images/60111.png";
+import defaultprofilepic from "./images/60111.webp";
 import spinnerlogo from "./images/Group.svg";
 const Userlist = () => {
   const [isLoading, setIsLoading] = useState(true);

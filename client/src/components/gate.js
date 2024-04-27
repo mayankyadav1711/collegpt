@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import AOS from 'aos';
-import aptitude from "./images/aptitude.png"
-import maths from "./images/DM.png"
-import dsa from "./images/dsa.png"
-import os from "./images/os.png"
-import DL from "./images/DL.png"
-import DB from "./images/DB.png"
-import TOC from "./images/TOC.png"
-import CD from "./images/CD.png"
-import CN from "./images/CN.png"
-import Algo from "./images/Algo.png"
-import user from "./images/60111.png"
+import aptitude from "./images/aptitude.webp"
+import maths from "./images/DM.webp"
+import dsa from "./images/dsa.webp"
+import os from "./images/os.webp"
+import DL from "./images/DL.webp"
+import DB from "./images/DB.webp"
+import TOC from "./images/TOC.webp"
+import CD from "./images/CD.webp"
+import CN from "./images/CN.webp"
+import Algo from "./images/Algo.webp"
+import user from "./images/60111.webp"
 const Gate = () => {
     useEffect(() => {
         AOS.init({

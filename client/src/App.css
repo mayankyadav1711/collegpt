@@ -86,7 +86,7 @@ body {
   transition: var(--tran-05);
   transition: margin-left var(--sidebar-transition-speed);
   font-family: 'San Francisco', Fallback, sans-serif;
-  --logo: url("./components/images/Asset\ light.svg");
+  /* --logo: url("./components/images/Asset\ light.svg"); */
   --headerFilter: blur(2rem);
   --headerBgcolor: rgba(255, 255, 255, 0.1);
   --headerShadow: 1rem 1rem 20rem 1rem rgba(169, 166, 166, 0.397);
@@ -181,7 +181,7 @@ body.dark {
   --primary-color-light: #3a3b3c;
   --toggle-color: #fff;
   --text-color: #ccc;
-  --logo: url("./components/images/Asset\ dark.svg");
+  /* --logo: url("./components/images/Asset\ dark.svg"); */
   --headerFilter: blur(1.2rem);
   --headerBgcolor:  rgba(0, 0, 0, 0.56);
   --headerShadow:35rem -3rem 36rem 5rem rgb(0 0 0);

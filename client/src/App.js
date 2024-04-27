@@ -23,6 +23,7 @@ const OTP = lazy(() => import("./components/OTP"));
 const Term = lazy(() => import("./components/term"));
 const Privacy = lazy(() => import("./components/privacy"));
 const Resume = lazy(() => import("./components/resume"));
+const Portfolio = lazy(() => import("./components/portfolio"));
 const Gate = lazy(() => import("./components/gate"));
 const ResetPassword = lazy(() => import("./components/ResetPassword"));
 const ForgotPassword = lazy(() => import("./components/ForgotPassword"));
@@ -135,6 +136,7 @@ const Routing = () => {
           <Route path="/support" element={<Support />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/gate" element={<Gate />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/roadmap_mern" element={<Roadmap_Mern />} />
           <Route path="/roadmap_frontend" element={<Roadmap_Frontend />} />
           <Route path="/roadmap_backend" element={<Roadmap_Backend />} />

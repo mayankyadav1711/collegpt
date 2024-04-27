@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import mayank from "./images/mayank.png";
+import mayank from "./images/mayank.webp";
 const Form = () => {
   
 
