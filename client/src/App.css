@@ -3781,7 +3781,9 @@ visibility: hidden;
   margin: 1rem -0.2rem;
   border-radius: 2rem;
 }
-
+img{
+  border: none !important;
+}
 .form-container img {
   height: 7rem;
   width: 7rem;

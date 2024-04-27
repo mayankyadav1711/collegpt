@@ -36,7 +36,7 @@ const Form = () => {
                     type="text"
                     name="name"
                     id="name"
-                    className="bg-gray-300 dark:bg-gray-600 dark:bg-opacity-25 bg-opacity-30 backdrop-blur-2xl border border-gray-300 text-gray-500 text-3xl rounded-lg   block w-full p-3.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white shadow-outline ring-1 ring-gray-500 focus:ring-1 focus:ring-gray-500 focus:shadow-inner shadow-outer shadow-sm"
+                    className="bg-gray-300 dark:bg-gray-600 dark:bg-opacity-25 bg-opacity-30 backdrop-blur-2xl border border-gray-300 text-gray-500 text-3xl rounded-lg   block w-full p-3.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white shadow-outline  focus:shadow-inner shadow-outer shadow-sm"
                     placeholder="Enter your name"
                     required
                   />
@@ -52,7 +52,7 @@ const Form = () => {
                     type="text"
                     name="email"
                     id="email"
-                    className="bg-gray-300 dark:bg-gray-600 dark:bg-opacity-25 bg-opacity-30 backdrop-blur-2xl border border-gray-300 text-gray-500 text-3xl rounded-lg   block w-full p-3.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white shadow-outline ring-1 ring-gray-500 focus:ring-1 focus:ring-gray-500 focus:shadow-inner shadow-outer shadow-sm"
+                    className="bg-gray-300 dark:bg-gray-600 dark:bg-opacity-25 bg-opacity-30 backdrop-blur-2xl border border-gray-300 text-gray-500 text-3xl rounded-lg   block w-full p-3.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white shadow-outline focus:shadow-inner shadow-outer shadow-sm"
                     placeholder="Enter your Email"
                     required
                   />
@@ -67,7 +67,7 @@ const Form = () => {
                   <input
                     type="number"
                     // name="contact"
-                    className="bg-gray-300 dark:bg-gray-600 dark:bg-opacity-25 bg-opacity-30 backdrop-blur-2xl border border-gray-300 text-gray-500 text-3xl rounded-lg   block w-full p-3.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white shadow-outline ring-1 ring-gray-500 focus:ring-1 focus:ring-gray-500 focus:shadow-inner shadow-outer shadow-sm"
+                    className="bg-gray-300 dark:bg-gray-600 dark:bg-opacity-25 bg-opacity-30 backdrop-blur-2xl border border-gray-300 text-gray-500 text-3xl rounded-lg   block w-full p-3.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white shadow-outlinefocus:shadow-inner shadow-outer shadow-sm"
                     placeholder="Enter Contact No."
                     required
                   />
@@ -83,7 +83,7 @@ const Form = () => {
                     type="file"
         name="document"
         accept=".docx,.pdf"
-                    className="bg-gray-300 dark:bg-gray-600 dark:bg-opacity-25 bg-opacity-30 backdrop-blur-2xl border border-gray-300 text-gray-500 text-3xl rounded-lg   block w-full p-3.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white shadow-outline ring-1 ring-gray-500 focus:ring-1 focus:ring-gray-500 focus:shadow-inner shadow-outer shadow-sm"
+                    className="bg-gray-300 dark:bg-gray-600 dark:bg-opacity-25 bg-opacity-30 backdrop-blur-2xl border border-gray-300 text-gray-500 text-3xl rounded-lg   block w-full p-3.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white shadow-outline focus:shadow-inner shadow-outer shadow-sm"
                     placeholder="Enter Contact No."
                     required
                   />
@@ -103,7 +103,7 @@ const Form = () => {
             type="checkbox"
             id="Light-Dark Mode"
             name="Light-Dark Mode"
-            className="mr-3 h-8 w-8 rounded border border-gray-900 dark:border-gray-900 text-primary-600 focus:ring-primary-500 dark:bg-gray-600 dark:bg-opacity-100"
+            className="mr-3 h-8 w-8 rounded border border-gray-900 dark:border-gray-900 text-primary-600  dark:bg-gray-600 dark:bg-opacity-100"
         />
         <div className="w-96"> {/* Set a consistent width here */}
             <label
@@ -119,7 +119,7 @@ const Form = () => {
             type="checkbox"
             id="contactus"
             name="contactus"
-            className="mr-3 h-8 w-8 rounded border border-gray-900 dark:border-gray-900 text-primary-600 focus:ring-primary-500 dark:bg-gray-600 dark:bg-opacity-100"
+            className="mr-3 h-8 w-8 rounded border border-gray-900 dark:border-gray-900 text-primary-600  dark:bg-gray-600 dark:bg-opacity-100"
         />
         <div className="w-xl"> {/* Set a consistent width here */}
             <label
@@ -137,7 +137,7 @@ const Form = () => {
             type="checkbox"
             id="domainsetup"
             name="domainsetup"
-            className="mr-3 h-8 w-8 rounded border border-gray-900 dark:border-gray-900 text-primary-600 focus:ring-primary-500 dark:bg-gray-600 dark:bg-opacity-100"
+            className="mr-3 h-8 w-8 rounded border border-gray-900 dark:border-gray-900 text-primary-600  dark:bg-gray-600 dark:bg-opacity-100"
         />
         <div className="w-96"> {/* Set a consistent width here */}
             <label
@@ -153,7 +153,7 @@ const Form = () => {
     type="checkbox"
     id="logo"
     name="logo"
-    className="mr-3 h-8 w-8 rounded border border-gray-900 dark:border-gray-900 text-primary-600 focus:ring-primary-500 dark:bg-gray-600 dark:bg-opacity-100"
+    className="mr-3 h-8 w-8 rounded border border-gray-900 dark:border-gray-900 text-primary-600  dark:bg-gray-600 dark:bg-opacity-100"
 />
 
         <div className="w-xl"> {/* Set a consistent width here */}
@@ -180,7 +180,7 @@ const Form = () => {
                    
                     name="remark"
                     id="remark"
-                    className="bg-gray-300 dark:bg-gray-600 dark:bg-opacity-25 bg-opacity-30 backdrop-blur-2xl border border-gray-300 text-gray-500 text-3xl rounded-lg   block w-full p-3.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white shadow-outline ring-1 ring-gray-500 focus:ring-1 focus:ring-gray-500 focus:shadow-inner shadow-outer shadow-sm"
+                    className="bg-gray-300 dark:bg-gray-600 dark:bg-opacity-25 bg-opacity-30 backdrop-blur-2xl border border-gray-300 text-gray-500 text-3xl rounded-lg   block w-full p-3.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white shadow-outline focus:shadow-inner shadow-outer shadow-sm"
                     placeholder="Enter Remark if any"
                     
                   />
@@ -195,7 +195,7 @@ const Form = () => {
                   <textarea
                     name="extra"
                     id="extra"
-                    className="bg-gray-300 dark:bg-gray-600 dark:bg-opacity-25 bg-opacity-30 backdrop-blur-2xl border border-gray-300 text-gray-500 text-3xl rounded-lg   block w-full p-3.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white shadow-outline ring-1 ring-gray-500 focus:ring-1 focus:ring-gray-500 focus:shadow-inner shadow-outer shadow-sm"
+                    className="bg-gray-300 dark:bg-gray-600 dark:bg-opacity-25 bg-opacity-30 backdrop-blur-2xl border border-gray-300 text-gray-500 text-3xl rounded-lg   block w-full p-3.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white shadow-outline focus:shadow-inner shadow-outer shadow-sm"
                     placeholder="Anything??Extra...."
                     
                   />
@@ -204,7 +204,7 @@ const Form = () => {
               <div class="flex items-center justify-center align-center space-x-4">
                 <button
                   type="submit"
-                  class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-3xl px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  class="text-white bg-primary-700 hover:bg-primary-800  focus:outline-none  font-medium rounded-lg text-3xl px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 "
                 >
                   Submit
                 </button>
