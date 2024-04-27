@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import qr from "./images/qr.jpg";
+import qr from "./images/qr.webp";
 
 const Support = () => {
 

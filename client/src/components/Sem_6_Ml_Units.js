@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 // import thumb from "./images/Thumbnail/Sem-5/TOC.webp";
 import postpic from "./images/Thumbnail/Sem-6/ml.webp";
 import handledarkmode from "./handledarkmode";
-import yt from "./images/yt.png";
 
 function Sem_6_Ml_Units() {
   useEffect(() => {

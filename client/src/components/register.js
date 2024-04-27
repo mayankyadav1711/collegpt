@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import toast from 'react-hot-toast';
 
-import defaultprofilepic from "./images/60111.png";
+import defaultprofilepic from "./images/60111.webp";
 
 
 function Register() {

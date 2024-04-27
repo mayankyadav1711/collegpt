@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../App";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-import profilepic from "./images/60111.png";
+import profilepic from "./images/60111.webp";
 import handledarkmode from "./handledarkmode";
 import toast from 'react-hot-toast';
 import Darshit from "./Darshit";

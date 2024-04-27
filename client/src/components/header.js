@@ -9,7 +9,7 @@ import {
   faAngleDown,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons"; // Added faAngleDown for dropdown indicator
-import defaultprofilepic from "./images/60111.png";
+import defaultprofilepic from "./images/60111.webp";
 import Welcome_Collegpt from "./collegptanimation";
 
 const Header = () => {
