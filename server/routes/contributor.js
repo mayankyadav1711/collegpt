@@ -296,7 +296,7 @@ router.get("/feedbacks", async (req, res) => {
 
 
 
-router.post("/service-contact",  async (req, res) => {
+router.post("/service-contact", async (req, res) => {
   try {
     const {
       name,
@@ -304,7 +304,7 @@ router.post("/service-contact",  async (req, res) => {
       message,
       // Add other required fields here
     } = req.body;
-
+    console.log(req.body)
     // Check if all required fields are provided
     if (!email || !name || !message) {
       return res
@@ -317,7 +317,6 @@ router.post("/service-contact",  async (req, res) => {
       name,
       email,
       message,
-  
     });
 
     // Save the contact entry
@@ -333,8 +332,7 @@ router.post("/service-contact",  async (req, res) => {
         <p>Name: ${name}</p>
         <p>Email: ${email}</p>
         <p>Message: ${message}</p>
-        <p>Posted By Name: ${req.user.name}</p>
-        <p>Posted By Email: ${req.user.email}</p>
+      
       `,
     });
 
@@ -344,5 +342,6 @@ router.post("/service-contact",  async (req, res) => {
     res.status(500).json({ message: "Error submitting Contact Us Form." });
   }
 });
+
 
 module.exports = router;
