@@ -7,6 +7,7 @@ const Doubt = mongoose.model("Doubt");
 const Contact = mongoose.model("Contact");
 const EventForm = mongoose.model("EventForm");
 const Feedback = mongoose.model("Feedback");
+const ServiceContact = mongoose.model("ServiceContact");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config/keys");
@@ -290,6 +291,57 @@ router.get("/feedbacks", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error retrieving feedbacks." });
+  }
+});
+
+
+
+router.post("/service-contact",  async (req, res) => {
+  try {
+    const {
+      name,
+      email,
+      message,
+      // Add other required fields here
+    } = req.body;
+
+    // Check if all required fields are provided
+    if (!email || !name || !message) {
+      return res
+        .status(422)
+        .json({ error: "Please fill in all required fields." });
+    }
+
+    // Create a new contact entry
+    const newServiceContact = new ServiceContact({
+      name,
+      email,
+      message,
+  
+    });
+
+    // Save the contact entry
+    await newServiceContact.save();
+
+    // Send email notification about the new contact form submission
+    await transporter.sendMail({
+      from: "collegpt@gmail.com",
+      to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
+      subject: "New Inquiry - ColleGPT Service",
+      html: `
+        <h1>New Contact Submitted</h1>
+        <p>Name: ${name}</p>
+        <p>Email: ${email}</p>
+        <p>Message: ${message}</p>
+        <p>Posted By Name: ${req.user.name}</p>
+        <p>Posted By Email: ${req.user.email}</p>
+      `,
+    });
+
+    res.status(201).json({ message: "Contact Us form submitted successfully." });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error submitting Contact Us Form." });
   }
 });
 

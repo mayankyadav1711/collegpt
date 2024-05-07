@@ -11,7 +11,9 @@ app.use(cors({
     "https://www.collegpt.com",
     "https://collegpt.com",
     "http://localhost:3000",
-    "https://collegpt.vercel.app"
+    "https://collegpt.vercel.app",
+    "https://services-collegpt.vercel.app",
+    "https://services.collegpt.com"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
@@ -36,6 +38,7 @@ require("./models/doubts");
 require("./models/contact");
 require("./models/event_form");
 require("./models/feedback");
+require("./models/servicecontact");
 
 app.use(express.json());
 app.use(require("./routes/auth"));
