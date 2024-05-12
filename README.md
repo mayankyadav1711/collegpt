@@ -1,14 +1,14 @@
+# ColleGPT - Get Prepared Together
+
 <figure><img src=".gitbook/assets/ColleGpt_Logo_Secondary-10.png" alt=""><figcaption></figcaption></figure>
 
-# ColleGPT - Get Prepared Together
+
 
 With the intention of learning and growing together, our team has built this platform, to revolutionize your academic journey by providing engaging resources and supportive community.
 
-
-
 <figure><img src=".gitbook/assets/collegpt.webp" alt=""><figcaption></figcaption></figure>
 
-## **ColleGPT Features:**
+### **ColleGPT Features:**
 
 1. **Xclusive Notes:** 📝
    * Access comprehensive notes presented in plain language, enriched with entertaining memes for enhanced engagement and simplicity.
@@ -25,7 +25,7 @@ With the intention of learning and growing together, our team has built this pla
 7. **Technology:** 🌐
    * Implemented using the cutting-edge MERN stack (MongoDB, Express.js, React.js, Node.js) for enhanced performance, responsiveness, and scalability, ensuring a robust and efficient platform for users.
 
-## Project Installation&#x20;
+### Project Installation
 
 Feel free to refer to the code and utilize the provided template for your projects. However, kindly ensure that all brand names and logos should be replaced with appropriate alternatives to maintain compliance with privacy policies and copyright regulations.
 
