@@ -253,4 +253,67 @@ router.get('/users/analytics/detailed', async (req, res) => {
   }
 });
 
+
+
+// ------- PDF Forms ------ //
+
+router.post('/pdf-form', async (req, res) => {
+  try {
+    const newPdfForm = new PdfForm(req.body);
+    await newPdfForm.save();
+    res.status(201).json(newPdfForm);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Get all PDF forms
+router.get('/pdf-form', async (req, res) => {
+  try {
+    const pdfForms = await PdfForm.find();
+    res.json(pdfForms);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Get a specific PDF form
+router.get('/pdf-form/:id', async (req, res) => {
+  try {
+    const pdfForm = await PdfForm.findById(req.params.id);
+    if (!pdfForm) {
+      return res.status(404).json({ error: 'PDF form not found' });
+    }
+    res.json(pdfForm);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Update a PDF form
+router.put('/pdf-form/:id', async (req, res) => {
+  try {
+    const updatedPdfForm = await PdfForm.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!updatedPdfForm) {
+      return res.status(404).json({ error: 'PDF form not found' });
+    }
+    res.json(updatedPdfForm);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Delete a PDF form
+router.delete('/pdf-form/:id', async (req, res) => {
+  try {
+    const deletedPdfForm = await PdfForm.findByIdAndDelete(req.params.id);
+    if (!deletedPdfForm) {
+      return res.status(404).json({ error: 'PDF form not found' });
+    }
+    res.json({ message: 'PDF form deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = router;
