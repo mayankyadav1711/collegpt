@@ -8,7 +8,7 @@ import {
   faBars,
   faAngleDown,
   faTimes,
-} from "@fortawesome/free-solid-svg-icons"; // Added faAngleDown for dropdown indicator
+} from "@fortawesome/free-solid-svg-icons"; 
 import defaultprofilepic from "./images/60111.webp";
 import Welcome_Collegpt from "./collegptanimation";
 
@@ -101,18 +101,6 @@ const Header = () => {
           <div className="text-gray-900 dark:text-white font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
             <Link to="/support">Support</Link>
           </div>
-          {/* <Link
-            to="/contact"
-            className="text-gray-900  dark:text-white  font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
-          >
-            Contact
-          </Link>
-          <Link
-            to="/support"
-            className="text-gray-900  dark:text-white  font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700"
-          >
-            Support
-          </Link> */}
         </nav>
 
         <div className="flex items-center space-x-0 mr-0 ml-auto">
@@ -243,13 +231,7 @@ const Header = () => {
           >
             Contribute
           </Link>
-          {/* <Link
-            to="/contact"
-            className="py-5 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"
-            onClick={closeMenu}
-          >
-            Contact
-          </Link> */}
+
           <Link
             to="/support"
             className="py-5 text-5xl text-gray-900 dark:text-white hover:text-blue-900 dark:hover:text-blue-700 font-medium"

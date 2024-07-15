@@ -45,6 +45,7 @@ app.use(require("./routes/auth"));
 app.use(require("./routes/admin_pdf"));
 app.use(require("./routes/profile"));
 app.use(require("./routes/contributor"));
+app.use(require("./routes/adminRoutes"));
 
 app.get("/", (req,res)=>{
   res.json("Welcome to ColleGPT")
