@@ -2,15 +2,14 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
-const axios = require("axios");
 const PdfForm = mongoose.model("PdfForm");
+const Contact = mongoose.model("Contact");
+const Contributor = mongoose.model("Contributor");
+const Doubt = mongoose.model("Doubt");
+const EventForm = mongoose.model("EventForm");
+const Feedback = mongoose.model("Feedback");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const { JWT_SECRET } = require("../config/keys");
-const requireLogin = require("../middleware/requireSignin");
-const nodemailer = require("nodemailer");
-const crypto = require("crypto");
-const { EMAIL, GPASS } = require("../config/keys");
+
 
 router.post("/pdf-forms", async (req, res) => {
   try {
@@ -315,5 +314,363 @@ router.delete('/pdf-form/:id', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+// ----- Contact Form ----- //
+
+router.post("/admin/contact", async (req, res) => {
+  try {
+    const { name, email, message, postedBy } = req.body;
+    const newContact = new Contact({ name, email, message, postedBy });
+    await newContact.save();
+    res.status(201).json(newContact);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Get all contacts
+router.get("/admin/contact", async (req, res) => {
+  try {
+    const contacts = await Contact.find().populate("postedBy", "_id name");
+    res.json(contacts);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Get a specific contact
+router.get("/admin/contact/:id", async (req, res) => {
+  try {
+    const contact = await Contact.findById(req.params.id).populate("postedBy", "_id name");
+    if (!contact) {
+      return res.status(404).json({ error: "Contact not found" });
+    }
+    res.json(contact);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Update a contact
+router.put("/admin/contact/:id", async (req, res) => {
+  try {
+    const { name, email, message, postedBy } = req.body;
+    const updatedContact = await Contact.findByIdAndUpdate(
+      req.params.id,
+      { name, email, message, postedBy },
+      { new: true }
+    );
+    if (!updatedContact) {
+      return res.status(404).json({ error: "Contact not found" });
+    }
+    res.json(updatedContact);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Delete a contact
+router.delete("/admin/contact/:id", async (req, res) => {
+  try {
+    const deletedContact = await Contact.findByIdAndDelete(req.params.id);
+    if (!deletedContact) {
+      return res.status(404).json({ error: "Contact not found" });
+    }
+    res.json({ message: "Contact deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// ----- Contributor Form ----- //
+
+router.get("/admin/contributions",  async (req, res) => {
+  try {
+    const contributions = await Contributor.find().populate("postedBy", "_id name");
+    res.json(contributions);
+  } catch (error) {
+    res.status(500).send("Server Error");
+  }
+});
+
+// Add a new contribution
+router.post("/admin/contributions",  async (req, res) => {
+  const { semester, subjectName, fileLinks, pdfDescription, postedBy } = req.body;
+  if (!semester || !subjectName || !fileLinks || !pdfDescription || !postedBy) {
+    return res.status(422).json({ error: "Please add all the fields" });
+  }
+  const contribution = new Contributor({
+    semester,
+    subjectName,
+    fileLinks,
+    pdfDescription,
+    postedBy: req.user._id,
+  });
+  try {
+    await contribution.save();
+    res.json({ message: "Contribution saved successfully" });
+  } catch (error) {
+    res.status(500).send("Server Error");
+  }
+});
+
+// Update a contribution
+router.put("/admin/contributions/:id",  async (req, res) => {
+  const { semester, subjectName, fileLinks, pdfDescription } = req.body;
+  try {
+    const updatedContribution = await Contributor.findByIdAndUpdate(
+      req.params.id,
+      { semester, subjectName, fileLinks, pdfDescription },
+      { new: true }
+    );
+    res.json(updatedContribution);
+  } catch (error) {
+    res.status(500).send("Server Error");
+  }
+});
+
+// Delete a contribution
+router.delete("/admin/contributions/:id",  async (req, res) => {
+  try {
+    await Contributor.findByIdAndDelete(req.params.id);
+    res.json({ message: "Contribution deleted successfully" });
+  } catch (error) {
+    res.status(500).send("Server Error");
+  }
+});
+
+// ----- Doubts Section ----- //
+
+router.get("/admin/doubts",  async (req, res) => {
+  try {
+    const doubts = await Doubt.find().populate("postedBy", "_id name");
+    res.json(doubts);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+// Create a new doubt
+router.post("/admin/doubts",  async (req, res) => {
+  const { code, semester, subjectName, unitName, author, doubt } = req.body;
+  
+  if (!doubt) {
+    return res.status(422).json({ error: "Please add all the fields" });
+  }
+  
+  req.user.password = undefined;
+  const newDoubt = new Doubt({
+    code,
+    semester,
+    subjectName,
+    unitName,
+    author,
+    doubt,
+    postedBy: req.user,
+  });
+
+  try {
+    const savedDoubt = await newDoubt.save();
+    res.json(savedDoubt);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+// Update a doubt
+router.put("/admin/doubts/:id",  async (req, res) => {
+  const { id } = req.params;
+  const { code, semester, subjectName, unitName, author, doubt } = req.body;
+
+  try {
+    const updatedDoubt = await Doubt.findByIdAndUpdate(
+      id,
+      { code, semester, subjectName, unitName, author, doubt },
+      { new: true }
+    ).populate("postedBy", "_id name");
+    
+    if (!updatedDoubt) {
+      return res.status(404).send("Doubt not found");
+    }
+    
+    res.json(updatedDoubt);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+// Delete a doubt
+router.delete("/admin/doubts/:id",  async (req, res) => {
+  const { id } = req.params;
+  
+  try {
+    const deletedDoubt = await Doubt.findByIdAndDelete(id).populate("postedBy", "_id name");
+
+    if (!deletedDoubt) {
+      return res.status(404).send("Doubt not found");
+    }
+    
+    res.json(deletedDoubt);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+// ----- Event Form ----- //
+
+router.get("/admin/eventForms",  async (req, res) => {
+  try {
+    const eventForms = await EventForm.find();
+    res.json(eventForms);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+// Create a new event form
+router.post("/admin/eventForms",  async (req, res) => {
+  const { title, description, date, profilePic, link, extra } = req.body;
+  
+  const newEventForm = new EventForm({
+    title,
+    description,
+    date,
+    profilePic,
+    link,
+    extra,
+  });
+
+  try {
+    const savedEventForm = await newEventForm.save();
+    res.json(savedEventForm);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+// Update an event form
+router.put("/admin/eventForms/:id",  async (req, res) => {
+  const { id } = req.params;
+  const { title, description, date, profilePic, link, extra } = req.body;
+
+  try {
+    const updatedEventForm = await EventForm.findByIdAndUpdate(
+      id,
+      { title, description, date, profilePic, link, extra },
+      { new: true }
+    );
+
+    if (!updatedEventForm) {
+      return res.status(404).send("Event form not found");
+    }
+
+    res.json(updatedEventForm);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+// Delete an event form
+router.delete("/admin/eventForms/:id",  async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deletedEventForm = await EventForm.findByIdAndDelete(id);
+
+    if (!deletedEventForm) {
+      return res.status(404).send("Event form not found");
+    }
+
+    res.json(deletedEventForm);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+
+// ----- Feedback Section ----- //
+
+router.get("/admin/feedbacks",  async (req, res) => {
+  try {
+    const feedbacks = await Feedback.find().populate("postedBy", "_id name");
+    res.json(feedbacks);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+// Create a new feedback
+router.post("/admin/feedbacks",  async (req, res) => {
+  const { feedback, rating } = req.body;
+
+  if (!feedback || !rating) {
+    return res.status(422).send("Please add all the fields");
+  }
+
+  const newFeedback = new Feedback({
+    feedback,
+    rating,
+    postedBy: req.user._id,
+  });
+
+  try {
+    const savedFeedback = await newFeedback.save();
+    res.json(savedFeedback);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+// Update a feedback
+router.put("/admin/feedbacks/:id",  async (req, res) => {
+  const { id } = req.params;
+  const { feedback, rating } = req.body;
+
+  try {
+    const updatedFeedback = await Feedback.findByIdAndUpdate(
+      id,
+      { feedback, rating },
+      { new: true }
+    );
+
+    if (!updatedFeedback) {
+      return res.status(404).send("Feedback not found");
+    }
+
+    res.json(updatedFeedback);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+// Delete a feedback
+router.delete("/admin/feedbacks/:id",  async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deletedFeedback = await Feedback.findByIdAndDelete(id);
+
+    if (!deletedFeedback) {
+      return res.status(404).send("Feedback not found");
+    }
+
+    res.json(deletedFeedback);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
 
 module.exports = router;
