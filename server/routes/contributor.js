@@ -285,6 +285,7 @@ router.post("/feedback", requireLogin, async (req, res) => {
 
 
 router.get("/feedbacks", async (req, res) => {
+
   try {
     const feedbacks = await Feedback.find();
     res.status(200).json(feedbacks);
@@ -293,6 +294,9 @@ router.get("/feedbacks", async (req, res) => {
     res.status(500).json({ message: "Error retrieving feedbacks." });
   }
 });
+
+
+
 
 
 

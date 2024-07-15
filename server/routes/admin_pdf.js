@@ -9,6 +9,7 @@ const Doubt = mongoose.model("Doubt");
 const EventForm = mongoose.model("EventForm");
 const Feedback = mongoose.model("Feedback");
 const bcrypt = require("bcryptjs");
+const jwt = require('jsonwebtoken');
 
 
 router.post("/pdf-forms", async (req, res) => {
@@ -671,6 +672,45 @@ router.delete("/admin/feedbacks/:id",  async (req, res) => {
     res.status(500).send("Server error");
   }
 });
+
+
+// ---- Admin Login ---- //
+
+router.post('/admin/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(422).json({ error: 'Please provide email and password' });
+  }
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(422).json({ error: 'Invalid email or password' });
+    }
+
+    const doMatch = await bcrypt.compare(password, user.password);
+
+    if (!doMatch) {
+      return res.status(422).json({ error: 'Invalid email or password' });
+    }
+
+    if (!user.isAdmin) {
+      return res.status(403).json({ error: 'Access denied. Admins only.' });
+    }
+
+    const token = jwt.sign({ _id: user._id, isAdmin: user.isAdmin }, process.env.JWT_SEC, {
+      expiresIn: '1h',
+    });
+
+    res.json({ token });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 
 
 module.exports = router;

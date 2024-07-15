@@ -83,6 +83,10 @@ const userSchema = new mongoose.Schema({
   goals: {
     type: String,
   },
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 mongoose.model('User', userSchema);
