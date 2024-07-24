@@ -52,23 +52,6 @@ const Userlist = () => {
 
     return () => clearInterval(interval);
   }, [counter, userProfiles.length]);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// useEffect(() => {
-//   // Load the Google Ads script
-//   const adsbygoogleScript = document.createElement('script');
-//   adsbygoogleScript.async = true;
-//   adsbygoogleScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
-//   adsbygoogleScript.crossOrigin = "anonymous";
-//   document.body.appendChild(adsbygoogleScript);
-
-//   // Initialize ads
-//   (window.adsbygoogle = window.adsbygoogle || []).push({});
-
-//   return () => {
-//     // Cleanup the script when the component unmounts
-//     document.body.removeChild(adsbygoogleScript);
-//   };
-// }, []);
 
   const indexOfLastProfile = currentPage * profilesPerPage;
   const indexOfFirstProfile = indexOfLastProfile - profilesPerPage;
@@ -164,7 +147,6 @@ const Userlist = () => {
         </form>
         {isLoading ? (
           <div className="loading-spinner">
-            {/* Replace 'logo.svg' with the path to your SVG logo */}
             <img src={spinnerlogo} alt="Loading" className="spinner-logo" />
           </div>
         ) : filteredProfiles.length === 0 ? (
@@ -172,21 +154,12 @@ const Userlist = () => {
             <h2 className="">No match found. </h2>
           </div>
         ) : (
-          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center mx-44 my-10">
-                        {/* <ins className="adsbygoogle"
-           style={{ display: "block" }}
-           data-ad-client="ca-pub-2443682363346742"
-           data-ad-slot="2738377151"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins> */}
-
             {currentProfiles.map((userProfile) => (
               <div
                 key={userProfile._id}
                 className=" rounded-lg mx-2 bg-custom transition-all"
               >
-     
                 <div className="p-6 text-center">
                   <img
                     className="mx-auto rounded-full h-48 w-48 object-cover transform hover:scale-110 transition-transform duration-300"
@@ -201,44 +174,34 @@ const Userlist = () => {
                   </p>{" "}
                   {/* Display only the first role */}
                   <div className="flex justify-center space-x-4">
-                  <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#00000080] hover:text-[#000000]"
-                >
-                                       <FontAwesomeIcon icon={faXTwitter} className="w-8 h-8" />
-
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#00000080] hover:text-[#000000]"
-                >
-                                       <FontAwesomeIcon icon={faGithub} className="w-8 h-8" />
-
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#0076b580] hover:text-[#0077b5]"
-                >
-                                      <FontAwesomeIcon icon={faLinkedin} className="w-8 h-8" />
-
-                </a>
-
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#00000080] hover:text-[#000000]"
+                    >
+                      <FontAwesomeIcon icon={faXTwitter} className="w-8 h-8" />
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#00000080] hover:text-[#000000]"
+                    >
+                      <FontAwesomeIcon icon={faGithub} className="w-8 h-8" />
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#0076b580] hover:text-[#0077b5]"
+                    >
+                      <FontAwesomeIcon icon={faLinkedin} className="w-8 h-8" />
+                    </a>
                   </div>
                 </div>
               </div>
             ))}
-                        {/* <ins className="adsbygoogle"
-           style={{ display: "block" }}
-           data-ad-client="ca-pub-2443682363346742"
-           data-ad-slot="2738377151"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins> */}
           </div>
         )}
 
