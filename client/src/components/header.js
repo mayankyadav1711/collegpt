@@ -87,7 +87,7 @@ const Header = () => {
             <Link to="/">Home</Link>
           </div>
           <div className="text-gray-900 dark:text-white font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
-            <Link to="/courses">X-Notes</Link>
+            <Link to="/courses">Notes</Link>
           </div>
           <div className="text-gray-900 dark:text-white font-medium text-3xl px-3 hover:text-blue-900 dark:hover:text-blue-700">
             <Link to="/userlist">Community</Link>

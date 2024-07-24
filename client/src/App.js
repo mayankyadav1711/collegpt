@@ -9,6 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 import toast, { Toaster } from 'react-hot-toast';
 import spinnerlogo from "./components/images/Group.svg";
 import MainLayout from "./layout/mainLayout";
+import Roadmap_Devops from "./components/roadmap_devops";
+import Roadmap_DataScientist from "./components/roadmap_datascientist";
+import Roadmap_MobileDeveloper from "./components/roadmap_mobiledeveloper";
 
 
 export const UserContext = createContext();
@@ -135,11 +138,14 @@ const Routing = () => {
           <Route path="/youtube/:code" element={<Youtube_Lecture />} />
           <Route path="/support" element={<Support />} />
           <Route path="/resume" element={<Resume />} />
-          <Route path="/gate" element={<Gate />} />
+          <Route path="/gate-placement" element={<Gate />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/roadmap_mern" element={<Roadmap_Mern />} />
           <Route path="/roadmap_frontend" element={<Roadmap_Frontend />} />
           <Route path="/roadmap_backend" element={<Roadmap_Backend />} />
+          <Route path="/roadmap_devops" element={<Roadmap_Devops />} />
+          <Route path="/roadmap_datascientist" element={<Roadmap_DataScientist />} />
+          <Route path="/roadmap_mobiledeveloper" element={<Roadmap_MobileDeveloper />} />
           <Route path="/form" element={<Form />} />
           <Route path="/sem_1_1_units" element={<Sem_1_Fop_Units />} />
           <Route path="/sem_1_2_units" element={<Sem_1_Maths_Units />} />

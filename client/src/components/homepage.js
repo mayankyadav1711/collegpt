@@ -11,6 +11,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/css/bundle";
 import "swiper/css/pagination";
 import "swiper/css/effect-cards";
+import { FaDatabase, FaGlobe } from "react-icons/fa";
 
 const Homepage = () => {
     useEffect(() => {
@@ -71,13 +72,27 @@ const Homepage = () => {
             <p class="mb-16 text-5xl font-normal text-gray-500 lg:text-3xl sm:px-16 xl:px-48 dark:text-gray-400">
                 With the intention of learning and growing together, our team has built this platform, to revolutionize your academic journey by providing engaging resources and supportive community.
             </p>
-            <div class="flex justify-center mb-8 lg:mb-16 space-y-4 sm:flex-row ">
-                <a href="#" onClick={scrollToNextSection} class="text-5xl lg:text-3xl flex justify-center items-center lg:py-3 py-8 px-12 lg:px-12 font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                    Explore more
+            <div className="flex flex-row justify-center gap-8">
+            <div class="flex  justify-center mb-8 lg:mb-16 space-y-4 sm:flex-row ">
+                <Link to='/courses'>
+                <a   class="text-5xl lg:text-3xl flex justify-center items-center lg:py-3 py-8 px-12 lg:px-12 font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                    College Notes
                     <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                     </svg>
                 </a>
+                </Link>
+            </div>
+            <div class="flex justify-center mb-8 lg:mb-16 space-y-4 sm:flex-row ">
+                <Link to="/gate-placement">
+                <a   class="text-5xl lg:text-3xl flex justify-center items-center lg:py-3 py-8 px-12 lg:px-12 font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                    Gate & Placement
+                    <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+                </Link>
+            </div>
             </div>
         </div>
     </section>
@@ -482,53 +497,15 @@ const Homepage = () => {
                                         </Link>
                                     </div>
                                     <div class="border flex relative *:relative *:size-30 *:m-auto size-32 mx-auto rounded-3xl dark:bg-[#b5b5b510] before:absolute before:rounded-3xl before:inset-0 before:from-slate-200 before:bg-gradient-to-b dark:before:from-neutral-800 dark:before:to-black/50 before:shadow transform hover:scale-110 transition duration-300">
-                                        <Link to="/watchvideo/cs_web">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                x="0px"
-                                                y="0px"
-                                                width="50"
-                                                height="50"
-                                                viewBox="0 0 48 48">
-                                                <path
-                                                    fill="#0277BD"
-                                                    d="M41,5H7l3,34l14,4l14-4L41,5L41,5z"></path>
-                                                <path
-                                                    fill="#039BE5"
-                                                    d="M24 8L24 39.9 35.2 36.7 37.7 8z"></path>
-                                                <path
-                                                    fill="#FFF"
-                                                    d="M33.1 13L24 13 24 17 28.9 17 28.6 21 24 21 24 25 28.4 25 28.1 29.5 24 30.9 24 35.1 31.9 32.5 32.6 21 32.6 21z"></path>
-                                                <path
-                                                    fill="#EEE"
-                                                    d="M24,13v4h-8.9l-0.3-4H24z M19.4,21l0.2,4H24v-4H19.4z M19.8,27h-4l0.3,5.5l7.9,2.6v-4.2l-4.1-1.4L19.8,27z"></path>
-                                            </svg>
-                                        </Link>
-                                    </div>
+    <Link to="/watchvideo/cs_web">
+        <FaGlobe className="text-7xl text-primary-500"/>
+    </Link>
+</div>
                                 </div>
                                 <div className="mb-10 flex w-fit mx-auto gap-24 text-gray-950 dark:text-white">
                                 <div class="border flex relative *:relative *:size-30 *:m-auto size-32 mx-auto rounded-3xl dark:bg-[#b5b5b510] before:absolute before:rounded-3xl before:inset-0 before:from-slate-200 before:bg-gradient-to-b dark:before:from-neutral-800 dark:before:to-black/50 before:shadow transform hover:scale-110 transition duration-300">
-                                        <Link to="/watchvideo/cs_css">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                x="0px"
-                                                y="0px"
-                                                width="50"
-                                                height="50"
-                                                viewBox="0 0 48 48">
-                                                <path
-                                                    fill="#0277BD"
-                                                    d="M41,5H7l3,34l14,4l14-4L41,5L41,5z"></path>
-                                                <path
-                                                    fill="#039BE5"
-                                                    d="M24 8L24 39.9 35.2 36.7 37.7 8z"></path>
-                                                <path
-                                                    fill="#FFF"
-                                                    d="M33.1 13L24 13 24 17 28.9 17 28.6 21 24 21 24 25 28.4 25 28.1 29.5 24 30.9 24 35.1 31.9 32.5 32.6 21 32.6 21z"></path>
-                                                <path
-                                                    fill="#EEE"
-                                                    d="M24,13v4h-8.9l-0.3-4H24z M19.4,21l0.2,4H24v-4H19.4z M19.8,27h-4l0.3,5.5l7.9,2.6v-4.2l-4.1-1.4L19.8,27z"></path>
-                                            </svg>
+                                        <Link to="/watchvideo/cs_database">
+                                           <FaDatabase className="text-6xl text-orange-500"/>
                                         </Link>
                                     </div>
                                 </div>
@@ -760,7 +737,7 @@ const Homepage = () => {
                                     </div>
                                 </div>
                                 </Link>
-                                <Link to="/watchvideo/devops"> 
+                                <Link to="/roadmap_devops"> 
                                 <div className="relative group overflow-hidden p-[--card-padding] rounded-[--card-border-radius] bg-transparent border border-[--ui-light-border-color] dark:border-[--ui-dark-border-color] dark:bg-[--card-dark-bg] shadow-xl hover:shadow-2xl transform transition duration-300 hover:-translate-y-1 hover:scale-105">
                                     <div
                                         aria-hidden="true"
@@ -807,7 +784,7 @@ const Homepage = () => {
                                     </div>
                                 </div>
                                 </Link>
-                                <Link to="/watchvideo/datascientist">
+                                <Link to="/roadmap_datascientist">
                                 <div className="relative group overflow-hidden p-[--card-padding] rounded-[--card-border-radius] bg-transparent border border-[--ui-light-border-color] dark:border-[--ui-dark-border-color] dark:bg-[--card-dark-bg] shadow-xl hover:shadow-2xl transform transition duration-300 hover:-translate-y-1 hover:scale-105">
                                     <div
                                         aria-hidden="true"
@@ -859,7 +836,7 @@ const Homepage = () => {
                                     </div>
                                 </div>
                                 </Link>
-                                <Link to="/watchvideo/androidios"> 
+                                <Link to="/roadmap_mobiledeveloper"> 
                                 <div className="relative group overflow-hidden p-[--card-padding] rounded-[--card-border-radius] bg-transparent border border-[--ui-light-border-color] dark:border-[--ui-dark-border-color] dark:bg-[--card-dark-bg] shadow-xl hover:shadow-2xl transform transition duration-300 hover:-translate-y-1 hover:scale-105">
                                     <div
                                         aria-hidden="true"
