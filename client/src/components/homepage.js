@@ -72,7 +72,7 @@ const Homepage = () => {
             <p class="mb-16 text-5xl font-normal text-gray-500 lg:text-3xl sm:px-16 xl:px-48 dark:text-gray-400">
                 With the intention of learning and growing together, our team has built this platform, to revolutionize your academic journey by providing engaging resources and supportive community.
             </p>
-            <div className="flex flex-row justify-center gap-8">
+            <div className="flex flex-col justify-center gap-8 md:flex-row">
             <div class="flex  justify-center mb-8 lg:mb-16 space-y-4 sm:flex-row ">
                 <Link to='/courses'>
                 <a   class="text-5xl lg:text-3xl flex justify-center items-center lg:py-3 py-8 px-12 lg:px-12 font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
