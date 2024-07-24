@@ -1,18 +1,25 @@
 /* eslint-disable react/jsx-pascal-case */
-import React, { createContext, useReducer, useEffect, useContext, Suspense, lazy } from "react";
-import { BrowserRouter as Router, Route, Routes  } from "react-router-dom";
+import React, {
+  createContext,
+  useReducer,
+  useEffect,
+  useContext,
+  Suspense,
+  lazy,
+} from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./App.css";
 import { reducer, initialState } from "./reducers/userReducer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 import spinnerlogo from "./components/images/Group.svg";
 import MainLayout from "./layout/mainLayout";
 import Roadmap_Devops from "./components/roadmap_devops";
 import Roadmap_DataScientist from "./components/roadmap_datascientist";
 import Roadmap_MobileDeveloper from "./components/roadmap_mobiledeveloper";
-
+import PageNotFound from "./components/PageNotFound";
 
 export const UserContext = createContext();
 const Home = lazy(() => import("./components/homepage"));
@@ -42,7 +49,9 @@ const Sem_2_Maths_Units = lazy(() => import("./components/Sem_2_Maths_Units"));
 const Sem_2_Beee_Units = lazy(() => import("./components/Sem_2_Beee_Units"));
 const Sem_2_Fme_Units = lazy(() => import("./components/Sem_2_Fme_Units"));
 const Sem_2_Bcps_Units = lazy(() => import("./components/Sem_2_Bcps_Units"));
-const Sem_2_Workshop_Units = lazy(() => import("./components/Sem_2_Workshop_Units"));
+const Sem_2_Workshop_Units = lazy(() =>
+  import("./components/Sem_2_Workshop_Units")
+);
 const Sem_3_Dsa_Units = lazy(() => import("./components/Sem_3_Dsa_Units"));
 const Sem_3_Maths_Units = lazy(() => import("./components/Sem_3_Maths_Units"));
 const Sem_3_Dbms_Units = lazy(() => import("./components/Sem_3_Dbms_Units"));
@@ -59,7 +68,9 @@ const Sem_5_Se_Units = lazy(() => import("./components/Sem_5_Se_Units"));
 const Sem_5_Toc_Units = lazy(() => import("./components/Sem_5_Toc_Units"));
 const Sem_5_Cn_Units = lazy(() => import("./components/Sem_5_Cn_Units"));
 const Sem_5_Map_Units = lazy(() => import("./components/Sem_5_Map_Units"));
-const Sem_5_Python_Units = lazy(() => import("./components/Sem_5_Python_Units"));
+const Sem_5_Python_Units = lazy(() =>
+  import("./components/Sem_5_Python_Units")
+);
 const Sem_5_SOA_Units = lazy(() => import("./components/Sem_5_SOA_Units"));
 const Sem_6_Sc_Units = lazy(() => import("./components/Sem_6_Sc_Units"));
 const Sem_6_Dc_Units = lazy(() => import("./components/Sem_6_Dc_Units"));
@@ -119,128 +130,122 @@ const Routing = () => {
 
   return (
     <>
-        <Suspense fallback={<LoadingSpinner />}>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
 
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-        
-          <Route path="/event_form" element={<Event_Form />} />
-          <Route path="/userlist" element={<Userlist />} />
-          <Route path="/updateProfile" element={<UpdateProfile />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/contributor_form" element={<Contributor_Form />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/term" element={<Term />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/watchvideo/:code" element={<WatchVideo />} />
-          <Route path="/youtube/:code" element={<Youtube_Lecture />} />
-          <Route path="/support" element={<Support />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/gate-placement" element={<Gate />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/roadmap_mern" element={<Roadmap_Mern />} />
-          <Route path="/roadmap_frontend" element={<Roadmap_Frontend />} />
-          <Route path="/roadmap_backend" element={<Roadmap_Backend />} />
-          <Route path="/roadmap_devops" element={<Roadmap_Devops />} />
-          <Route path="/roadmap_datascientist" element={<Roadmap_DataScientist />} />
-          <Route path="/roadmap_mobiledeveloper" element={<Roadmap_MobileDeveloper />} />
-          <Route path="/form" element={<Form />} />
-          <Route path="/sem_1_1_units" element={<Sem_1_Fop_Units />} />
-          <Route path="/sem_1_2_units" element={<Sem_1_Maths_Units />} />
-          <Route path="/sem_1_3_units" element={<Sem_1_Eoc_Units />} />
-          <Route path="/sem_1_4_units" element={<Sem_1_Eg_Units />} />
-          <Route path="/sem_1_5_units" element={<Sem_1_Ep_Units />} />
-          <Route path="/sem_1_6_units" element={<Sem_1_Es_Units />} />
-          <Route path="/sem_2_1_units" element={<Sem_2_Oopc_Units />} />
-          <Route path="/sem_2_2_units" element={<Sem_2_Maths_Units />} />
-          <Route path="/sem_2_3_units" element={<Sem_2_Beee_Units />} />
-          <Route path="/sem_2_4_units" element={<Sem_2_Fme_Units />} />
-          <Route path="/sem_2_5_units" element={<Sem_2_Bcps_Units />} />
-          <Route path="/sem_2_6_units" element={<Sem_2_Workshop_Units />} />
-          <Route path="/sem_3_1_units" element={<Sem_3_Dsa_Units />} />
-          <Route path="/sem_3_2_units" element={<Sem_3_Maths_Units />} />
-          <Route path="/sem_3_3_units" element={<Sem_3_Dbms_Units />} />
-          <Route path="/sem_3_4_units" element={<Sem_3_De_Units />} />
-          <Route path="/sem_3_5_units" element={<Sem_3_Itw_Units />} />
-          <Route path="/sem_4_1_units" element={<Sem_4_Oopj_Units />} />
-          <Route path="/sem_4_2_units" element={<Sem_4_Psnm_Units />} />
-          <Route path="/sem_4_3_units" element={<Sem_4_Os_Units />} />
-          <Route path="/sem_4_4_units" element={<Sem_4_Coa_Units />} />
-          <Route path="/sem_4_5_units" element={<Sem_4_Pom_Units />} />
-          <Route path="/sem_5_1_units" element={<Sem_5_Ajp_Units />} />
-          <Route path="/sem_5_2_units" element={<Sem_5_Daa_Units />} />
-          <Route path="/sem_5_3_units" element={<Sem_5_Se_Units />} />
-          <Route path="/sem_5_4_units" element={<Sem_5_Toc_Units />} />
-          <Route path="/sem_5_5_units" element={<Sem_5_Cn_Units />} />
-          <Route path="/sem_5_6_units" element={<Sem_5_Map_Units />} />
-          <Route path="/sem_5_7_units" element={<Sem_5_Python_Units />} />
-          <Route path="/sem_5_8_units" element={<Sem_5_SOA_Units />} />
-          <Route path="/sem_6_7_units" element={<Sem_6_Sc_Units />} />
-          <Route path="/sem_6_4_units" element={<Sem_6_Ml_Units />} />
-          <Route path="/sem_6_9_units" element={<Sem_6_Dc_Units />} />
-          <Route path="/sem_6_10_units" element={<Sem_6_Ee_Units />} />
-          <Route path="/sem_6_2_units" element={<Sem_6_Py_Units />} />
-          <Route path="/sem_6_1_units" element={<Sem_6_Ai_Units />} />
-          <Route path="/sem_6_6_units" element={<Sem_6_Iot_Units />} />
-          <Route path="/sem_6_3_units" element={<Sem_6_Cns_Units />} />
-          <Route path="/sem_6_8_units" element={<Sem_6_Is_Units />} />
-          <Route path="/sem_6_5_units" element={<Sem_6_Ap_Units />} />
-          
-          <Route path="/admin_pdf_form" element={<Admin_Pdf_Form />} />
-         
-          <Route path="/newhome" element={<NewHome />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/resetpassword/:token" element={<ResetPassword />} />
-        <Route path="/forgotpassword" element={<ForgotPassword />} />
-        {/* <Route path="/blog" element={<Blog />} /> */}
-        <Route path="/otp" element={<OTP />} />
-        </Route>
-       
-      </Routes>
+            <Route path="/event_form" element={<Event_Form />} />
+            <Route path="/userlist" element={<Userlist />} />
+            <Route path="/updateProfile" element={<UpdateProfile />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/contributor_form" element={<Contributor_Form />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/term" element={<Term />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/watchvideo/:code" element={<WatchVideo />} />
+            <Route path="/youtube/:code" element={<Youtube_Lecture />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/gate-placement" element={<Gate />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/roadmap_mern" element={<Roadmap_Mern />} />
+            <Route path="/roadmap_frontend" element={<Roadmap_Frontend />} />
+            <Route path="/roadmap_backend" element={<Roadmap_Backend />} />
+            <Route path="/roadmap_devops" element={<Roadmap_Devops />} />
+            <Route
+              path="/roadmap_datascientist"
+              element={<Roadmap_DataScientist />}
+            />
+            <Route
+              path="/roadmap_mobiledeveloper"
+              element={<Roadmap_MobileDeveloper />}
+            />
+            <Route path="/form" element={<Form />} />
+            <Route path="/sem_1_1_units" element={<Sem_1_Fop_Units />} />
+            <Route path="/sem_1_2_units" element={<Sem_1_Maths_Units />} />
+            <Route path="/sem_1_3_units" element={<Sem_1_Eoc_Units />} />
+            <Route path="/sem_1_4_units" element={<Sem_1_Eg_Units />} />
+            <Route path="/sem_1_5_units" element={<Sem_1_Ep_Units />} />
+            <Route path="/sem_1_6_units" element={<Sem_1_Es_Units />} />
+            <Route path="/sem_2_1_units" element={<Sem_2_Oopc_Units />} />
+            <Route path="/sem_2_2_units" element={<Sem_2_Maths_Units />} />
+            <Route path="/sem_2_3_units" element={<Sem_2_Beee_Units />} />
+            <Route path="/sem_2_4_units" element={<Sem_2_Fme_Units />} />
+            <Route path="/sem_2_5_units" element={<Sem_2_Bcps_Units />} />
+            <Route path="/sem_2_6_units" element={<Sem_2_Workshop_Units />} />
+            <Route path="/sem_3_1_units" element={<Sem_3_Dsa_Units />} />
+            <Route path="/sem_3_2_units" element={<Sem_3_Maths_Units />} />
+            <Route path="/sem_3_3_units" element={<Sem_3_Dbms_Units />} />
+            <Route path="/sem_3_4_units" element={<Sem_3_De_Units />} />
+            <Route path="/sem_3_5_units" element={<Sem_3_Itw_Units />} />
+            <Route path="/sem_4_1_units" element={<Sem_4_Oopj_Units />} />
+            <Route path="/sem_4_2_units" element={<Sem_4_Psnm_Units />} />
+            <Route path="/sem_4_3_units" element={<Sem_4_Os_Units />} />
+            <Route path="/sem_4_4_units" element={<Sem_4_Coa_Units />} />
+            <Route path="/sem_4_5_units" element={<Sem_4_Pom_Units />} />
+            <Route path="/sem_5_1_units" element={<Sem_5_Ajp_Units />} />
+            <Route path="/sem_5_2_units" element={<Sem_5_Daa_Units />} />
+            <Route path="/sem_5_3_units" element={<Sem_5_Se_Units />} />
+            <Route path="/sem_5_4_units" element={<Sem_5_Toc_Units />} />
+            <Route path="/sem_5_5_units" element={<Sem_5_Cn_Units />} />
+            <Route path="/sem_5_6_units" element={<Sem_5_Map_Units />} />
+            <Route path="/sem_5_7_units" element={<Sem_5_Python_Units />} />
+            <Route path="/sem_5_8_units" element={<Sem_5_SOA_Units />} />
+            <Route path="/sem_6_7_units" element={<Sem_6_Sc_Units />} />
+            <Route path="/sem_6_4_units" element={<Sem_6_Ml_Units />} />
+            <Route path="/sem_6_9_units" element={<Sem_6_Dc_Units />} />
+            <Route path="/sem_6_10_units" element={<Sem_6_Ee_Units />} />
+            <Route path="/sem_6_2_units" element={<Sem_6_Py_Units />} />
+            <Route path="/sem_6_1_units" element={<Sem_6_Ai_Units />} />
+            <Route path="/sem_6_6_units" element={<Sem_6_Iot_Units />} />
+            <Route path="/sem_6_3_units" element={<Sem_6_Cns_Units />} />
+            <Route path="/sem_6_8_units" element={<Sem_6_Is_Units />} />
+            <Route path="/sem_6_5_units" element={<Sem_6_Ap_Units />} />
+            <Route path="/admin_pdf_form" element={<Admin_Pdf_Form />} />
+            <Route path="/newhome" element={<NewHome />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/resetpassword/:token" element={<ResetPassword />} />
+            <Route path="/forgotpassword" element={<ForgotPassword />} />
+            <Route path="/otp" element={<OTP />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
+        </Routes>
       </Suspense>
-
     </>
   );
 };
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
- 
-  
+
   return (
-
-      <UserContext.Provider value={{ state, dispatch }}>
- 
-          <Router>
-            <Routing />
-            <Toaster
-  position="top-center"
-  reverseOrder={false}
-  gutter={8}
-  containerClassName=""
-  containerStyle={{ zIndex: '9999999999' }} // Ensure the container has a high z-index
-  toastOptions={{
-    className: '',
-    duration: 5000,
-    style: {
-      background: 'white',
-      color: 'black',
-      fontSize: '16px',
-    },
-    success: {
-      duration: 3000,
-     
-    },
-  }}
-/>
-
-          </Router>
-      
-      </UserContext.Provider>
-  
+    <UserContext.Provider value={{ state, dispatch }}>
+      <Router>
+        <Routing />
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          gutter={8}
+          containerClassName=""
+          containerStyle={{ zIndex: "9999999999" }} // Ensure the container has a high z-index
+          toastOptions={{
+            className: "",
+            duration: 5000,
+            style: {
+              background: "white",
+              color: "black",
+              fontSize: "16px",
+            },
+            success: {
+              duration: 3000,
+            },
+          }}
+        />
+      </Router>
+    </UserContext.Provider>
   );
 }
 

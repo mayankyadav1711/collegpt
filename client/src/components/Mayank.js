@@ -21,24 +21,32 @@ const Mayank = () => {
             alt="avatar"
           />
           <p className="card-fullname">Mayank Yadav</p>
-          <h2 className="card-jobtitle">MERN Developer</h2>
+          <h2 className="card-jobtitle">Full Stack Developer</h2>
         </div>
         <div className="card-main">
           <div
-            className={`card-section ${activeSection === "#about" ? "is-active" : ""
-              }`}
+            className={`card-section ${
+              activeSection === "#about" ? "is-active" : ""
+            }`}
             id="about"
           >
             <div className="card-content">
               <div className="card-subtitle1">ABOUT</div>
-              <p className="card-desc">
-                🙏 Namaste, tech enthusiasts! 🚀 I specialize in the MERN Stack, exploring DSA (C, C++, Java) and Cloud Computing. Together, let's create some dhamaal-worthy code and stay updated on the latest jugad in the tech world. Let's connect! 🌐
+              <p className="card-desc ">
+                🌟I'm excited to connect and explore new opportunities in Full
+                Stack Development! Whether you want to chat 💬, collaborate 🤝,
+                or discuss potential projects 💼, feel free to reach out. Let's
+                create something amazing together! 🚀
               </p>
             </div>
             <div class="card-social">
               <ul>
                 <li>
-                  <Link to="https://github.com/mayankyadav1711" target="_blank" rel="noreferrer">
+                  <Link
+                    to="https://github.com/mayankyadav1711"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -50,8 +58,10 @@ const Mayank = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="https://www.linkedin.com/in/mayankyadav17/"
-                    target="_blank" rel="noreferrer"
+                  <Link
+                    to="https://www.linkedin.com/in/mayankyadav17/"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -63,7 +73,11 @@ const Mayank = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="https://leetcode.com/mayankyadav_17/" target="_blank" rel="noreferrer">
+                  <Link
+                    to="https://leetcode.com/mayankyadav_17/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -77,7 +91,11 @@ const Mayank = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="https://mayank-dev.vercel.app/" target="_blank" rel="noreferrer">
+                  <Link
+                    to="https://mayank-dev.vercel.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -91,8 +109,10 @@ const Mayank = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="https://instagram.com/___mayank17___"
-                    target="_blank" rel="noreferrer"
+                  <Link
+                    to="https://instagram.com/___mayank17___"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -105,8 +125,10 @@ const Mayank = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="https://twitter.com/mayankyadav_17"
-                    target="_blank" rel="noreferrer"
+                  <Link
+                    to="https://twitter.com/mayankyadav_17"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -128,74 +150,89 @@ const Mayank = () => {
             </div>
           </div>
           <div
-            className={`card-section ${activeSection === "#experience" ? "is-active" : ""
-              }`}
+            className={`card-section ${
+              activeSection === "#experience" ? "is-active" : ""
+            }`}
             id="experience"
           >
             <div className="card-content">
               <div className="card-subtitle2">WORK EXPERIENCE</div>
               <div class="card-timeline">
-              <div class="card-timeline-mayank">
-                <div class="card-item" data-year="2024">
-                  <div class="card-item-title">
-                    SDE Intern at <span>Hackingly</span>
+                <div class="card-timeline-mayank">
+                  <div class="card-item" data-year="2024">
+                    <div class="card-item-title">
+                      Project Trainee <span>eInfochips</span>
+                    </div>
+                    <div class="card-item-desc">
+                      Contributed to the React Planner project by designing 3D
+                      models with React.js and Three.js, integrating 50+
+                      objects, collaborating with the Technical Lead, and
+                      completing training in React Testing Library, Jest, secure
+                      Form Validations, AWS, and System Design.
+                    </div>
                   </div>
-                  <div class="card-item-desc">
-                  Worked as a React and Next.js developer in an Agile Environment, turned concept from inception into reality. 
+                  <div class="card-item" data-year="2024">
+                    <div class="card-item-title">
+                      SDE Intern at <span>Hackingly</span>
+                    </div>
+                    <div class="card-item-desc">
+                      Worked as a React and Next.js developer in an Agile
+                      Environment, turned concept from inception into reality.
+                    </div>
                   </div>
-                </div>
-                <div class="card-item" data-year="2023">
-                  <div class="card-item-title">
-                    Founder, Developer and Content Creator at <span>ColleGPT</span>
+                  <div class="card-item" data-year="2023">
+                    <div class="card-item-title">
+                      Founder, Developer and Content Creator at{" "}
+                      <span>ColleGPT</span>
+                    </div>
+                    <div class="card-item-desc">
+                      Laid out the ColleGPT foundation and development, creating
+                      academic content, and managing ongoing improvements
+                      effectively.
+                    </div>
                   </div>
-                  <div class="card-item-desc">
-                    Laid out the ColleGPT foundation and development, creating academic content, and managing ongoing improvements effectively.
+                  <div class="card-item" data-year="2023">
+                    <div class="card-item-title">
+                      MERN-Stack Developer at <span>Safarnamaaa</span>
+                    </div>
+                    <div class="card-item-desc">
+                      Managing the Backend, Database, and API Integration .
+                    </div>
                   </div>
-                </div>
-                <div class="card-item" data-year="2023">
-                  <div class="card-item-title">
-                    MERN-Stack Developer at <span>Safarnamaaa</span>
+                  <div class="card-item" data-year="2023">
+                    <div class="card-item-title">
+                      Programming Domain<span> ~ NPTEL</span>
+                    </div>
+                    <Link to="https://linktr.ee/myk_nptel" target="_blank">
+                      <div class="card-item-desc">
+                        <p>🥉 Cloud Computing</p>
+                        <p>🥉 Machine Learning</p>
+                        <p>🥈 Programming in Java</p>
+                        <p>🥇 DataBase Management System</p>
+                        <p>🥇 DSA using Java</p>
+                        <p>🥈 Programming in C++</p>
+                      </div>
+                    </Link>
                   </div>
-                  <div class="card-item-desc">
-                    Managing the Backend, Database, and API Integration .
-                  </div>
-                </div>
-                <div class="card-item" data-year="2023">
-                  <div class="card-item-title">
-                    Programming Domain<span> ~ NPTEL</span>
-                  </div>
-                  <Link to="https://linktr.ee/myk_nptel" target="_blank">
-                  <div class="card-item-desc">
-                    <p>🥉 Cloud Computing</p>
-                    <p>🥉 Machine Learning</p>
-                    <p>🥈 Programming in Java</p>
-                    <p>🥇 DataBase Management System</p>
-                    <p>🥇 DSA using Java</p>
-                    <p>🥈 Programming in C++</p>
-                  </div>
-                  </Link>
-                </div>
-                <div class="card-item" data-year="2023">
-                  <div class="card-item-title">
-                    Hackathons <span></span>
-                  </div>
-                  <div class="card-item-desc">
-                    <p>◉ Smart India Hackathon Finalist-23</p>
-                    <p>◉ SSIP Hackathon Finalist-22</p>
+                  <div class="card-item" data-year="2023">
+                    <div class="card-item-title">
+                      Hackathons <span></span>
+                    </div>
+                    <div class="card-item-desc">
+                      <p>◉ Smart India Hackathon Finalist-23</p>
+                      <p>◉ SSIP Hackathon Finalist-22</p>
 
-                    <p>◉ Winner of BTB under MongoDb Category. </p>
-
-                  </div>
+                      <p>◉ Winner of BTB under MongoDb Category. </p>
+                    </div>
                   </div>
                 </div>
-
-
               </div>
             </div>
           </div>
           <div
-            className={`card-section ${activeSection === "#contact" ? "is-active" : ""
-              }`}
+            className={`card-section ${
+              activeSection === "#contact" ? "is-active" : ""
+            }`}
             id="contact"
           >
             <div class="card-content">
@@ -217,7 +254,6 @@ const Mayank = () => {
                   Ahmedabad, Gujarat, Bharat-382445.
                 </div>
 
-
                 <div class="card-contact">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -233,7 +269,10 @@ const Mayank = () => {
                   </svg>
                   mykyadav17112003@gmail.com
                 </div>
-                <Link to="mailto:mykyadav17112003@gmail.com"> <button class="contact-me">WORK TOGETHER</button></Link>
+                <Link to="mailto:mykyadav17112003@gmail.com">
+                  {" "}
+                  <button class="contact-me">WORK TOGETHER</button>
+                </Link>
               </div>
             </div>
           </div>
