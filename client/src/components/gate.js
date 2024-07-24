@@ -134,11 +134,11 @@ const Gate = () => {
           </div>
         </section>
       </section>
-      <section className="flex flex-wrap justify-center gap-6">
+      <section className="flex flex-wrap justify-center gap-10">
         {subjectsData.map((subject, index) => (
           <div
             key={index}
-            className="w-full max-w-lg bg-transparent border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 pt-10 px-5 mr-4 transition-transform transform hover:scale-110"
+            className="w-full max-w-lg bg-transparent  rounded-lg shadow-md dark:bg-gray-800  pt-10 px-5 mr-4 transition-transform transform hover:scale-110 [box-shadow:0_10px_20px_rgba(0,0,0,0.1),0_6px_6px_rgba(0,0,0,0.1)] dark:[box-shadow:0_10px_20px_rgba(0,0,30,0.2),0_6px_6px_rgba(0,0,30,0.2)]"
           >
             <div className="flex flex-col items-center pb-10">
               <img
