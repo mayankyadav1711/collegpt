@@ -62,7 +62,7 @@ const About = () => {
 
   return (
     <>
-      <div className="dev">
+      <div className="dev mt-40">
         <section class="about">
           <div class="row">
             <div class="content">
