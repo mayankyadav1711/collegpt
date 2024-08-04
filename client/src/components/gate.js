@@ -12,6 +12,7 @@ import CD from "./images/CD.webp";
 import CN from "./images/CN.webp";
 import Algo from "./images/Algo.webp";
 import user from "./images/60111.webp";
+import react from "./images/react.webp";
 import {
   FaBook,
   FaFileAlt,
@@ -22,6 +23,8 @@ import {
 } from "react-icons/fa";
 
 const subjectsData = [
+
+  { title: "React Js", image: react, route: "reactjs" },
   { title: "Aptitude", image: aptitude, route: "aptitude" },
   {
     title: "Programming and Data Structures",
