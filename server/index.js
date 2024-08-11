@@ -14,7 +14,8 @@ app.use(cors({
     "https://collegpt.vercel.app",
     "https://services-collegpt.vercel.app",
     "https://services.collegpt.com",
-    "https://collegpt-admin.vercel.app"
+    "https://collegpt-admin.vercel.app",
+    "https://admin.collegpt.com"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
