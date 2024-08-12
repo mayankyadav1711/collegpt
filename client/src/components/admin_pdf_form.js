@@ -11,6 +11,7 @@ const Admin_Pdf_Form = () => {
         "Sem 5",
         "Sem 6",
         "Sem 7",
+        "Sem 8",
     ];
     const subjectsBySemester = {
         "Sem 1": [

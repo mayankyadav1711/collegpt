@@ -203,8 +203,8 @@ const Courses = () => {
         {semesters.slice(4).map((semester, index) => (
           <li
             key={index + 3}
-            className={`mb-4 ${activeTab === index + 3 ? "active" : ""}`}
-            onClick={() => handleTabClick(index + 3)}
+            className={`mb-4 ${activeTab === index + 4 ? "active" : ""}`}
+            onClick={() => handleTabClick(index + 4)}
           >
             <h3>{semester.title}</h3>
           </li>
