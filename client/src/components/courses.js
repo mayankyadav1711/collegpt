@@ -189,7 +189,7 @@ const Courses = () => {
   <div className="lg:hidden">
     <div className="flex flex-col">
       <ul id="tabs" className="flex flex-row space-x-4">
-        {semesters.slice(0, 3).map((semester, index) => (
+        {semesters.slice(0, 4).map((semester, index) => (
           <li
             key={index}
             className={`mb-4 ${activeTab === index ? "active" : ""}`}
@@ -200,7 +200,7 @@ const Courses = () => {
         ))}
       </ul>
       <ul id="tabs" className="flex flex-row space-x-4">
-        {semesters.slice(3).map((semester, index) => (
+        {semesters.slice(4).map((semester, index) => (
           <li
             key={index + 3}
             className={`mb-4 ${activeTab === index + 3 ? "active" : ""}`}
