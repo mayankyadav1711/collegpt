@@ -711,6 +711,42 @@ router.post('/admin/login', async (req, res) => {
   }
 });
 
+router.get('/admin/getdashboardstats', async (req, res) => {
+  try {
+    const stats = await Promise.all([
+      User.countDocuments(),
+      Contributor.countDocuments(),
+      Doubt.countDocuments(),
+      PdfForm.countDocuments(),
+      Feedback.countDocuments(),
+      EventForm.countDocuments(),
+      Contact.countDocuments()
+    ]);
+
+    const [
+      totalUsers,
+      totalContributions,
+      totalDoubts,
+      totalPdfForms,
+      totalFeedbacks,
+      totalEventForms,
+      totalContacts
+    ] = stats;
+
+    res.json({
+      totalUsers,
+      totalContributions,
+      totalDoubts,
+      totalPdfForms,
+      totalFeedbacks,
+      totalEventForms,
+      totalContacts
+    });
+  } catch (error) {
+    console.error('Error fetching dashboard stats:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 
 module.exports = router;
