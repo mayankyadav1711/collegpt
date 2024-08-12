@@ -137,7 +137,27 @@ const Courses = () => {
         { title: "Data Compression", units: 7, thumbnail: s69 },
         { title: "E-Commerce and E-Business", units: 7, thumbnail: s70 },
       ]
+    },
+    {
+      title: "Sem 7",
+      courses: [
+        { title: "Compiler Design", units: 10, thumbnail: s61 },
+        { title: "Distributed Systems", units: 10, thumbnail: s62 },
+        { title: "Cyber Security", units: 9, thumbnail: s64 },
+        { title: "Blockchain Technology", units: 9, thumbnail: s63 },
+        { title: "Image Processing", units: 7, thumbnail: s65 },
+        { title: "Natural Language Processing", units: 8, thumbnail: s66 }
+      ]
+    },
+    {
+      title: "Sem 8",
+      courses: [
+        { title: "Next Generation Networks", units: 8, thumbnail: s61 },
+        { title: "Big Data Analytics", units: 9, thumbnail: s62 }
+      ]
     }
+    
+    
   ];
   
 

@@ -82,6 +82,15 @@ const Sem_6_Iot_Units = lazy(() => import("./components/Sem_6_Iot_Units"));
 const Sem_6_Cns_Units = lazy(() => import("./components/Sem_6_Cns_Units"));
 const Sem_6_Is_Units = lazy(() => import("./components/Sem_6_Is_Units"));
 const Sem_6_Ap_Units = lazy(() => import("./components/Sem_6_Ap_Units"));
+const Sem_7_BT_Units = lazy(() => import("./components/Sem_7_BT_Units"));
+const Sem_7_CD_Units = lazy(() => import("./components/Sem_7_CD_Units"));
+const Sem_7_CS_Units = lazy(() => import("./components/Sem_7_CS_Units"));
+const Sem_7_DS_Units = lazy(() => import("./components/Sem_7_DS_Units"));
+const Sem_7_IP_Units = lazy(() => import("./components/Sem_7_IP_Units"));
+const Sem_7_NLP_Units = lazy(() => import("./components/Sem_7_NLP_Units"));
+const Sem_8_BDA_Units = lazy(() => import("./components/Sem_8_BDA_Units"));
+const Sem_8_NGN_Units = lazy(() => import("./components/Sem_8_NGN_Units"));
+
 const Admin_Pdf_Form = lazy(() => import("./components/admin_pdf_form"));
 const Userlist = lazy(() => import("./components/userlist"));
 const Contributor_Form = lazy(() => import("./components/contributor_form"));
@@ -203,6 +212,15 @@ const Routing = () => {
             <Route path="/sem_6_3_units" element={<Sem_6_Cns_Units />} />
             <Route path="/sem_6_8_units" element={<Sem_6_Is_Units />} />
             <Route path="/sem_6_5_units" element={<Sem_6_Ap_Units />} />
+            <Route path="/sem_7_4_units" element={<Sem_7_BT_Units />} />
+            <Route path="/sem_7_1_units" element={<Sem_7_CD_Units />} />
+            <Route path="/sem_7_3_units" element={<Sem_7_CS_Units />} />
+            <Route path="/sem_7_2_units" element={<Sem_7_DS_Units />} />
+            <Route path="/sem_7_6_units" element={<Sem_7_IP_Units />} />
+            <Route path="/sem_7_5_units" element={<Sem_7_NLP_Units />} />
+            <Route path="/sem_8_2_units" element={<Sem_8_BDA_Units />} />
+            <Route path="/sem_8_1_units" element={<Sem_8_NGN_Units />} />
+
             <Route path="/admin_pdf_form" element={<Admin_Pdf_Form />} />
             <Route path="/newhome" element={<NewHome />} />
             <Route path="/blog" element={<Blog />} />

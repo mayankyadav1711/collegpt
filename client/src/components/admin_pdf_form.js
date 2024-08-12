@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 
-
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 const Admin_Pdf_Form = () => {
-   
-
     // Sample data
-    const semesters = ["Sem 1", "Sem 2", "Sem 3", "Sem 4", "Sem 5", "Sem 6"];
+    const semesters = [
+        "Sem 1",
+        "Sem 2",
+        "Sem 3",
+        "Sem 4",
+        "Sem 5",
+        "Sem 6",
+        "Sem 7",
+    ];
     const subjectsBySemester = {
         "Sem 1": [
             "Fundamental Of Programming",
@@ -62,6 +67,16 @@ const Admin_Pdf_Form = () => {
             "Data Compression",
             "E-Commerce and E-Business",
         ],
+
+        "Sem 7": [
+            "Compiler Design",
+            "Distributed Systems",
+            "Cyber Security",
+            "Blockchain Technology",
+            "Natural Language Processing",
+            "Image Processing",
+        ],
+        "Sem 8": ["Next Generation Networks", "Big Data Analytics"],
     };
 
     const unitsBySubjects = {
@@ -284,7 +299,7 @@ const Admin_Pdf_Form = () => {
             "Hibernet 4.0",
             "Spring MVC",
         ],
-        "Python": [
+        Python: [
             "Introduction to Python Programming Language",
             "Data Collections and Language Component ",
             "Object and Classes",
@@ -453,6 +468,95 @@ const Admin_Pdf_Form = () => {
             "E-Government",
             "Launching Online Business and E-Commerce Projects",
             "M-Commerce",
+        ],
+        //Semester 7
+        "Compiler Design": [
+            "Introduction to Compiling",
+            "Lexical Analyzer",
+            "Parsing Theory",
+            "Error Recovery",
+            "Type Checking",
+            "Run Time Environments",
+            "Intermediate Code Generation",
+            "Code Generation",
+            "Code Optimization",
+            "Introduction to Language processors and system software",
+        ],
+        "Distributed Systems": [
+            "Concepts of Distributed Systems",
+            "Basic Network Communications",
+            "Inter process Communication",
+            "Remote Communication",
+            "Distributed System Synchronization",
+            "Distributed System Management",
+            "Distributed Shared Memory",
+            "Distributed File System",
+            "Security",
+            "Emerging Trends in Distributed System",
+        ],
+        "Cyber Security": [
+            "Introduction to Cyber Crime",
+            "Information Security Concepts",
+            "Phishing and Identity Theft",
+            "Security Threats and Vulnerabilities",
+            "Privacy control concept",
+            "Access Control and Intrusion Detection",
+            "Cybercrimes and Cyber Security: The Legal Perspectives",
+            "Legal, Ethical and Professional Issues in Information Security",
+            "Hands on Open source",
+        ],
+        "Blockchain Technology": [
+            "Background Theories",
+            "Bitcoin",
+            "Introduction to Blockchain",
+            "Consensus",
+            "Mining",
+            "Permissioned Blockchain",
+            "Blockchain Use cases",
+            "Smart Contract",
+            "Research in Blockchain",
+        ],
+        "Natural Language Processing": [
+            "Introduction to NLP",
+            "N‐Gram Language Model",
+            "Text Representation",
+            "Text classification and clustering",
+            "MORPHOLOGY AND PART OF SPEECH TAGGING",
+            "Text Parsing",
+            "Semantic Analysis",
+            "NLP Applications",
+        ],
+        "Image Processing": [
+            "Digital image fundamentals",
+            "Image Enhancements",
+            "Image Restoration",
+            "Colour Image processing",
+            "Image Compression",
+            "Morphological Image Processing",
+            "Image Segmentation",
+        ],
+
+        //Semester 8
+        "Next Generation Networks": [
+            "Introduction",
+            "Mobile Telecommunication System",
+            "Mobile Network Layer",
+            "Mobile Transport, Application Layer and Applications",
+            "SDN Background and Motivation",
+            "SDN Data plane and OpenFlow",
+            "SDN Control Plane",
+            "SDN Application Plane",
+        ],
+        "Big Data Analytics": [
+            "Introduction to Big Data",
+            "Mining Data Streams",
+            "Big Data Analytics and Big Data Analytics Techniques",
+            "Link Analysis",
+            "Frequent Item sets",
+            "Mining Social Network Graphs",
+            "NoSQL",
+            "Map Reduce and New Software Stack",
+            "Big Data Analytics Applications/Use Cases and Visualization of Big Data",
         ],
     };
 
@@ -685,9 +789,7 @@ const Admin_Pdf_Form = () => {
                         onChange={extraInput}
                         required
                     />
-                      <p>
-                        Youtube Link {" "}
-                    </p>
+                    <p>Youtube Link </p>
                     <input
                         type="text"
                         name="youtube"
