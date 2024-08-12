@@ -146,7 +146,9 @@ const Courses = () => {
         { title: "Cyber Security", units: 9, thumbnail: s64 },
         { title: "Blockchain Technology", units: 9, thumbnail: s63 },
         { title: "Image Processing", units: 7, thumbnail: s65 },
-        { title: "Natural Language Processing", units: 8, thumbnail: s66 }
+        { title: "Natural Language Processing", units: 8, thumbnail: s66 },
+        { title: "Web Data Management", units: 8, thumbnail: s66 },
+        { title: "Cloud  Computing", units: 9, thumbnail: s66 },
       ]
     },
     {

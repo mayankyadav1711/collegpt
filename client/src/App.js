@@ -88,6 +88,8 @@ const Sem_7_CS_Units = lazy(() => import("./components/Sem_7_CS_Units"));
 const Sem_7_DS_Units = lazy(() => import("./components/Sem_7_DS_Units"));
 const Sem_7_IP_Units = lazy(() => import("./components/Sem_7_IP_Units"));
 const Sem_7_NLP_Units = lazy(() => import("./components/Sem_7_NLP_Units"));
+const Sem_7_WDM_Units = lazy(() => import("./components/Sem_7_WDM_Units"));
+const Sem_7_CC_Units = lazy(() => import("./components/Sem_7_CC_Units"));
 const Sem_8_BDA_Units = lazy(() => import("./components/Sem_8_BDA_Units"));
 const Sem_8_NGN_Units = lazy(() => import("./components/Sem_8_NGN_Units"));
 
@@ -217,6 +219,8 @@ const Routing = () => {
             <Route path="/sem_7_3_units" element={<Sem_7_CS_Units />} />
             <Route path="/sem_7_2_units" element={<Sem_7_DS_Units />} />
             <Route path="/sem_7_6_units" element={<Sem_7_IP_Units />} />
+            <Route path="/sem_7_7_units" element={<Sem_7_WDM_Units />} />
+            <Route path="/sem_7_8_units" element={<Sem_7_CC_Units />} />
             <Route path="/sem_7_5_units" element={<Sem_7_NLP_Units />} />
             <Route path="/sem_8_2_units" element={<Sem_8_BDA_Units />} />
             <Route path="/sem_8_1_units" element={<Sem_8_NGN_Units />} />

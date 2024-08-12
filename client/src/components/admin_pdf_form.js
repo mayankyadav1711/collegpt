@@ -75,6 +75,8 @@ const Admin_Pdf_Form = () => {
             "Blockchain Technology",
             "Natural Language Processing",
             "Image Processing",
+            "Web Data Management",
+            "Cloud  Computing",
         ],
         "Sem 8": ["Next Generation Networks", "Big Data Analytics"],
     };
@@ -534,6 +536,27 @@ const Admin_Pdf_Form = () => {
             "Image Compression",
             "Morphological Image Processing",
             "Image Segmentation",
+        ],
+        "Web Data Management": [
+            "Data Model",
+            "XPath and XQuery",
+            "Typing",
+            "XML Query Evaluation",
+            "Ontologies, RDF, and OWL",
+            "Querying Data through Ontologies",
+            "Data Integration",
+            "Building Web scale applications",
+        ],
+        "Cloud Computing": [
+            "Introduction to Cloud Computing",
+            "Migrating into a Cloud",
+            "Enriching the ‘Integration as a Service’ Paradigm for the Cloud Era",
+            "The Enterprise Cloud Computing Paradigm",
+            "Virtual Machines Provisioning and Migration Services",
+            "Virtual Machines for Cloud Infrastructures",
+            "Secure Distributed Data Storage in Cloud Computing",
+            "Workflow Engine for Clouds",
+            "Case Studies: Aneka, CometCloud, T‐Systems, AWS",
         ],
 
         //Semester 8
