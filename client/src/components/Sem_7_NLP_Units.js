@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 // import profilepic from "./images/pic-1.jpg";
 // import thumb from "./images/Thumbnail/Sem-5/TOC.webp";
-import postpic from "./images/Thumbnail/Sem-6/sc.webp";
+import postpic from "./images/sample.webp";
 import handledarkmode from "./handledarkmode";
 
 function Sem_7_NLP_Units() {

@@ -50,6 +50,8 @@ import s68 from "./images/Thumbnail/Sem-6/is.webp";
 import s69 from "./images/Thumbnail/Sem-6/dc.webp";
 import s70 from "./images/Thumbnail/Sem-6/ecom.webp";
 
+import s71 from "./images/sample.webp";
+
 // import handledarkmode from "./handledarkmode";
 const Courses = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -141,21 +143,21 @@ const Courses = () => {
     {
       title: "Sem 7",
       courses: [
-        { title: "Compiler Design", units: 10, thumbnail: s61 },
-        { title: "Distributed Systems", units: 10, thumbnail: s62 },
-        { title: "Cyber Security", units: 9, thumbnail: s64 },
-        { title: "Blockchain Technology", units: 9, thumbnail: s63 },
-        { title: "Image Processing", units: 7, thumbnail: s65 },
-        { title: "Natural Language Processing", units: 8, thumbnail: s66 },
-        { title: "Web Data Management", units: 8, thumbnail: s66 },
-        { title: "Cloud  Computing", units: 9, thumbnail: s66 },
+        { title: "Compiler Design", units: 10, thumbnail: s71 },
+        { title: "Distributed Systems", units: 10, thumbnail: s71 },
+        { title: "Cyber Security", units: 9, thumbnail: s71 },
+        { title: "Blockchain Technology", units: 9, thumbnail: s71 },
+        { title: "Image Processing", units: 7, thumbnail: s71 },
+        { title: "Natural Language Processing", units: 8, thumbnail: s71 },
+        { title: "Web Data Management", units: 8, thumbnail: s71 },
+        { title: "Cloud  Computing", units: 9, thumbnail: s71 },
       ]
     },
     {
       title: "Sem 8",
       courses: [
-        { title: "Next Generation Networks", units: 8, thumbnail: s61 },
-        { title: "Big Data Analytics", units: 9, thumbnail: s62 }
+        { title: "Next Generation Networks", units: 8, thumbnail: s71 },
+        { title: "Big Data Analytics", units: 9, thumbnail: s71 }
       ]
     }
     
