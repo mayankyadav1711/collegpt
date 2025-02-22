@@ -32,7 +32,6 @@ const Contact = lazy(() => import("./components/contact"));
 const OTP = lazy(() => import("./components/OTP"));
 const Term = lazy(() => import("./components/term"));
 const Privacy = lazy(() => import("./components/privacy"));
-const LandingPage = lazy(() => import("./components/LandingPage"));
 const Resume = lazy(() => import("./components/resume"));
 const Portfolio = lazy(() => import("./components/portfolio"));
 const Gate = lazy(() => import("./components/gate"));
@@ -159,7 +158,6 @@ const Routing = () => {
             <Route path="/courses" element={<Courses />} />
             <Route path="/term" element={<Term />} />
             <Route path="/privacy" element={<Privacy />} />
-            <Route path="/landingPage " element={<LandingPage  />} />
             <Route path="/watchvideo/:code" element={<WatchVideo />} />
             <Route path="/youtube/:code" element={<Youtube_Lecture />} />
             <Route path="/support" element={<Support />} />
