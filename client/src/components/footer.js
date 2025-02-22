@@ -326,7 +326,7 @@ const Footer = () => {
           <div class="col-xl-6 col-lg-6 text-center flex justify-center">
             <div class="lg:text-2xl text-3xl py-10 px-10 text-center flex justify-center">
               <p>
-                Copyright &copy; 2024, All Right Reserved{" "}
+                Copyright &copy; 2025, All Right Reserved{" "}
                 <a
                   href="www.collegpt.com"
                   target="_blank"

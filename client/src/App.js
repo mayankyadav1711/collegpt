@@ -93,8 +93,9 @@ const Sem_7_CC_Units = lazy(() => import("./components/Sem_7_CC_Units"));
 const Sem_8_BDA_Units = lazy(() => import("./components/Sem_8_BDA_Units"));
 const Sem_8_NGN_Units = lazy(() => import("./components/Sem_8_NGN_Units"));
 const Sem_8_DPC_Units = lazy(() => import("./components/Sem_8_DPC_Units")); 
-const Sem_8_NNDL_Units = lazy(() => import("./components/Sem_8_NNDL_Units")); 
+const Sem_8_NNDL_Units = lazy(() => import("./components/Sem_8_IOT_Units")); 
 const Sem_8_ARVR_Units = lazy(() => import("./components/Sem_8_ARVR_Units"));
+const Sem_8_IOT_Units = lazy(() => import("./components/Sem_8_IOT_Units"));
 
 const Admin_Pdf_Form = lazy(() => import("./components/admin_pdf_form"));
 const Userlist = lazy(() => import("./components/userlist"));
@@ -231,7 +232,7 @@ const Routing = () => {
             <Route path="/sem_8_4_units" element={<Sem_8_NNDL_Units />} />
             <Route path="/sem_8_5_units" element={<Sem_8_DPC_Units />} />
             <Route path="/sem_8_6_units" element={<Sem_8_ARVR_Units />} />
-            <Route path="/sem_8_7_units" element={<Sem_6_Iot_Units />} />
+            <Route path="/sem_8_7_units" element={<Sem_8_IOT_Units />} />
 
             <Route path="/admin_pdf_form" element={<Admin_Pdf_Form />} />
             <Route path="/newhome" element={<NewHome />} />

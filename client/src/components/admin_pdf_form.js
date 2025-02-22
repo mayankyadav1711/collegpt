@@ -84,7 +84,8 @@ const Admin_Pdf_Form = () => {
   "Big Data Analytics",
   "Distributed and Parallel Computing",
   "Neural Network and Deep Learning",
-  "Augmented and Virtual Reality"
+  "Augmented and Virtual Reality",
+  "Internet of Things",
 ],
     };
 
@@ -615,6 +616,17 @@ const Admin_Pdf_Form = () => {
         "AR Software Development",
         "Applications of AR and VR"
     ],
+    "Internet of Things": [
+        "Introduction to IoT",
+        "IoT & M2M",
+        "Network & Communication Aspects",
+        "Web Infrastructure for Managing IoT Resources",
+        "Challenges in IoT",
+        "Domain Specific Applications of IoT",
+        "Developing IoTs",
+        "IoT Tools",
+        "IoT Strategy Execution & Solution Delivery"
+    ]
     };
 
     const [selectedSemester, setSelectedSemester] = useState("");
