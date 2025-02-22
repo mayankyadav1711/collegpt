@@ -157,7 +157,12 @@ const Courses = () => {
       title: "Sem 8",
       courses: [
         { title: "Next Generation Networks", units: 8, thumbnail: s71 },
-        { title: "Big Data Analytics", units: 9, thumbnail: s71 }
+        { title: "Big Data Analytics", units: 9, thumbnail: s71 },
+        { title: "Web Data Management", units: 8, thumbnail: s71 },
+        { title: "Neural Network and Deep Learning", units: 6, thumbnail: s71 },
+        { title: "Distributed and Parallel Computing", units: 8, thumbnail: s71 },
+        { title: "Augmented and Virtual Reality", units: 7, thumbnail: s71 },
+        { title: "Internet of Things", units: 6, thumbnail: s66 },
       ]
     }
     

@@ -79,7 +79,13 @@ const Admin_Pdf_Form = () => {
             "Web Data Management",
             "Cloud  Computing",
         ],
-        "Sem 8": ["Next Generation Networks", "Big Data Analytics"],
+        "Sem 8": [
+  "Next Generation Networks",
+  "Big Data Analytics",
+  "Distributed and Parallel Computing",
+  "Neural Network and Deep Learning",
+  "Augmented and Virtual Reality"
+],
     };
 
     const unitsBySubjects = {
@@ -582,6 +588,33 @@ const Admin_Pdf_Form = () => {
             "Map Reduce and New Software Stack",
             "Big Data Analytics Applications/Use Cases and Visualization of Big Data",
         ],
+        "Distributed and Parallel Computing": [
+        "Introduction",
+        "Message Passing Computing",
+        "Partitioning and Divide-and-Conquer Strategies",
+        "Pipelined Computations",
+        "Synchronous Computations",
+        "Load Balancing and Termination Detection",
+        "Programming with Shared Memory",
+        "Distributed Shared Memory Systems and Programming"
+    ],
+    "Neural Network and Deep Learning": [
+        "Introduction",
+        "Feed Forward and Deep Neural Network",
+        "Convolutional Neural Networks",
+        "Recurrent Neural Networks",
+        "Deep Neural Networks",
+        "Generative Models and Recent Trends"
+    ],
+    "Augmented and Virtual Reality": [
+        "Introduction",
+        "VR Systems",
+        "Stereoscopic Vision & Haptic Rendering",
+        "VR Software Development",
+        "3D Interaction Techniques",
+        "AR Software Development",
+        "Applications of AR and VR"
+    ],
     };
 
     const [selectedSemester, setSelectedSemester] = useState("");

@@ -32,6 +32,7 @@ const Contact = lazy(() => import("./components/contact"));
 const OTP = lazy(() => import("./components/OTP"));
 const Term = lazy(() => import("./components/term"));
 const Privacy = lazy(() => import("./components/privacy"));
+const LandingPage = lazy(() => import("./components/LandingPage"));
 const Resume = lazy(() => import("./components/resume"));
 const Portfolio = lazy(() => import("./components/portfolio"));
 const Gate = lazy(() => import("./components/gate"));
@@ -92,6 +93,9 @@ const Sem_7_WDM_Units = lazy(() => import("./components/Sem_7_WDM_Units"));
 const Sem_7_CC_Units = lazy(() => import("./components/Sem_7_CC_Units"));
 const Sem_8_BDA_Units = lazy(() => import("./components/Sem_8_BDA_Units"));
 const Sem_8_NGN_Units = lazy(() => import("./components/Sem_8_NGN_Units"));
+const Sem_8_DPC_Units = lazy(() => import("./components/Sem_8_DPC_Units")); 
+const Sem_8_NNDL_Units = lazy(() => import("./components/Sem_8_NNDL_Units")); 
+const Sem_8_ARVR_Units = lazy(() => import("./components/Sem_8_ARVR_Units"));
 
 const Admin_Pdf_Form = lazy(() => import("./components/admin_pdf_form"));
 const Userlist = lazy(() => import("./components/userlist"));
@@ -155,6 +159,7 @@ const Routing = () => {
             <Route path="/courses" element={<Courses />} />
             <Route path="/term" element={<Term />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/landingPage " element={<LandingPage  />} />
             <Route path="/watchvideo/:code" element={<WatchVideo />} />
             <Route path="/youtube/:code" element={<Youtube_Lecture />} />
             <Route path="/support" element={<Support />} />
@@ -222,8 +227,13 @@ const Routing = () => {
             <Route path="/sem_7_7_units" element={<Sem_7_WDM_Units />} />
             <Route path="/sem_7_8_units" element={<Sem_7_CC_Units />} />
             <Route path="/sem_7_5_units" element={<Sem_7_NLP_Units />} />
-            <Route path="/sem_8_2_units" element={<Sem_8_BDA_Units />} />
             <Route path="/sem_8_1_units" element={<Sem_8_NGN_Units />} />
+            <Route path="/sem_8_2_units" element={<Sem_8_BDA_Units />} />
+            <Route path="/sem_8_3_units" element={<Sem_7_WDM_Units />} />
+            <Route path="/sem_8_4_units" element={<Sem_8_NNDL_Units />} />
+            <Route path="/sem_8_5_units" element={<Sem_8_DPC_Units />} />
+            <Route path="/sem_8_6_units" element={<Sem_8_ARVR_Units />} />
+            <Route path="/sem_8_7_units" element={<Sem_6_Iot_Units />} />
 
             <Route path="/admin_pdf_form" element={<Admin_Pdf_Form />} />
             <Route path="/newhome" element={<NewHome />} />
