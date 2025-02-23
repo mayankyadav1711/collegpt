@@ -93,7 +93,7 @@ const Sem_7_CC_Units = lazy(() => import("./components/Sem_7_CC_Units"));
 const Sem_8_BDA_Units = lazy(() => import("./components/Sem_8_BDA_Units"));
 const Sem_8_NGN_Units = lazy(() => import("./components/Sem_8_NGN_Units"));
 const Sem_8_DPC_Units = lazy(() => import("./components/Sem_8_DPC_Units")); 
-const Sem_8_NNDL_Units = lazy(() => import("./components/Sem_8_IOT_Units")); 
+const Sem_8_NNDL_Units = lazy(() => import("./components/Sem_8_NNDL_Units")); 
 const Sem_8_ARVR_Units = lazy(() => import("./components/Sem_8_ARVR_Units"));
 const Sem_8_IOT_Units = lazy(() => import("./components/Sem_8_IOT_Units"));
 
