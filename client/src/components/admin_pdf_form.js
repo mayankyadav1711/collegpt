@@ -625,7 +625,8 @@ const Admin_Pdf_Form = () => {
         "Domain Specific Applications of IoT",
         "Developing IoTs",
         "IoT Tools",
-        "IoT Strategy Execution & Solution Delivery"
+        "IoT Strategy Execution",
+        "IoT Solution Delivery"
     ]
     };
 

@@ -114,7 +114,13 @@ function Sem_8_IOT_Units() {
           <Link to="/watchvideo/879" className="box">
             <a>
               <img src={postpic} alt="" />
-              <h3 className="mt-5">IoT Strategy Execution & Solution Delivery</h3>
+              <h3 className="mt-5">IoT Strategy Execution</h3>
+            </a>
+          </Link>
+          <Link to="/watchvideo/8710" className="box">
+            <a>
+              <img src={postpic} alt="" />
+              <h3 className="mt-5">IoT Solution Delivery</h3>
             </a>
           </Link>
         </div>
