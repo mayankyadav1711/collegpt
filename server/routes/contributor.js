@@ -1,26 +1,20 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const User = mongoose.model("User");
 const Contributor = mongoose.model("Contributor");
 const Doubt = mongoose.model("Doubt");
 const Contact = mongoose.model("Contact");
 const EventForm = mongoose.model("EventForm");
 const Feedback = mongoose.model("Feedback");
 const ServiceContact = mongoose.model("ServiceContact");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const { JWT_SECRET } = require("../config/keys");
 const requireLogin = require("../middleware/requireSignin");
 const requireAdmin = require("../middleware/adminlogin");
 const nodemailer = require("nodemailer");
-const crypto = require("crypto");
-const { EMAIL, GPASS } = require("../config/keys");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: "collegpt@gmail.com",
-    pass: GPASS,
+    pass: process.env.GPASS,
   },
 });
 

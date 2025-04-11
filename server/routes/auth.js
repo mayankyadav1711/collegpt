@@ -4,11 +4,12 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { JWT_SECRET } = require("../config/keys");
-const requireLogin = require("../middleware/requireSignin");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
-const {EMAIL,GPASS} = require('../config/keys')
+
+const JWT_SECRET = process.env.JWT_SEC;
+const EMAIL = process.env.EMAIL;
+const GPASS = process.env.GPASS;
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
