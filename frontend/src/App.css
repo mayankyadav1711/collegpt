@@ -1,2 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
+.font-jost {
+  font-family: 'Jost', sans-serif;
+}
+
+.font-anta {
+  font-family: 'Anta', sans-serif;
+}
