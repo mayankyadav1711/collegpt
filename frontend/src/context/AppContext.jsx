@@ -5,12 +5,15 @@ const AppContext = createContext();
 
 // Set initial theme based on localStorage or system preference
 const getInitialTheme = () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-    return savedTheme;
+  if (typeof window !== 'undefined' && window.localStorage) {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme;
+    }
+    // If no theme is saved, check system preference
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
-  // If no theme is saved, check system preference
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return 'light'; // Default for SSR
 };
 
 // Initial states
@@ -39,10 +42,14 @@ const themeReducer = (state, action) => {
   switch (action.type) {
     case 'TOGGLE_THEME':
       const newTheme = state === 'light' ? 'dark' : 'light';
-      localStorage.setItem('theme', newTheme);
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.setItem('theme', newTheme);
+      }
       return newTheme;
     case 'SET_THEME':
-      localStorage.setItem('theme', action.payload);
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.setItem('theme', action.payload);
+      }
       return action.payload;
     default:
       return state;
@@ -56,48 +63,59 @@ export const AppProvider = ({ children }) => {
 
   // Load user from localStorage on app initialization
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
-      authDispatch({ type: 'USER', payload: user });
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const user = JSON.parse(localStorage.getItem('user') || 'null');
+      if (user) {
+        authDispatch({ type: 'USER', payload: user });
+      }
     }
   }, []);
 
   // Apply theme class when theme changes
   useEffect(() => {
-    if (themeState === 'dark') {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    } else {
-      document.documentElement.classList.add('light');
-      document.documentElement.classList.remove('dark');
+    if (typeof window !== 'undefined') {
+      if (themeState === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      
+      // Debug log
+      console.log('Theme changed to:', themeState);
+      console.log('Dark class present:', document.documentElement.classList.contains('dark'));
     }
-    // Also update localStorage
-    localStorage.setItem('theme', themeState);
   }, [themeState]);
+
+  // Toggle theme function
+  const toggleTheme = () => {
+    console.log('Toggle theme called, current theme:', themeState);
+    themeDispatch({ type: 'TOGGLE_THEME' });
+  };
 
   // Auth actions
   const login = (userData, token) => {
-    localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(userData));
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(userData));
+    }
     authDispatch({ type: 'USER', payload: userData });
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+    }
     authDispatch({ type: 'CLEAR' });
   };
 
   const updateProfile = (updatedData) => {
-    const currentUser = JSON.parse(localStorage.getItem('user'));
-    const updatedUser = { ...currentUser, ...updatedData };
-    localStorage.setItem('user', JSON.stringify(updatedUser));
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
+      const updatedUser = { ...currentUser, ...updatedData };
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+    }
     authDispatch({ type: 'UPDATE_PROFILE', payload: updatedData });
-  };
-
-  // Theme actions
-  const toggleTheme = () => {
-    themeDispatch({ type: 'TOGGLE_THEME' });
   };
 
   // Context value

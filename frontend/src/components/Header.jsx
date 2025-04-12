@@ -14,6 +14,14 @@ const Header = () => {
   const profileRef = useRef(null);
   const defaultProfilePic = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
+  // Debug logging on mount
+  useEffect(() => {
+    console.log('Header mounted, current theme:', theme.current);
+    console.log('Is dark mode?', theme.isDark);
+    console.log('Dark class on HTML:', document.documentElement.classList.contains('dark'));
+  }, []);
+
+  // Fetch user profile when auth.user changes
   useEffect(() => {
     if (auth.user && auth.user._id) {
       fetch(`https://api-collegpt.vercel.app/view-profile/${auth.user._id}`)
@@ -72,9 +80,16 @@ const Header = () => {
     navigate("/login");
     setIsProfileOpen(false);
   };
+  
+  // Simplified theme toggle without the setTimeout
+  const handleThemeToggle = () => {
+    console.log('Theme toggle clicked');
+    console.log('Current theme before toggle:', theme.current);
+    theme.toggleTheme();
+  };
 
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-md">
+    <header className="bg-white dark:bg-gray-900 shadow-md transition-colors duration-200">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
@@ -102,11 +117,11 @@ const Header = () => {
         {/* User profile and theme toggle */}
         <div className="flex items-center space-x-4">
           <button 
-            onClick={theme.toggleTheme}
+            onClick={handleThemeToggle} 
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            aria-label={theme.current === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+            aria-label={theme.isDark ? "Switch to light mode" : "Switch to dark mode"}
           >
-            {theme.current === 'dark' ? (
+            {theme.isDark ? (
               <Sun className="h-6 w-6 text-yellow-400" />
             ) : (
               <Moon className="h-6 w-6 text-gray-700" />
@@ -137,7 +152,6 @@ const Header = () => {
             {isProfileOpen && (
               <div 
                 className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg z-10 py-1"
-                ref={menuRef}
               >
                 {auth.isAuthenticated ? (
                   <>
@@ -192,7 +206,7 @@ const Header = () => {
       {/* Mobile menu */}
       {isMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-0 z-50 bg-white dark:bg-gray-900 flex flex-col"
+          className="lg:hidden fixed inset-0 z-50 bg-white dark:bg-gray-900 flex flex-col transition-colors"
           ref={menuRef}
         >
           <div className="p-4 flex justify-end">

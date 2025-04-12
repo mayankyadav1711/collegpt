@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { AppProvider } from "./context/AppContext";
 import Layout from "./components/Layout";
-import { useEffect } from "react";
+// Remove the useEffect import since we'll handle theme initialization only in AppContext
 
 // Import pages
 import Home from "./pages/common/Home";
@@ -19,25 +19,8 @@ import Profile from "./pages/auth/Profile";
 import "./App.css";
 
 function App() {
-  // Add this to force immediate theme application on first load
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 
-                     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    
-    // Force a style reset
-    if (savedTheme === 'dark') {
-      document.documentElement.style.colorScheme = 'dark';
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    } else {
-      document.documentElement.style.colorScheme = 'light';
-      document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
-    }
-    
-    console.log('Initial theme:', savedTheme, document.documentElement.classList);
-  }, []);
-
+  // Remove the theme initialization useEffect from here - we'll handle it in AppContext only
+  
   return (
     <AppProvider>
       <Routes>
