@@ -1,7 +1,8 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { AppProvider } from "./context/AppContext";
 import Layout from "./components/Layout";
+import { useEffect } from "react";
 
 // Import pages
 import Home from "./pages/common/Home";
@@ -17,11 +18,21 @@ import Profile from "./pages/auth/Profile";
 // Import styles
 import "./App.css";
 
-function App() {
+// ScrollToTop function component implemented directly
+function ScrollToTopOnMount() {
+  const { pathname } = useLocation();
   
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
+  return null;
+}
+
+function AppRoutes() {
   return (
-    <AppProvider>
-    <Router>
+    <>
+      <ScrollToTopOnMount />
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* Public routes */}
@@ -38,24 +49,33 @@ function App() {
           <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>
-      <Toaster
-        position="top-center"
-        reverseOrder={false}
-        gutter={8}
-        containerClassName=""
-        containerStyle={{ zIndex: 9999 }}
-        toastOptions={{
-          duration: 5000,
-          style: {
-            background: "white",
-            color: "black",
-            fontSize: "16px",
-          },
-          success: {
-            duration: 3000,
-          },
-        }}
-      />
+    </>
+  );
+}
+
+function App() {
+  return (
+    <AppProvider>
+      <Router>
+        <AppRoutes />
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          gutter={8}
+          containerClassName=""
+          containerStyle={{ zIndex: 9999 }}
+          toastOptions={{
+            duration: 5000,
+            style: {
+              background: "white",
+              color: "black",
+              fontSize: "16px",
+            },
+            success: {
+              duration: 3000,
+            },
+          }}
+        />
       </Router>
     </AppProvider>
   );
