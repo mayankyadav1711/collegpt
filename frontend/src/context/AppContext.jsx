@@ -10,10 +10,23 @@ const getInitialTheme = () => {
     if (savedTheme) {
       return savedTheme;
     }
-    // If no theme is saved, check system preference
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    // If no theme is saved, default to 'system'
+    return 'system';
   }
   return 'light'; // Default for SSR
+};
+
+// Get system theme preference
+const getSystemTheme = () => {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
+// Resolve theme - returns actual theme (light/dark) based on theme setting (light/dark/system)
+const resolveTheme = (themeState) => {
+  if (themeState === 'system') {
+    return getSystemTheme();
+  }
+  return themeState;
 };
 
 // Initial states
@@ -41,11 +54,22 @@ const authReducer = (state, action) => {
 const themeReducer = (state, action) => {
   switch (action.type) {
     case 'TOGGLE_THEME':
-      const newTheme = state === 'light' ? 'dark' : 'light';
-      if (typeof window !== 'undefined' && window.localStorage) {
-        localStorage.setItem('theme', newTheme);
+      // If current theme is system, toggle between light and dark
+      if (state === 'system') {
+        const systemTheme = getSystemTheme();
+        const newTheme = systemTheme === 'light' ? 'dark' : 'light';
+        if (typeof window !== 'undefined' && window.localStorage) {
+          localStorage.setItem('theme', newTheme);
+        }
+        return newTheme;
+      } else {
+        // Cycle through light -> dark -> system
+        const newTheme = state === 'light' ? 'dark' : state === 'dark' ? 'system' : 'light';
+        if (typeof window !== 'undefined' && window.localStorage) {
+          localStorage.setItem('theme', newTheme);
+        }
+        return newTheme;
       }
-      return newTheme;
     case 'SET_THEME':
       if (typeof window !== 'undefined' && window.localStorage) {
         localStorage.setItem('theme', action.payload);
@@ -60,6 +84,7 @@ const themeReducer = (state, action) => {
 export const AppProvider = ({ children }) => {
   const [authState, authDispatch] = useReducer(authReducer, initialAuthState);
   const [themeState, themeDispatch] = useReducer(themeReducer, initialThemeState);
+  const resolvedTheme = resolveTheme(themeState);
 
   // Load user from localStorage on app initialization
   useEffect(() => {
@@ -74,15 +99,39 @@ export const AppProvider = ({ children }) => {
   // Apply theme class when theme changes
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      if (themeState === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      // For system theme, listen to media query changes
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
       
-      // Debug log
-      console.log('Theme changed to:', themeState);
-      console.log('Dark class present:', document.documentElement.classList.contains('dark'));
+      const applyTheme = () => {
+        const currentResolvedTheme = resolveTheme(themeState);
+        
+        if (currentResolvedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        
+        // Debug log
+        console.log('Theme setting:', themeState);
+        console.log('Resolved theme:', currentResolvedTheme);
+        console.log('Dark class present:', document.documentElement.classList.contains('dark'));
+      };
+
+      // Apply theme initially
+      applyTheme();
+      
+      // Set up listener for system preference changes (only matters if theme is 'system')
+      const handleSystemThemeChange = () => {
+        if (themeState === 'system') {
+          applyTheme();
+        }
+      };
+      
+      mediaQuery.addEventListener('change', handleSystemThemeChange);
+      
+      return () => {
+        mediaQuery.removeEventListener('change', handleSystemThemeChange);
+      };
     }
   }, [themeState]);
 
@@ -90,6 +139,13 @@ export const AppProvider = ({ children }) => {
   const toggleTheme = () => {
     console.log('Toggle theme called, current theme:', themeState);
     themeDispatch({ type: 'TOGGLE_THEME' });
+  };
+
+  // Set specific theme
+  const setTheme = (theme) => {
+    if (['light', 'dark', 'system'].includes(theme)) {
+      themeDispatch({ type: 'SET_THEME', payload: theme });
+    }
   };
 
   // Auth actions
@@ -128,9 +184,11 @@ export const AppProvider = ({ children }) => {
       isAuthenticated: !!authState
     },
     theme: {
-      current: themeState,
+      current: themeState,         // 'light', 'dark', or 'system'
+      resolved: resolvedTheme,     // always 'light' or 'dark' (what's actually applied)
       toggleTheme,
-      isDark: themeState === 'dark'
+      setTheme,
+      isDark: resolvedTheme === 'dark'
     }
   };
 
