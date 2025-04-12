@@ -1,8 +1,7 @@
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { AppProvider } from "./context/AppContext";
 import Layout from "./components/Layout";
-// Remove the useEffect import since we'll handle theme initialization only in AppContext
 
 // Import pages
 import Home from "./pages/common/Home";
@@ -19,10 +18,10 @@ import Profile from "./pages/auth/Profile";
 import "./App.css";
 
 function App() {
-  // Remove the theme initialization useEffect from here - we'll handle it in AppContext only
   
   return (
     <AppProvider>
+    <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* Public routes */}
@@ -57,6 +56,7 @@ function App() {
           },
         }}
       />
+      </Router>
     </AppProvider>
   );
 }

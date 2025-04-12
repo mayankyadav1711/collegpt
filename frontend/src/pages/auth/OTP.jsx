@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, React } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ENDPOINTS } from '../../api/api';
 import toast from 'react-hot-toast';
@@ -14,7 +14,7 @@ const OTP = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [resendDisabled, setResendDisabled] = useState(true);
   const [countdown, setCountdown] = useState(60);
-  const inputRefs = Array(6).fill(0).map(() => useState(null)[0]);
+  const inputRefs = Array(6).fill(0).map(() => React.createRef());
 
   // Handle countdown for resend button
   useEffect(() => {
