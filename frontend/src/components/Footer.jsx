@@ -1,42 +1,62 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import toast from 'react-hot-toast';
-import { 
-  Mail, 
-  Linkedin, 
-  Twitter, 
-  Instagram, 
-  Send, 
-  BookOpen, 
-  FileText, 
-  Users, 
-  Calendar, 
-  Sparkle, 
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import {
+  Mail,
+  Linkedin,
+  Twitter,
+  Instagram,
+  Send,
+  BookOpen,
+  FileText,
+  Users,
+  Calendar,
+  Sparkle,
   ExternalLink,
   GraduationCap,
-  Heart
-} from 'lucide-react';
+  Heart,
+} from "lucide-react";
 
 const Footer = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
 
   const handleSubscribe = (e) => {
     e.preventDefault();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      toast.error('Please enter a valid email address');
+      toast.error("Please enter a valid email address");
       return;
     }
-    toast.success('Thanks for subscribing to our newsletter!');
-    setEmail('');
+    toast.success("Thanks for subscribing to our newsletter!");
+    setEmail("");
   };
 
   const footerLinks = {
     Features: [
-      { name: "Notes & Resources", href: "/courses", icon: <BookOpen className="w-4 h-4" /> },
-      { name: "Events Calendar", href: "/events", icon: <Calendar className="w-4 h-4" /> },
-      { name: "Cheat Sheets", href: "/cheatsheets", icon: <FileText className="w-4 h-4" /> },
-      { name: "Learning Guides", href: "/guides", icon: <GraduationCap className="w-4 h-4" /> },
-      { name: "Community Forum", href: "/userlist", icon: <Users className="w-4 h-4" /> },
+      {
+        name: "Notes & Resources",
+        href: "/courses",
+        icon: <BookOpen className="w-4 h-4" />,
+      },
+      {
+        name: "Events Calendar",
+        href: "/events",
+        icon: <Calendar className="w-4 h-4" />,
+      },
+      {
+        name: "Cheat Sheets",
+        href: "/cheatsheets",
+        icon: <FileText className="w-4 h-4" />,
+      },
+      {
+        name: "Learning Guides",
+        href: "/guides",
+        icon: <GraduationCap className="w-4 h-4" />,
+      },
+      {
+        name: "Community Forum",
+        href: "/userlist",
+        icon: <Users className="w-4 h-4" />,
+      },
     ],
     Company: [
       { name: "About Us", href: "/about" },
@@ -56,21 +76,21 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column - Logo & Newsletter */}
           <div className="lg:col-span-4 space-y-8">
-          <Link to="/" className="flex items-center">
-            <span className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 flex items-center group">
-              C
-              <img
-                src="/logo.svg"
-                className="inline-block h-8 w-8 mt-1 transform transition-transform group-hover:rotate-12"
-                alt="ColleGPT Logo"
-              />
-              LLEGPT
-            </span>
-          </Link>
-            
+            <Link to="/" className="flex items-center">
+              <span className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 flex items-center group">
+                C
+                <img
+                  src="/logo.svg"
+                  className="inline-block h-8 w-8 mt-1 transform transition-transform group-hover:rotate-12"
+                  alt="ColleGPT Logo"
+                />
+                LLEGPT
+              </span>
+            </Link>
+
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-              Get Prepared Together - Revolutionize your academic journey with engaging resources 
-              and a supportive community.
+              Get Prepared Together - Revolutionize your academic journey with
+              engaging resources and a supportive community.
             </p>
 
             {/* Newsletter */}
@@ -125,8 +145,10 @@ const Footer = () => {
                                    hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                         >
                           {link.icon && (
-                            <span className="mr-3 text-gray-400 dark:text-gray-500 
-                                         group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+                            <span
+                              className="mr-3 text-gray-400 dark:text-gray-500 
+                                         group-hover:text-indigo-600 dark:group-hover:text-indigo-400"
+                            >
                               {link.icon}
                             </span>
                           )}
@@ -148,20 +170,20 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             {/* Social Links */}
             <div className="flex items-center gap-4">
-              <SocialLink 
-                href="https://www.linkedin.com/in/collegpt/" 
-                icon={<Linkedin />} 
-                label="LinkedIn" 
+              <SocialLink
+                href="https://www.linkedin.com/in/collegpt/"
+                icon={<Linkedin />}
+                label="LinkedIn"
               />
-              <SocialLink 
-                href="https://twitter.com/ColleGPT" 
-                icon={<Twitter />} 
-                label="Twitter" 
+              <SocialLink
+                href="https://twitter.com/ColleGPT"
+                icon={<Twitter />}
+                label="Twitter"
               />
-              <SocialLink 
-                href="https://www.instagram.com/collegpt" 
-                icon={<Instagram />} 
-                label="Instagram" 
+              <SocialLink
+                href="https://www.instagram.com/collegpt"
+                icon={<Instagram />}
+                label="Instagram"
               />
             </div>
 
@@ -170,17 +192,6 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} ColleGPT. All rights reserved.
             </p>
           </div>
-        </div>
-      </div>
-
-      {/* Bottom Banner */}
-      <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <p className="text-white text-sm text-center flex items-center justify-center gap-2">
-            Made with 
-            <Heart className="w-4 h-4 text-red-300 animate-pulse" fill="currentColor" /> 
-            by students, for students
-          </p>
         </div>
       </div>
     </footer>
