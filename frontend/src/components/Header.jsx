@@ -36,7 +36,7 @@ const Header = () => {
   // Navigation items
   const navigationItems = [
     { name: "Home", path: "/", icon: <Sparkle className="w-4 h-4" /> },
-    {name : "About", path : "/about", icon : <Users className="w-4 h-4" />},
+    { name: "About", path: "/about", icon: <Users className="w-4 h-4" /> },
     { name: "Notes", path: "/courses", icon: <BookOpen className="w-4 h-4" /> },
     {
       name: "Cheat Sheets",
@@ -278,71 +278,175 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="fixed inset-0 z-[9999] pt-20 bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl md:hidden">
-            <div className="container mx-auto px-4 py-8">
-              <nav className="space-y-4">
-                {navigationItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    className={`flex items-center p-4 rounded-xl ${
-                      location.pathname === item.path
-                        ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
-                        : "text-gray-600 dark:text-gray-300"
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.icon}
-                    <span className="ml-3 font-medium">{item.name}</span>
-                  </Link>
-                ))}
-              </nav>
+        {/* Mobile Menu - Slide-in Sidebar */}
+        <div
+          className={`fixed inset-y-0 left-0 z-[9999] w-[280px] bg-white dark:bg-gray-900 shadow-2xl transform transition-transform duration-300 ease-in-out ${
+            isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          {/* Logo and Close Button */}
+          <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
+            <Link
+              to="/"
+              className="flex items-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span className="text-2xl font-bold text-gray-900 dark:text-white flex items-center">
+                C
+                <img src="/logo.svg" className="h-6 w-6" alt="ColleGPT Logo" />
+                LLEGPT
+              </span>
+            </Link>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
 
-              {/* Mobile Theme Switcher */}
-              <div className="mt-8">
-                <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-4">
-                  Theme
-                </h3>
-                <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 p-2 rounded-lg">
-                  <button
-                    onClick={() => theme.setTheme("light")}
-                    className={`flex-1 p-3 rounded-lg transition-all ${
-                      theme.current === "light"
-                        ? "bg-white dark:bg-gray-700 shadow-md"
-                        : ""
-                    }`}
-                  >
-                    <Sun className="w-5 h-5 mx-auto" />
-                    <span className="text-xs mt-1">Light</span>
-                  </button>
-                  <button
-                    onClick={() => theme.setTheme("dark")}
-                    className={`flex-1 p-3 rounded-lg transition-all ${
-                      theme.current === "dark"
-                        ? "bg-white dark:bg-gray-700 shadow-md"
-                        : ""
-                    }`}
-                  >
-                    <Moon className="w-5 h-5 mx-auto" />
-                    <span className="text-xs mt-1">Dark</span>
-                  </button>
-                  <button
-                    onClick={() => theme.setTheme("system")}
-                    className={`flex-1 p-3 rounded-lg transition-all ${
-                      theme.current === "system"
-                        ? "bg-white dark:bg-gray-700 shadow-md"
-                        : ""
-                    }`}
-                  >
-                    <Monitor className="w-5 h-5 mx-auto" />
-                    <span className="text-xs mt-1">System</span>
-                  </button>
-                </div>
+          {/* User Profile Summary */}
+          <div className="p-4 border-b border-gray-200 dark:border-gray-800">
+            <div className="flex items-center gap-3">
+              <img
+                src={userProfile?.profilePic || defaultProfilePic}
+                alt="User"
+                className="w-10 h-10 rounded-full object-cover"
+              />
+              <div className="flex-1 min-w-0">
+                <p className="font-medium text-gray-900 dark:text-white truncate">
+                  {userProfile?.name || (auth.user ? auth.user.name : "Guest")}
+                </p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                  {auth.user ? auth.user.email : "Not logged in"}
+                </p>
               </div>
             </div>
           </div>
+
+          {/* Navigation Items */}
+          <div className="py-4 px-2 overflow-y-auto h-full">
+            <nav className="space-y-2">
+              {navigationItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`flex items-center p-3 rounded-lg ${
+                    location.pathname === item.path
+                      ? "bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 font-medium"
+                      : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <span className="p-1 rounded-md bg-white dark:bg-gray-800 shadow-sm mr-3">
+                    {item.icon}
+                  </span>
+                  <span>{item.name}</span>
+                </Link>
+              ))}
+            </nav>
+
+            {/* Theme Switcher */}
+            <div className="mt-6 px-3">
+              <h3 className="text-xs uppercase font-medium text-gray-500 dark:text-gray-400 mb-3 tracking-wider">
+                Appearance
+              </h3>
+              <div className="bg-gray-100 dark:bg-gray-800 p-2 rounded-lg flex items-center">
+                <button
+                  onClick={() => theme.setTheme("light")}
+                  className={`flex-1 py-2 px-3 rounded-lg flex flex-col items-center ${
+                    theme.current === "light"
+                      ? "bg-white dark:bg-gray-700 shadow-sm"
+                      : ""
+                  }`}
+                >
+                  <Sun className="w-5 h-5 text-black dark:text-white" />
+                  <span className="text-xs mt-1 text-black dark:text-white">
+                    Light
+                  </span>
+                </button>
+                <button
+                  onClick={() => theme.setTheme("dark")}
+                  className={`flex-1 py-2 px-3 rounded-lg flex flex-col items-center ${
+                    theme.current === "dark"
+                      ? "bg-white dark:bg-gray-700 shadow-sm"
+                      : ""
+                  }`}
+                >
+                  <Moon className="w-5 h-5 text-black dark:text-white" />
+                  <span className="text-xs mt-1 text-black dark:text-white">
+                    Dark
+                  </span>
+                </button>
+                <button
+                  onClick={() => theme.setTheme("system")}
+                  className={`flex-1 py-2 px-3 rounded-lg flex flex-col items-center ${
+                    theme.current === "system"
+                      ? "bg-white dark:bg-gray-700 shadow-sm"
+                      : ""
+                  }`}
+                >
+                  <Monitor className="w-5 h-5 text-black dark:text-white" />
+                  <span className="text-xs mt-1 text-black dark:text-white">
+                    System
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            {/* Authentication Buttons */}
+            <div className="mt-2 px-3 space-y-2">
+              {auth.isAuthenticated ? (
+                <>
+                  <Link
+                    to="/profile"
+                    className="flex items-center justify-center gap-2 p-2 w-full rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <User className="w-4 h-4" />
+                    <span>Profile</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      handleLogout();
+                      setIsMenuOpen(false);
+                    }}
+                    className="flex items-center justify-center gap-2 p-2 w-full rounded-lg bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span>Logout</span>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="flex items-center justify-center gap-2 p-3 w-full rounded-lg bg-indigo-600 text-white"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <User className="w-4 h-4" />
+                    <span>Login</span>
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="flex items-center justify-center gap-2 p-3 w-full rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <BarChart className="w-4 h-4" />
+                    <span>Register</span>
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Overlay when sidebar is open */}
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 z-[9998] bg-black/20 dark:bg-black/50 backdrop-blur-sm md:hidden"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
         )}
       </div>
     </header>

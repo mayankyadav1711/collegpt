@@ -322,7 +322,7 @@ const HeroSection = forwardRef(({ notesRef }, ref) => {
 
             {/* Right Column: Hero Illustration */}
             <motion.div
-              className="lg:w-5/12 mt-12 lg:mt-0"
+              className="lg:w-5/12 mt-12 lg:mt-0 hidden md:block lg:block"
               variants={itemVariants}
             >
               <div className="relative">
