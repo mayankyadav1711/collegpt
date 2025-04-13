@@ -15,33 +15,21 @@ import {
 } from "lucide-react";
 
 const SideNav = ({ currentSection }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState(null);
+  const sidebarRef = useRef(null);
 
-  // Close overlay when ESC key is pressed
+  // Close mobile menu when clicking outside
   useEffect(() => {
-    const handleEscKey = (e) => {
-      if (e.key === 'Escape' && isOpen) {
-        setIsOpen(false);
+    const handleClickOutside = (e) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(e.target) && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
       }
     };
-
-    window.addEventListener('keydown', handleEscKey);
-    return () => window.removeEventListener('keydown', handleEscKey);
-  }, [isOpen]);
-
-  // Prevent body scrolling when overlay is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
     
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isOpen]);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMobileMenuOpen]);
 
   const navItems = [
     { id: "hero", icon: Home, label: "Home" },
@@ -55,184 +43,176 @@ const SideNav = ({ currentSection }) => {
     { id: "explore", icon: Layers, label: "Features" },
   ];
 
+  const handleNavigation = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <>
-      {/* Floating Button */}
+      {/* Mobile Menu Toggle Button */}
       <motion.button
-        onClick={toggleMenu}
-        className="fixed right-6 top-6 z-50 w-12 h-12 rounded-full bg-[#00AEEF] text-white flex items-center justify-center shadow-lg hover:bg-[#0098d1] transition-colors"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="fixed right-6 top-6 z-50 w-12 h-12 rounded-full bg-gradient-to-r from-[#0067b5]/80 to-[#00AEEF]/80 backdrop-blur-md text-white flex items-center justify-center shadow-lg md:hidden"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
+        {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
       </motion.button>
 
-      {/* Fullscreen Overlay */}
+      {/* Desktop Glassy Side Navigation */}
+      <motion.div 
+        className="fixed left-6 top-1/2 -translate-y-1/2 z-40 hidden md:block"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+        ref={sidebarRef}
+      >
+        <div className="flex flex-col items-center gap-2">
+          {navItems.map((item, idx) => {
+            const Icon = item.icon;
+            const isActive = currentSection === item.id;
+            const isHovered = hoveredItem === item.id;
+            
+            return (
+              <motion.div
+                key={idx}
+                className="relative"
+                onMouseEnter={() => setHoveredItem(item.id)}
+                onMouseLeave={() => setHoveredItem(null)}
+                onClick={() => handleNavigation(item.id)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {/* Glassy Icon Button */}
+                <motion.div 
+                  className={`flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-md cursor-pointer shadow-lg transition-all duration-300 ${
+                    isActive 
+                      ? "bg-gradient-to-r from-[#0067b5]/80 to-[#00AEEF]/80 text-white" 
+                      : "bg-white/10 dark:bg-slate-800/30 text-slate-800 dark:text-slate-200 hover:bg-white/20 dark:hover:bg-slate-800/50"
+                  }`}
+                >
+                  <Icon size={22} />
+                  
+                  {/* Subtle Glow Effect */}
+                  {isActive && (
+                    <motion.div 
+                      className="absolute inset-0 rounded-full bg-[#00AEEF]/20 filter blur-md -z-10"
+                      animate={{ 
+                        opacity: [0.5, 0.8, 0.5],
+                        scale: [1, 1.1, 1]
+                      }}
+                      transition={{ 
+                        duration: 2, 
+                        repeat: Infinity,
+                        ease: "easeInOut" 
+                      }}
+                    />
+                  )}
+                </motion.div>
+                
+                {/* Expandable Label */}
+                <AnimatePresence>
+                  {isHovered && (
+                    <motion.div
+                      className="absolute left-14 top-1/2 -translate-y-1/2 bg-gradient-to-r from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 backdrop-blur-md px-4 py-2 rounded-lg shadow-lg min-w-[120px] border border-white/20 dark:border-slate-700/30"
+                      initial={{ opacity: 0, x: -10, width: 0 }}
+                      animate={{ opacity: 1, x: 0, width: "auto" }}
+                      exit={{ opacity: 0, x: -10, width: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="flex items-center whitespace-nowrap">
+                        <span className={`font-medium ${isActive ? "text-[#00AEEF]" : "text-slate-800 dark:text-slate-200"}`}>
+                          {item.label}
+                        </span>
+                      </div>
+                      
+                      {/* Connector Line */}
+                      <motion.div
+                        className="absolute left-[-8px] top-1/2 -translate-y-1/2 w-2 h-[2px] bg-gradient-to-r from-transparent to-white/50 dark:to-slate-600/50"
+                        layoutId={`connector-${idx}`}
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
+      </motion.div>
+
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="fixed inset-0 z-40 bg-slate-900/95 backdrop-blur-sm flex items-center justify-center"
+        {isMobileMenuOpen && (
+          <motion.div 
+            className="fixed inset-0 z-40 bg-white/10 dark:bg-slate-900/80 backdrop-blur-md md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.div 
-              className="container mx-auto px-4 py-16 w-full h-full md:h-auto"
+            <motion.div
+              className="flex flex-col h-full p-6 pt-24"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.4 }}
+              transition={{ delay: 0.1, duration: 0.3 }}
             >
-              <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 h-full md:h-auto">
-                {navItems.map((item, index) => (
-                  <FlowingMenuItem 
-                    key={item.id}
-                    item={item}
-                    index={index}
-                    isActive={currentSection === item.id}
-                    onClick={() => {
-                      document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
-                      setIsOpen(false);
-                    }}
-                  />
-                ))}
+              <div className="grid grid-cols-2 gap-4">
+                {navItems.map((item, idx) => {
+                  const Icon = item.icon;
+                  const isActive = currentSection === item.id;
+                  
+                  return (
+                    <motion.div
+                      key={idx}
+                      onClick={() => handleNavigation(item.id)}
+                      className={`flex flex-col items-center justify-center p-4 rounded-xl cursor-pointer transition-all duration-300 ${
+                        isActive 
+                          ? "bg-gradient-to-r from-[#0067b5]/30 to-[#00AEEF]/30 border border-[#00AEEF]/20" 
+                          : "bg-white/5 dark:bg-slate-800/30 border border-white/10 dark:border-slate-700/20 hover:bg-white/10 dark:hover:bg-slate-700/30"
+                      }`}
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Icon size={28} className={isActive ? "text-[#00AEEF]" : "text-slate-800 dark:text-slate-200"} />
+                      <span className={`mt-2 font-medium ${isActive ? "text-[#00AEEF]" : "text-slate-800 dark:text-slate-200"}`}>
+                        {item.label}
+                      </span>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Small indicator dots (visible when overlay is closed) */}
-      {!isOpen && (
-        <motion.div
-          className="fixed right-6 top-1/2 transform -translate-y-1/2 z-30 hidden lg:flex flex-col items-center gap-2"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-        >
-          {navItems.map((item) => (
-            <div
-              key={item.id}
-              className="w-2 h-2 rounded-full cursor-pointer transition-all duration-300 hover:scale-150"
-              style={{ 
-                backgroundColor: currentSection === item.id ? '#00AEEF' : '#94a3b8',
-              }}
-              onClick={() => {
-                document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
-              }}
-            />
-          ))}
-        </motion.div>
-      )}
-    </>
-  );
-};
-
-const FlowingMenuItem = ({ item, index, isActive, onClick }) => {
-  const itemRef = useRef(null);
-  const marqueeRef = useRef(null);
-  const marqueeInnerRef = useRef(null);
-  
-  const findClosestEdge = (mouseX, mouseY, width, height) => {
-    const topEdgeDist = Math.pow(mouseX - width / 2, 2) + Math.pow(mouseY, 2);
-    const bottomEdgeDist = Math.pow(mouseX - width / 2, 2) + Math.pow(mouseY - height, 2);
-    return topEdgeDist < bottomEdgeDist ? 'top' : 'bottom';
-  };
-
-  const handleMouseEnter = (ev) => {
-    if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
-    
-    const rect = itemRef.current.getBoundingClientRect();
-    const edge = findClosestEdge(
-      ev.clientX - rect.left,
-      ev.clientY - rect.top,
-      rect.width,
-      rect.height
-    );
-
-    // Set initial positions
-    marqueeRef.current.style.transition = 'none';
-    marqueeInnerRef.current.style.transition = 'none';
-    marqueeRef.current.style.transform = `translateY(${edge === 'top' ? '-101%' : '101%'})`;
-    marqueeInnerRef.current.style.transform = `translateY(${edge === 'top' ? '101%' : '-101%'})`;
-    
-    // Force reflow to ensure the above styles are applied before starting the animation
-    void marqueeRef.current.offsetWidth;
-    
-    // Animate in
-    marqueeRef.current.style.transition = 'transform 0.6s cubic-bezier(0.19, 1, 0.22, 1)';
-    marqueeInnerRef.current.style.transition = 'transform 0.6s cubic-bezier(0.19, 1, 0.22, 1)';
-    marqueeRef.current.style.transform = 'translateY(0%)';
-    marqueeInnerRef.current.style.transform = 'translateY(0%)';
-  };
-  
-  const handleMouseLeave = (ev) => {
-    if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
-    
-    const rect = itemRef.current.getBoundingClientRect();
-    const edge = findClosestEdge(
-      ev.clientX - rect.left,
-      ev.clientY - rect.top,
-      rect.width,
-      rect.height
-    );
-    
-    // Animate out
-    marqueeRef.current.style.transform = `translateY(${edge === 'top' ? '-101%' : '101%'})`;
-    marqueeInnerRef.current.style.transform = `translateY(${edge === 'top' ? '101%' : '-101%'})`;
-  };
-
-  const Icon = item.icon;
-
-  // Animation delay based on index
-  const delay = index * 0.1;
-
-  return (
-    <motion.div 
-      ref={itemRef}
-      className="relative cursor-pointer h-24 md:h-32 rounded-xl overflow-hidden bg-slate-800/50 border border-slate-700 flex-shrink-0"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.5 }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={onClick}
-    >
-      {/* Default state */}
-      <div className="flex flex-col items-center justify-center h-full gap-2 p-4 text-center">
-        <Icon className={`${isActive ? 'text-[#00AEEF]' : 'text-white'}`} size={28} />
-        <span className={`font-medium ${isActive ? 'text-[#00AEEF]' : 'text-white'}`}>
-          {item.label}
-        </span>
-      </div>
-      
-      {/* Marquee overlay that slides in on hover */}
-      <div 
-        ref={marqueeRef}
-        className="absolute inset-0 bg-[#00AEEF] transform translate-y-full pointer-events-none overflow-hidden"
+      {/* Section Indicator Dots - Optional Extra */}
+      <motion.div
+        className="fixed right-6 top-1/2 -translate-y-1/2 z-30 hidden lg:flex flex-col items-center gap-2"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, delay: 0.5 }}
       >
-        <div 
-          ref={marqueeInnerRef}
-          className="flex items-center h-full w-full transform"
-          style={{
-            minWidth: "250%",
-            willChange: "transform",
-            animation: "marquee 10s linear infinite"
-          }}
-        >
-          {/* Repeated content for the marquee effect */}
-          {Array.from({ length: 10 }).map((_, i) => (
-            <div key={i} className="flex items-center whitespace-nowrap mx-4">
-              <Icon className="text-slate-900 mr-2" size={24} />
-              <span className="text-slate-900 font-semibold text-lg uppercase">{item.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </motion.div>
+        {navItems.map((item, idx) => {
+          const isActive = currentSection === item.id;
+          
+          return (
+            <motion.div
+              key={idx}
+              className={`w-2 h-2 rounded-full cursor-pointer transition-all duration-300 hover:scale-150 ${
+                isActive ? "bg-[#00AEEF]" : "bg-slate-400/50 dark:bg-slate-600/50"
+              }`}
+              onClick={() => handleNavigation(item.id)}
+              whileHover={{ scale: 1.5 }}
+              whileTap={{ scale: 0.9 }}
+            />
+          );
+        })}
+      </motion.div>
+    </>
   );
 };
 

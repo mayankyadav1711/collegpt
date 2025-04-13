@@ -100,7 +100,7 @@ const Home = () => {
   return (
     <div className="font-jost bg-slate-50 text-slate-900 dark:bg-[#050a14] dark:text-white overflow-x-hidden min-h-screen relative">
       {/* Side Navigation */}
-      <SideNav currentSection={currentSection} />
+      {/* <SideNav currentSection={currentSection} /> */}
 
       {/* Main Content Sections */}
       <HeroSection ref={heroRef} notesRef={notesRef} />
