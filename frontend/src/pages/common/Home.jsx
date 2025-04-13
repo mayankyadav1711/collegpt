@@ -7,7 +7,7 @@ import PlacementSection from "../../components/home/PlacementSection";
 import HackathonSection from "../../components/home/HackathonSection";
 import GateSection from "../../components/home/GateSection";
 import ProjectsSection from "../../components/home/ProjectsSection";
-import VideosSection from "../../components/home/VideosSection";
+import YoutubeSection from "../../components/home/YoutubeSection";
 import CommunitySection from "../../components/home/CommunitySection";
 import ExploreSection from "../../components/home/ExploreSection";
 
@@ -109,7 +109,7 @@ const Home = () => {
       <HackathonSection ref={roadmapsRef} />
       <GateSection ref={gateRef} />
       <ProjectsSection ref={projectsRef} />
-      <VideosSection ref={videosRef} />
+      <YoutubeSection ref={videosRef} />
       <CommunitySection ref={communityRef} />
       <ExploreSection ref={exploreRef} />
 
