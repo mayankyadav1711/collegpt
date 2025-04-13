@@ -1,5 +1,5 @@
 // Base URL for API requests
-export const BASE_URL = "http://localhost:5001";
+export const BASE_URL = "http://localhost:5000";
 
 // Auth-related endpoints
 export const ENDPOINTS = {

@@ -22,7 +22,7 @@ export const getAllSemesters = () => {
             code: "CC103-N",
             title: "Fundamental Of Programming",
             description: "The basic programming concepts include variables, basic control structures, data structures, object-oriented programming, troubleshooting and debugging, and various programming tools. These concepts are similar across various programming languages, such as Python, C++, C, and Java.",
-            thumbnail: "/images/thumbnails/sem-1/FOP.webp",
+            thumbnail: "/images/Thumbnail/Sem-1/FOP.webp",
             totalUnits: 7,
             units: [
               { id: 1, title: "Introduction to computer" },
@@ -39,7 +39,7 @@ export const getAllSemesters = () => {
             code: "CC101-N",
             title: "Engineering Mathematics – 1",
             description: "The course consists of topics in differential calculus, integral calculus, linear algebra and differential equations with applications to various engineering problems. This course will cover the following main topics: Mean Value Theorems; Indeterminate Forms; Taylor's and Maclaurin's Theorems. Partial Derivatives; Differentiability; Taylor's Expansion of Functions of Several Variables.",
-            thumbnail: "/images/thumbnails/sem-1/Maths-1.webp",
+            thumbnail: "/images/Thumbnail/Sem-1/Maths-1.webp",
             totalUnits: 7,
             units: [
               { id: 1, title: "Differential Calculus" },
@@ -56,7 +56,7 @@ export const getAllSemesters = () => {
             code: "CC109-N",
             title: "Elements Of Civil Engineering",
             description: "The motto of the civil engineering is the 'protection of the welfare and safety of the public'. Indeed, the term civil in civil engineering refers to the discipline's involvement in public works, including government buildings, military bases, mass transit systems (i.e., highways, railways, airports, and water ways), water treatment works, waste management, irrigation etc.",
-            thumbnail: "/images/thumbnails/sem-1/EOC.webp",
+            thumbnail: "/images/Thumbnail/Sem-1/EOC.webp",
             totalUnits: 10,
             units: [
               { id: 1, title: "Introduction and Scope of Civil Engineering" },
@@ -76,7 +76,7 @@ export const getAllSemesters = () => {
             code: "CC110-N",
             title: "Engineering Graphics",
             description: "Importance of graphics in engineering applications – Use of drafting instruments – BIS conventions and specifications – Size, layout and folding of drawing sheets – Lettering and dimensioning.",
-            thumbnail: "/images/thumbnails/sem-1/EG.webp",
+            thumbnail: "/images/Thumbnail/Sem-1/EG.webp",
             totalUnits: 12,
             units: [
               { id: 1, title: "Introduction" },
@@ -98,7 +98,7 @@ export const getAllSemesters = () => {
             code: "CC107-N",
             title: "Engineering Physics",
             description: "The syllabus of Engineering Physics highlights the basic concepts of Physics and its technological applications to all branches of Engineering via ability to design and conduct experiments, as well as to analyse and interpret data.",
-            thumbnail: "/images/thumbnails/sem-1/EP.webp",
+            thumbnail: "/images/Thumbnail/Sem-1/EP.webp",
             totalUnits: 10,
             units: [
               { id: 1, title: "Ultrasonics & Architectural Acoustic" },
@@ -118,7 +118,7 @@ export const getAllSemesters = () => {
             code: "UE101",
             title: "Environmental Science",
             description: "To create awareness, acquire knowledge such that students manage their society properly inculcate skills for identifying problems associated with environment and develop ability to evaluate participate in environmental protection activities that is helpful to all living things.",
-            thumbnail: "/images/thumbnails/sem-1/ES.webp",
+            thumbnail: "/images/Thumbnail/Sem-1/ES.webp",
             totalUnits: 5,
             units: [
               { id: 1, title: "Introduction to environment, Ecology and Ecosystem" },
@@ -139,7 +139,7 @@ export const getAllSemesters = () => {
             code: "CC111-N",
             title: "Object Oriented Programming Using 'C++'",
             description: "To make the students think in the direction of providing alternative option to procedural programming languages. To understand the importance of data over process.",
-            thumbnail: "/images/thumbnails/sem-2/OOPC.webp",
+            thumbnail: "/images/Thumbnail/Sem-2/OOPC.webp",
             totalUnits: 10,
             units: [
               { id: 1, title: "Elaborated understanding of Essentials C Programming" },
@@ -159,7 +159,7 @@ export const getAllSemesters = () => {
             code: "CC201-N",
             title: "Engineering Mathematics – 2",
             description: "To present the foundations of many basic Mathematical tools and concepts related Engineering. To provide a coherent development to the students for the courses of various branches of Engineering like Control Theory, Circuits and Networks, Digital Logic design, Fluid Mechanics, Machine Design etc.",
-            thumbnail: "/images/thumbnails/sem-2/Maths-2.webp",
+            thumbnail: "/images/Thumbnail/Sem-2/Maths-2.webp",
             totalUnits: 7,
             units: [
               { id: 1, title: "Matrix Theory and Application of Matrices" },
@@ -176,7 +176,7 @@ export const getAllSemesters = () => {
             code: "CC102-N",
             title: "Basic Electrical and Electronics Engineering",
             description: "To present a problem oriented introductory knowledge of Electrical Engineering Fundamentals. To focus on the study of electrical parameters & different engineering application based principles.",
-            thumbnail: "/images/thumbnails/sem-2/BEEE.webp",
+            thumbnail: "/images/Thumbnail/Sem-2/BEEE.webp",
             totalUnits: 8,
             units: [
               { id: 1, title: "An Introduction to D.C. Circuits" },
@@ -194,7 +194,7 @@ export const getAllSemesters = () => {
             code: "CC104-N",
             title: "Fundamental Of Mechanical Engineering",
             description: "To present a problem oriented introductory knowledge of Fundamentals of Mechanical Engineering. To address the underlying concepts and methods behind mechanical engineering.",
-            thumbnail: "/images/thumbnails/sem-2/FME.webp",
+            thumbnail: "/images/Thumbnail/Sem-2/FME.webp",
             totalUnits: 15,
             units: [
               { id: 1, title: "Introduction" },
@@ -219,7 +219,7 @@ export const getAllSemesters = () => {
             code: "CC106-N",
             title: "Business communication and presentation skills",
             description: "To enhance learners communication skills in both social and professional contexts. Employ principles of effective group communication to increase open participation, and strengthen decision making in work groups and teams.",
-            thumbnail: "/images/thumbnails/sem-2/BCPS.webp",
+            thumbnail: "/images/Thumbnail/Sem-2/BCPS.webp",
             totalUnits: 13,
             units: [
               { id: 1, title: "Coming Soon" },
@@ -242,7 +242,7 @@ export const getAllSemesters = () => {
             code: "CC105-N",
             title: "Workshop",
             description: "To introduce hardware and software Computers Basics. Use of Laboratory instrument such as Multimeter, Function generator, Power supply, CRO etc.",
-            thumbnail: "/images/thumbnails/sem-2/WORKSHOP.webp",
+            thumbnail: "/images/Thumbnail/Sem-2/WORKSHOP.webp",
             totalUnits: 3,
             units: [
               { id: 1, title: "Coming Soon" },
@@ -255,7 +255,7 @@ export const getAllSemesters = () => {
             code: "IICT",
             title: "Introduction To Information & Communication Technology",
             description: "An introduction to the fundamentals of information and communication technology, covering basic concepts and applications.",
-            thumbnail: "/images/thumbnails/sem-2/IICT.webp",
+            thumbnail: "/images/Thumbnail/Sem-2/IICT.webp",
             totalUnits: 1,
             units: [
               { id: 1, title: "Coming Soon" }
@@ -274,7 +274,7 @@ export const getAllSemesters = () => {
         code: "CT303-N",
         title: "Data Structures & Algorithms",
         description: "To introduce the fundamentals of data structures, abstract concepts and how these concepts are useful in problem solving. To learn to develop algorithms and step by step approach to solve various problems.",
-        thumbnail: "/images/thumbnails/sem-3/DSA.webp",
+        thumbnail: "/images/Thumbnail/Sem-3/DSA.webp",
         totalUnits: 6,
         units: [
           { id: 1, title: "Introduction" },
@@ -290,7 +290,7 @@ export const getAllSemesters = () => {
         code: "CC302B-N",
         title: "Discrete Mathematics - 3",
         description: "1. Use mathematically correct terminology and notation. 2. Construct correct direct and indirect proofs. 3. Use division into cases in a proof. 4. Use counterexamples. 5. Apply logical reasoning to solve a variety of problems.",
-        thumbnail: "/images/thumbnails/sem-3/Maths-3.webp",
+        thumbnail: "/images/Thumbnail/Sem-3/Maths-3.webp",
         totalUnits: 5,
         units: [
           { id: 1, title: "Set, Relation & Function" },
@@ -305,7 +305,7 @@ export const getAllSemesters = () => {
         code: "CT306-N",
         title: "Database Management Systems",
         description: "To understand the different issues involved in the design and implementation of a database system. To design and build a simple database system and demonstrate competence with the fundamental tasks involved with modeling, designing, and implementing a DBMS.",
-        thumbnail: "/images/thumbnails/sem-3/DBMS.webp",
+        thumbnail: "/images/Thumbnail/Sem-3/DBMS.webp",
         totalUnits: 9,
         units: [
           { id: 1, title: "Database System Architecture" },
@@ -324,7 +324,7 @@ export const getAllSemesters = () => {
         code: "CT304-N",
         title: "Digital Electronics",
         description: "Develop understanding of number systems and Boolean algebra. Understand the functioning of logic gates, their implementation and verification of truth tables.",
-        thumbnail: "/images/thumbnails/sem-3/DE.webp",
+        thumbnail: "/images/Thumbnail/Sem-3/DE.webp",
         totalUnits: 7,
         units: [
           { id: 1, title: "Number Systems and Codes" },
@@ -341,7 +341,7 @@ export const getAllSemesters = () => {
         code: "CT305-N",
         title: "IT Workshop",
         description: "Develop understanding of number systems and Boolean algebra. Understand the functioning of logic gates, their implementation and verification of truth tables.",
-        thumbnail: "/images/thumbnails/sem-3/ITW.webp",
+        thumbnail: "/images/Thumbnail/Sem-3/ITW.webp",
         totalUnits: 7,
         units: [
           { id: 1, title: "Introduction to WWW" },
@@ -366,7 +366,7 @@ export const getAllSemesters = () => {
         code: "CT405-N",
         title: "Object Oriented Programming Using Java",
         description: "To understand the concepts of object-oriented programming through Java and develop skills in applying these concepts to build robust applications.",
-        thumbnail: "/images/thumbnails/sem-4/OOPJ.webp",
+        thumbnail: "/images/Thumbnail/Sem-4/OOPJ.webp",
         totalUnits: 8,
         units: [
           { id: 1, title: "Introduction to Java" },
@@ -384,7 +384,7 @@ export const getAllSemesters = () => {
         code: "CC401-N",
         title: "Probability, Statistics and Numerical Methods",
         description: "To introduce fundamental concepts of probability, statistics and numerical methods with applications to engineering problems.",
-        thumbnail: "/images/thumbnails/sem-4/Maths-41.webp",
+        thumbnail: "/images/Thumbnail/Sem-4/Maths-41.webp",
         totalUnits: 7,
         units: [
           { id: 1, title: "Random Variables" },
@@ -401,7 +401,7 @@ export const getAllSemesters = () => {
         code: "CT404-N",
         title: "Operating Systems",
         description: "To understand the fundamentals of operating systems including process management, memory management, and file systems.",
-        thumbnail: "/images/thumbnails/sem-4/OS.webp",
+        thumbnail: "/images/Thumbnail/Sem-4/OS.webp",
         totalUnits: 7,
         units: [
           { id: 1, title: "Introduction" },
@@ -418,7 +418,7 @@ export const getAllSemesters = () => {
         code: "CT403-N",
         title: "Computer Organization & Architecture",
         description: "To understand the organization and architecture of modern computer systems including CPU, memory, and I/O subsystems.",
-        thumbnail: "/images/thumbnails/sem-4/COA.webp",
+        thumbnail: "/images/Thumbnail/Sem-4/COA.webp",
         totalUnits: 6,
         units: [
           { id: 1, title: "Overview of Register Transfer and Micro-operations" },
@@ -434,7 +434,7 @@ export const getAllSemesters = () => {
         code: "CC301-N",
         title: "Principles of Management",
         description: "To understand key management principles and functions including planning, organizing, leading, and controlling in various organizational contexts.",
-        thumbnail: "/images/thumbnails/sem-4/POM.webp",
+        thumbnail: "/images/Thumbnail/Sem-4/POM.webp",
         totalUnits: 5,
         units: [
           { id: 1, title: "Introduction to Management and Organizations" },
@@ -456,7 +456,7 @@ export const getAllSemesters = () => {
         code: "CT506A-N",
         title: "Advanced Java Programming",
         description: "To build on the knowledge of Java programming and develop skills in advanced Java technologies including GUI, networking, database access, and web development.",
-        thumbnail: "/images/thumbnails/sem-5/AJP.webp",
+        thumbnail: "/images/Thumbnail/Sem-5/AJP.webp",
         totalUnits: 7,
         units: [
           { id: 1, title: "Swing" },
@@ -473,7 +473,7 @@ export const getAllSemesters = () => {
         code: "CE504-N",
         title: "Design & Analysis of Algorithms",
         description: "To understand the principles and techniques used in algorithm design and analysis, including time and space complexity analysis and various algorithm design paradigms.",
-        thumbnail: "/images/thumbnails/sem-5/DAA.webp",
+        thumbnail: "/images/Thumbnail/Sem-5/DAA.webp",
         totalUnits: 8,
         units: [
           { id: 1, title: "Basics of Algorithms & Mathematics" },
@@ -492,7 +492,7 @@ export const getAllSemesters = () => {
         code: "CT501-N",
         title: "Software Engineering",
         description: "To understand the fundamental principles and methodologies of software engineering, including requirements analysis, design, testing, and project management.",
-        thumbnail: "/images/thumbnails/sem-5/SE.webp",
+        thumbnail: "/images/Thumbnail/Sem-5/SE.webp",
         totalUnits: 10,
         units: [
           { id: 1, title: "Software and Software Engineering" },
@@ -512,7 +512,7 @@ export const getAllSemesters = () => {
         code: "CE503-N",
         title: "Theory of Computation",
         description: "To understand the fundamental principles of computer science including automata theory, formal languages, and computability.",
-        thumbnail: "/images/thumbnails/sem-5/TOC.webp",
+        thumbnail: "/images/Thumbnail/Sem-5/TOC.webp",
         totalUnits: 8,
         units: [
           { id: 1, title: "Introduction" },
@@ -530,7 +530,7 @@ export const getAllSemesters = () => {
         code: "CE505-N",
         title: "Computer Networks",
         description: "To understand the principles and architectures of computer networks, including protocols, architectures, and technologies that enable network communication.",
-        thumbnail: "/images/thumbnails/sem-5/CN.webp",
+        thumbnail: "/images/Thumbnail/Sem-5/CN.webp",
         totalUnits: 7,
         units: [
           { id: 1, title: "Overview of Networks and Data Communications" },
@@ -547,7 +547,7 @@ export const getAllSemesters = () => {
         code: "CE502-N",
         title: "Microprocessor Architecture and Programming",
         description: "To understand the architecture and programming of microprocessors, including memory systems, I/O interfaces, and assembly language programming.",
-        thumbnail: "/images/thumbnails/sem-5/MAP.webp",
+        thumbnail: "/images/Thumbnail/Sem-5/MAP.webp",
         totalUnits: 7,
         units: [
           { id: 1, title: "Introduction of 8085/80x86/8088" },
@@ -564,7 +564,7 @@ export const getAllSemesters = () => {
         code: "IT506F-N",
         title: "Python Programming",
         description: "The course is designed to provide understanding of the basic components of computer programming using the Python language – and might be a gentle introduction to programming for those who think they might have a longer term interest in the subject area.",
-        thumbnail: "/images/thumbnails/sem-5/Python.webp",
+        thumbnail: "/images/Thumbnail/Sem-5/Python.webp",
         totalUnits: 6,
         units: [
           { id: 1, title: "Introduction to Python Programming Language" },
@@ -580,7 +580,7 @@ export const getAllSemesters = () => {
         code: "IT502-N",
         title: "Service Oriented Architecture",
         description: "This course provides a comprehensive overview of service orientation principles, covering fundamental concepts, analysis techniques, and underlying technologies. Participants delve into advanced topics such as service composition, orchestration, and choreography, while exploring various WS-* specification standards.",
-        thumbnail: "/images/thumbnails/sem-5/SOA.webp",
+        thumbnail: "/images/Thumbnail/Sem-5/SOA.webp",
         totalUnits: 6,
         units: [
           { id: 1, title: "Introduction To distributed Computing and SOA" },
@@ -604,7 +604,7 @@ export const getAllSemesters = () => {
         code: "CT601-N",
         title: "Artificial Intelligence",
         description: "The search and problem solving methods are applicable throughout a large range of industrial, civil, medical, financial, robotic, and information systems.",
-        thumbnail: "/images/thumbnails/sem-6/AI.webp",
+        thumbnail: "/images/Thumbnail/Sem-6/AI.webp",
         totalUnits: 8,
         units: [
           { id: 1, title: "Introduction" },
@@ -622,7 +622,7 @@ export const getAllSemesters = () => {
         code: "CE602-N",
         title: "Python Programming",
         description: "The course is designed to provide Basic knowledge of Python. Python programming is intended for software engineers, system analysts, program managers and user support personnel who wish to learn the Python programming language.",
-        thumbnail: "/images/thumbnails/sem-6/pyp.webp",
+        thumbnail: "/images/Thumbnail/Sem-6/pyp.webp",
         totalUnits: 6,
         units: [
           { id: 1, title: "Introduction to Python Programming Language" },
@@ -638,7 +638,7 @@ export const getAllSemesters = () => {
         code: "CE603-N",
         title: "Cryptography and Network Security",
         description: "The course is intended to familiarize the student to the domain of information and network security. After introducing the basics of cryptography and security along with the essential mathematical background, the course aims to elaborate the understanding of various cryptographic primitives such as symmetric/asymmetric key encryption, hash, MAC, key management, digital signature etc. Together with the various attacks, the course also includes few modern security protocols.",
-        thumbnail: "/images/thumbnails/sem-6/cns.webp",
+        thumbnail: "/images/Thumbnail/Sem-6/cns.webp",
         totalUnits: 8,
         units: [
           { id: 1, title: "Introduction" },
@@ -656,7 +656,7 @@ export const getAllSemesters = () => {
         code: "CT604E-N",
         title: "Machine Learning",
         description: "Machine learning concerns with designing and developing of algorithms that allow machines, essentially computers, to evolve realistic or human like behavior based on the empirical data available. This course aims to discuss the building blocks of Computer vision and Natural Language Processing problems and provide an overview of the machine leaning and advance topics.",
-        thumbnail: "/images/thumbnails/sem-6/ml.webp",
+        thumbnail: "/images/Thumbnail/Sem-6/ml.webp",
         totalUnits: 10,
         units: [
           { id: 1, title: "Introduction" },
@@ -677,7 +677,7 @@ export const getAllSemesters = () => {
         code: "CT604A-N",
         title: "Android Programming",
         description: "An Android technology is generally used in mobile system, where android is an open source technology. This technology is used for mobile application development. Using android technology, student can make own mobile applications and upload easily on mobile devices.",
-        thumbnail: "/images/thumbnails/sem-6/ap.webp",
+        thumbnail: "/images/Thumbnail/Sem-6/ap.webp",
         totalUnits: 9,
         units: [
           { id: 1, title: "Introduction to Android" },
@@ -696,7 +696,7 @@ export const getAllSemesters = () => {
         code: "CE605D-N",
         title: "Internet of Things",
         description: "The aim of this course is to make students aware about 'Internet of Things'-IOT, which is an emerging technology through which all the manual process is to be converted in to system operated process and also integrates with the business.",
-        thumbnail: "/images/thumbnails/sem-6/iot.webp",
+        thumbnail: "/images/Thumbnail/Sem-6/iot.webp",
         totalUnits: 7,
         units: [
           { id: 1, title: "Introduction to IoT" },
@@ -714,7 +714,7 @@ export const getAllSemesters = () => {
         code: "CT605A-N",
         title: "Soft Computing",
         description: "Soft computing is an emerging approach to computing which parallel the remarkable ability of the human mind to reason and learn in an environment of uncertainty and imprecision. Soft computing is based on some biological inspired methodologies such as genetics, evolution, ant's behaviors, particles swarming, human nervous systems, etc.",
-        thumbnail: "/images/thumbnails/sem-6/sc.webp",
+        thumbnail: "/images/Thumbnail/Sem-6/sc.webp",
         totalUnits: 7,
         units: [
           { id: 1, title: "Introduction of Soft computing and Hard computing" },
@@ -731,7 +731,7 @@ export const getAllSemesters = () => {
         code: "IT602-N",
         title: "Information Security",
         description: "The course is intended to familiarize the student to the domain of information and network security. After introducing the basics of cryptography and security along with the essential mathematical background, the course aims to elaborate the understanding of various cryptographic primitives such as symmetric/asymmetric key encryption, hash, MAC, key management, digital signature etc.",
-        thumbnail: "/images/thumbnails/sem-6/is.webp",
+        thumbnail: "/images/Thumbnail/Sem-6/is.webp",
         totalUnits: 7,
         units: [
           { id: 1, title: "Introduction" },
@@ -748,7 +748,7 @@ export const getAllSemesters = () => {
         code: "IT603-N",
         title: "Data Compression",
         description: "To introduce students to basic applications, concepts, and techniques of Data Compression. To develop skills for using recent data compression software to solve practical problems in a variety of disciplines. To gain experience doing independent study and research.",
-        thumbnail: "/images/thumbnails/sem-6/dc.webp",
+        thumbnail: "/images/Thumbnail/Sem-6/dc.webp",
         totalUnits: 8,
         units: [
           { id: 1, title: "Compression Techniques" },
@@ -766,7 +766,7 @@ export const getAllSemesters = () => {
         code: "IT605G-N",
         title: "E-Commerce and E-Business",
         description: "Define E-Marketplaces and list their components. List the Major types of Electronic Markets and describe their features. Describe the types Of Intermediaries in EC and their roles. Describe electronic Catalogs, Shopping carts, and search Engines. Describe the various types of Auctions and list their characteristics.",
-        thumbnail: "/images/thumbnails/sem-6/ecom.webp",
+        thumbnail: "/images/Thumbnail/Sem-6/ecom.webp",
         totalUnits: 8,
         units: [
           { id: 1, title: "Introduction to E-Business and E-Commerce" },

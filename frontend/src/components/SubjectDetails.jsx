@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { getSemester, getSubject } from "../data/coursedata";
-import { BookOpen, ArrowLeft, Bookmark, Share2, Download } from "lucide-react";
+import { 
+  BookOpen, 
+  ArrowLeft, 
+  FileText,
+  Clock,
+  ChevronRight,
+  Layers,
+  GraduationCap
+} from "lucide-react";
 
 const SubjectDetails = () => {
   const { semesterId, subjectId } = useParams();
@@ -97,7 +105,7 @@ const SubjectDetails = () => {
       {/* Back Button */}
       <div className="mb-6">
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/courses')}
           className="flex items-center text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition-colors"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
@@ -152,21 +160,37 @@ const SubjectDetails = () => {
               {subject.description}
             </p>
             
-            <div className="flex flex-wrap gap-3">
-              <button className="inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
-                <Bookmark className="w-4 h-4 mr-2" />
-                <span>Save Subject</span>
-              </button>
+            {/* Stats Row */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+              <div className="flex items-center">
+                <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-500 dark:text-blue-400 mr-3">
+                  <Layers className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-sm text-slate-500 dark:text-slate-400">Total Units</div>
+                  <div className="font-semibold text-slate-900 dark:text-white">{subject.totalUnits}</div>
+                </div>
+              </div>
               
-              <button className="inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
-                <Share2 className="w-4 h-4 mr-2" />
-                <span>Share</span>
-              </button>
+              <div className="flex items-center">
+                <div className="w-10 h-10 rounded-full bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-500 dark:text-green-400 mr-3">
+                  <Clock className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-sm text-slate-500 dark:text-slate-400">Est. Duration</div>
+                  <div className="font-semibold text-slate-900 dark:text-white">{subject.totalUnits * 1.5} hrs</div>
+                </div>
+              </div>
               
-              <button className="inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
-                <Download className="w-4 h-4 mr-2" />
-                <span>Download Materials</span>
-              </button>
+              <div className="flex items-center col-span-2 md:col-span-1">
+                <div className="w-10 h-10 rounded-full bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-purple-500 dark:text-purple-400 mr-3">
+                  <GraduationCap className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-sm text-slate-500 dark:text-slate-400">Level</div>
+                  <div className="font-semibold text-slate-900 dark:text-white">Undergraduate</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -176,50 +200,75 @@ const SubjectDetails = () => {
       <div className="mb-8">
         <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center">
           <BookOpen className="w-6 h-6 mr-2 text-brand-500" />
-          <span>Unit List</span>
+          <span>Course Content</span>
         </h2>
         
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-          variants={staggerContainer}
+          className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700"
+          variants={fadeIn}
           initial="hidden"
           animate="visible"
         >
           {subject.units && Array.isArray(subject.units) ? (
-            subject.units.map((unit, index) => (
-              <motion.div 
-                key={index}
-                variants={fadeIn}
-                className="relative group"
-              >
-                <Link to={`/semester/${semesterId}/${subjectId}/unit/${unit.id}`}>
-                  <div className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow hover:shadow-md transition-shadow border border-slate-200 dark:border-slate-700 p-4 h-full">
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center text-brand-500 dark:text-brand-400 font-bold">
-                        {unit.id}
-                      </div>
-                      
-                      <div className="flex-1">
-                        <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors">
+            <div className="divide-y divide-slate-200 dark:divide-slate-700">
+              {subject.units.map((unit, index) => (
+                <Link 
+                  key={index}
+                  to={`/semester/${semesterId}/subject/${subjectId}/unit/${unit.id}`}
+                  className="block transition-colors hover:bg-slate-50 dark:hover:bg-slate-700/50"
+                >
+                  <div className="p-4 sm:p-5 flex items-center">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center text-brand-500 dark:text-brand-400 font-bold mr-4">
+                      {unit.id}
+                    </div>
+                    
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-lg font-medium text-slate-900 dark:text-white truncate pr-4">
                           {unit.title}
                         </h3>
-                        
-                        <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-                          Click to view content
-                        </div>
+                        <ChevronRight className="w-5 h-5 text-slate-400 dark:text-slate-500 flex-shrink-0" />
+                      </div>
+                      
+                      <div className="mt-1 flex items-center text-sm text-slate-500 dark:text-slate-400">
+                        <FileText className="w-4 h-4 mr-1.5" />
+                        <span>Learning Material Available</span>
                       </div>
                     </div>
                   </div>
                 </Link>
-              </motion.div>
-            ))
+              ))}
+            </div>
           ) : (
-            <div className="col-span-full text-center py-8">
-              <p className="text-slate-600 dark:text-slate-300">No units found for this subject.</p>
+            <div className="p-8 text-center">
+              <div className="w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-400 dark:text-slate-500 mx-auto mb-4">
+                <FileText className="w-8 h-8" />
+              </div>
+              <p className="text-slate-600 dark:text-slate-300 mb-2">No units found for this subject.</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Content may be added soon.</p>
             </div>
           )}
         </motion.div>
       </div>
+      
+      {/* Call to Action */}
+      <motion.div 
+        className="bg-gradient-to-r from-brand-500 to-brand-600 rounded-xl p-6 text-white text-center shadow-lg mb-6"
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
+      >
+        <h3 className="text-xl font-bold mb-2">Ready to start learning?</h3>
+        <p className="mb-4 opacity-90">Begin with the first unit and track your progress as you go.</p>
+        {subject.units && subject.units.length > 0 && (
+          <Link 
+            to={`/semester/${semesterId}/subject/${subjectId}/unit/${subject.units[0].id}`}
+            className="inline-block px-6 py-3 bg-white text-brand-600 font-medium rounded-lg hover:bg-opacity-95 transition-colors"
+          >
+            Start First Unit
+          </Link>
+        )}
+      </motion.div>
     </div>
   );
 };

@@ -13,9 +13,12 @@ import {
   Bookmark,
   ChevronLeft,
   ChevronRight,
-  FileText
+  FileText,
+  AlertCircle,
+  User
 } from "lucide-react";
 import toast from 'react-hot-toast';
+import { ENDPOINTS, fetchWithAuth, generatePdfCode as apiGeneratePdfCode } from "../api/api";
 
 const UnitContent = () => {
   // Use the AppContext instead of UserContext
@@ -40,8 +43,8 @@ const UnitContent = () => {
   const [downloadTimer, setDownloadTimer] = useState(30);
   const [doubt, setDoubt] = useState("");
 
-// Generate PDF code from semester, subject, and unit
-const generatePdfCode = (sem, subjectId, unitId) => {
+  // Generate PDF code from semester, subject, and unit
+  const generatePdfCode = (sem, subjectId, unitId) => {
     // Get the numeric subject index from the semester data
     let subjectIndex = null;
     
@@ -73,6 +76,7 @@ const generatePdfCode = (sem, subjectId, unitId) => {
       return `${sem}${subjectIndex}${unitId}`;
     }
   };
+
   useEffect(() => {
     // Fetch data
     const fetchData = async () => {
@@ -108,31 +112,29 @@ const generatePdfCode = (sem, subjectId, unitId) => {
           } else {
             setNextUnit(null);
           }
-
+  
           // Generate the PDF code
-          // Generate the PDF code
-const pdfCode = generatePdfCode(semesterId, subjectId, unitId);
-console.log("Generated PDF code:", pdfCode); // Add this to debug
-
-// Fetch PDF data using the code
-try {
-  const response = await fetch(`https://api-collegpt.vercel.app/pdf-forms/${pdfCode}`);
-  const data = await response.json();
-
-  if (response.ok) {
-    const pdfPreviewUrl = `${data.link.replace('/view?usp=drive_link', '/preview')}`;
-    setPdfDownloadLink(data.link);
-    setPdfFilePath(pdfPreviewUrl);
-    setAuthor(data.author);
-    setDescription(data.description);
-    setExtra(data.extra);
-    setUploadTimestamp(new Date(data.timestamp).toLocaleString());
-  } else {
-    console.error("Error fetching PDF link:", data.error);
-  }
-} catch (error) {
-  console.error("Error fetching PDF link:", error);
-}
+          const pdfCode = generatePdfCode(semesterId, subjectId, unitId);
+          console.log("Generated PDF code:", pdfCode); // Add this to debug
+  
+          // Fetch PDF data using the code
+          try {
+            const data = await fetchWithAuth(ENDPOINTS.GET_PDF_BY_CODE(pdfCode));
+            
+            if (data) {
+              const pdfPreviewUrl = `${data.link.replace('/view?usp=drive_link', '/preview')}`;
+              setPdfDownloadLink(data.link);
+              setPdfFilePath(pdfPreviewUrl);
+              setAuthor(data.author);
+              setDescription(data.description);
+              setExtra(data.extra);
+              setUploadTimestamp(new Date(data.timestamp).toLocaleString());
+            } else {
+              console.error("Error fetching PDF link: No data returned");
+            }
+          } catch (error) {
+            console.error("Error fetching PDF link:", error);
+          }
         }
       } catch (error) {
         console.error("Error in data fetching:", error);
@@ -180,13 +182,9 @@ try {
     };
 
     try {
-      const response = await fetch("https://api-collegpt.vercel.app/doubt", {
+      const response = await fetchWithAuth(ENDPOINTS.SUBMIT_DOUBT, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData)
       });
 
       if (response.ok) {
@@ -236,7 +234,7 @@ try {
       {/* Back Button */}
       <div className="mb-6">
         <Link
-          to={`/semester/${semesterId}/subject/${subjectId}`}
+          to={`/semester/${semesterId}/${subjectId}`}
           className="flex items-center text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition-colors"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
@@ -253,200 +251,243 @@ try {
           animate="visible"
           variants={fadeIn}
         >
-          {/* PDF Viewer */}
-          {pdfFilePath ? (
-            <div className="mt-4 flex justify-center items-center">
-              <iframe
-                src={pdfFilePath}
-                width="100%"
-                height="590"
-                className="rounded-xl"
-                title="PDF Viewer"
-                sandbox="allow-scripts allow-same-origin"
-              />
-            </div>
-          ) : (
-            <div className="bg-slate-900 aspect-video rounded-xl overflow-hidden shadow-lg mb-6 relative flex items-center justify-center">
-              <div className="text-white text-center">
-                <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-4">
-                  <FileText className="w-10 h-10" />
-                </div>
-                <p className="text-lg font-medium">PDF not available for this unit</p>
-              </div>
-            </div>
-          )}
-          
-          {/* Download Button */}
-          {pdfFilePath && (
-            <div className="flex mb-8 lg:mb-16 space-y-4 sm:flex-row justify-center sm:space-y-0 sm:space-x-4">
-              <button 
-                onClick={handleDownloadClick} 
-                disabled={downloadTimer !== 0} 
-                className="text-lg inline-flex justify-center items-center py-3 px-5 font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 disabled:opacity-70 disabled:cursor-not-allowed"
-              >
-                {downloadTimer === 0 ? "Download" : `Please wait ${downloadTimer} seconds`}
-                <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
-                </svg>
-              </button>
-            </div>
-          )}
-          
-          {/* Unit Content */}
-          <div className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 mb-8">
-            <div className="p-6">
-              <h1 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 flex items-center">
-                <span className="bg-brand-100 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-bold">
-                  {unit.id}
-                </span>
-                {unit.title}
-              </h1>
-              
-              <div className="flex flex-wrap gap-2 mb-6">
-                <span className="px-2.5 py-1 bg-brand-100 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 text-xs font-medium rounded-full">
-                  {subject.code}
-                </span>
-                <span className="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-full">
-                  Unit {unit.id} of {subject.totalUnits}
-                </span>
-              </div>
-              
-              {/* Display the author information */}
-              {author && (
-                <div className="watch-video">
-                  <div className="video-container">
-                    <div className="tutor">
-                      <img src={extra || "https://api.dicebear.com/7.x/initials/svg?seed=" + author} alt={author} />
-                      <div>
-                        <h3>{author}</h3>
-                        <span>Author</span>
-                      </div>
-                    </div>
-                    <p className="description">{description}</p>
-                    {uploadTimestamp && (
-                      <div className="info">
-                        <p className="date">
-                          <i className="fas fa-calendar"></i>
-                          <span>{uploadTimestamp}</span>
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-              
-              {/* If no author/description from the API, show default content */}
-              {!author && !description && (
-                <div className="prose dark:prose-invert max-w-none">
-                  <p>
-                    This is the learning content for {unit.title} in {subject.title}. 
-                    In your actual implementation, this would contain the full learning materials 
-                    including text content, images, code examples, and other interactive elements.
-                  </p>
-                  
-                  <p>
-                    The content can be loaded dynamically from your backend or stored in a structured 
-                    format in your frontend data store, allowing for rich educational experiences.
-                  </p>
-                  
-                  <h2>Key Learning Objectives</h2>
-                  <ul>
-                    <li>Understand the fundamental concepts of {unit.title}</li>
-                    <li>Apply theoretical knowledge to practical problems</li>
-                    <li>Analyze related case studies and examples</li>
-                    <li>Develop critical thinking skills in this domain</li>
-                  </ul>
-                  
-                  <h2>Additional Resources</h2>
-                  <p>
-                    You can download supplementary materials like PDFs, presentations, and 
-                    code samples using the download button in the sidebar.
-                  </p>
-                </div>
-              )}
-            </div>
-            
-            {/* Action Bar */}
-            <div className="border-t border-slate-200 dark:border-slate-700 p-4 flex flex-wrap gap-4 items-center justify-between">
-              <div className="flex items-center gap-4">
-                <button className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition-colors">
-                  <ThumbsUp className="w-5 h-5 mr-1" />
-                  <span>Helpful</span>
-                </button>
+          {/* Unit Title and Badge Section - Added above PDF */}
+          <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 mb-6 p-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h1 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center">
+                  <span className="bg-brand-100 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-bold">
+                    {unit.id}
+                  </span>
+                  {unit.title}
+                </h1>
                 
-                <button className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition-colors">
-                  <MessageSquare className="w-5 h-5 mr-1" />
-                  <span>Comment</span>
-                </button>
-                
-                <button className="inline-flex items-center text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition-colors">
-                  <Bookmark className="w-5 h-5 mr-1" />
-                  <span>Save</span>
-                </button>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  <span className="px-2.5 py-1 bg-brand-100 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 text-xs font-medium rounded-full">
+                    {subject.code}
+                  </span>
+                  <span className="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-full">
+                    Unit {unit.id} of {subject.totalUnits}
+                  </span>
+                </div>
               </div>
               
               {pdfDownloadLink && (
-                <div>
-                  <button 
-                    onClick={handleDownloadClick}
-                    disabled={downloadTimer !== 0}
-                    className="inline-flex items-center px-4 py-2 bg-brand-500 hover:bg-brand-600 text-white rounded-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
-                  >
-                    <Download className="w-4 h-4 mr-2" />
-                    <span>{downloadTimer === 0 ? "Download Materials" : `Wait ${downloadTimer}s`}</span>
-                  </button>
-                </div>
+                <button 
+                  onClick={handleDownloadClick} 
+                  disabled={downloadTimer !== 0} 
+                  className="inline-flex items-center px-4 py-2 bg-brand-500 hover:bg-brand-600 text-white rounded-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed shrink-0"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  <span>{downloadTimer === 0 ? "Download PDF" : `Wait ${downloadTimer}s`}</span>
+                </button>
               )}
             </div>
           </div>
           
-          {/* Doubt Submission Form */}
-          <section className="comments mb-8">
-            <form onSubmit={handleSubmitDoubt} className="add-comment">
-              <h3>Any Doubts?</h3>
-              <textarea
-                name="doubt"
-                placeholder="Enter your doubts..."
-                required
-                maxLength="1000"
-                cols="30"
-                rows="10"
-                value={doubt}
-                onChange={(e) => setDoubt(e.target.value)}
-              ></textarea>
-              <input
-                type="submit"
-                value="Submit"
-                className="inline-btn"
-                name="submit_doubt"
-              />
-            </form>
-          </section>
+          {/* PDF Viewer */}
+          {pdfFilePath ? (
+            <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 mb-6 p-4">
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center">
+                <FileText className="w-5 h-5 mr-2 text-brand-500" />
+                Learning Material
+              </h2>
+              <div className="flex justify-center items-center">
+                <iframe
+                  src={pdfFilePath}
+                  width="100%"
+                  height="590"
+                  className="rounded-xl"
+                  title="PDF Viewer"
+                  sandbox="allow-scripts allow-same-origin"
+                />
+              </div>
+            </div>
+          ) : (
+            <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 mb-6 p-4">
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center">
+                <FileText className="w-5 h-5 mr-2 text-brand-500" />
+                Learning Material
+              </h2>
+              <div className="bg-slate-100 dark:bg-slate-700/50 aspect-video rounded-xl overflow-hidden relative flex items-center justify-center">
+                <div className="text-slate-700 dark:text-slate-300 text-center">
+                  <div className="w-16 h-16 rounded-full bg-slate-200 dark:bg-slate-600 flex items-center justify-center mx-auto mb-4">
+                    <FileText className="w-8 h-8" />
+                  </div>
+                  <p className="text-lg font-medium">PDF not available for this unit</p>
+                </div>
+              </div>
+            </div>
+          )}
+          
+          {/* Content Information Card - Redesigned Author Section */}
+          {author && (
+            <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 mb-6 overflow-hidden">
+              <div className="p-5">
+                <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center">
+                  <User className="w-5 h-5 mr-2 text-brand-500" />
+                  Content Information
+                </h2>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  {/* Author Profile */}
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-slate-100 dark:bg-slate-700 flex items-center justify-center">
+                      {extra ? (
+                        <img 
+                          src={extra} 
+                          alt={author} 
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = `https://api.dicebear.com/7.x/initials/svg?seed=${author}`;
+                          }}
+                        />
+                      ) : (
+                        <img 
+                          src={`https://api.dicebear.com/7.x/initials/svg?seed=${author}`} 
+                          alt={author} 
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                    </div>
+                  </div>
+                  
+                  {/* Author Details */}
+                  <div className="flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-1">
+                      <h3 className="text-slate-900 dark:text-white font-medium text-lg">{author}</h3>
+                      <span className="text-xs bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-400 px-2 py-0.5 rounded-full">Author</span>
+                    </div>
+                    
+                    {description && (
+                      <p className="text-slate-600 dark:text-slate-300 text-sm mt-2">{description}</p>
+                    )}
+                    
+                    {uploadTimestamp && (
+                      <div className="mt-3 flex items-center text-xs text-slate-500 dark:text-slate-400">
+                        <span className="inline-flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                          </svg>
+                          {uploadTimestamp}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+          
+          {/* If no author/description from the API, show default content */}
+          {!author && !description && (
+            <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 mb-6 p-5">
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">About This Unit</h2>
+              
+              <div className="prose dark:prose-invert max-w-none">
+                <p>
+                  This is the learning content for {unit.title} in {subject.title}. 
+                  In your actual implementation, this would contain the full learning materials 
+                  including text content, images, code examples, and other interactive elements.
+                </p>
+                
+                <p>
+                  The content can be loaded dynamically from your backend or stored in a structured 
+                  format in your frontend data store, allowing for rich educational experiences.
+                </p>
+                
+                <h3>Key Learning Objectives</h3>
+                <ul>
+                  <li>Understand the fundamental concepts of {unit.title}</li>
+                  <li>Apply theoretical knowledge to practical problems</li>
+                  <li>Analyze related case studies and examples</li>
+                  <li>Develop critical thinking skills in this domain</li>
+                </ul>
+                
+                <h3>Additional Resources</h3>
+                <p>
+                  You can download supplementary materials like PDFs, presentations, and 
+                  code samples using the download button at the top of this page.
+                </p>
+              </div>
+            </div>
+          )}
+          
+          {/* Revamped Doubt Submission Form */}
+          <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700 mb-6 overflow-hidden">
+            <div className="p-5">
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 flex items-center">
+                <MessageSquare className="w-5 h-5 mr-2 text-brand-500" />
+                Have Questions?
+              </h2>
+              
+              <div className="mb-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-lg p-3 flex items-start">
+                <AlertCircle className="w-5 h-5 text-blue-500 dark:text-blue-400 mt-0.5 mr-2 flex-shrink-0" />
+                <div className="text-sm text-blue-700 dark:text-blue-300">
+                  <p className="font-medium mb-1">Guidelines for effective questions:</p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Be specific and clear about what you don't understand</li>
+                    <li>Reference specific sections or concepts from the material</li>
+                    <li>Avoid asking questions already answered in the content</li>
+                    <li>Share what you've tried or your current understanding</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <form onSubmit={handleSubmitDoubt} className="space-y-4">
+                <div>
+                  <textarea
+                    name="doubt"
+                    placeholder="Enter your question or doubt about this unit..."
+                    required
+                    maxLength="1000"
+                    rows="4"
+                    value={doubt}
+                    onChange={(e) => setDoubt(e.target.value)}
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors resize-y"
+                  ></textarea>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1 text-right">
+                    {doubt.length}/1000 characters
+                  </div>
+                </div>
+                
+                <div className="flex justify-end">
+                  <button
+                    type="submit"
+                    className="px-4 py-2 bg-brand-500 hover:bg-brand-600 text-white rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
+                  >
+                    Submit Question
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
           
           {/* Unit Navigation */}
-          <div className="flex items-center justify-between mt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
             {prevUnit ? (
               <Link 
                 to={`/semester/${semesterId}/subject/${subjectId}/unit/${prevUnit.id}`}
-                className="inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
               >
                 <ChevronLeft className="w-5 h-5 mr-2" />
-                <span>Previous: {prevUnit.title}</span>
+                <span className="truncate">Previous: {prevUnit.title}</span>
               </Link>
             ) : (
-              <div></div>
+              <div className="w-full sm:w-auto"></div>
             )}
             
             {nextUnit ? (
               <Link 
                 to={`/semester/${semesterId}/subject/${subjectId}/unit/${nextUnit.id}`}
-                className="inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
               >
-                <span>Next: {nextUnit.title}</span>
+                <span className="truncate">Next: {nextUnit.title}</span>
                 <ChevronRight className="w-5 h-5 ml-2" />
               </Link>
             ) : (
-              <div></div>
+              <div className="w-full sm:w-auto"></div>
             )}
           </div>
         </motion.div>
@@ -459,7 +500,7 @@ try {
           variants={fadeIn}
         >
           {/* Subject Info Card */}
-          <div className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 mb-6">
+          <div className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-700 mb-6 sticky top-20">
             <div className="aspect-video">
               <img 
                 src={subject.thumbnail}
@@ -488,16 +529,16 @@ try {
           </div>
           
           {/* Unit List Quick Nav */}
-          <div className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700">
+          <div className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-700 sticky top-96">
             <div className="p-4 border-b border-slate-200 dark:border-slate-700">
               <h3 className="font-bold text-slate-900 dark:text-white flex items-center">
-                <FileText className="w-5 h-5 mr-2 text-brand-500" />
-                All Units
+                <BookOpen className="w-5 h-5 mr-2 text-brand-500" />
+                Course Units
               </h3>
             </div>
             
             <div className="p-4">
-              <ul className="space-y-1">
+              <ul className="space-y-1 max-h-[350px] overflow-y-auto pr-2">
                 {subject.units.map((u) => (
                   <li key={u.id}>
                     <Link 
