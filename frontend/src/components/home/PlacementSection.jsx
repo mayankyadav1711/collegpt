@@ -767,6 +767,52 @@ const PlacementSection = forwardRef((props, ref) => {
         }}
       />
 
+      <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="flex flex-col items-center mb-16 text-center"
+              >
+                <span className="inline-flex items-center rounded-full px-4 py-1.5 text-sm bg-white/10 dark:bg-slate-800/20 backdrop-blur-sm border border-white/10 dark:border-slate-700/20 mb-6">
+                  <span className="inline-block w-2 h-2 rounded-full bg-cyan-500 mr-2 animate-pulse"></span>
+                  <span className="bg-gradient-to-r from-slate-700 dark:from-slate-100 to-slate-500 dark:to-slate-300 bg-clip-text text-transparent font-medium">
+                    <DecryptedText
+                      text="Placement Assistance"
+                      speed={30}
+                      sequential={true}
+                      maxIterations={2}
+                      animateOn="view"
+                    />
+                  </span>
+                </span>
+      
+                <h2 className="text-5xl md:text-6xl font-bold mb-6 relative">
+                  <span className="bg-gradient-to-r from-slate-900 dark:from-white to-slate-600 dark:to-slate-300 bg-clip-text text-transparent relative z-10">
+                    Placement
+                  </span>
+                  <span className="text-[#00AEEF]"> Notes</span>
+                  <motion.span
+                    className="absolute -z-10 inset-0 text-[#00AEEF]/5 dark:text-[#00AEEF]/10 blur-lg"
+                    animate={{ opacity: [0.5, 0.2, 0.5] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  >
+                    Preparation
+                  </motion.span>
+                </h2>
+      
+                <motion.p
+                  className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  Comprehensive resources, expert guidance, and strategic planning
+                  to help you land your ideal job at top tech companies.
+                </motion.p>
+              </motion.div>
+
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row gap-8 md:gap-12">
           {/* Left Column: Content and Features */}

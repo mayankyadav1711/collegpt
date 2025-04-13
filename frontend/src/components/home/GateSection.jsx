@@ -740,29 +740,44 @@ const GateSection = forwardRef((props, ref) => {
           background: `radial-gradient(circle 250px at ${mousePosition.x}px ${mousePosition.y}px, rgba(0,174,239,0.07), transparent 80%)`,
         }}
       />
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="flex flex-col items-center mb-16 text-center"
+      >
+        <span className="inline-flex items-center rounded-full px-4 py-1.5 text-sm bg-white/10 dark:bg-slate-800/20 backdrop-blur-sm border border-white/10 dark:border-slate-700/20 mb-6">
+          <span className="inline-block w-2 h-2 rounded-full bg-cyan-500 mr-2 animate-pulse"></span>
+          <span className="bg-gradient-to-r from-slate-700 dark:from-slate-100 to-slate-500 dark:to-slate-300 bg-clip-text text-transparent font-medium">
+            <DecryptedText
+              text="Gate Exam Preparation"
+              speed={30}
+              sequential={true}
+              maxIterations={2}
+              animateOn="view"
+            />
+          </span>
+        </span>
 
-      {/* Digital code snippets */}
-      <div className="absolute right-10 top-20 opacity-5 dark:opacity-10 font-mono text-xs hidden lg:block">
-        <motion.div
-          animate={{
-            opacity: [0.5, 0.8, 0.5],
-            y: [0, -5, 0],
-          }}
-          transition={{ duration: 5, repeat: Infinity }}
+        <h2 className="text-5xl md:text-6xl font-bold mb-6 relative">
+          <span className="bg-gradient-to-r from-slate-900 dark:from-white to-slate-600 dark:to-slate-300 bg-clip-text text-transparent relative z-10">
+            GATE
+          </span>
+          <span className="text-[#00AEEF]"> Preparation</span>
+        </h2>
+
+        <motion.p
+          className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {"// GATE Study Algorithm"}
-          <br />
-          {"function optimizeGATEPrep(student) {"}
-          <br />
-          {"  const topics = analyzeWeakAreas(student);"}
-          <br />
-          {"  const resources = findBestResources(topics);"}
-          <br />
-          {"  return createStudyPlan(resources, student);"}
-          <br />
-          {"}"}
-        </motion.div>
-      </div>
+          Comprehensive preparation resources, structured learning paths, and
+          advanced tools designed to help you excel in GATE Computer
+        </motion.p>
+      </motion.div>
 
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row gap-8 md:gap-12">
