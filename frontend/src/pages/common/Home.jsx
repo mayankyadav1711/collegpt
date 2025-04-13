@@ -9,7 +9,6 @@ import GateSection from "../../components/home/GateSection";
 import ProjectsSection from "../../components/home/ProjectsSection";
 import YoutubeSection from "../../components/home/YoutubeSection";
 import CommunitySection from "../../components/home/CommunitySection";
-import ExploreSection from "../../components/home/ExploreSection";
 
 const Home = () => {
   // State management
@@ -111,7 +110,6 @@ const Home = () => {
       <ProjectsSection ref={projectsRef} />
       <YoutubeSection ref={videosRef} />
       <CommunitySection ref={communityRef} />
-      <ExploreSection ref={exploreRef} />
 
       {/* Matrix rain animation styles */}
       <style jsx>{`
