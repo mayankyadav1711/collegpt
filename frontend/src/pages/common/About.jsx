@@ -1,24 +1,39 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../context/AppContext";
 import { fetchWithAuth, BASE_URL } from "../../api/api";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import toast from "react-hot-toast";
 import {
-  Star,
   Send,
   Users,
   BookOpen,
   Code,
-  Sparkle,
+  Star,
   MessageSquare,
   CheckCircle,
   ArrowRight,
-  Sparkles,
   MousePointer,
   Rocket,
-  ChevronLeft,
   ChevronRight,
+  Globe,
+  Lightbulb,
+  ArrowUpRight,
+  Sparkles,
+  Award,
+  PenTool,
+  Cpu,
+  GraduationCap,
+  Zap,
+  RefreshCw,
+  Clock,
+  Heart,
+  ChevronLeft,
 } from "lucide-react";
 import TeamSection from "../../components/custom/TeamSection";
 
@@ -26,13 +41,66 @@ const About = () => {
   const { auth } = useAppContext();
   const navigate = useNavigate();
 
+  // Refs for sections (for scroll animations)
+  const heroRef = useRef(null);
+  const statsRef = useRef(null);
+  const valuesRef = useRef(null);
+  const missionRef = useRef(null);
+  const feedbackRef = useRef(null);
+
+  // Parallax scroll effect
+  const { scrollYProgress } = useScroll();
+
   // Feedback form state
   const [feedback, setFeedback] = useState("");
   const [rating, setRating] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const [activeSlide, setActiveSlide] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
+
+  const heroImages = [
+    {
+      url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
+      caption: "Collaborative Learning",
+      icon: Users,
+    },
+
+    {
+      url: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      caption: "Coding Excellence",
+      icon: Code,
+    },
+  ];
+
+  // Autoplay effect
+  useEffect(() => {
+    let interval;
+    if (autoplay) {
+      interval = setInterval(() => {
+        setActiveSlide((prev) => (prev + 1) % heroImages.length);
+      }, 5000);
+    }
+    return () => clearInterval(interval);
+  }, [autoplay, heroImages.length]);
+
+  // Carousel navigation
+  const goToSlide = (index) => {
+    setActiveSlide(index);
+    setAutoplay(false);
+    // Resume autoplay after 10 seconds of inactivity
+    setTimeout(() => setAutoplay(true), 10000);
+  };
+
+  // Mouse parallax effect state
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    const x = (clientX / innerWidth - 0.5) * 2; // -1 to 1
+    const y = (clientY / innerHeight - 0.5) * 2; // -1 to 1
+    setMousePosition({ x, y });
+  };
 
   // Handle star rating click
   const handleStarClick = (clickedRating) => {
@@ -80,52 +148,8 @@ const About = () => {
     }
   };
 
-  const heroImages = [
-    {
-      url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
-      caption: "Collaborative Learning",
-      icon: Users,
-    },
-
-    {
-      url: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-      caption: "Coding Excellence",
-      icon: Code,
-    },
-  ];
-
-  // Autoplay effect
-  useEffect(() => {
-    let interval;
-    if (autoplay) {
-      interval = setInterval(() => {
-        setActiveSlide((prev) => (prev + 1) % heroImages.length);
-      }, 5000);
-    }
-    return () => clearInterval(interval);
-  }, [autoplay, heroImages.length]);
-
-  // Carousel navigation
-  const goToSlide = (index) => {
-    setActiveSlide(index);
-    setAutoplay(false);
-    // Resume autoplay after 10 seconds of inactivity
-    setTimeout(() => setAutoplay(true), 10000);
-  };
-
-  // Mouse parallax effect state
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
-    const x = (clientX / innerWidth - 0.5) * 2; // -1 to 1
-    const y = (clientY / innerHeight - 0.5) * 2; // -1 to 1
-    setMousePosition({ x, y });
-  };
-
   return (
-    <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="relative" onMouseMove={handleMouseMove}>
       {/* Hero Section */}
       <section className="mb-12 relative" onMouseMove={handleMouseMove}>
         {/* Premium Animated Background Elements */}
@@ -344,313 +368,726 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <TeamSection />
-
-      {/* Our Mission Section */}
-      <section id="our-mission" className="mb-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Our Mission
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            We're on a mission to make education more accessible, collaborative,
-            and engaging
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white dark:bg-[#111111] border border-gray-200 dark:border-[#1A1A1A] rounded-xl p-6 shadow-lg">
-            <BookOpen className="w-12 h-12 text-blue-500 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-              Quality Learning Resources
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              We curate and create high-quality notes, cheat sheets, and study
-              materials to help students excel in their academic pursuits.
-            </p>
-          </div>
-
-          <div className="bg-white dark:bg-[#111111] border border-gray-200 dark:border-[#1A1A1A] rounded-xl p-6 shadow-lg">
-            <Code className="w-12 h-12 text-blue-500 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-              Interactive Learning
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              From coding exercises to interactive games, we offer tools to
-              enhance your focus, typing skills, and technical abilities.
-            </p>
-          </div>
-
-          <div className="bg-white dark:bg-[#111111] border border-gray-200 dark:border-[#1A1A1A] rounded-xl p-6 shadow-lg">
-            <Sparkle className="w-12 h-12 text-blue-500 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-              Continuous Innovation
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              We constantly evolve our platform to incorporate the latest
-              educational technologies and trends to keep your learning
-              experience fresh and effective.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Image Gallery */}
-      <section className="mb-20">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-          Learn, Collaborate, Succeed
-        </h2>
-
-        <div className="grid grid-cols-12 grid-rows-6 gap-4 h-[600px]">
-          <div className="col-span-12 md:col-span-8 row-span-3 relative rounded-xl overflow-hidden group">
-            <img
-              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-              alt="Study session"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
-              <span className="text-white text-xl font-medium">
-                Interactive Learning Sessions
-              </span>
-            </div>
-          </div>
-
-          <div className="col-span-12 md:col-span-4 row-span-6 relative rounded-xl overflow-hidden group">
-            <img
-              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
-              alt="Coding session"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
-              <span className="text-white text-xl font-medium">
-                Coding Workshops
-              </span>
-            </div>
-          </div>
-
-          <div className="col-span-6 md:col-span-4 row-span-3 relative rounded-xl overflow-hidden group">
-            <img
-              src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-              alt="Group study"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
-              <span className="text-white text-xl font-medium">
-                Peer Learning
-              </span>
-            </div>
-          </div>
-
-          <div className="col-span-6 md:col-span-4 row-span-3 relative rounded-xl overflow-hidden group">
-            <img
-              src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-              alt="Online learning"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
-              <span className="text-white text-xl font-medium">
-                Virtual Classrooms
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div id="our-team">
+        <TeamSection />
+      </div>
 
       {/* Stats Section */}
-      <section className="mb-20">
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 md:p-12">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Our Impact</h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              We're proud of what we've accomplished together with our community
+      <section
+        ref={statsRef}
+        className="py-24 relative bg-white dark:bg-gray-900"
+      >
+        {/* Moving light effect */}
+        <div
+          className="absolute inset-0 overflow-hidden pointer-events-none"
+          style={{
+            background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(79, 70, 229, 0.05), transparent 40%)`,
+          }}
+        />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              Our{" "}
+              <span className="text-blue-600 dark:text-blue-400">Impact</span>{" "}
+              in Numbers
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              Since our founding, we've been committed to making education more
+              accessible, engaging, and effective for students everywhere.
             </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { value: "15K+", label: "Students", icon: Users, delay: 0 },
+              {
+                value: "200+",
+                label: "Learning Resources",
+                icon: BookOpen,
+                delay: 0.1,
+              },
+              { value: "50+", label: "Universities", icon: Globe, delay: 0.2 },
+              {
+                value: "4.9/5",
+                label: "Student Satisfaction",
+                icon: Star,
+                delay: 0.3,
+              },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: stat.delay }}
+                viewport={{ once: true }}
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-gray-900/10 border border-gray-100 dark:border-gray-700 p-6 flex flex-col items-center hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              >
+                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4">
+                  <stat.icon className="w-8 h-8" />
+                </div>
+                <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-gray-600 dark:text-gray-300">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-5xl font-bold text-white mb-2">5,000+</div>
-              <p className="text-blue-100">Active Students</p>
+          {/* Achievement Banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white relative overflow-hidden"
+          >
+            {/* Abstract shapes */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+              <svg
+                className="absolute left-0 top-0 h-full w-full opacity-20"
+                viewBox="0 0 400 400"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_501_1809)">
+                  <path
+                    d="M400 0H0V400H400V0Z"
+                    fill="url(#paint0_radial_501_1809)"
+                  />
+                  <path
+                    d="M209 89C154.5 52 81.5 33 37 132C-7.5 231 -35 271 -35 328.5C-35 386 22 405.5 54 424C86 442.5 116 483.5 209 424C302 364.5 327 328.5 345 302C363 275.5 346.5 221.5 327 185C307.5 148.5 263.5 126 209 89Z"
+                    fill="url(#paint1_radial_501_1809)"
+                  />
+                </g>
+                <defs>
+                  <radialGradient
+                    id="paint0_radial_501_1809"
+                    cx="0"
+                    cy="0"
+                    r="1"
+                    gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(200 200) rotate(90) scale(200)"
+                  >
+                    <stop stopColor="white" />
+                    <stop offset="1" stopColor="white" stopOpacity="0" />
+                  </radialGradient>
+                  <radialGradient
+                    id="paint1_radial_501_1809"
+                    cx="0"
+                    cy="0"
+                    r="1"
+                    gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(148.5 230) rotate(90) scale(150.004 190)"
+                  >
+                    <stop stopColor="white" />
+                    <stop offset="1" stopColor="white" stopOpacity="0" />
+                  </radialGradient>
+                  <clipPath id="clip0_501_1809">
+                    <rect width="400" height="400" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
             </div>
 
-            <div className="text-center">
-              <div className="text-5xl font-bold text-white mb-2">200+</div>
-              <p className="text-blue-100">Study Resources</p>
+            <div className="flex flex-col md:flex-row items-center justify-between relative z-10 gap-6">
+              <div>
+                <div className="flex items-center mb-4">
+                  <Award className="w-6 h-6 text-yellow-300 mr-2" />
+                  <h3 className="text-xl font-bold">Student Success Stories</h3>
+                </div>
+                <p className="text-blue-100 max-w-2xl">
+                  Our platform has empowered thousands of students to achieve
+                  their academic goals, secure placements at top companies, and
+                  build innovative projects that solve real-world problems.
+                </p>
+              </div>
+
+              <a
+                href="/success-stories"
+                className="px-6 py-3 bg-white text-blue-600 hover:bg-blue-50 font-medium rounded-lg flex items-center shadow-xl shadow-blue-700/20 transition-all whitespace-nowrap"
+              >
+                Read Stories
+                <ArrowUpRight className="ml-2 w-4 h-4" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Our Values Section */}
+      <section
+        ref={valuesRef}
+        className="py-24 bg-gray-50 dark:bg-gray-800/30 relative overflow-hidden"
+      >
+        {/* Background pattern */}
+        <div
+          className="absolute inset-0 opacity-30 dark:opacity-10 z-0"
+          style={{
+            backgroundImage:
+              'url(\'data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.15"%3E%3Cpath d="M36 34h4v1h-4v-1zm0-8h4v1h-4v-1zm0 4h4v1h-4v-1zm-20 4h4v1h-4v-1zm0-8h4v1h-4v-1zm0 4h4v1h-4v-1z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\')',
+          }}
+        />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center mb-16"
+          >
+            <div className="inline-flex items-center py-1.5 px-4 mb-4 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
+              <Heart className="mr-1.5 w-4 h-4" />
+              Our Core Values
             </div>
 
-            <div className="text-center">
-              <div className="text-5xl font-bold text-white mb-2">50+</div>
-              <p className="text-blue-100">Universities</p>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              Guiding Principles That{" "}
+              <span className="text-blue-600 dark:text-blue-400">Drive Us</span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              At ColleGPT, our values shape everything we do, from the features
+              we develop to the community we foster.
+            </p>
+          </motion.div>
 
-            <div className="text-center">
-              <div className="text-5xl font-bold text-white mb-2">4.8/5</div>
-              <p className="text-blue-100">Student Satisfaction</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Innovation",
+                description:
+                  "We're constantly exploring new ways to make learning more effective and engaging through technology.",
+                icon: Lightbulb,
+                color: "from-blue-500 to-indigo-500",
+                delay: 0,
+              },
+              {
+                title: "Collaboration",
+                description:
+                  "We believe education thrives when students can learn together, share knowledge, and support each other.",
+                icon: Users,
+                color: "from-indigo-500 to-purple-500",
+                delay: 0.1,
+              },
+              {
+                title: "Accessibility",
+                description:
+                  "We're committed to making quality educational resources available to all students, regardless of background.",
+                icon: GraduationCap,
+                color: "from-purple-500 to-pink-500",
+                delay: 0.2,
+              },
+              {
+                title: "Excellence",
+                description:
+                  "We strive for the highest quality in our resources, platform, and community interactions.",
+                icon: Award,
+                color: "from-amber-500 to-orange-500",
+                delay: 0.3,
+              },
+              {
+                title: "Adaptability",
+                description:
+                  "We evolve with educational trends and technology to keep our platform relevant and effective.",
+                icon: RefreshCw,
+                color: "from-emerald-500 to-green-500",
+                delay: 0.4,
+              },
+              {
+                title: "Student-centered",
+                description:
+                  "We put students' needs first, designing every feature with their success and experience in mind.",
+                icon: Heart,
+                color: "from-red-500 to-pink-500",
+                delay: 0.5,
+              },
+            ].map((value, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: value.delay }}
+                viewport={{ once: true }}
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-gray-900/10 hover:shadow-2xl transition-all duration-300 overflow-hidden"
+              >
+                <div className={`h-2 bg-gradient-to-r ${value.color}`}></div>
+                <div className="p-6">
+                  <div
+                    className={`w-14 h-14 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center text-white mb-6`}
+                  >
+                    <value.icon className="w-7 h-7" />
+                  </div>
+
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                    {value.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {value.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Mission Section */}
+      <section
+        id="mission"
+        ref={missionRef}
+        className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left - Mission Statement */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-flex items-center py-1.5 px-4 mb-4 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
+                <Rocket className="mr-1.5 w-4 h-4" />
+                Our Purpose
+              </div>
+
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                Our{" "}
+                <span className="text-blue-600 dark:text-blue-400">
+                  Mission
+                </span>{" "}
+                & Vision
+              </h2>
+
+              <div className="prose prose-lg dark:prose-invert text-black dark:text-white">
+                <p>
+                  ColleGPT was born out of a passion to transform how students
+                  learn and grow together. Our mission is to create a vibrant
+                  educational ecosystem where technology enhances learning, not
+                  replaces it.
+                </p>
+
+                <p className="font-medium">We envision a world where:</p>
+
+                <ul>
+                  <li>
+                    Every student has access to quality learning resources
+                  </li>
+                  <li>
+                    Collaborative learning breaks down isolated study patterns
+                  </li>
+                  <li>Technology adapts to diverse learning styles</li>
+                  <li>Education becomes more engaging and less intimidating</li>
+                </ul>
+
+                <p>
+                  By combining cutting-edge technology with thoughtfully
+                  designed resources and community features, we're creating a
+                  platform that doesn't just help students pass exams, but truly
+                  master subjects and develop lifelong learning skills.
+                </p>
+              </div>
+
+              <div className="mt-8">
+                <a
+                  href="/about/story"
+                  className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                >
+                  Read our founding story
+                  <ChevronRight className="ml-1 w-4 h-4" />
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right - Feature Grid */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="grid grid-cols-2 gap-6">
+                {[
+                  {
+                    title: "Quality Learning Resources",
+                    description:
+                      "Expertly curated study materials designed to simplify complex concepts",
+                    icon: BookOpen,
+                    color:
+                      "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400",
+                    delay: 0,
+                  },
+                  {
+                    title: "Interactive Learning",
+                    description:
+                      "Gamified experiences that make studying engaging and effective",
+                    icon: Zap,
+                    color:
+                      "bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400",
+                    delay: 0.1,
+                  },
+                  {
+                    title: "Community Support",
+                    description:
+                      "Connect with peers and mentors who can help you overcome challenges",
+                    icon: Users,
+                    color:
+                      "bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400",
+                    delay: 0.2,
+                  },
+                  {
+                    title: "Cutting-Edge Tools",
+                    description:
+                      "Modern technologies that adapt to your learning style and pace",
+                    icon: Cpu,
+                    color:
+                      "bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400",
+                    delay: 0.3,
+                  },
+                ].map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: feature.delay }}
+                    viewport={{ once: true }}
+                    className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/10 border border-gray-100 dark:border-gray-700 p-6 hover:shadow-xl transition-all"
+                  >
+                    <div
+                      className={`w-12 h-12 ${feature.color} rounded-xl flex items-center justify-center mb-4`}
+                    >
+                      <feature.icon className="w-6 h-6" />
+                    </div>
+
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                      {feature.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Testimonial */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-6 border border-blue-100 dark:border-blue-800/20"
+              >
+                <div className="flex">
+                  <div className="mr-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                      <MessageSquare className="w-6 h-6" />
+                    </div>
+                  </div>
+                  <div>
+                    <p className="italic text-gray-700 dark:text-gray-300 mb-4">
+                      "ColleGPT has transformed how I study. The resources are
+                      concise yet comprehensive, and the community is incredibly
+                      supportive."
+                    </p>
+                    <div className="font-medium text-gray-900 dark:text-white">
+                      Aryan Patel, B.Tech Student
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Feedback Section */}
-      <section id="feedback" className="mb-12">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Share Your Feedback
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Help us improve by sharing your experience with ColleGPT
-          </p>
-        </div>
+      <section
+        id="feedback"
+        ref={feedbackRef}
+        className="py-24 bg-gray-50 dark:bg-gray-800/30 relative overflow-hidden"
+      >
+        {/* Background elements */}
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-blue-100 dark:bg-blue-900/20 rounded-full filter blur-3xl opacity-70 dark:opacity-30 transform translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-indigo-100 dark:bg-indigo-900/20 rounded-full filter blur-3xl opacity-70 dark:opacity-30 transform -translate-x-1/2 translate-y-1/2"></div>
 
-        <div className="max-w-2xl mx-auto">
-          <div className="relative">
-            <div className="absolute inset-0 bg-blue-500/5 rounded-2xl blur-3xl"></div>
-            <div className="relative bg-white dark:bg-[#111111] border border-gray-200 dark:border-[#1A1A1A] rounded-2xl p-8 backdrop-blur-xl shadow-xl dark:shadow-2xl">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Textarea for feedback */}
-                <div className="space-y-2">
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                    Your Feedback
-                  </label>
-                  <div className="relative">
-                    <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-500" />
-                    <textarea
-                      value={feedback}
-                      onChange={(e) => setFeedback(e.target.value)}
-                      rows="4"
-                      className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-[#1A1A1A] 
-                               border border-gray-300 dark:border-[#2A2A2A] rounded-lg 
-                               text-gray-900 dark:text-white placeholder-gray-500
-                               focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                               transition-all"
-                      placeholder="Share your thoughts about ColleGPT..."
-                      required
-                    ></textarea>
-                  </div>
-                </div>
-
-                {/* Star Rating */}
-                <div className="space-y-2">
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                    Rate Your Experience
-                  </label>
-                  <div className="flex items-center space-x-1">
-                    {[1, 2, 3, 4, 5].map((value) => (
-                      <button
-                        key={value}
-                        type="button"
-                        onClick={() => handleStarClick(value)}
-                        className="focus:outline-none"
-                      >
-                        <Star
-                          className={`w-8 h-8 ${
-                            value <= rating
-                              ? "text-yellow-400 fill-yellow-400"
-                              : "text-gray-300 dark:text-gray-600"
-                          }`}
-                        />
-                      </button>
-                    ))}
-                    <span className="ml-2 text-sm text-gray-500 dark:text-gray-400">
-                      {rating > 0
-                        ? `${rating} out of 5 stars`
-                        : "Select a rating"}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-3 bg-blue-500 hover:bg-blue-600 
-                           dark:bg-blue-500 dark:hover:bg-blue-600 text-white 
-                           rounded-lg font-medium transition-all duration-200 
-                           flex items-center justify-center focus:outline-none 
-                           focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 
-                           focus:ring-offset-white dark:focus:ring-offset-[#111111] 
-                           disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    <div className="flex items-center">
-                      <svg
-                        className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        />
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        />
-                      </svg>
-                      Submitting...
-                    </div>
-                  ) : (
-                    <div className="flex items-center">
-                      <Send className="w-4 h-4 mr-2" />
-                      Submit Feedback
-                    </div>
-                  )}
-                </button>
-              </form>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center mb-16"
+          >
+            <div className="inline-flex items-center py-1.5 px-4 mb-4 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
+              <MessageSquare className="mr-1.5 w-4 h-4" />
+              Your Thoughts Matter
             </div>
+
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              Share Your{" "}
+              <span className="text-blue-600 dark:text-blue-400">Feedback</span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              Help us improve by sharing your experience with ColleGPT. Your
+              insights drive our innovation.
+            </p>
+          </motion.div>
+
+          <div className="max-w-2xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              {/* Card glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-3xl blur-2xl"></div>
+
+              <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Textarea for feedback */}
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                      Your Feedback
+                    </label>
+                    <div className="relative">
+                      <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-500" />
+                      <textarea
+                        value={feedback}
+                        onChange={(e) => setFeedback(e.target.value)}
+                        rows="4"
+                        className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-gray-700 
+                                 border border-gray-300 dark:border-gray-600 rounded-lg 
+                                 text-gray-900 dark:text-white placeholder-gray-500
+                                 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
+                                 transition-all"
+                        placeholder="Share your thoughts about ColleGPT..."
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  {/* Star Rating */}
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                      Rate Your Experience
+                    </label>
+                    <div className="flex items-center space-x-1">
+                      {[1, 2, 3, 4, 5].map((value) => (
+                        <button
+                          key={value}
+                          type="button"
+                          onClick={() => handleStarClick(value)}
+                          className="focus:outline-none transition-transform hover:scale-110"
+                        >
+                          <Star
+                            className={`w-8 h-8 ${
+                              value <= rating
+                                ? "text-yellow-400 fill-yellow-400"
+                                : "text-gray-300 dark:text-gray-600"
+                            }`}
+                          />
+                        </button>
+                      ))}
+                      <span className="ml-2 text-sm text-gray-500 dark:text-gray-400">
+                        {rating > 0
+                          ? `${rating} out of 5 stars`
+                          : "Select a rating"}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Submit Button */}
+                  <motion.button
+                    type="submit"
+                    disabled={isSubmitting}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full py-3 bg-gradient-to-r from-blue-600 to-indigo-600
+                             hover:from-blue-700 hover:to-indigo-700 text-white 
+                             rounded-lg font-medium shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30
+                             transition-all duration-200 
+                             flex items-center justify-center focus:outline-none 
+                             disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? (
+                      <div className="flex items-center">
+                        <svg
+                          className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          />
+                        </svg>
+                        Submitting...
+                      </div>
+                    ) : (
+                      <div className="flex items-center">
+                        <Send className="w-4 h-4 mr-2" />
+                        Submit Feedback
+                      </div>
+                    )}
+                  </motion.button>
+                </form>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section>
-        <div className="bg-white dark:bg-[#111111] border border-gray-200 dark:border-[#1A1A1A] rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            Ready to enhance your learning journey?
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
-            Join thousands of students who are already transforming their
-            academic experience with ColleGPT.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="/register"
-              className="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors duration-200"
-            >
-              <Users className="w-5 h-5 mr-2" />
-              Join Our Community
-            </a>
-            <a
-              href="/contact"
-              className="inline-flex items-center px-6 py-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-medium rounded-lg transition-colors duration-200"
-            >
-              <MessageSquare className="w-5 h-5 mr-2" />
-              Contact Us
-            </a>
-          </div>
+      <section className="py-24 bg-white dark:bg-gray-900 relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-5xl mx-auto bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl overflow-hidden shadow-2xl shadow-blue-600/20"
+          >
+            <div className="relative px-8 py-16 md:p-16">
+              {/* Background pattern */}
+              <div className="absolute inset-0 overflow-hidden">
+                <svg
+                  className="absolute right-0 top-0 h-full opacity-20 transform translate-x-1/3 -translate-y-1/4"
+                  width="400"
+                  height="400"
+                  fill="none"
+                  viewBox="0 0 400 400"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clipPath="url(#clip0)">
+                    <path d="M400 0H0V400H400V0Z" fill="none" />
+                    <path
+                      d="M209 89C154.5 52 81.5 33 37 132C-7.5 231 -35 271 -35 328.5C-35 386 22 405.5 54 424C86 442.5 116 483.5 209 424C302 364.5 327 328.5 345 302C363 275.5 346.5 221.5 327 185C307.5 148.5 263.5 126 209 89Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0">
+                      <rect width="400" height="400" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
 
-          <div className="mt-12 flex items-center justify-center">
-            <div className="flex -space-x-2 mr-4">
-              {Array(5)
-                .fill()
-                .map((_, i) => (
-                  <img
-                    key={i}
-                    src={`https://i.pravatar.cc/32?img=${i + 1}`}
-                    alt={`User ${i + 1}`}
-                    className="w-8 h-8 rounded-full border-2 border-white dark:border-[#111111]"
-                  />
-                ))}
+              <div className="relative flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="text-center md:text-left">
+                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Ready to enhance your learning journey?
+                  </h2>
+                  <p className="text-blue-100 text-lg mb-8 md:max-w-xl">
+                    Join thousands of students who are already transforming
+                    their academic experience with ColleGPT.
+                  </p>
+
+                  <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                    <motion.a
+                      href="/register"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="px-6 py-3 bg-white hover:bg-gray-50 text-blue-600 font-medium rounded-lg shadow-lg shadow-blue-700/20 transition-all flex items-center"
+                    >
+                      <Users className="w-5 h-5 mr-2" />
+                      Join Our Community
+                    </motion.a>
+
+                    <motion.a
+                      href="/contact"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="px-6 py-3 bg-blue-700/30 hover:bg-blue-700/40 text-white font-medium rounded-lg transition-all flex items-center backdrop-blur-sm"
+                    >
+                      <MessageSquare className="w-5 h-5 mr-2" />
+                      Contact Us
+                    </motion.a>
+                  </div>
+                </div>
+
+                {/* Testimonial preview */}
+                <div className="hidden md:block max-w-xs">
+                  <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
+                    <div className="flex mb-4">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <Star
+                          key={star}
+                          className="w-4 h-4 text-yellow-300 fill-yellow-300"
+                        />
+                      ))}
+                    </div>
+                    <p className="italic text-white/90 mb-4 text-sm">
+                      "ColleGPT has been a game-changer for my studies. The
+                      resources and community support helped me ace my exams
+                      with confidence!"
+                    </p>
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
+                        <img
+                          src="https://i.pravatar.cc/100"
+                          alt="Student"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <div className="font-medium text-white">
+                          Priya Sharma
+                        </div>
+                        <div className="text-xs text-white/70">
+                          Computer Science Student
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social proof */}
+              <div className="mt-12 pt-8 border-t border-white/10 relative flex items-center justify-center md:justify-start">
+                <div className="flex -space-x-2 mr-4">
+                  {Array(5)
+                    .fill()
+                    .map((_, i) => (
+                      <div
+                        key={i}
+                        className="w-8 h-8 rounded-full overflow-hidden border-2 border-blue-600"
+                      >
+                        <img
+                          src={`https://i.pravatar.cc/32?img=${i + 10}`}
+                          alt={`User ${i + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                </div>
+                <div className="flex items-center text-white/90 text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-300 mr-2" />
+                  <span>Joined by 1,000+ students this month</span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center text-gray-600 dark:text-gray-400 text-sm">
-              <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-              <span>Joined by 1,000+ students this month</span>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

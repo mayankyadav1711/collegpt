@@ -36,8 +36,8 @@ const Header = () => {
   // Navigation items
   const navigationItems = [
     { name: "Home", path: "/", icon: <Sparkle className="w-4 h-4" /> },
+    {name : "About", path : "/about", icon : <Users className="w-4 h-4" />},
     { name: "Notes", path: "/courses", icon: <BookOpen className="w-4 h-4" /> },
-    { name: "Events", path: "/events", icon: <Calendar className="w-4 h-4" /> },
     {
       name: "Cheat Sheets",
       path: "/cheatsheets",
