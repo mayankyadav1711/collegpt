@@ -8,3 +8,24 @@
 .font-anta {
   font-family: 'Anta', sans-serif;
 }
+
+@media (max-width: 768px) {
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .astronaut-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 2rem;
+    order: -1; /* Makes it appear first */
+  }
+  
+  .astronaut-container .astronaut {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
