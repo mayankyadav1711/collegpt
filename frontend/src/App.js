@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { AppProvider } from "./context/AppContext";
 import Layout from "./components/Layout";
@@ -20,15 +25,16 @@ import SubjectDetails from "./components/SubjectDetails";
 import "./App.css";
 import Courses from "./pages/common/Courses";
 import UnitContent from "./components/UnitContent";
+import Contributor from "./pages/forms/Contributor";
 
 // ScrollToTop function component implemented directly
 function ScrollToTopOnMount() {
   const { pathname } = useLocation();
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-  
+
   return null;
 }
 
@@ -42,6 +48,7 @@ function AppRoutes() {
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/contributor_form" element={<Contributor />} />
 
           {/* Auth routes */}
           <Route path="/login" element={<Login />} />
@@ -51,25 +58,42 @@ function AppRoutes() {
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/courses" element={<Courses />} />
-         {/* Subject and Unit routes */}
-         <Route path="/semester/:semesterId/:subjectId" element={<SubjectDetails />} />
-{/* Unit routes - multiple patterns */}
-<Route path="/semester/:semesterId/:subjectId/unit/:unitId" element={<UnitContent />} />
-          <Route path="/semester/:semesterId/subject/:subjectId/unit/:unitId" element={<UnitContent />} />          
+          {/* Subject and Unit routes */}
+          <Route
+            path="/semester/:semesterId/:subjectId"
+            element={<SubjectDetails />}
+          />
+          {/* Unit routes - multiple patterns */}
+          <Route
+            path="/semester/:semesterId/:subjectId/unit/:unitId"
+            element={<UnitContent />}
+          />
+          <Route
+            path="/semester/:semesterId/subject/:subjectId/unit/:unitId"
+            element={<UnitContent />}
+          />
 
-          
           {/* Fallback for 404 */}
-          <Route path="*" element={
-            <div className="flex flex-col items-center justify-center min-h-[70vh] px-4 text-center">
-              <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">Page Not Found</h1>
-              <p className="text-lg text-slate-600 dark:text-slate-300 mb-8">
-                Sorry, the page you are looking for doesn't exist or has been moved.
-              </p>
-              <a href="/" className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors">
-                Go back to home
-              </a>
-            </div>
-          } />
+          <Route
+            path="*"
+            element={
+              <div className="flex flex-col items-center justify-center min-h-[70vh] px-4 text-center">
+                <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
+                  Page Not Found
+                </h1>
+                <p className="text-lg text-slate-600 dark:text-slate-300 mb-8">
+                  Sorry, the page you are looking for doesn't exist or has been
+                  moved.
+                </p>
+                <a
+                  href="/"
+                  className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
+                >
+                  Go back to home
+                </a>
+              </div>
+            }
+          />
         </Route>
       </Routes>
     </>

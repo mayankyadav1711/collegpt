@@ -9,6 +9,7 @@ export const ENDPOINTS = {
   VERIFY_OTP: `${BASE_URL}/verify-otp`,
   RESET_PASSWORD: `${BASE_URL}/reset-password`,
   NEW_PASSWORD: `${BASE_URL}/new-password`,
+  SUBMIT_CONTRIBUTION : `${BASE_URL}/contribute`,
   
   // User profile endpoints
   VIEW_PROFILE: (userId) => `${BASE_URL}/view-profile/${userId}`,
@@ -21,6 +22,7 @@ export const ENDPOINTS = {
   GET_SEMESTER: (semesterId) => `${BASE_URL}/semester/${semesterId}`,
   GET_SUBJECT: (semesterId, subjectId) => `${BASE_URL}/semester/${semesterId}/subject/${subjectId}`,
   GET_UNIT: (semesterId, subjectId, unitId) => `${BASE_URL}/semester/${semesterId}/subject/${subjectId}/unit/${unitId}`
+  
 };
 
 // Helper function to make authenticated requests

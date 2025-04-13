@@ -25,41 +25,67 @@ router.post("/contribute", requireLogin, async (req, res) => {
       subjectName,
       fileLinks,
       pdfDescription,
-      // Add other required fields here
+      contributionType = 'college_notes', // Default to college_notes if not specified
     } = req.body;
 
-    // Check if all required fields are provided
-    if (!semester || !subjectName || !fileLinks || !pdfDescription) {
-      return res
-        .status(422)
-        .json({ error: "Please fill in all required fields." });
+    // Validate required fields
+    if (!subjectName || !fileLinks || !pdfDescription) {
+      return res.status(422).json({ error: "Please fill in all required fields." });
+    }
+    
+    // Validate contribution type
+    const validTypes = ['college_notes', 'gate_notes', 'placement', 'web_dev', 'reference', 'exam_prep'];
+    if (!validTypes.includes(contributionType)) {
+      return res.status(422).json({ error: "Invalid contribution type." });
+    }
+    
+    // Check if semester is provided for college notes
+    if (contributionType === 'college_notes' && !semester) {
+      return res.status(422).json({ error: "Semester is required for college notes." });
     }
 
     // Create a new contribution
     const contribution = new Contributor({
-      semester,
+      semester: semester || "N/A", // Use N/A for non-college notes
       subjectName,
       fileLinks,
       pdfDescription,
+      contributionType,
       postedBy: req.user,
     });
 
     // Save the contribution
     await contribution.save();
 
+    // Prepare email content based on contribution type
+    let typeLabel = "";
+    switch (contributionType) {
+      case 'college_notes': typeLabel = "College Notes"; break;
+      case 'gate_notes': typeLabel = "GATE Notes"; break;
+      case 'placement': typeLabel = "Placement Materials"; break;
+      case 'web_dev': typeLabel = "Web Development"; break;
+      case 'reference': typeLabel = "Reference Books"; break;
+      case 'exam_prep': typeLabel = "Exam Preparation"; break;
+      default: typeLabel = "Other";
+    }
+
     // Send email notification about the new contribution
     await transporter.sendMail({
       from: "collegpt@gmail.com",
       to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
-      subject: "New Contribution Submitted",
+      subject: `New ${typeLabel} Contribution Submitted`,
       html: `
-        <h1>New Contribution Submitted</h1>
-        <p>Semester: ${semester}</p>
-        <p>Subject: ${subjectName}</p>
-        <p>PDF Description: ${pdfDescription}</p>
-        <p>PDF Link: ${fileLinks}</p>
-        <p>Posted By Name: ${req.user.name}</p>
-        <p>Posted By Email: ${req.user.email}</p>
+        <h1>New ${typeLabel} Contribution Submitted</h1>
+        <p><strong>Type:</strong> ${typeLabel}</p>
+        ${contributionType === 'college_notes' ? `<p><strong>Semester:</strong> ${semester}</p>` : ''}
+        <p><strong>Subject/Topic:</strong> ${subjectName}</p>
+        <p><strong>Description:</strong> ${pdfDescription}</p>
+        <p><strong>File Link:</strong> ${fileLinks}</p>
+        <p><strong>Posted By:</strong> ${req.user.name}</p>
+        <p><strong>Email:</strong> ${req.user.email}</p>
+        <p><strong>Submitted On:</strong> ${new Date().toLocaleString()}</p>
+        <hr>
+        <p>Please review this contribution in the admin dashboard.</p>
       `,
     });
 
@@ -67,6 +93,106 @@ router.post("/contribute", requireLogin, async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error submitting contribution." });
+  }
+});
+
+// -----------------------------------------------------------------------
+// New endpoint to get all contributions by a user
+router.get("/my-contributions", requireLogin, async (req, res) => {
+  try {
+    const contributions = await Contributor.find({ postedBy: req.user._id })
+      .sort({ createdAt: -1 }) // Most recent first
+      .select("-__v");
+      
+    res.status(200).json(contributions);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error fetching contributions." });
+  }
+});
+
+// -----------------------------------------------------------------------
+// New endpoint to get all contributions (for admin)
+router.get("/all-contributions", requireLogin, async (req, res) => {
+  try {
+    // Check if user is admin
+    if (req.user.role !== "admin") {
+      return res.status(403).json({ error: "Unauthorized access." });
+    }
+    
+    const { status, type } = req.query;
+    const filter = {};
+    
+    // Add status filter if provided
+    if (status && ['pending', 'approved', 'rejected'].includes(status)) {
+      filter.status = status;
+    }
+    
+    // Add type filter if provided
+    if (type && ['college_notes', 'gate_notes', 'placement', 'web_dev', 'reference', 'exam_prep'].includes(type)) {
+      filter.contributionType = type;
+    }
+    
+    const contributions = await Contributor.find(filter)
+      .populate("postedBy", "_id name email")
+      .sort({ createdAt: -1 })
+      .select("-__v");
+      
+    res.status(200).json(contributions);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error fetching contributions." });
+  }
+});
+
+// -----------------------------------------------------------------------
+// New endpoint to update contribution status (for admin)
+router.patch("/contribution/:id/status", requireLogin, async (req, res) => {
+  try {
+    // Check if user is admin
+    if (req.user.role !== "admin") {
+      return res.status(403).json({ error: "Unauthorized access." });
+    }
+    
+    const { status } = req.body;
+    
+    // Validate status
+    if (!status || !['pending', 'approved', 'rejected'].includes(status)) {
+      return res.status(422).json({ error: "Invalid status." });
+    }
+    
+    const contribution = await Contributor.findByIdAndUpdate(
+      req.params.id,
+      { status, updatedAt: Date.now() },
+      { new: true } // Return updated document
+    );
+    
+    if (!contribution) {
+      return res.status(404).json({ error: "Contribution not found." });
+    }
+    
+    // Get contributor information
+    const contributor = await User.findById(contribution.postedBy).select("name email");
+    
+    // Send email notification about status change
+    await transporter.sendMail({
+      from: "collegpt@gmail.com",
+      to: contributor.email,
+      subject: `Your Contribution Status Updated`,
+      html: `
+        <h1>Your Contribution Status Updated</h1>
+        <p>Hello ${contributor.name},</p>
+        <p>Your contribution "${contribution.subjectName}" has been <strong>${status}</strong>.</p>
+        ${status === 'rejected' ? '<p>Our team may contact you with more information.</p>' : ''}
+        ${status === 'approved' ? '<p>Thank you for your valuable contribution to our learning community!</p>' : ''}
+        <p>You can view your contributions in your account dashboard.</p>
+      `,
+    });
+    
+    res.status(200).json(contribution);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error updating contribution status." });
   }
 });
 
