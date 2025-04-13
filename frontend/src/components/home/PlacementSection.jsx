@@ -17,17 +17,22 @@ import {
   ArrowRight,
   Clock,
   Building,
-  Tag
+  Tag,
 } from "lucide-react";
 
 // Company logos - in a real implementation, these would be imported from files
 const companyLogos = {
-  "Microsoft": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png",
-  "Google": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/800px-Google_%22G%22_logo.svg.png",
-  "Amazon": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
-  "Meta": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Meta_Platforms_Inc._logo_%28cropped%29.svg/113px-Meta_Platforms_Inc._logo_%28cropped%29.svg.png",
-  "Adobe": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Adobe_Systems_logo_and_wordmark.svg/512px-Adobe_Systems_logo_and_wordmark.svg.png",
-  "Apple": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/512px-Apple_logo_black.svg.png"
+  Microsoft:
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png",
+  Google:
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/800px-Google_%22G%22_logo.svg.png",
+  Amazon:
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+  Meta: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Meta_Platforms_Inc._logo_%28cropped%29.svg/113px-Meta_Platforms_Inc._logo_%28cropped%29.svg.png",
+  Adobe:
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Adobe_Systems_logo_and_wordmark.svg/512px-Adobe_Systems_logo_and_wordmark.svg.png",
+  Apple:
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/512px-Apple_logo_black.svg.png",
 };
 
 const PlacementSection = forwardRef((props, ref) => {
@@ -63,11 +68,11 @@ const PlacementSection = forwardRef((props, ref) => {
   const getPreviousMonthDays = (year, month) => {
     const firstDayOfMonth = getFirstDayOfMonth(year, month);
     if (firstDayOfMonth === 0) return []; // Sunday, no previous days needed
-    
+
     const prevMonth = month === 0 ? 11 : month - 1;
     const prevYear = month === 0 ? year - 1 : year;
     const daysInPrevMonth = getDaysInMonth(prevYear, prevMonth);
-    
+
     return Array.from(
       { length: firstDayOfMonth },
       (_, i) => daysInPrevMonth - firstDayOfMonth + i + 1
@@ -76,8 +81,18 @@ const PlacementSection = forwardRef((props, ref) => {
 
   // Month names
   const monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
 
   // Navigation functions
@@ -107,7 +122,7 @@ const PlacementSection = forwardRef((props, ref) => {
       roles: ["Software Engineer", "Product Manager"],
       eligibility: "7+ CGPA, CSE/IT Students",
       package: "₹20-32 LPA",
-      logo: companyLogos.Microsoft
+      logo: companyLogos.Microsoft,
     },
     {
       company: "Google",
@@ -115,7 +130,7 @@ const PlacementSection = forwardRef((props, ref) => {
       roles: ["SDE", "Data Scientist"],
       eligibility: "8+ CGPA, All Engineering Streams",
       package: "₹30-45 LPA",
-      logo: companyLogos.Google
+      logo: companyLogos.Google,
     },
     {
       company: "Amazon",
@@ -123,7 +138,7 @@ const PlacementSection = forwardRef((props, ref) => {
       roles: ["Software Development", "DevOps"],
       eligibility: "7.5+ CGPA, CSE/IT/ECE Students",
       package: "₹18-32 LPA",
-      logo: companyLogos.Amazon
+      logo: companyLogos.Amazon,
     },
     {
       company: "Meta",
@@ -131,7 +146,7 @@ const PlacementSection = forwardRef((props, ref) => {
       roles: ["Frontend Engineer", "Research Engineer"],
       eligibility: "8+ CGPA, CSE/IT Students",
       package: "₹24-40 LPA",
-      logo: companyLogos.Meta
+      logo: companyLogos.Meta,
     },
     {
       company: "Adobe",
@@ -139,20 +154,22 @@ const PlacementSection = forwardRef((props, ref) => {
       roles: ["Software Engineer", "UX Designer"],
       eligibility: "7.5+ CGPA, All Engineering Streams",
       package: "₹18-28 LPA",
-      logo: companyLogos.Adobe
-    }
+      logo: companyLogos.Adobe,
+    },
   ];
 
   // Filter events for current month
   const eventsThisMonth = placementEvents.filter(
-    event => event.date.getMonth() === currentMonth && event.date.getFullYear() === currentYear
+    (event) =>
+      event.date.getMonth() === currentMonth &&
+      event.date.getFullYear() === currentYear
   );
 
   // Resource types
   const resourceTypes = [
     { id: "calendar", name: "Calendar", icon: CalendarIcon },
     { id: "alumni", name: "Alumni", icon: Users },
-    { id: "resources", name: "Resources", icon: BookOpen }
+    { id: "resources", name: "Resources", icon: BookOpen },
   ];
 
   // Alumni testimonials
@@ -162,28 +179,34 @@ const PlacementSection = forwardRef((props, ref) => {
       company: "Google",
       position: "Software Engineer",
       batch: "2024",
-      quote: "The structured preparation resources and mock interviews were key to my success at Google interviews.",
+      quote:
+        "The structured preparation resources and mock interviews were key to my success at Google interviews.",
       package: "₹42 LPA",
-      photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop"
+      photo:
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop",
     },
     {
       name: "Priya Mehta",
       company: "Microsoft",
       position: "Product Manager",
       batch: "2023",
-      quote: "ColleGPT's placement calendar kept me organized, and the company-specific resources were invaluable.",
+      quote:
+        "ColleGPT's placement calendar kept me organized, and the company-specific resources were invaluable.",
       package: "₹32 LPA",
-      photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
+      photo:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop",
     },
     {
       name: "Akshay Patel",
       company: "Amazon",
       position: "SDE-2",
       batch: "2022",
-      quote: "The alumni network and interview experiences helped me prepare for the exact questions I faced.",
+      quote:
+        "The alumni network and interview experiences helped me prepare for the exact questions I faced.",
       package: "₹36 LPA",
-      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
-    }
+      photo:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+    },
   ];
 
   // Placement resources
@@ -193,22 +216,22 @@ const PlacementSection = forwardRef((props, ref) => {
       type: "PDF & Code Samples",
       rating: 4.9,
       downloads: "15K+",
-      icon: "document"
+      icon: "document",
     },
     {
       title: "Data Structures Crash Course",
       type: "Interactive Tutorial",
       rating: 4.8,
       downloads: "22K+",
-      icon: "video"
+      icon: "video",
     },
     {
       title: "Company-Specific Interview FAQs",
       type: "Compiled Database",
       rating: 4.7,
       downloads: "18K+",
-      icon: "database"
-    }
+      icon: "database",
+    },
   ];
 
   // Animation variants
@@ -231,45 +254,8 @@ const PlacementSection = forwardRef((props, ref) => {
       transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
     },
   };
-  
-  // Dynamic code snippet content based on active tab
-  const getCodeSnippet = () => {
-    switch (activeTab) {
-      case "calendar":
-        return `// Placement Calendar Service
-const events = await api.getPlacementEvents({
-  month: ${currentMonth + 1},
-  year: ${currentYear}
-});
 
-// Filter by user preferences
-return events.filter(event => 
-  user.preferences.branches.includes(event.eligibility)
-);`;
-      case "alumni":
-        return `// Alumni Experience API
-const experiences = await api.getAlumniInterviews({
-  companies: ["Google", "Microsoft", "Amazon"],
-  limit: 3,
-  sort: "recent"
-});
-
-experiences.forEach(exp => renderTestimonial(exp));`;
-      case "resources":
-        return `// Resource Recommendation Algorithm
-function recommendResources(user) {
-  const targetCompanies = user.preferences.companies;
-  const skillGaps = assessSkills(user.profile);
   
-  return resources.filter(r => 
-    r.addresses(skillGaps) && 
-    r.relevantFor(targetCompanies)
-  );
-}`;
-      default:
-        return "";
-    }
-  };
 
   // Render tab content based on active tab
   const renderTabContent = () => {
@@ -284,7 +270,7 @@ function recommendResources(user) {
             transition={{ duration: 0.3 }}
           >
             {/* Calendar Header */}
-            <div className="flex justify-between items-center mb-4">
+            <div className="flex justify-between items-center mb-2">
               <div className="flex items-center gap-2">
                 <h3 className="font-bold text-lg text-slate-900 dark:text-white">
                   {monthNames[currentMonth]} {currentYear}
@@ -294,13 +280,13 @@ function recommendResources(user) {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <button 
+                <button
                   className="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors"
                   onClick={goToPreviousMonth}
                 >
                   <ChevronLeft className="w-5 h-5 text-slate-600 dark:text-slate-400" />
                 </button>
-                <button 
+                <button
                   className="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors"
                   onClick={goToNextMonth}
                 >
@@ -313,63 +299,75 @@ function recommendResources(user) {
             <div className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-lg rounded-2xl border border-white/20 dark:border-slate-700/50 overflow-hidden shadow-lg mb-4">
               {/* Week days */}
               <div className="grid grid-cols-7 border-b border-slate-200 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/80">
-                {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day, idx) => (
-                  <div
-                    key={idx}
-                    className="text-center text-slate-500 dark:text-slate-400 text-sm py-2 font-medium"
-                  >
-                    {day}
-                  </div>
-                ))}
+                {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(
+                  (day, idx) => (
+                    <div
+                      key={idx}
+                      className="text-center text-slate-500 dark:text-slate-400 text-sm py-2 font-medium"
+                    >
+                      {day}
+                    </div>
+                  )
+                )}
               </div>
 
               {/* Calendar dates */}
               <div className="grid grid-cols-7 bg-white/80 dark:bg-slate-800/30 backdrop-blur-md">
                 {/* Previous month days */}
-                {getPreviousMonthDays(currentYear, currentMonth).map((date, idx) => (
-                  <div key={`prev-${idx}`} className="border-b border-r border-slate-100 dark:border-slate-700/30">
-                    <div className="h-16 p-1 flex items-start justify-end">
-                      <span className="text-sm text-slate-400 dark:text-slate-600 p-1">
-                        {date}
-                      </span>
+                {getPreviousMonthDays(currentYear, currentMonth).map(
+                  (date, idx) => (
+                    <div
+                      key={`prev-${idx}`}
+                      className="border-b border-r border-slate-100 dark:border-slate-700/30"
+                    >
+                      <div className="h-16 p-1 flex items-start justify-end">
+                        <span className="text-sm text-slate-400 dark:text-slate-600 p-1">
+                          {date}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                )}
 
                 {/* Current month days */}
-                {Array.from({ length: getDaysInMonth(currentYear, currentMonth) }, (_, i) => i + 1).map((date) => {
+                {Array.from(
+                  { length: getDaysInMonth(currentYear, currentMonth) },
+                  (_, i) => i + 1
+                ).map((date) => {
                   // Check if date has an event
                   const dayEvents = eventsThisMonth.filter(
-                    event => event.date.getDate() === date
+                    (event) => event.date.getDate() === date
                   );
                   const hasEvents = dayEvents.length > 0;
-                  
+
                   return (
-                    <div 
-                      key={`current-${date}`} 
+                    <div
+                      key={`current-${date}`}
                       className={`border-b border-r border-slate-100 dark:border-slate-700/30 relative group ${
                         hasEvents ? "bg-blue-50/50 dark:bg-[#00AEEF]/5" : ""
                       }`}
                     >
                       <div className="h-16 p-1 flex flex-col">
                         <div className="flex justify-between">
-                          <span className={`text-sm p-1 ${
-                            hasEvents 
-                              ? "font-medium text-[#00AEEF]" 
-                              : "text-slate-700 dark:text-slate-300"
-                          }`}>
+                          <span
+                            className={`text-sm p-1 ${
+                              hasEvents
+                                ? "font-medium text-[#00AEEF]"
+                                : "text-slate-700 dark:text-slate-300"
+                            }`}
+                          >
                             {date}
                           </span>
-                          
+
                           {hasEvents && (
                             <div className="flex gap-0.5">
                               {dayEvents.slice(0, 2).map((event, idx) => (
-                                <div 
-                                  key={idx} 
+                                <div
+                                  key={idx}
                                   className="w-6 h-6 rounded-full border border-white dark:border-slate-700 shadow-sm overflow-hidden bg-white dark:bg-slate-800"
                                 >
-                                  <img 
-                                    src={event.logo} 
+                                  <img
+                                    src={event.logo}
                                     alt={event.company}
                                     className="w-full h-full object-contain p-0.5"
                                   />
@@ -383,18 +381,25 @@ function recommendResources(user) {
                             </div>
                           )}
                         </div>
-                        
+
                         {hasEvents && dayEvents.length === 1 && (
                           <div className="px-1.5 py-0.5 mt-0.5 text-xs bg-white/80 dark:bg-slate-900/50 rounded truncate text-slate-600 dark:text-slate-300">
                             {dayEvents[0].company}
                           </div>
                         )}
-                        
+
                         {/* Tooltip for events */}
                         {hasEvents && (
                           <div className="absolute top-full left-0 mt-1 w-56 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 p-2 z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none">
                             {dayEvents.map((event, idx) => (
-                              <div key={idx} className={`p-2 ${idx > 0 ? "border-t border-slate-100 dark:border-slate-700/50 mt-1" : ""}`}>
+                              <div
+                                key={idx}
+                                className={`p-2 ${
+                                  idx > 0
+                                    ? "border-t border-slate-100 dark:border-slate-700/50 mt-1"
+                                    : ""
+                                }`}
+                              >
                                 <div className="flex items-center gap-2">
                                   <div className="w-8 h-8 rounded bg-white dark:bg-slate-700 p-1 flex-shrink-0">
                                     <img
@@ -443,12 +448,12 @@ function recommendResources(user) {
                 })}
               </div>
             </div>
-            
+
             {/* Upcoming Events */}
             <div className="space-y-2 overflow-auto max-h-32">
               {placementEvents.slice(0, 3).map((event, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-xl p-3 border border-white/20 dark:border-slate-700/50 flex gap-3 items-center hover:shadow-md transition-shadow"
                 >
                   <div className="w-10 h-10 bg-white dark:bg-slate-700 rounded-lg p-1.5 flex items-center justify-center shadow-sm">
@@ -466,7 +471,10 @@ function recommendResources(user) {
                       <div className="flex items-center bg-slate-50 dark:bg-slate-700/50 px-2 py-0.5 rounded text-xs">
                         <Clock className="w-3 h-3 text-[#00AEEF] mr-1" />
                         <span className="text-slate-600 dark:text-slate-300">
-                          {event.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                          {event.date.toLocaleDateString("en-US", {
+                            month: "short",
+                            day: "numeric",
+                          })}
                         </span>
                       </div>
                     </div>
@@ -480,7 +488,7 @@ function recommendResources(user) {
             </div>
           </motion.div>
         );
-        
+
       case "alumni":
         return (
           <motion.div
@@ -495,7 +503,10 @@ function recommendResources(user) {
               <div className="relative overflow-x-auto hide-scrollbar">
                 <div className="flex">
                   {alumniInterviews.map((alumni, idx) => (
-                    <div key={idx} className="min-w-[280px] p-4 border-r border-slate-100 dark:border-slate-700/30">
+                    <div
+                      key={idx}
+                      className="min-w-[280px] p-4 border-r border-slate-100 dark:border-slate-700/30"
+                    >
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white dark:border-slate-700 shadow-sm">
                           <img
@@ -513,7 +524,7 @@ function recommendResources(user) {
                           </p>
                         </div>
                       </div>
-                      
+
                       <div className="bg-slate-50 dark:bg-slate-900/30 p-3 rounded-lg relative mb-3">
                         <p className="text-sm text-slate-600 dark:text-slate-300 italic">
                           "{alumni.quote}"
@@ -523,7 +534,7 @@ function recommendResources(user) {
                           "
                         </div>
                       </div>
-                      
+
                       <div className="flex justify-between items-center text-xs">
                         <div className="flex items-center gap-2">
                           <span className="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded text-slate-600 dark:text-slate-300">
@@ -541,67 +552,87 @@ function recommendResources(user) {
                     </div>
                   ))}
                 </div>
-                
+
                 {/* Scrollbar indicators */}
                 <div className="absolute bottom-1 left-0 w-full flex justify-center gap-1">
                   {alumniInterviews.map((_, idx) => (
-                    <div 
-                      key={idx} 
+                    <div
+                      key={idx}
                       className={`w-2 h-2 rounded-full ${
-                        idx === 0 ? "bg-[#00AEEF]" : "bg-slate-300 dark:bg-slate-600"
+                        idx === 0
+                          ? "bg-[#00AEEF]"
+                          : "bg-slate-300 dark:bg-slate-600"
                       }`}
                     ></div>
                   ))}
                 </div>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-3">
               <div className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-xl p-3 border border-white/20 dark:border-slate-700/50">
                 <div className="flex items-center justify-between mb-2">
-                  <h5 className="font-medium text-sm text-slate-900 dark:text-white">Top Companies</h5>
+                  <h5 className="font-medium text-sm text-slate-900 dark:text-white">
+                    Top Companies
+                  </h5>
                   <span className="text-xs text-[#00AEEF]">View all</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2">
-                  {Object.entries(companyLogos).slice(0, 6).map(([name, logo], idx) => (
-                    <div 
-                      key={idx} 
-                      className="aspect-square bg-white dark:bg-slate-700 rounded-lg p-2 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow"
-                    >
-                      <img
-                        src={logo}
-                        alt={name}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                  ))}
+                  {Object.entries(companyLogos)
+                    .slice(0, 6)
+                    .map(([name, logo], idx) => (
+                      <div
+                        key={idx}
+                        className="aspect-square bg-white dark:bg-slate-700 rounded-lg p-2 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow"
+                      >
+                        <img
+                          src={logo}
+                          alt={name}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    ))}
                 </div>
               </div>
-              
+
               <div className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-xl p-3 border border-white/20 dark:border-slate-700/50">
                 <div className="flex items-center justify-between mb-2">
-                  <h5 className="font-medium text-sm text-slate-900 dark:text-white">Placement Stats</h5>
+                  <h5 className="font-medium text-sm text-slate-900 dark:text-white">
+                    Placement Stats
+                  </h5>
                   <span className="text-xs text-[#00AEEF]">2024-25</span>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-xs text-slate-600 dark:text-slate-400">Highest CTC</span>
-                    <span className="text-sm font-medium text-slate-900 dark:text-white">₹58 LPA</span>
+                    <span className="text-xs text-slate-600 dark:text-slate-400">
+                      Highest CTC
+                    </span>
+                    <span className="text-sm font-medium text-slate-900 dark:text-white">
+                      ₹58 LPA
+                    </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-xs text-slate-600 dark:text-slate-400">Average CTC</span>
-                    <span className="text-sm font-medium text-slate-900 dark:text-white">₹18.5 LPA</span>
+                    <span className="text-xs text-slate-600 dark:text-slate-400">
+                      Average CTC
+                    </span>
+                    <span className="text-sm font-medium text-slate-900 dark:text-white">
+                      ₹18.5 LPA
+                    </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-xs text-slate-600 dark:text-slate-400">Placement Rate</span>
-                    <span className="text-sm font-medium text-slate-900 dark:text-white">94.3%</span>
+                    <span className="text-xs text-slate-600 dark:text-slate-400">
+                      Placement Rate
+                    </span>
+                    <span className="text-sm font-medium text-slate-900 dark:text-white">
+                      94.3%
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
           </motion.div>
         );
-        
+
       case "resources":
         return (
           <motion.div
@@ -614,20 +645,24 @@ function recommendResources(user) {
             {/* Top resources */}
             <div className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-lg rounded-xl shadow-lg border border-white/20 dark:border-slate-700/50 overflow-hidden">
               {placementResources.map((resource, idx) => (
-                <div 
+                <div
                   key={idx}
                   className={`p-3 flex gap-3 items-center hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors ${
-                    idx < placementResources.length - 1 
-                      ? "border-b border-slate-100 dark:border-slate-700/30" 
+                    idx < placementResources.length - 1
+                      ? "border-b border-slate-100 dark:border-slate-700/30"
                       : ""
                   }`}
                 >
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0067b5] to-[#00AEEF] flex items-center justify-center text-white flex-shrink-0">
-                    {resource.icon === "document" && <BookOpen className="w-5 h-5" />}
+                    {resource.icon === "document" && (
+                      <BookOpen className="w-5 h-5" />
+                    )}
                     {resource.icon === "video" && <Award className="w-5 h-5" />}
-                    {resource.icon === "database" && <Briefcase className="w-5 h-5" />}
+                    {resource.icon === "database" && (
+                      <Briefcase className="w-5 h-5" />
+                    )}
                   </div>
-                  
+
                   <div className="flex-1">
                     <h4 className="font-medium text-slate-900 dark:text-white">
                       {resource.title}
@@ -641,21 +676,23 @@ function recommendResources(user) {
                         <span className="text-xs font-medium text-slate-700 dark:text-slate-200">
                           {resource.rating}
                         </span>
-                        <span className="mx-1 text-slate-400 dark:text-slate-500">•</span>
+                        <span className="mx-1 text-slate-400 dark:text-slate-500">
+                          •
+                        </span>
                         <span className="text-xs text-slate-500 dark:text-slate-400">
                           {resource.downloads} downloads
                         </span>
                       </div>
                     </div>
                   </div>
-                  
+
                   <button className="px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
                     Access
                   </button>
                 </div>
               ))}
             </div>
-            
+
             {/* Quick access tools */}
             <div className="grid grid-cols-2 gap-2">
               <div className="bg-gradient-to-br from-[#0067b5] to-[#00AEEF] text-white rounded-xl p-4 shadow-lg shadow-blue-500/10 dark:shadow-blue-500/5 backdrop-blur-sm">
@@ -671,7 +708,7 @@ function recommendResources(user) {
                   <ArrowRight className="w-3 h-3 ml-1" />
                 </button>
               </div>
-              
+
               <div className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-white/20 dark:border-slate-700/50">
                 <h4 className="font-medium text-slate-900 dark:text-white mb-1 flex items-center">
                   <MapPin className="w-4 h-4 mr-1.5 text-[#00AEEF]" />
@@ -688,7 +725,7 @@ function recommendResources(user) {
             </div>
           </motion.div>
         );
-        
+
       default:
         return null;
     }
@@ -698,7 +735,7 @@ function recommendResources(user) {
     <section
       ref={(node) => {
         // Assign the ref both to the forwarded ref and our local ref
-        if (typeof ref === 'function') {
+        if (typeof ref === "function") {
           ref(node);
         } else if (ref) {
           ref.current = node;
@@ -714,14 +751,14 @@ function recommendResources(user) {
         <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-gradient-to-b from-[#00AEEF]/5 to-transparent rounded-full filter blur-[80px]"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[500px] bg-gradient-to-tr from-[#0067b5]/5 to-transparent rounded-full filter blur-[60px]"></div>
       </div>
-      
+
       {/* Grid background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 opacity-5 dark:opacity-10">
           <div className="w-full h-full bg-[linear-gradient(transparent_39px,#00AEEF_1px),linear-gradient(90deg,transparent_39px,#00AEEF_1px)] bg-[length:40px_40px]"></div>
         </div>
       </div>
-      
+
       {/* Dynamic cursor light effect */}
       <div
         className="absolute inset-0 -z-5 overflow-hidden"
@@ -730,27 +767,10 @@ function recommendResources(user) {
         }}
       />
 
-      {/* Digital code snippets */}
-      <div className="absolute left-10 top-20 opacity-5 dark:opacity-10 font-mono text-xs hidden lg:block">
-        <motion.div
-          animate={{ 
-            opacity: [0.5, 0.8, 0.5],
-            y: [0, -5, 0]
-          }}
-          transition={{ duration: 5, repeat: Infinity }}
-        >
-          {getCodeSnippet().split('\n').map((line, idx) => (
-            <div key={idx} className={idx === 0 ? "text-[#00AEEF] dark:text-[#00AEEF]" : ""}>
-              {line}
-            </div>
-          ))}
-        </motion.div>
-      </div>
-
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row gap-8 md:gap-12">
           {/* Left Column: Content and Features */}
-          <motion.div 
+          <motion.div
             className="w-full md:w-5/12"
             variants={containerVariants}
             initial="hidden"
@@ -770,47 +790,57 @@ function recommendResources(user) {
                   />
                 </span>
               </span>
-              
+
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-                Your Path to <span className="text-[#00AEEF]">Dream Career</span>
+                Your Path to{" "}
+                <span className="text-[#00AEEF]">Dream Career</span>
               </h2>
-              
+
               <p className="text-lg text-slate-600 dark:text-slate-300">
-                Comprehensive resources, expert guidance, and strategic planning to help you land your ideal job at top tech companies.
+                Comprehensive resources, expert guidance, and strategic planning
+                to help you land your ideal job at top tech companies.
               </p>
             </motion.div>
-            
+
             {/* Feature highlights */}
             <motion.div variants={containerVariants} className="space-y-4 mb-8">
               {[
                 {
                   title: "Placement Calendar",
-                  description: "Track upcoming placement drives, deadlines and interview schedules in real-time",
+                  description:
+                    "Track upcoming placement drives, deadlines and interview schedules in real-time",
                   icon: CalendarIcon,
-                  color: "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"
+                  color:
+                    "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400",
                 },
                 {
                   title: "Alumni Insights",
-                  description: "Learn from the experiences of successful alumni who cracked top tech interviews",
+                  description:
+                    "Learn from the experiences of successful alumni who cracked top tech interviews",
                   icon: Users,
-                  color: "bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400"
+                  color:
+                    "bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400",
                 },
                 {
                   title: "Prep Resources",
-                  description: "Access curated resources including interview questions, prep courses and mock tests",
+                  description:
+                    "Access curated resources including interview questions, prep courses and mock tests",
                   icon: BookOpen,
-                  color: "bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400"
-                }
+                  color:
+                    "bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400",
+                },
               ].map((feature, idx) => (
                 <motion.div
                   key={idx}
                   variants={itemVariants}
                   className={`p-4 rounded-xl cursor-pointer ${
-                    activeTab === feature.title.toLowerCase().split(' ')[0]
+                    activeTab === feature.title.toLowerCase().split(" ")[0]
                       ? "bg-white dark:bg-slate-800/80 shadow-lg border border-slate-200/50 dark:border-slate-700/50"
                       : "bg-white/50 dark:bg-slate-800/30 hover:bg-white/80 dark:hover:bg-slate-800/50 border border-transparent"
                   } transition-all`}
-                  onClick={() => setActiveTab(feature.title.toLowerCase().split(' ')[0])}
+                  onClick={() =>
+                    setActiveTab(feature.title.toLowerCase().split(" ")[0])
+                  }
                 >
                   <div className="flex items-start">
                     <div className={`p-2 rounded-lg ${feature.color} mr-4`}>
@@ -828,16 +858,19 @@ function recommendResources(user) {
                 </motion.div>
               ))}
             </motion.div>
-            
+
             {/* Stats & CTA */}
-            <motion.div variants={itemVariants} className="flex flex-col space-y-4">
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col space-y-4"
+            >
               <div className="grid grid-cols-3 gap-2">
                 {[
                   { value: "400+", label: "Companies" },
                   { value: "94%", label: "Placement Rate" },
-                  { value: "₹58L", label: "Top Package" }
+                  { value: "₹58L", label: "Top Package" },
                 ].map((stat, idx) => (
-                  <div 
+                  <div
                     key={idx}
                     className="bg-white dark:bg-slate-800/50 backdrop-blur-sm border border-white/20 dark:border-slate-700/50 rounded-xl p-3 text-center"
                   >
@@ -855,7 +888,7 @@ function recommendResources(user) {
                   </div>
                 ))}
               </div>
-              
+
               <Link to="/placements">
                 <motion.button
                   className="group px-6 py-3 rounded-lg overflow-hidden bg-gradient-to-r from-[#0067b5] to-[#00AEEF] relative"
@@ -875,9 +908,9 @@ function recommendResources(user) {
               </Link>
             </motion.div>
           </motion.div>
-          
+
           {/* Right Column: Interactive Calendar/Content */}
-          <motion.div 
+          <motion.div
             className="w-full md:w-7/12 h-[500px]"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -888,10 +921,10 @@ function recommendResources(user) {
             <div className="bg-white/30 dark:bg-slate-900/30 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/30 dark:border-slate-700/30 shadow-xl h-full p-6 relative">
               {/* Inner glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-[#00AEEF]/5 z-0"></div>
-              
+
               {/* Soft inner shadow */}
               <div className="absolute inset-0 shadow-inner z-0"></div>
-              
+
               {/* Top tab navigation */}
               <div className="relative z-10 flex gap-2 mb-6">
                 {resourceTypes.map((type) => (
@@ -916,19 +949,17 @@ function recommendResources(user) {
                   </button>
                 ))}
               </div>
-              
+
               {/* Dynamic content based on active tab */}
               <div className="relative z-10 h-[calc(100%-60px)]">
                 <AnimatePresence mode="wait">
                   {renderTabContent()}
                 </AnimatePresence>
               </div>
-              
+
               {/* Floating design elements */}
               <div className="absolute top-1/2 right-4 transform -translate-y-1/2 w-px h-1/2 bg-gradient-to-b from-transparent via-[#00AEEF]/30 to-transparent"></div>
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-[#00AEEF]/30 to-transparent"></div>
-              
-             
             </div>
           </motion.div>
         </div>
