@@ -4,7 +4,7 @@ import SideNav from "../../components/home/SideNav";
 import HeroSection from "../../components/home/HeroSection";
 import NotesSection from "../../components/home/NotesSection";
 import PlacementSection from "../../components/home/PlacementSection";
-import RoadmapsSection from "../../components/home/RoadmapsSection";
+import HackathonSection from "../../components/home/HackathonSection";
 import GateSection from "../../components/home/GateSection";
 import ProjectsSection from "../../components/home/ProjectsSection";
 import VideosSection from "../../components/home/VideosSection";
@@ -106,7 +106,7 @@ const Home = () => {
       <HeroSection ref={heroRef} notesRef={notesRef} />
       <NotesSection ref={notesRef} />
       <PlacementSection ref={placementRef} />
-      <RoadmapsSection ref={roadmapsRef} />
+      <HackathonSection ref={roadmapsRef} />
       <GateSection ref={gateRef} />
       <ProjectsSection ref={projectsRef} />
       <VideosSection ref={videosRef} />
