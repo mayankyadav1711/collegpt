@@ -26,6 +26,7 @@ import "./App.css";
 import Courses from "./pages/common/Courses";
 import UnitContent from "./components/UnitContent";
 import Contributor from "./pages/forms/Contributor";
+import GateExamPage from "./pages/common/GateExamPage";
 
 // ScrollToTop function component implemented directly
 function ScrollToTopOnMount() {
@@ -49,6 +50,7 @@ function AppRoutes() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/contributor_form" element={<Contributor />} />
+          <Route path="/gate" element={<GateExamPage />} />
 
           {/* Auth routes */}
           <Route path="/login" element={<Login />} />
