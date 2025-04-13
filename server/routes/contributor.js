@@ -7,6 +7,7 @@ const Contact = mongoose.model("Contact");
 const EventForm = mongoose.model("EventForm");
 const Feedback = mongoose.model("Feedback");
 const ServiceContact = mongoose.model("ServiceContact");
+const GraduateFeedback = mongoose.model("GraduateFeedback");
 const requireLogin = require("../middleware/requireSignin");
 const requireAdmin = require("../middleware/adminlogin");
 const nodemailer = require("nodemailer");
@@ -195,6 +196,110 @@ router.patch("/contribution/:id/status", requireLogin, async (req, res) => {
     res.status(500).json({ message: "Error updating contribution status." });
   }
 });
+
+router.post("/graduate-feedback", async (req, res) => {
+  try {
+    const {
+      name,
+      email,
+      rating,
+      feedback,
+      graduationYear = new Date().getFullYear()
+    } = req.body;
+
+    // Validate required fields
+    if (!name || !email || !rating || !feedback) {
+      return res.status(422).json({ error: "Please fill in all required fields." });
+    }
+    
+    // Validate email format
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(422).json({ error: "Please enter a valid email address." });
+    }
+    
+    // Validate rating
+    if (rating < 1 || rating > 5) {
+      return res.status(422).json({ error: "Rating must be between 1 and 5." });
+    }
+
+    // Create new feedback document
+    const graduateFeedback = new GraduateFeedback({
+      name,
+      email,
+      rating,
+      feedback,
+      graduationYear
+    });
+
+    // Save feedback to database
+    await graduateFeedback.save();
+
+    // Determine rating text for email
+    let ratingText = "";
+    switch(rating) {
+      case 1: ratingText = "Poor (1/5)"; break;
+      case 2: ratingText = "Fair (2/5)"; break;
+      case 3: ratingText = "Good (3/5)"; break;
+      case 4: ratingText = "Very Good (4/5)"; break;
+      case 5: ratingText = "Excellent (5/5)"; break;
+      default: ratingText = `${rating}/5`;
+    }
+
+    // Send email notification about the new feedback
+    await transporter.sendMail({
+      from: "collegpt@gmail.com",
+      to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
+      subject: `New Graduate Feedback: ${name}`,
+      html: `
+        <h2>New Graduate Feedback Received</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Rating:</strong> ${ratingText}</p>
+        <p><strong>Feedback:</strong> ${feedback}</p>
+        <p><strong>Graduation Year:</strong> ${graduationYear}</p>
+        <p><strong>Submitted On:</strong> ${new Date().toLocaleString()}</p>
+        <hr>
+        <p>You can view all graduate feedback in the admin dashboard.</p>
+      `,
+    });
+
+    res.status(201).json({ 
+      message: "Feedback submitted successfully. Thank you for sharing your experience!",
+      id: graduateFeedback._id
+    });
+  } catch (error) {
+    console.error("Error submitting graduate feedback:", error);
+    res.status(500).json({ error: "Failed to submit feedback. Please try again later." });
+  }
+});
+
+// Get all feedback (admin route)
+router.get("/admin/graduate-feedback", async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+    
+    const feedbacks = await GraduateFeedback.find()
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
+    
+    const total = await GraduateFeedback.countDocuments();
+    
+    res.status(200).json({
+      feedbacks,
+      totalPages: Math.ceil(total / limit),
+      currentPage: page,
+      total
+    });
+  } catch (error) {
+    console.error("Error fetching graduate feedback:", error);
+    res.status(500).json({ error: "Failed to fetch feedback" });
+  }
+});
+
 
 
 router.post("/doubt", requireLogin, async (req, res) => {

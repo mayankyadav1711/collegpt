@@ -47,6 +47,7 @@ require("./models/contact");
 require("./models/event_form");
 require("./models/feedback");
 require("./models/servicecontact");
+require("./models/GraduateFeedback");
 
 app.use(express.json());
 app.use(require("./routes/auth"));

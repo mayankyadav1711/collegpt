@@ -1,5 +1,5 @@
 // Base URL for API requests
-export const BASE_URL = "http://localhost:5001";
+export const BASE_URL = "http://localhost:5000";
 
 // Auth-related endpoints
 export const ENDPOINTS = {
@@ -10,6 +10,7 @@ export const ENDPOINTS = {
   RESET_PASSWORD: `${BASE_URL}/reset-password`,
   NEW_PASSWORD: `${BASE_URL}/new-password`,
   SUBMIT_CONTRIBUTION : `${BASE_URL}/contribute`,
+  SUBMIT_GRADUATE_FORM: `${BASE_URL}/graduate-feedback`,
   
   // User profile endpoints
   VIEW_PROFILE: (userId) => `${BASE_URL}/view-profile/${userId}`,
