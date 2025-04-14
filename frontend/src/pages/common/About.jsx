@@ -34,6 +34,15 @@ import {
   Clock,
   Heart,
   ChevronLeft,
+  Coffee,
+  Brain,
+  CheckCircle2,
+  FileText,
+  Layers,
+  Github,
+  User,
+  Globe as Global,
+  Youtube,
 } from "lucide-react";
 import TeamSection from "../../components/custom/TeamSection";
 
@@ -47,6 +56,8 @@ const About = () => {
   const valuesRef = useRef(null);
   const missionRef = useRef(null);
   const feedbackRef = useRef(null);
+  const [activeValue, setActiveValue] = useState(null);
+  const sectionRef = useRef(null);
 
   // Parallax scroll effect
   const { scrollYProgress } = useScroll();
@@ -147,6 +158,102 @@ const About = () => {
       setIsSubmitting(false);
     }
   };
+
+  // Core values with personal touch
+  const coreValues = [
+    {
+      title: "Innovation",
+      description:
+        "When I started ColleGPT, I knew education needed fresh ideas. We don't just use technology — we reimagine what's possible with it.",
+      icon: Lightbulb,
+      color: "blue",
+      personalNote:
+        "During my college days, I found myself creating makeshift study tools because nothing available really clicked with how I learned. That's what drives our innovation now — solving real problems students face daily.",
+      stat: "40+ innovative features launched in our first year",
+    },
+    {
+      title: "Collaboration",
+      description:
+        "Learning in isolation is tough — I've been there. We've built ColleGPT to bring students together, because brilliant ideas happen when minds connect.",
+      icon: Users,
+      color: "indigo",
+      personalNote:
+        "Some of my biggest breakthroughs in college came from late-night study sessions with friends. That collaborative energy is something we've worked hard to capture digitally.",
+      stat: "30,000+ collaborative study sessions monthly",
+    },
+    {
+      title: "Accessibility",
+      description:
+        "Knowledge shouldn't be a privilege. I wanted ColleGPT to be a place where quality resources reach everyone, regardless of where they're starting from.",
+      icon: GraduationCap,
+      color: "purple",
+      personalNote:
+        "Growing up, I saw how unequal access to resources created unfair advantages. Breaking down these barriers isn't just a business goal — it's a personal mission.",
+      stat: "Resources available in 8 languages and growing",
+    },
+    {
+      title: "Student-First",
+      description:
+        "Every feature we build starts with asking: 'How does this help students?' If it doesn't make your life better, we won't build it. Simple as that.",
+      icon: Heart,
+      color: "rose",
+      personalNote:
+        "We've turned down partnerships worth millions because they would've compromised our commitment to putting students first. It's not always the easy choice, but it's always the right one.",
+      stat: "94% of features developed from student requests",
+    },
+  ];
+
+  const milestones = [
+    {
+      date: "May 2023",
+      title: "Handwritten Beginnings",
+      description:
+        "Started sharing handwritten notes in WhatsApp groups. Our first community of 15-20 students began to form.",
+      icon: FileText,
+      color: "emerald",
+      image:
+        "https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=350&q=80",
+      stats: "20+ students",
+      tag: "Genesis",
+    },
+    {
+      date: "August 2023",
+      title: "Beta Launch",
+      description:
+        "Released our beta website with custom UI, authentication, profiles, roadmaps, and cheatsheets. Our 5th semester notes went live. Learned web development, hosting, and collaboration tools.",
+      icon: Code,
+      color: "blue",
+      image:
+        "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=350&q=80",
+      stats: "10,000+ lines of code",
+      achievement: "First domain purchase",
+      tag: "Milestone",
+    },
+    {
+      date: "December 2023 - 2024",
+      title: "Feature Expansion",
+      description:
+        "Added more features, resolved issues, and prepared content for 6th, 7th, and 8th semesters. Produced YouTube lecture videos and conducted pre-exam meets to help students.",
+      icon: Layers,
+      color: "purple",
+      image:
+        "https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=350&q=80",
+      stats: "3 semesters of content",
+      tag: "Growth",
+    },
+    {
+      date: "2025 - Present",
+      title: "Open Source Evolution",
+      description:
+        "Expanding to GATE preparation, placement resources, and hackathons. ColleGPT is now open source, inviting everyone to contribute. By the community, for the community.",
+      icon: Github,
+      color: "amber",
+      image:
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=350&q=80",
+      stats: "Open to all contributors",
+      tag: "Future",
+    },
+  ];
 
   return (
     <div className="relative" onMouseMove={handleMouseMove}>
@@ -523,288 +630,606 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our Values Section */}
       <section
-        ref={valuesRef}
-        className="py-24 bg-gray-50 dark:bg-gray-800/30 relative overflow-hidden"
+        ref={sectionRef}
+        className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800/80 relative overflow-hidden"
       >
-        {/* Background pattern */}
-        <div
-          className="absolute inset-0 opacity-30 dark:opacity-10 z-0"
-          style={{
-            backgroundImage:
-              'url(\'data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.15"%3E%3Cpath d="M36 34h4v1h-4v-1zm0-8h4v1h-4v-1zm0 4h4v1h-4v-1zm-20 4h4v1h-4v-1zm0-8h4v1h-4v-1zm0 4h4v1h-4v-1z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\')',
-          }}
-        />
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white to-transparent dark:from-gray-900 dark:to-transparent z-10"></div>
+        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent dark:from-gray-900 dark:to-transparent z-10"></div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center mb-16"
-          >
-            <div className="inline-flex items-center py-1.5 px-4 mb-4 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
-              <Heart className="mr-1.5 w-4 h-4" />
-              Our Core Values
-            </div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200/30 dark:bg-blue-900/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-purple-200/20 dark:bg-purple-900/10 rounded-full blur-3xl"></div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-              Guiding Principles That{" "}
-              <span className="text-blue-600 dark:text-blue-400">Drive Us</span>
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              At ColleGPT, our values shape everything we do, from the features
-              we develop to the community we foster.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Innovation",
-                description:
-                  "We're constantly exploring new ways to make learning more effective and engaging through technology.",
-                icon: Lightbulb,
-                color: "from-blue-500 to-indigo-500",
-                delay: 0,
-              },
-              {
-                title: "Collaboration",
-                description:
-                  "We believe education thrives when students can learn together, share knowledge, and support each other.",
-                icon: Users,
-                color: "from-indigo-500 to-purple-500",
-                delay: 0.1,
-              },
-              {
-                title: "Accessibility",
-                description:
-                  "We're committed to making quality educational resources available to all students, regardless of background.",
-                icon: GraduationCap,
-                color: "from-purple-500 to-pink-500",
-                delay: 0.2,
-              },
-              {
-                title: "Excellence",
-                description:
-                  "We strive for the highest quality in our resources, platform, and community interactions.",
-                icon: Award,
-                color: "from-amber-500 to-orange-500",
-                delay: 0.3,
-              },
-              {
-                title: "Adaptability",
-                description:
-                  "We evolve with educational trends and technology to keep our platform relevant and effective.",
-                icon: RefreshCw,
-                color: "from-emerald-500 to-green-500",
-                delay: 0.4,
-              },
-              {
-                title: "Student-centered",
-                description:
-                  "We put students' needs first, designing every feature with their success and experience in mind.",
-                icon: Heart,
-                color: "from-red-500 to-pink-500",
-                delay: 0.5,
-              },
-            ].map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: value.delay }}
-                viewport={{ once: true }}
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-gray-900/10 hover:shadow-2xl transition-all duration-300 overflow-hidden"
-              >
-                <div className={`h-2 bg-gradient-to-r ${value.color}`}></div>
-                <div className="p-6">
-                  <div
-                    className={`w-14 h-14 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center text-white mb-6`}
-                  >
-                    <value.icon className="w-7 h-7" />
-                  </div>
-
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {value.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Mission Section */}
-      <section
-        id="mission"
-        ref={missionRef}
-        className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden"
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left - Mission Statement */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+          {/* Personal header from founders */}
+          <div className="max-w-4xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
               viewport={{ once: true }}
+              className="mb-16"
             >
-              <div className="inline-flex items-center py-1.5 px-4 mb-4 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
-                <Rocket className="mr-1.5 w-4 h-4" />
-                Our Purpose
+              <div className="inline-flex items-center py-1 px-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">
+                <Sparkles className="mr-1.5 w-4 h-4" />
+                Our Story & Vision
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-                Our{" "}
-                <span className="text-blue-600 dark:text-blue-400">
-                  Mission
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
+                Why{" "}
+                <span className="text-blue-600 dark:text-blue-400 italic">
+                  we
                 </span>{" "}
-                & Vision
+                built ColleGPT
               </h2>
 
-              <div className="prose prose-lg dark:prose-invert text-black dark:text-white">
+              {/* Mayank's Story */}
+              <div className="prose prose-lg dark:prose-invert mb-12 text-gray-600 dark:text-gray-300">
                 <p>
-                  ColleGPT was born out of a passion to transform how students
-                  learn and grow together. Our mission is to create a vibrant
-                  educational ecosystem where technology enhances learning, not
-                  replaces it.
+                  Back in my third year of engineering, I was drowning in
+                  lecture notes and textbooks, yet somehow still missing key
+                  concepts. My friends and I would spend hours hunting for clear
+                  explanations, sharing PDFs, and teaching each other.
+                </p>
+                <p>
+                  <span className="font-semibold text-gray-900 dark:text-white">
+                    That's when it hit me — why isn't there a place that brings
+                    all this together?
+                  </span>{" "}
+                  Not just content, but connection. Not just information, but
+                  understanding.
                 </p>
 
-                <p className="font-medium">We envision a world where:</p>
-
-                <ul>
-                  <li>
-                    Every student has access to quality learning resources
-                  </li>
-                  <li>
-                    Collaborative learning breaks down isolated study patterns
-                  </li>
-                  <li>Technology adapts to diverse learning styles</li>
-                  <li>Education becomes more engaging and less intimidating</li>
-                </ul>
-
-                <p>
-                  By combining cutting-edge technology with thoughtfully
-                  designed resources and community features, we're creating a
-                  platform that doesn't just help students pass exams, but truly
-                  master subjects and develop lifelong learning skills.
-                </p>
-              </div>
-
-              <div className="mt-8">
-                <a
-                  href="/about/story"
-                  className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-                >
-                  Read our founding story
-                  <ChevronRight className="ml-1 w-4 h-4" />
-                </a>
-              </div>
-            </motion.div>
-
-            {/* Right - Feature Grid */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  {
-                    title: "Quality Learning Resources",
-                    description:
-                      "Expertly curated study materials designed to simplify complex concepts",
-                    icon: BookOpen,
-                    color:
-                      "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400",
-                    delay: 0,
-                  },
-                  {
-                    title: "Interactive Learning",
-                    description:
-                      "Gamified experiences that make studying engaging and effective",
-                    icon: Zap,
-                    color:
-                      "bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400",
-                    delay: 0.1,
-                  },
-                  {
-                    title: "Community Support",
-                    description:
-                      "Connect with peers and mentors who can help you overcome challenges",
-                    icon: Users,
-                    color:
-                      "bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400",
-                    delay: 0.2,
-                  },
-                  {
-                    title: "Cutting-Edge Tools",
-                    description:
-                      "Modern technologies that adapt to your learning style and pace",
-                    icon: Cpu,
-                    color:
-                      "bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400",
-                    delay: 0.3,
-                  },
-                ].map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: feature.delay }}
-                    viewport={{ once: true }}
-                    className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/10 border border-gray-100 dark:border-gray-700 p-6 hover:shadow-xl transition-all"
-                  >
-                    <div
-                      className={`w-12 h-12 ${feature.color} rounded-xl flex items-center justify-center mb-4`}
-                    >
-                      <feature.icon className="w-6 h-6" />
-                    </div>
-
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                      {feature.description}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Testimonial */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-6 border border-blue-100 dark:border-blue-800/20"
-              >
-                <div className="flex">
-                  <div className="mr-4">
-                    <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center">
-                      <MessageSquare className="w-6 h-6" />
-                    </div>
+                {/* Mayank's signature */}
+                <div className="flex items-center mt-6 not-prose">
+                  <div className="w-12 h-12 rounded-full overflow-hidden mr-3 border-2 border-white shadow-md">
+                    <img
+                      src="https://res.cloudinary.com/dkyrtfk1u/image/upload/v1690369698/i14t3seuzumapysauajm.jpg"
+                      alt="Mayank Yadav"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div>
-                    <p className="italic text-gray-700 dark:text-gray-300 mb-4">
-                      "ColleGPT has transformed how I study. The resources are
-                      concise yet comprehensive, and the community is incredibly
-                      supportive."
-                    </p>
-                    <div className="font-medium text-gray-900 dark:text-white">
-                      Aryan Patel, B.Tech Student
+                    <div className="font-bold text-gray-900 dark:text-white">
+                      Mayank Yadav
+                    </div>
+                    <div className="text-gray-600 dark:text-gray-400 text-sm">
+                      Founder & Lead Developer
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
+
+              {/* Divya's Story */}
+              <div className="prose prose-lg dark:prose-invert mb-12 text-gray-600 dark:text-gray-300">
+                <p>
+                  As a student passionate about algorithms and database design,
+                  I always felt that traditional learning platforms missed a
+                  crucial element:{" "}
+                  <span className="font-semibold text-gray-900 dark:text-white">
+                    structured knowledge that builds connections between
+                    concepts
+                  </span>
+                  . We'd memorize isolated facts without understanding how they
+                  fit together.
+                </p>
+                <p>
+                  When Mayank approached me with the idea of ColleGPT, I
+                  immediately saw how we could create something that helps
+                  students build mental models, not just memorize facts. I've
+                  focused on developing our database architecture and backend
+                  systems to ensure that knowledge is organized in ways that
+                  reflect how our brains actually learn.
+                </p>
+
+                {/* Divya's signature */}
+                <div className="flex items-center mt-6 not-prose">
+                  <div className="w-12 h-12 rounded-full overflow-hidden mr-3 border-2 border-white shadow-md">
+                    <img
+                      src="https://res.cloudinary.com/dkyrtfk1u/image/upload/v1692452732/by2nz7yrqcfmnq2nlnu6.jpg"
+                      alt="Divya Kaurani"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-bold text-gray-900 dark:text-white">
+                      Divya Kaurani
+                    </div>
+                    <div className="text-gray-600 dark:text-gray-400 text-sm">
+                      Co-Founder & Backend Developer
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Darshit's Story */}
+              <div className="prose prose-lg dark:prose-invert mb-8 text-gray-600 dark:text-gray-300">
+                <p>
+                  Before joining the ColleGPT team, I was frustrated by how most
+                  educational platforms seemed to prioritize content over
+                  experience.{" "}
+                  <span className="font-semibold text-gray-900 dark:text-white">
+                    Learning shouldn't feel like a chore
+                  </span>{" "}
+                  — the interface and interactions are just as important as the
+                  material itself.
+                </p>
+                <p>
+                  With my background in UI/UX, I've worked to create an
+                  environment where students actually enjoy spending time. Every
+                  animation, color choice, and interaction is designed to reduce
+                  cognitive load and let you focus on what matters:
+                  understanding the concepts and connecting with others. When
+                  learning feels good, you do more of it.
+                </p>
+
+                {/* Darshit's signature */}
+                <div className="flex items-center mt-6 not-prose">
+                  <div className="w-12 h-12 rounded-full overflow-hidden mr-3 border-2 border-white shadow-md">
+                    <img
+                      src="http://res.cloudinary.com/dkyrtfk1u/image/upload/v1697349373/sli9ffed1vdqegf1srip.jpg"
+                      alt="Darshit Sojitra"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-bold text-gray-900 dark:text-white">
+                      Darshit Sojitra
+                    </div>
+                    <div className="text-gray-600 dark:text-gray-400 text-sm">
+                      Co-Founder & UI/UX Designer
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <motion.a
+                href="/about/team"
+                className="flex items-center gap-1.5 px-4 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-800 dark:text-gray-200 group w-fit mt-8"
+                whileHover={{ y: -2, x: 0 }}
+                whileTap={{ y: 0 }}
+              >
+                Learn more about our team
+                <ArrowUpRight className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-blue-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </motion.a>
             </motion.div>
+
+            {/* Visual Timeline - Enhanced Version */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="mb-24"
+            >
+              <div className="relative max-w-5xl mx-auto">
+                <h3 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                  Our{" "}
+                  <span className="text-blue-600 dark:text-blue-400">
+                    Journey
+                  </span>{" "}
+                  So Far
+                </h3>
+
+                {/* Modern visual timeline */}
+                <div className="relative">
+                  {/* Center line */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-400 via-purple-500 to-amber-500 rounded-full"></div>
+
+                  {milestones.map((milestone, index) => (
+                    <motion.div
+                      key={index}
+                      className={`flex flex-col md:flex-row items-center mb-16 ${
+                        index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                      } relative`}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.7, delay: index * 0.2 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                    >
+                      {/* Timeline center marker */}
+                      <div
+                        className="absolute left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center"
+                        style={{ width: "64px", height: "64px" }}
+                      >
+                        <motion.div
+                          className={`w-12 h-12 rounded-full bg-${milestone.color}-500 flex items-center justify-center shadow-lg border-4 border-white dark:border-gray-900`}
+                          initial={{ scale: 0.8 }}
+                          whileInView={{ scale: [0.8, 1.2, 1] }}
+                          transition={{ duration: 1, times: [0, 0.5, 1] }}
+                          viewport={{ once: true }}
+                        >
+                          <milestone.icon className="w-6 h-6 text-white" />
+                        </motion.div>
+                      </div>
+
+                      {/* Date tag - styled differently based on position */}
+                      <div
+                        className={`absolute left-1/2 transform -translate-x-1/2 -top-9 md:top-auto md:-translate-x-0 md:left-auto ${
+                          index % 2 === 0
+                            ? "md:right-1/2 md:mr-20"
+                            : "md:left-1/2 md:ml-20"
+                        }`}
+                      >
+                        <div
+                          className={`px-4 py-1.5 rounded-full bg-${milestone.color}-100 dark:bg-${milestone.color}-900/30 text-${milestone.color}-600 dark:text-${milestone.color}-400 font-medium text-sm shadow-sm`}
+                        >
+                          {milestone.date}
+                        </div>
+                      </div>
+
+                      {/* First column - card */}
+                      <div
+                        className={`w-full md:w-5/12 mb-8 md:mb-0 ${
+                          index % 2 === 0 ? "md:pr-12" : "md:pl-12"
+                        }`}
+                      >
+                        <motion.div
+                          className="bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700"
+                          whileHover={{ y: -5 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {/* Tag at the top */}
+                          <div className="relative">
+                            <div className="h-40 overflow-hidden">
+                              <img
+                                src={milestone.image}
+                                alt={milestone.title}
+                                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            </div>
+
+                            {/* Tag */}
+                            <div className="absolute top-4 left-4">
+                              <div
+                                className={`px-3 py-1 rounded-full bg-${milestone.color}-500 text-white text-xs font-medium shadow-lg`}
+                              >
+                                {milestone.tag}
+                              </div>
+                            </div>
+
+                            {/* Title overlay */}
+                            <div className="absolute bottom-4 left-4 right-4">
+                              <h4 className="text-xl font-bold text-white">
+                                {milestone.title}
+                              </h4>
+                            </div>
+                          </div>
+
+                          {/* Content */}
+                          <div className="p-5">
+                            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                              {milestone.description}
+                            </p>
+
+                            {/* Stats and achievements */}
+                            <div className="flex flex-wrap gap-2 mt-4">
+                              <div
+                                className={`px-3 py-1 bg-${milestone.color}-100 dark:bg-${milestone.color}-900/20 text-${milestone.color}-600 dark:text-${milestone.color}-400 text-xs rounded-full`}
+                              >
+                                {milestone.stats}
+                              </div>
+
+                              {milestone.achievement && (
+                                <div
+                                  className={`px-3 py-1 bg-amber-100 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 text-xs rounded-full`}
+                                >
+                                  <Award className="inline-block w-3 h-3 mr-1" />
+                                  {milestone.achievement}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </motion.div>
+                      </div>
+
+                      {/* Middle spacer - visible only on larger screens */}
+                      <div className="hidden md:block md:w-2/12"></div>
+
+                      {/* Content column - for alternate text and visual elements */}
+                      <div className="w-full md:w-5/12 flex items-center">
+                        {index % 2 === 0 ? (
+                          // Right side content (for even indexed items)
+                          <motion.div
+                            className="space-y-3 w-full"
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                            viewport={{ once: true }}
+                          >
+                            {index === 0 && (
+                              <div className="flex items-center mb-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
+                                <Users className="w-8 h-8 text-emerald-500 mr-3 flex-shrink-0" />
+                                <div>
+                                  <div className="font-medium text-gray-900 dark:text-white">
+                                    Our First Community
+                                  </div>
+                                  <div className="text-sm text-gray-600 dark:text-gray-300">
+                                    Started with just a WhatsApp group
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+
+                            {index === 1 && (
+                              <div className="flex flex-col gap-3">
+                                <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                  <div className="font-medium text-gray-900 dark:text-white mb-1">
+                                    10,000+ lines of code
+                                  </div>
+                                  <div className="text-sm text-gray-600 dark:text-gray-300">
+                                    Built our first website with external CSS
+                                  </div>
+                                </div>
+                                <div className="text-sm italic text-gray-500 dark:text-gray-400 pl-4 border-l-2 border-blue-300 dark:border-blue-700">
+                                  "We were learning web development as we went,
+                                  struggling with Git and celebrating our first
+                                  successful deployment."
+                                </div>
+                              </div>
+                            )}
+
+                            {index === 2 && (
+                              <div className="flex flex-col gap-3">
+                                <div className="flex items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                                  <Youtube className="w-6 h-6 text-red-500 mr-3" />
+                                  <div className="text-sm text-gray-700 dark:text-gray-300">
+                                    Started producing lecture videos
+                                  </div>
+                                </div>
+                                <div className="flex items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                                  <BookOpen className="w-6 h-6 text-purple-500 mr-3" />
+                                  <div className="text-sm text-gray-700 dark:text-gray-300">
+                                    Created content for three full semesters
+                                  </div>
+                                </div>
+                                <div className="flex items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                                  <Users className="w-6 h-6 text-purple-500 mr-3" />
+                                  <div className="text-sm text-gray-700 dark:text-gray-300">
+                                    Conducted pre-exam preparation meets
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+
+                            {index === 3 && (
+                              <div className="space-y-3">
+                                <div className="flex items-start p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
+                                  <Github className="w-8 h-8 text-gray-900 dark:text-white mr-3 flex-shrink-0" />
+                                  <div>
+                                    <div className="font-medium text-gray-900 dark:text-white">
+                                      Open Source
+                                    </div>
+                                    <div className="text-sm text-gray-600 dark:text-gray-300">
+                                      "By the community, for the community" —
+                                      now anyone can contribute to improving
+                                      education
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className="flex items-center gap-2 md:gap-4 flex-wrap">
+                                  <div className="px-3 py-2 bg-green-50 dark:bg-green-900/20 rounded-lg flex items-center">
+                                    <GraduationCap className="w-5 h-5 text-green-500 mr-2" />
+                                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                                      GATE prep
+                                    </span>
+                                  </div>
+                                  <div className="px-3 py-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg flex items-center">
+                                    <Rocket className="w-5 h-5 text-blue-500 mr-2" />
+                                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                                      Placements
+                                    </span>
+                                  </div>
+                                  <div className="px-3 py-2 bg-purple-50 dark:bg-purple-900/20 rounded-lg flex items-center">
+                                    <Code className="w-5 h-5 text-purple-500 mr-2" />
+                                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                                      Hackathons
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                          </motion.div>
+                        ) : (
+                          // Left side content (for odd indexed items)
+                          <motion.div
+                            className="space-y-3 w-full"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                            viewport={{ once: true }}
+                          >
+                            {index === 1 && (
+                              <div className="flex flex-col gap-4">
+                                <div className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                                  Features we built:
+                                </div>
+                                <div className="grid grid-cols-2 gap-3">
+                                  <div className="flex items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                    <Users className="w-5 h-5 text-blue-500 mr-2" />
+                                    <div className="text-sm text-gray-700 dark:text-gray-300">
+                                      Authentication
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                    <User className="w-5 h-5 text-blue-500 mr-2" />
+                                    <div className="text-sm text-gray-700 dark:text-gray-300">
+                                      User Profiles
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                    <Rocket className="w-5 h-5 text-blue-500 mr-2" />
+                                    <div className="text-sm text-gray-700 dark:text-gray-300">
+                                      Roadmaps
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                    <FileText className="w-5 h-5 text-blue-500 mr-2" />
+                                    <div className="text-sm text-gray-700 dark:text-gray-300">
+                                      Cheatsheets
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+
+                            {index === 3 && (
+                              <div className="flex flex-col gap-4">
+                                <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-100 dark:border-amber-800/20">
+                                  <h5 className="font-medium text-gray-900 dark:text-white mb-2 flex items-center">
+                                    <Global className="w-5 h-5 mr-2 text-amber-500" />
+                                    Vision for the Future
+                                  </h5>
+                                  <p className="text-gray-600 dark:text-gray-300 text-sm">
+                                    From helping a small WhatsApp group to
+                                    becoming an open platform that serves
+                                    students across the country — we're just
+                                    getting started.
+                                  </p>
+                                </div>
+
+                                <div className="text-sm italic text-gray-500 dark:text-gray-400 pl-4 border-l-2 border-amber-300 dark:border-amber-700">
+                                  "We believe education should be collaborative,
+                                  accessible, and actually enjoyable. That's why
+                                  we're opening ColleGPT to contributors from
+                                  everywhere."
+                                </div>
+                              </div>
+                            )}
+                          </motion.div>
+                        )}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Final connector */}
+                <motion.div
+                  className="flex justify-center items-center"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.7, delay: 0.9 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg font-bold">
+                    Now
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Core values interactive section */}
+          <div ref={valuesRef} className="mb-24">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
+                Four principles guiding{" "}
+                <span className="text-blue-600 dark:text-blue-400">
+                  everything
+                </span>{" "}
+                we do
+              </h3>
+            </motion.div>
+
+            {/* Interactive values cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {coreValues.map((value, index) => (
+                <motion.div
+                  key={index}
+                  onClick={() =>
+                    setActiveValue(activeValue === index ? null : index)
+                  }
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className={`rounded-2xl cursor-pointer transform transition-all duration-300 ${
+                    activeValue === index
+                      ? `bg-${value.color}-50 dark:bg-${value.color}-900/20 border-${value.color}-200 dark:border-${value.color}-800/20 shadow-xl scale-105`
+                      : "bg-white dark:bg-gray-800 border-gray-100 dark:border-gray-700 hover:shadow-lg"
+                  } border p-6 relative overflow-hidden group`}
+                >
+                  {/* Top accent line */}
+                  <div
+                    className={`absolute top-0 left-0 right-0 h-1 bg-${value.color}-500 opacity-70`}
+                  ></div>
+
+                  {/* Content */}
+                  <div className="mb-4">
+                    <div
+                      className={`w-12 h-12 rounded-xl bg-${value.color}-100 dark:bg-${value.color}-900/30 text-${value.color}-600 dark:text-${value.color}-400 flex items-center justify-center mb-4`}
+                    >
+                      <value.icon className="w-6 h-6" />
+                    </div>
+
+                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      {value.title}
+                    </h4>
+
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">
+                      {value.description}
+                    </p>
+                  </div>
+
+                  {/* Expanded content */}
+                  <AnimatePresence>
+                    {activeValue === index && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pt-4 mt-4 border-t border-gray-100 dark:border-gray-700">
+                          <div
+                            className={`p-4 bg-${value.color}-50/50 dark:bg-${value.color}-900/10 rounded-lg mb-4`}
+                          >
+                            <p className="text-sm text-gray-700 dark:text-gray-300 italic">
+                              "{value.personalNote}"
+                            </p>
+                          </div>
+
+                          <div
+                            className={`inline-flex items-center px-3 py-1.5 rounded-full bg-${value.color}-100/70 dark:bg-${value.color}-900/30 text-${value.color}-700 dark:text-${value.color}-300 text-xs font-medium`}
+                          >
+                            <CheckCircle2 className="w-3.5 h-3.5 mr-1" />
+                            {value.stat}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  {/* Click to expand indicator */}
+                  <div
+                    className={`mt-4 text-xs text-${
+                      value.color
+                    }-600 dark:text-${
+                      value.color
+                    }-400 flex items-center gap-1 ${
+                      activeValue === index
+                        ? "opacity-0"
+                        : "opacity-70 group-hover:opacity-100"
+                    } transition-opacity`}
+                  >
+                    {activeValue === index
+                      ? "Click to collapse"
+                      : "Click to learn more"}
+                    <ChevronRight className="w-3 h-3" />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
