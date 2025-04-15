@@ -838,7 +838,7 @@ const CourseCard = ({ course, semester, index, isFavorite, onToggleFavorite, set
     >
       <div className={`group relative h-full bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg transition-all duration-500 border border-slate-200 dark:border-slate-700 ${hoverCard === index ? 'shadow-2xl scale-[1.02] border-brand-300 dark:border-brand-700' : ''}`}>
         {/* New improved glow effect on hover */}
-        <div className={`absolute -inset-1 rounded-2xl bg-gradient-to-r from-brand-500 via-indigo-500 to-accent-500 opacity-0 blur-xl group-hover:opacity-30 transition-opacity duration-700 ${hoverCard === index ? 'opacity-40' : ''}`}></div>
+        <div className={`absolute -inset-1 rounded-2xl opacity-0 blur-xl group-hover:opacity-30 transition-opacity duration-700 ${hoverCard === index ? 'opacity-40' : ''}`}></div>
         
         <div className="relative h-full flex flex-col">
           {/* Course Thumbnail */}
