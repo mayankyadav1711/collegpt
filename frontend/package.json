@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@google/generative-ai": "^0.24.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -10,6 +11,7 @@
     "cmdk": "^1.0.4",
     "file-saver": "^2.0.5",
     "framer-motion": "^11.15.0",
+    "html2pdf.js": "^0.10.3",
     "jszip": "^3.10.1",
     "lucide-react": "^0.460.0",
     "react": "^18.3.1",
@@ -17,6 +19,7 @@
     "react-dropzone": "^14.3.5",
     "react-hot-toast": "^2.4.1",
     "react-intersection-observer": "^9.13.1",
+    "react-markdown": "^10.1.0",
     "react-router-dom": "^7.0.1",
     "react-scripts": "5.0.1",
     "recharts": "^2.13.3",

@@ -9,6 +9,7 @@ import GateSection from "../../components/home/GateSection";
 import ProjectsSection from "../../components/home/ProjectsSection";
 import YoutubeSection from "../../components/home/YoutubeSection";
 import CommunitySection from "../../components/home/CommunitySection";
+import AISection from "../../components/home/AISection";
 
 const Home = () => {
   // State management
@@ -27,6 +28,7 @@ const Home = () => {
   const videosRef = useRef(null);
   const communityRef = useRef(null);
   const exploreRef = useRef(null);
+  const aiRef = useRef(null);
 
   // Update current time
   useEffect(() => {
@@ -56,6 +58,7 @@ const Home = () => {
       const sections = [
         { ref: heroRef, id: "hero" },
         { ref: notesRef, id: "notes" },
+        { ref: aiRef, id: "ai" },
         { ref: placementRef, id: "placement" },
         { ref: roadmapsRef, id: "roadmaps" },
         { ref: gateRef, id: "gate" },
@@ -87,6 +90,7 @@ const Home = () => {
   const sectionRefs = {
     heroRef,
     notesRef,
+    aiRef,
     placementRef,
     roadmapsRef,
     gateRef,
@@ -104,6 +108,7 @@ const Home = () => {
       {/* Main Content Sections */}
       <HeroSection ref={heroRef} notesRef={notesRef} />
       <NotesSection ref={notesRef} />
+      <AISection ref={aiRef}  />
       <PlacementSection ref={placementRef} />
       <HackathonSection ref={roadmapsRef} />
       <GateSection ref={gateRef} />

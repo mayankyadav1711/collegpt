@@ -20,6 +20,7 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import ResetPassword from "./pages/auth/ResetPassword";
 import Profile from "./pages/auth/Profile";
 import SubjectDetails from "./components/SubjectDetails";
+import ColleGPTAI from "./pages/common/ColleGPTAI";
 
 // Import styles
 import "./App.css";
@@ -53,6 +54,7 @@ function AppRoutes() {
           <Route path="/contributor_form" element={<Contributor />} />
           <Route path="/graduate_form" element={<GraduateFeedbackForm />} />
           <Route path="/gate" element={<GateExamPage />} />
+          <Route path="/collegptai" element={<ColleGPTAI />} />
 
           {/* Auth routes */}
           <Route path="/login" element={<Login />} />
