@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { getSemester, getSubject } from "../data/coursedata";
-import { useAppContext } from "../context/AppContext"; // Import the context
+import { getSemester } from "../data/coursedata";
+import { useAppContext } from "../context/AppContext";
+import toast, { Toaster } from 'react-hot-toast';
 import { 
   BookOpen, 
   ArrowLeft, 
@@ -18,10 +19,10 @@ import {
   Play,
   Eye,
   LayoutGrid,
-  Send,
-  ThumbsUp,
-  MessageSquare,
-  AlertCircle
+  Linkedin,
+  Copy,
+  X,
+  ChevronDown
 } from "lucide-react";
 
 const SubjectDetails = () => {
@@ -33,21 +34,19 @@ const SubjectDetails = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [hoverUnit, setHoverUnit] = useState(null);
-  const [reviewText, setReviewText] = useState("");
-  const [reviewRating, setReviewRating] = useState(5);
-  const [reviews, setReviews] = useState([]);
-  const [reviewSubmitting, setReviewSubmitting] = useState(false);
-  const [averageRating, setAverageRating] = useState(0);
-  const [ratingCounts, setRatingCounts] = useState({ 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 });
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  const [copyStatus, setCopyStatus] = useState("");
   
   // Get auth from context
   const { auth, theme } = useAppContext();
   
+  // Ref for the share button
+  const shareButtonRef = useRef(null);
+  
   const navigate = useNavigate();
   const headerRef = useRef(null);
-  const reviewInputRef = useRef(null);
   
-  // For parallax scrolling effect - Move these hooks to the top level
+  // For parallax scrolling effect
   const { scrollY } = useScroll();
   const headerOpacity = useTransform(scrollY, [0, 200], [1, 0.7]);
   const headerScale = useTransform(scrollY, [0, 200], [1, 0.95]);
@@ -76,10 +75,8 @@ const SubjectDetails = () => {
       setIsLoading(true);
       
       try {
-        // Log what we're looking for to help debug
         console.log(`Looking for semester ${semesterId} and subject ${subjectId}`);
         
-        // Get the data directly from your getAllSemesters function to ensure we have data
         const allSemesters = await getSemester(semesterId);
         console.log("Fetched semester data:", allSemesters);
         
@@ -99,9 +96,6 @@ const SubjectDetails = () => {
               // Check if this subject is bookmarked in localStorage
               const bookmarks = JSON.parse(localStorage.getItem('subjectBookmarks') || '[]');
               setIsBookmarked(bookmarks.includes(`${semesterId}-${subjectId}`));
-              
-              // Load reviews from localStorage
-              loadReviews();
             }
           }
         }
@@ -117,27 +111,6 @@ const SubjectDetails = () => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
   }, [semesterId, subjectId]);
-  
-  // Load reviews from localStorage
-  const loadReviews = () => {
-    const savedReviews = JSON.parse(localStorage.getItem(`reviews-${semesterId}-${subjectId}`) || '[]');
-    setReviews(savedReviews);
-    
-    // Calculate average rating and counts
-    if (savedReviews.length > 0) {
-      // Calculate average rating
-      const sum = savedReviews.reduce((total, review) => total + review.rating, 0);
-      const avg = sum / savedReviews.length;
-      setAverageRating(parseFloat(avg.toFixed(1)));
-      
-      // Calculate rating counts
-      const counts = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
-      savedReviews.forEach(review => {
-        counts[review.rating] = (counts[review.rating] || 0) + 1;
-      });
-      setRatingCounts(counts);
-    }
-  };
 
   const toggleBookmark = () => {
     const bookmarkId = `${semesterId}-${subjectId}`;
@@ -153,64 +126,20 @@ const SubjectDetails = () => {
     
     setIsBookmarked(!isBookmarked);
   };
-  
-  // Submit a new review
-  const submitReview = () => {
-    if (!auth.isAuthenticated) {
-      alert("Please sign in to leave a review");
-      return;
-    }
+
+  // Close share menu with escape key
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.key === 'Escape') {
+        setShowShareMenu(false);
+      }
+    };
     
-    if (!reviewText.trim()) {
-      alert("Please write something in your review");
-      return;
-    }
-    
-    setReviewSubmitting(true);
-    
-    setTimeout(() => {
-      const newReview = {
-        id: Date.now().toString(),
-        userId: auth.user?.id || "anonymous",
-        userName: auth.user?.name || auth.user?.username || "Anonymous User",
-        userAvatar: auth.user?.avatar || auth.user?.name?.charAt(0) || "U",
-        rating: reviewRating,
-        comment: reviewText,
-        date: new Date().toISOString(),
-        likes: 0,
-        timestamp: Date.now()
-      };
-      
-      const updatedReviews = [newReview, ...reviews];
-      
-      // Save to localStorage
-      localStorage.setItem(`reviews-${semesterId}-${subjectId}`, JSON.stringify(updatedReviews));
-      
-      // Update state
-      setReviews(updatedReviews);
-      setReviewText("");
-      setReviewRating(5);
-      setReviewSubmitting(false);
-      
-      // Recalculate average and counts
-      loadReviews();
-    }, 800);
-  };
-  
-  // Format date
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const now = new Date();
-    const diffTime = Math.abs(now - date);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
-    if (diffDays < 1) return "Today";
-    if (diffDays === 1) return "Yesterday";
-    if (diffDays < 7) return `${diffDays} days ago`;
-    if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
-    if (diffDays < 365) return `${Math.floor(diffDays / 30)} months ago`;
-    return `${Math.floor(diffDays / 365)} years ago`;
-  };
+    window.addEventListener('keydown', handleEsc);
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, []);
 
   // Animation variants
   const fadeIn = {
@@ -300,6 +229,24 @@ const SubjectDetails = () => {
   // Main component render
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 pb-20 relative">
+      {/* React Hot Toast Container */}
+      <Toaster 
+        position="top-center" 
+        toastOptions={{
+          style: {
+            border: '1px solid #E2E8F0',
+            padding: '16px',
+            color: '#1E293B',
+            background: 'rgba(255, 255, 255, 0.95)',
+            borderRadius: '10px',
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+            backdropFilter: 'blur(8px)',
+            fontSize: '14px',
+            fontWeight: '500',
+            zIndex: 9999
+          },
+        }}
+      />
       {/* Progress bar at the top */}
       <div className="fixed top-0 left-0 w-full h-1 bg-slate-200 dark:bg-slate-700 z-50">
         <motion.div 
@@ -402,7 +349,7 @@ const SubjectDetails = () => {
                   </div>
                   <div>
                     <div className="text-sm text-white/60">Units</div>
-                    <div className="font-semibold text-white">{subject.totalUnits}</div>
+                    <div className="font-semibold text-white">{subject.totalUnits || (subject.units?.length || 0)}</div>
                   </div>
                 </div>
               </div>
@@ -414,7 +361,7 @@ const SubjectDetails = () => {
                   </div>
                   <div>
                     <div className="text-sm text-white/60">Duration</div>
-                    <div className="font-semibold text-white">{subject.totalUnits * 2} hrs</div>
+                    <div className="font-semibold text-white">{(subject.totalUnits || (subject.units?.length || 0)) * 2} hrs</div>
                   </div>
                 </div>
               </div>
@@ -427,7 +374,7 @@ const SubjectDetails = () => {
                   <div>
                     <div className="text-sm text-white/60">Rating</div>
                     <div className="font-semibold text-white">
-                      {reviews.length > 0 ? averageRating : "No ratings"}/5
+                      {subject.rating || "Not rated"}
                     </div>
                   </div>
                 </div>
@@ -440,7 +387,7 @@ const SubjectDetails = () => {
                   </div>
                   <div>
                     <div className="text-sm text-white/60">Students</div>
-                    <div className="font-semibold text-white">2,500+</div>
+                    <div className="font-semibold text-white">{subject.students || "0"}</div>
                   </div>
                 </div>
               </div>
@@ -476,9 +423,126 @@ const SubjectDetails = () => {
                 <Download className="w-5 h-5" />
               </button>
               
-              <button className="p-3 bg-white/10 backdrop-blur-md text-white/80 rounded-xl font-medium transition-all flex items-center justify-center border border-white/10 hover:bg-white/20">
+                          <button 
+                ref={shareButtonRef}
+                onClick={() => setShowShareMenu(!showShareMenu)}
+                className="p-3 bg-white/10 backdrop-blur-md text-white/80 rounded-xl font-medium transition-all flex items-center justify-center border border-white/10 hover:bg-white/20"
+              >
                 <Share2 className="w-5 h-5" />
               </button>
+              
+              {/* Share Menu Overlay */}
+              <AnimatePresence>
+                {showShareMenu && (
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                    className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center"
+                    onClick={() => setShowShareMenu(false)}
+                  >
+                    <motion.div 
+                      initial={{ scale: 0.95, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.95, opacity: 0 }}
+                      transition={{ duration: 0.15 }}
+                      className="bg-white dark:bg-slate-800 rounded-xl shadow-xl w-full max-w-sm mx-4 overflow-hidden"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <div className="p-4 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
+                        <h3 className="font-medium text-slate-800 dark:text-white">Share this course</h3>
+                        <button 
+                          onClick={() => setShowShareMenu(false)}
+                          className="p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                        >
+                          <X className="w-5 h-5 text-slate-500 dark:text-slate-400" />
+                        </button>
+                      </div>
+                      
+                      <div className="p-4 space-y-3">
+                        <button 
+                          onClick={() => {
+                            const url = window.location.href;
+                            window.open(`https://wa.me/?text=${encodeURIComponent(`Check out this course: ${subject.title} ${url}`)}`, '_blank');
+                          }}
+                          className="flex items-center w-full p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                        >
+                          <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400 mr-3">
+                            <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
+                              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                          </div>
+                          <span className="text-slate-700 dark:text-slate-300">Share via WhatsApp</span>
+                        </button>
+                        
+                        <button 
+                          onClick={() => {
+                            const url = window.location.href;
+                            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+                          }}
+                          className="flex items-center w-full p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                        >
+                          <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 mr-3">
+                            <Linkedin className="w-5 h-5" />
+                          </div>
+                          <span className="text-slate-700 dark:text-slate-300">Share on LinkedIn</span>
+                        </button>
+                        
+                        <button 
+                          onClick={() => {
+                            navigator.clipboard.writeText(window.location.href);
+                            
+                            // Show toast (may not be visible in some environments)
+                            toast.success('Link copied to clipboard!', {
+                              duration: 3000,
+                              position: 'top-center',
+                              style: {
+                                border: '1px solid #E2E8F0',
+                                padding: '16px',
+                                color: '#1E293B',
+                                background: 'rgba(255, 255, 255, 0.95)',
+                                borderRadius: '10px',
+                                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                                maxWidth: '350px',
+                                fontSize: '14px',
+                                fontWeight: '500'
+                              },
+                              iconTheme: {
+                                primary: '#10B981',
+                                secondary: '#ECFDF5',
+                              }
+                            });
+                            
+                            // Backup approach using state
+                            setCopyStatus("Copied to clipboard!");
+                            setTimeout(() => {
+                              setCopyStatus("");
+                            }, 5000);
+                          }}
+                          className="flex items-center w-full p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors relative"
+                        >
+                          <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 mr-3">
+                            <Copy className="w-5 h-5" />
+                          </div>
+                          <span className="text-slate-700 dark:text-slate-300">Copy link</span>
+                          
+                          {/* In-button feedback */}
+                          {copyStatus && (
+                            <motion.div 
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              className="absolute right-3 bg-green-500 text-white text-xs px-2 py-1 rounded-full"
+                            >
+                              Copied!
+                            </motion.div>
+                          )}
+                        </button>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           </motion.div>
         </div>
@@ -498,7 +562,7 @@ const SubjectDetails = () => {
 
       {/* Main Content area */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        {/* Tabs for Content/Overview/Reviews */}
+        {/* Tabs for Content */}
         <div className="mb-8 border-b border-slate-200 dark:border-slate-700">
           <div className="flex space-x-8">
             <motion.button
@@ -510,49 +574,6 @@ const SubjectDetails = () => {
             >
               Course Content
               {activeTab === "content" && (
-                <motion.div 
-                  variants={tabUnderlineVariants}
-                  initial="inactive"
-                  animate="active"
-                  className="absolute bottom-0 left-0 right-0 h-1 bg-brand-500 rounded-t-full"
-                  layoutId="activeTab"
-                />
-              )}
-            </motion.button>
-            
-            <motion.button
-              variants={tabVariants}
-              initial="inactive"
-              animate={activeTab === "overview" ? "active" : "inactive"}
-              onClick={() => setActiveTab("overview")}
-              className="relative pb-4 text-lg font-medium text-slate-800 dark:text-white"
-            >
-              Overview
-              {activeTab === "overview" && (
-                <motion.div 
-                  variants={tabUnderlineVariants}
-                  initial="inactive"
-                  animate="active"
-                  className="absolute bottom-0 left-0 right-0 h-1 bg-brand-500 rounded-t-full"
-                  layoutId="activeTab"
-                />
-              )}
-            </motion.button>
-            
-            <motion.button
-              variants={tabVariants}
-              initial="inactive"
-              animate={activeTab === "reviews" ? "active" : "inactive"}
-              onClick={() => setActiveTab("reviews")}
-              className="relative pb-4 text-lg font-medium text-slate-800 dark:text-white flex items-center"
-            >
-              Reviews
-              {reviews.length > 0 && (
-                <span className="ml-2 bg-brand-100 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 text-xs font-medium px-2 py-0.5 rounded-full">
-                  {reviews.length}
-                </span>
-              )}
-              {activeTab === "reviews" && (
                 <motion.div 
                   variants={tabUnderlineVariants}
                   initial="inactive"
@@ -653,7 +674,7 @@ const SubjectDetails = () => {
                                   
                                   <div className="flex items-center text-slate-500 dark:text-slate-400">
                                     <Clock className="w-4 h-4 mr-1.5 text-amber-500" />
-                                    <span>{(unit.id % 3) + 1} hr duration</span>
+                                    <span>{unit.duration || 2} hr duration</span>
                                   </div>
                                 </div>
                               </div>
@@ -666,421 +687,80 @@ const SubjectDetails = () => {
                 </motion.div>
               ) : (
                 <motion.div 
-                className="p-10 bg-white dark:bg-slate-800 rounded-xl text-center shadow border border-slate-200 dark:border-slate-700"
-                variants={fadeIn}
-                initial="hidden"
-                animate="visible"
-              >
-                <div className="w-20 h-20 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-400 dark:text-slate-500 mx-auto mb-4">
-                  <FileText className="w-10 h-10" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">No Units Available</h3>
-                <p className="text-slate-600 dark:text-slate-300 mb-6">
-                  Content for this course is currently being developed.
-                </p>
-                <button 
-                  onClick={() => navigate('/courses')}
-                  className="px-5 py-2.5 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-medium shadow-md transition-colors"
+                  className="p-10 bg-white dark:bg-slate-800 rounded-xl text-center shadow border border-slate-200 dark:border-slate-700"
+                  variants={fadeIn}
+                  initial="hidden"
+                  animate="visible"
                 >
-                  Browse Other Courses
-                </button>
-              </motion.div>
-            )}
-          </motion.div>
-        )}
-        
-        {activeTab === "overview" && (
-          <motion.div 
-            key="overview"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md border border-slate-200 dark:border-slate-700"
-          >
-            <div className="flex items-center mb-6">
-              <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-500 mr-3">
-                <BookOpen className="w-5 h-5" />
-              </div>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-                Course Overview
-              </h2>
-            </div>
-            
-            <div className="prose dark:prose-invert max-w-none">
-              <h3>About this course</h3>
-              <p>
-                {subject.description} This comprehensive course is designed to provide students with a solid understanding of the subject matter through interactive lessons, practical exercises, and real-world applications.
-              </p>
-              
-              <h3>What you'll learn</h3>
-              <ul>
-                <li>Understand core concepts and principles of {subject.title}</li>
-                <li>Apply theoretical knowledge to practical scenarios</li>
-                <li>Develop critical thinking and problem-solving skills</li>
-                <li>Master essential techniques used in the field</li>
-                <li>Complete hands-on projects to reinforce learning</li>
-              </ul>
-              
-              <h3>Prerequisites</h3>
-              <p>
-                Basic understanding of related concepts is recommended. No specific prior coursework is required, but familiarity with introductory concepts will be helpful.
-              </p>
-              
-              <h3>Course structure</h3>
-              <p>
-                This course consists of {subject.units?.length || 0} units, with an estimated total of {subject.totalUnits * 2} hours of learning material. Each unit builds upon previous knowledge and includes various activities to enhance comprehension.
-              </p>
-            </div>
-          </motion.div>
-        )}
-        
-        {activeTab === "reviews" && (
-          <motion.div 
-            key="reviews"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md border border-slate-200 dark:border-slate-700"
-          >
-            <div className="flex items-center mb-6">
-              <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-amber-500 mr-3">
-                <Star className="w-5 h-5" />
-              </div>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-                Student Reviews
-              </h2>
-            </div>
-            
-            {/* Write a review section */}
-            <motion.div 
-              className="mb-8 border-b border-slate-200 dark:border-slate-700 pb-8"
-              variants={fadeIn}
-              initial="hidden"
-              animate="visible"
-            >
-              <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-4">
-                Write a Review
-              </h3>
-              
-              {auth.isAuthenticated ? (
-                <div>
-                  <div className="flex items-center mb-3">
-                    <div className="mr-2 text-slate-700 dark:text-slate-300 text-sm font-medium">Your rating:</div>
-                    <div className="flex">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <button 
-                          key={star}
-                          onClick={() => setReviewRating(star)}
-                          className="p-1 focus:outline-none"
-                        >
-                          <Star 
-                            className={`w-6 h-6 ${star <= reviewRating ? 'text-amber-500 fill-amber-500' : 'text-slate-300 dark:text-slate-600'}`}
-                          />
-                        </button>
-                      ))}
-                    </div>
-                    <div className="ml-2 text-amber-500 font-medium">
-                      {reviewRating}/5
-                    </div>
+                  <div className="w-20 h-20 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-400 dark:text-slate-500 mx-auto mb-4">
+                    <FileText className="w-10 h-10" />
                   </div>
-                  
-                  <div className="relative">
-                    <textarea
-                      ref={reviewInputRef}
-                      value={reviewText}
-                      onChange={(e) => setReviewText(e.target.value)}
-                      placeholder="Share your experience with this course..."
-                      className="w-full p-4 bg-slate-50 dark:bg-slate-700/30 rounded-xl border border-slate-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-700 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 resize-none transition-all min-h-[120px]"
-                    ></textarea>
-                    
-                    <button 
-                      onClick={submitReview}
-                      disabled={reviewSubmitting || !reviewText.trim()}
-                      className={`absolute bottom-4 right-4 p-2 rounded-lg ${
-                        reviewSubmitting || !reviewText.trim() 
-                          ? 'bg-slate-300 dark:bg-slate-600 text-slate-500 dark:text-slate-400' 
-                          : 'bg-brand-500 hover:bg-brand-600 text-white'
-                      } transition-colors`}
-                    >
-                      {reviewSubmitting ? (
-                        <div className="w-6 h-6 rounded-full border-2 border-white border-t-transparent animate-spin"></div>
-                      ) : (
-                        <Send className="w-5 h-5" />
-                      )}
-                    </button>
-                  </div>
-                  
-                  <div className="flex items-center mt-3 text-sm text-slate-500 dark:text-slate-400">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-500 to-indigo-600 text-white flex items-center justify-center mr-2 font-medium">
-                      {auth.user?.name?.charAt(0) || "U"}
-                    </div>
-                    <div>
-                      Posting as <span className="font-medium text-slate-700 dark:text-slate-300">{auth.user?.name || auth.user?.username || "Anonymous User"}</span>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <div className="bg-slate-50 dark:bg-slate-700/30 rounded-xl p-5 border border-slate-200 dark:border-slate-600 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <div className="flex items-center">
-                    <AlertCircle className="w-5 h-5 text-amber-500 mr-2 flex-shrink-0" />
-                    <p className="text-slate-600 dark:text-slate-300">
-                      Please sign in to leave a review
-                    </p>
-                  </div>
-                  <button className="px-4 py-2 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-medium shadow-md transition-colors">
-                    Sign In
-                  </button>
-                </div>
-              )}
-            </motion.div>
-            
-            {/* Rating Summary */}
-            {reviews.length > 0 ? (
-              <div className="flex flex-col md:flex-row gap-6 mb-8">
-                {/* Rating summary */}
-                <div className="md:w-1/3 bg-slate-50 dark:bg-slate-700/30 rounded-xl p-5 flex flex-col items-center justify-center">
-                  <div className="text-5xl font-bold text-slate-900 dark:text-white mb-2">{averageRating}</div>
-                  <div className="flex text-amber-500 mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className={`w-5 h-5 ${i < Math.round(averageRating) ? 'fill-amber-500' : ''}`} 
-                      />
-                    ))}
-                  </div>
-                  <div className="text-slate-500 dark:text-slate-400 text-sm">Based on {reviews.length} {reviews.length === 1 ? 'review' : 'reviews'}</div>
-                </div>
-                
-                {/* Rating bars */}
-                <div className="md:w-2/3">
-                  <div className="space-y-3">
-                    {[5, 4, 3, 2, 1].map(stars => {
-                      const count = ratingCounts[stars] || 0;
-                      const percentage = reviews.length > 0 ? Math.round((count / reviews.length) * 100) : 0;
-                      
-                      return (
-                        <div key={stars} className="flex items-center">
-                          <div className="w-10 text-sm font-medium text-slate-600 dark:text-slate-400">
-                            {stars}
-                            <Star className="w-3 h-3 inline ml-0.5 text-amber-500" />
-                          </div>
-                          <div className="flex-1 h-2 mx-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                            <motion.div 
-                              className="h-full bg-amber-500 rounded-full" 
-                              initial={{ width: 0 }}
-                              animate={{ width: `${percentage}%` }}
-                              transition={{ duration: 0.5, delay: 0.2 }}
-                            ></motion.div>
-                          </div>
-                          <div className="w-10 text-right text-sm font-medium text-slate-600 dark:text-slate-400">
-                            {percentage}%
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="bg-slate-50 dark:bg-slate-700/30 rounded-xl p-8 text-center mb-8">
-                <Star className="w-12 h-12 mx-auto mb-3 text-slate-300 dark:text-slate-600" />
-                <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2">No Reviews Yet</h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-4">
-                  Be the first to share your experience with this course
-                </p>
-                {!auth.isAuthenticated && (
-                  <button className="px-5 py-2 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-medium shadow-md transition-colors">
-                    Sign In to Review
-                  </button>
-                )}
-              </div>
-            )}
-            
-            {/* Reviews list */}
-            {reviews.length > 0 && (
-              <div className="space-y-6">
-                <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-4">
-                  {reviews.length} {reviews.length === 1 ? 'Review' : 'Reviews'}
-                </h3>
-                
-                {reviews.map((review, index) => (
-                  <motion.div 
-                    key={review.id}
-                    className="bg-slate-50 dark:bg-slate-700/20 rounded-xl p-5 border border-slate-200 dark:border-slate-700"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05, duration: 0.5 }}
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">No Units Available</h3>
+                  <p className="text-slate-600 dark:text-slate-300 mb-6">
+                    Content for this course is currently being developed.
+                  </p>
+                  <button 
+                    onClick={() => navigate('/courses')}
+                    className="px-5 py-2.5 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-medium shadow-md transition-colors"
                   >
-                    <div className="flex items-start">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white flex items-center justify-center font-medium text-lg">
-                        {review.userAvatar}
-                      </div>
-                      <div className="ml-4 flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <h4 className="font-medium text-slate-900 dark:text-white">{review.userName}</h4>
-                          <span className="text-sm text-slate-500 dark:text-slate-400">{formatDate(review.date)}</span>
-                        </div>
-                        <div className="flex text-amber-500 mb-2">
-                          {[...Array(5)].map((_, i) => (
-                            <Star 
-                              key={i} 
-                              className={`w-4 h-4 ${i < review.rating ? 'fill-amber-500' : ''}`} 
-                            />
-                          ))}
-                        </div>
-                        <p className="text-slate-600 dark:text-slate-300 mb-3">{review.comment}</p>
-                        
-                        <div className="flex items-center gap-4 mt-2">
-                          <button className="flex items-center text-sm text-slate-500 dark:text-slate-400 hover:text-brand-500 dark:hover:text-brand-400 transition-colors">
-                            <ThumbsUp className="w-4 h-4 mr-1" />
-                            <span>Helpful {review.likes > 0 && `(${review.likes})`}</span>
-                          </button>
-                          <button className="flex items-center text-sm text-slate-500 dark:text-slate-400 hover:text-brand-500 dark:hover:text-brand-400 transition-colors">
-                            <MessageSquare className="w-4 h-4 mr-1" />
-                            <span>Reply</span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-      
-      {/* Call to Action Card */}
-      <motion.div 
-        className="mt-12 relative overflow-hidden"
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="bg-gradient-to-r from-brand-500 to-indigo-600 rounded-2xl p-8 lg:p-10 text-white relative z-10 shadow-2xl">
-          {/* Decorative elements */}
-          <div className="absolute top-0 left-0 right-0 bottom-0 opacity-10">
-            <div className="absolute top-0 right-0 w-72 h-72 bg-white rounded-full -mt-20 -mr-20"></div>
-            <div className="absolute bottom-0 left-0 w-40 h-40 bg-white rounded-full -mb-10 -ml-10"></div>
-          </div>
-          
-          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl lg:text-3xl font-bold mb-3">Ready to start learning?</h3>
-              <p className="text-white/80 max-w-lg mb-6 lg:mb-0">
-                Join thousands of students who have already enrolled in this course and start your educational journey today.
-              </p>
+                    Browse Other Courses
+                  </button>
+                </motion.div>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+        
+        {/* Call to Action Card */}
+        <motion.div 
+          className="mt-12 relative overflow-hidden"
+          variants={fadeIn}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="bg-gradient-to-r from-brand-500 to-indigo-600 rounded-2xl p-8 lg:p-10 text-white relative z-10 shadow-2xl">
+            {/* Decorative elements */}
+            <div className="absolute top-0 left-0 right-0 bottom-0 opacity-10">
+              <div className="absolute top-0 right-0 w-72 h-72 bg-white rounded-full -mt-20 -mr-20"></div>
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-white rounded-full -mb-10 -ml-10"></div>
             </div>
             
-            <div className="flex flex-wrap gap-4">
-              {subject.units && subject.units.length > 0 && (
-                <Link 
-                  to={`/semester/${semesterId}/subject/${subjectId}/unit/${subject.units[0].id}`}
-                  className="px-8 py-3.5 bg-white text-brand-600 rounded-xl font-medium shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 flex items-center group"
-                >
-                  <Play className="w-5 h-5 mr-2 transition-transform group-hover:translate-x-1" />
-                  <span>Start First Unit</span>
-                </Link>
-              )}
-              
-              <button 
-                onClick={toggleBookmark}
-                className={`px-8 py-3.5 rounded-xl font-medium shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 
-                  ${isBookmarked 
-                    ? 'bg-amber-500 text-white border-2 border-white/20' 
-                    : 'bg-transparent text-white border-2 border-white/20 hover:bg-white/10'
-                  }`}
-              >
-                {isBookmarked ? 'Bookmarked' : 'Add to Bookmarks'}
-              </button>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-      
-      {/* Related Courses Section */}
-      <motion.div 
-        className="mt-16"
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center">
-            <div className="w-10 h-10 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-500 mr-3">
-              <BookOpen className="w-5 h-5" />
-            </div>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-              Related Courses
-            </h2>
-          </div>
-          
-          <Link 
-            to="/courses"
-            className="text-brand-500 hover:text-brand-600 dark:text-brand-400 dark:hover:text-brand-300 font-medium flex items-center"
-          >
-            View All
-            <ChevronRight className="w-4 h-4 ml-1" />
-          </Link>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Sample related courses - would be populated with actual related data */}
-          {[1, 2, 3].map((item) => (
-            <motion.div 
-              key={item}
-              className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl border border-slate-200 dark:border-slate-700 transition-all group"
-              whileHover={{ y: -5 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: item * 0.1, duration: 0.5 }}
-            >
-              <div className="relative overflow-hidden aspect-video">
-                <img 
-                  src="/images/sample.webp" 
-                  alt="Related course" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/10 pointer-events-none"></div>
-                
-                <div className="absolute top-3 left-3 px-2.5 py-1 bg-gradient-to-r from-brand-500 to-indigo-600 text-white text-xs font-semibold rounded-md">
-                  COURSE {item}
-                </div>
-              </div>
-              
-              <div className="p-5">
-                <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-2 group-hover:text-brand-500 transition-colors">
-                  Related Course Title {item}
-                </h3>
-                
-                <p className="text-slate-600 dark:text-slate-300 text-sm mb-4 line-clamp-2">
-                  A related course that complements the current subject with additional specialized content.
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
+              <div>
+                <h3 className="text-2xl lg:text-3xl font-bold mb-3">Ready to start learning?</h3>
+                <p className="text-white/80 max-w-lg mb-6 lg:mb-0">
+                  Begin your learning journey with this course today.
                 </p>
-                
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center text-sm text-slate-500 dark:text-slate-400">
-                    <Clock className="w-4 h-4 mr-1.5 text-brand-500" />
-                    <span>6 hours</span>
-                  </div>
-                  
-                  <div className="flex text-amber-500">
-                    <Star className="w-4 h-4 fill-amber-500" />
-                    <Star className="w-4 h-4 fill-amber-500" />
-                    <Star className="w-4 h-4 fill-amber-500" />
-                    <Star className="w-4 h-4 fill-amber-500" />
-                    <Star className="w-4 h-4 fill-amber-500" />
-                  </div>
-                </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+              
+              <div className="flex flex-wrap gap-4">
+                {subject.units && subject.units.length > 0 && (
+                  <Link 
+                    to={`/semester/${semesterId}/subject/${subjectId}/unit/${subject.units[0].id}`}
+                    className="px-8 py-3.5 bg-white text-brand-600 rounded-xl font-medium shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 flex items-center group"
+                  >
+                    <Play className="w-5 h-5 mr-2 transition-transform group-hover:translate-x-1" />
+                    <span>Start First Unit</span>
+                  </Link>
+                )}
+                
+                <button 
+                  onClick={toggleBookmark}
+                  className={`px-8 py-3.5 rounded-xl font-medium shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 
+                    ${isBookmarked 
+                      ? 'bg-amber-500 text-white border-2 border-white/20' 
+                      : 'bg-transparent text-white border-2 border-white/20 hover:bg-white/10'
+                    }`}
+                >
+                  {isBookmarked ? 'Bookmarked' : 'Add to Bookmarks'}
+                </button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default SubjectDetails;
