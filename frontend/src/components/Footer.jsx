@@ -71,7 +71,7 @@ const Footer = () => {
       },
       {
         name: "Community Forum",
-        href: "/userlist",
+        href: "/community",
         icon: <Users className="w-4 h-4" />,
       },
     ],

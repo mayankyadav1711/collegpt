@@ -29,6 +29,7 @@ import UnitContent from "./components/UnitContent";
 import Contributor from "./pages/forms/Contributor";
 import GateExamPage from "./pages/common/GateExamPage";
 import GraduateFeedbackForm from "./pages/forms/GraduateFeedbackForm";
+import Community from "./pages/common/Community";
 
 // ScrollToTop function component implemented directly
 function ScrollToTopOnMount() {
@@ -64,6 +65,7 @@ function AppRoutes() {
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/community" element={<Community />} />
           {/* Subject and Unit routes */}
           <Route
             path="/semester/:semesterId/:subjectId"

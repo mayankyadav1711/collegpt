@@ -45,7 +45,7 @@ const Header = () => {
     },
     {
       name: "Community",
-      path: "/userlist",
+      path: "/community",
       icon: <Users className="w-4 h-4" />,
     },
   ];
