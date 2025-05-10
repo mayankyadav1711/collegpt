@@ -2,13 +2,17 @@
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: ["./src/**/*.{js,jsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...fontFamily.sans],
         display: ['Cabinet Grotesk', ...fontFamily.sans],
+        'orbitron': ['Orbitron', 'sans-serif'],
       },
       colors: {
         // Premium color palette
