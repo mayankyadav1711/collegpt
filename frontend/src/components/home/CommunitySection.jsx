@@ -130,7 +130,7 @@ const CommunitySection = forwardRef((props, ref) => {
     { id: 2, name: "Divya Kaurani", username: "divya_k", avatar: "https://res.cloudinary.com/dkyrtfk1u/image/upload/v1692452732/by2nz7yrqcfmnq2nlnu6.jpg", status: "online", role: "moderator" },
     { id: 3, name: "Darshit Sojitra", username: "darshit_s", avatar: "http://res.cloudinary.com/dkyrtfk1u/image/upload/v1697349373/sli9ffed1vdqegf1srip.jpg", status: "idle", role: "member" },
     { id: 4, name: "Sneha Gupta", username: "sneha_g", avatar: "https://randomuser.me/api/portraits/women/65.jpg", status: "online", role: "member" },
-    { id: 5, name: "Arjun Mehta", username: "arjun_m", avatar: "https://randomuser.me/api/portraits/men/48.jpg", status: "offline", role: "member" }
+    { id: 5, name: "Gaurav Tiwari", username: "gaurav_t", avatar: "https://res.cloudinary.com/dkyrtfk1u/image/upload/v1697348820/qkswpmr6tnzuiqnfqxtu.png", status: "offline", role: "member" }
   ];
 
   // Chat messages for different channels

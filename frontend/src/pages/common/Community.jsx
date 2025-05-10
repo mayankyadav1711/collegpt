@@ -324,26 +324,7 @@ useEffect(() => {
   }
 }, [popupRef, dragHandleRef, popupPosition, isFullscreen]);
 
-// Updated calculateCenterPosition function
-const calculateCenterPosition = () => {
-  if (window.innerWidth <= 768) {
-    // For mobile devices
-    setPopupPosition({
-      x: window.innerWidth * 0.05,
-      y: window.innerHeight * 0.05
-    });
-  } else {
-    // For desktop
-    const popupWidth = 700;
-    const popupHeight = 650;
-    const headerHeight = 60;
-    
-    const x = Math.max(0, (window.innerWidth - popupWidth) / 2);
-    const y = Math.max(headerHeight, (window.innerHeight - popupHeight) / 2);
-    
-    setPopupPosition({ x, y });
-  }
-};
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -355,18 +336,7 @@ const calculateCenterPosition = () => {
     }
   };
   
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        damping: 25,
-        stiffness: 200
-      }
-    }
-  };
+
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-gray-900 pb-20" onMouseMove={handleMouseMove} ref={communityRef}>
@@ -494,131 +464,69 @@ const calculateCenterPosition = () => {
             >
               <div className="flex items-center">
                 <Users className="w-5 h-5 mr-2 text-blue-500" />
-                <span>
-                  <span className="font-bold text-blue-500">{visibleCount}</span> Community Members
-                </span>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                  className="relative"
+                >
+                  <span className="text-lg md:text-xl font-medium text-gray-600 dark:text-gray-300">
+                    <motion.span
+                      className="inline-block font-bold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-transparent bg-clip-text"
+                      initial={{ scale: 0.5 }}
+                      animate={{ scale: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 10,
+                        delay: 1
+                      }}
+                    >
+                      {visibleCount}
+                    </motion.span>
+                    <span className="ml-2">Community Members</span>
+                  </span>
+                  {/* Animated underline effect */}
+                  <motion.div
+                    className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.8, delay: 1.2 }}
+                  />
+                </motion.div>
               </div>
-              <div className="flex items-center">
-                <Globe className="w-5 h-5 mr-2 text-indigo-500" />
-                <span>Global Network</span>
-              </div>
-              <div className="flex items-center">
-                <MessageSquare className="w-5 h-5 mr-2 text-green-500" />
-                <span>Active Discussions</span>
-              </div>
+            
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* Search and Filter Controls */}
-      <div id="browse-members" className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-sm border-b border-gray-200 dark:border-gray-800 py-3 px-4 mb-8">
+      <div id="browse-members" className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-sm border-b border-gray-200 dark:border-gray-800 py-6 px-4 mb-8">
         <div className="container mx-auto">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center space-x-4 flex-grow">
-              {/* Search Input */}
-              <div className="relative flex-1 md:max-w-xs">
-                <AnimatePresence>
-                  {isSearchOpen || window.innerWidth > 768 ? (
-                    <motion.div
-                      initial={{ width: 0, opacity: 0 }}
-                      animate={{ width: "100%", opacity: 1 }}
-                      exit={{ width: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="relative"
-                    >
-                      <input
-                        ref={searchInputRef}
-                        type="text"
-                        placeholder="Search members..."
-                        value={searchTerm}
-                        onChange={handleSearch}
-                        className="w-full pl-10 pr-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-800 dark:text-white placeholder-gray-400"
-                      />
-                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-                      {searchTerm && (
-                        <button
-                          onClick={() => setSearchTerm("")}
-                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
-                        >
-                          <X className="w-4 h-4" />
-                        </button>
-                      )}
-                    </motion.div>
-                  ) : (
-                    <motion.button
-                      onClick={toggleSearch}
-                      className="p-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                    >
-                      <Search className="w-5 h-5" />
-                    </motion.button>
-                  )}
-                </AnimatePresence>
-              </div>
-            </div>
-            
-            {/* Filter tabs */}
-            <div className="hidden md:flex space-x-2 overflow-x-auto">
-              {['all', 'student', 'developer'].map((filterType) => (
-                <motion.button
-                  key={filterType}
-                  onClick={() => handleFilterChange(filterType)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                    filter === filterType 
-                    ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' 
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+          <div className="flex flex-col items-center justify-center">
+            {/* Search Input */}
+            <div className="relative w-full max-w-2xl">
+              <input
+                ref={searchInputRef}
+                type="text"
+                placeholder="Search community members..."
+                value={searchTerm}
+                onChange={handleSearch}
+                className="w-full pl-12 pr-4 py-4 bg-gray-100 dark:bg-gray-800 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-800 dark:text-white placeholder-gray-400 text-lg shadow-lg"
+              />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400" />
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm("")}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
                 >
-                  {filterType.charAt(0).toUpperCase() + filterType.slice(1)}
-                </motion.button>
-              ))}
+                  <X className="w-5 h-5" />
+                </button>
+              )}
             </div>
             
-            {/* Results count */}
-            <div className="hidden md:block">
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                {filteredProfiles.length === 0 ? (
-                  "No members found"
-                ) : (
-                  <>Showing <span className="font-medium text-gray-700 dark:text-gray-300">{filteredProfiles.length}</span> {filteredProfiles.length === 1 ? "member" : "members"}</>
-                )}
-                {searchTerm && <> matching "<span className="font-medium text-blue-500">{searchTerm}</span>"</>}
-              </p>
-            </div>
-          </div>
-          
-          {/* Mobile Filter Dropdown */}
-          <div className="md:hidden flex overflow-x-auto py-2 gap-2">
-            {['all', 'student', 'developer', 'educator', 'researcher'].map((filterType) => (
-              <button
-                key={filterType}
-                onClick={() => handleFilterChange(filterType)}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap ${
-                  filter === filterType 
-                  ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' 
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300'
-                }`}
-              >
-                {filterType.charAt(0).toUpperCase() + filterType.slice(1)}
-              </button>
-            ))}
-          </div>
-          
-          {/* Mobile Results Count */}
-          <div className="md:hidden flex items-center justify-between mt-2">
-            <p className="text-xs text-gray-500 dark:text-gray-400">
-              {filteredProfiles.length === 0 ? (
-                "No members found"
-              ) : (
-                <>Showing <span className="font-medium text-gray-700 dark:text-gray-300">{filteredProfiles.length}</span> {filteredProfiles.length === 1 ? "member" : "members"}</>
-              )}
-              {searchTerm && <> matching "<span className="font-medium text-blue-500">{searchTerm}</span>"</>}
-            </p>
+            
           </div>
         </div>
       </div>
@@ -946,53 +854,6 @@ const calculateCenterPosition = () => {
         
         {/* Main content area */}
         <div className={`flex-1 flex flex-col overflow-hidden ${isFullscreen ? 'max-h-screen' : ''}`}>
-          {/* Profile header with blurred background */}
-          <div className="relative h-48 md:h-48">
-            {/* Background effect using profile image */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center filter blur-xl opacity-60"
-              style={{ 
-                backgroundImage: `url(${selectedProfile.profilePic || defaultProfilePic})`,
-                backgroundColor: 'rgba(59, 130, 246, 0.6)'
-              }}
-            ></div>
-            
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-gray-900/20 to-gray-900/80"></div>
-            
-            {/* Profile content - centered circle with photo */}
-            <div className="relative h-full flex flex-col items-center justify-center">
-              {/* Large profile photo */}
-              <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white shadow-xl mb-3 md:mb-4">
-                <img 
-                  src={selectedProfile.profilePic || defaultProfilePic}
-                  alt={selectedProfile.name} 
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = defaultProfilePic;
-                  }}
-                />
-              </div>
-              
-              {/* Name and location */}
-              <h2 className="text-xl md:text-2xl font-bold text-white text-center mb-1 drop-shadow-lg px-2">
-                {selectedProfile.name}
-              </h2>
-              
-             
-            </div>
-          </div>
-          
-          {/* Role badge */}
-          <div className="bg-gray-50 dark:bg-gray-800 py-2 flex justify-center border-b border-gray-200 dark:border-gray-700">
-            {selectedProfile.Roles && selectedProfile.Roles[0] && (
-              <span className="px-4 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium">
-                {selectedProfile.Roles[0]}
-              </span>
-            )}
-          </div>
-          
           {/* Tabs navigation */}
           <div className="flex border-b border-gray-200 dark:border-gray-700 overflow-x-auto">
             {[
@@ -1017,7 +878,7 @@ const calculateCenterPosition = () => {
           </div>
           
           {/* Content area */}
-          <div className={`flex-1 overflow-y-auto p-4 md:p-6 ${isFullscreen ? 'h-full' : ''}`}>
+          <div className={`flex-1 overflow-y-auto ${isFullscreen ? 'h-full' : ''}`}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
@@ -1028,105 +889,83 @@ const calculateCenterPosition = () => {
                 className="h-full"
               >
                 {activeTab === 'about' && (
-                  <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                    {/* About section - 2 columns on desktop, 1 on mobile */}
-                    <div className="md:col-span-2 space-y-6">
-                      {/* Stats dashboard */}
-                      <div className="grid grid-cols-3 gap-2 md:gap-4">
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-3 md:p-4 border border-gray-200 dark:border-gray-700 shadow-sm text-center">
-                          <div className="text-xl md:text-2xl font-bold text-blue-600 dark:text-blue-400">9</div>
-                          <div className="text-[9px] md:text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mt-1">Skills</div>
-                        </div>
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-3 md:p-4 border border-gray-200 dark:border-gray-700 shadow-sm text-center">
-                          <div className="text-xl md:text-2xl font-bold text-green-600 dark:text-green-400">1</div>
-                          <div className="text-[9px] md:text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mt-1">Projects</div>
-                        </div>
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-3 md:p-4 border border-gray-200 dark:border-gray-700 shadow-sm text-center">
-                          <div className="text-xl md:text-2xl font-bold text-purple-600 dark:text-purple-400">6</div>
-                          <div className="text-[9px] md:text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mt-1">Connections</div>
-                        </div>
+                  <div className="flex flex-col md:flex-row h-full">
+                    {/* Left column - Profile photo and basic info */}
+                    <div className="md:w-1/3 bg-gray-50 dark:bg-gray-800/50 p-6 border-r border-gray-200 dark:border-gray-700">
+                      {/* Profile photo */}
+                      <div className="aspect-square rounded-xl overflow-hidden shadow-lg mb-6">
+                        <img 
+                          src={selectedProfile.profilePic || defaultProfilePic}
+                          alt={selectedProfile.name} 
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = defaultProfilePic;
+                          }}
+                        />
                       </div>
                       
-                      {/* About text */}
-                      {selectedProfile.aboutMe ? (
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-                          <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
-                            <User2 className="w-4 h-4 md:w-5 md:h-5 text-blue-500 mr-2" />
-                            About
-                          </h3>
-                          <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 whitespace-pre-line">
-                            {selectedProfile.aboutMe}
-                          </p>
-                        </div>
-                      ) : (
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm text-center">
-                          <User2 className="w-8 h-8 md:w-10 md:h-10 text-gray-400 dark:text-gray-500 mx-auto mb-3" />
-                          <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">
-                            This user hasn't added a bio yet.
-                          </p>
+                      {/* Name and Role */}
+                      <div className="text-center mb-6">
+                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                          {selectedProfile.name}
+                        </h2>
+                        {selectedProfile.Roles && selectedProfile.Roles[0] && (
+                          <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium">
+                            {selectedProfile.Roles[0]}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* University */}
+                      {selectedProfile.university && (
+                        <div className="flex items-center justify-center text-gray-600 dark:text-gray-300 mb-6">
+                          <Book className="w-4 h-4 mr-2" />
+                          <span className="text-sm">{selectedProfile.university}</span>
                         </div>
                       )}
 
-                      {/* Goals section */}
-                      {selectedProfile.goals && (
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-                          <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
-                            <Target className="w-4 h-4 md:w-5 md:h-5 text-amber-500 mr-2" />
-                            Goals
-                          </h3>
-                          <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 whitespace-pre-line">
-                            {selectedProfile.goals}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                    
-                    {/* Personal details column - Stacked below on mobile, side column on desktop */}
-                    <div className="space-y-6">
                       {/* Personal details */}
                       {(selectedProfile.gender || selectedProfile.birthdate) && (
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-                          <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                        <div className="space-y-3 mb-6">
+                          <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
                             Personal Details
                           </h3>
-                          <div className="space-y-2 md:space-y-3">
-                            {selectedProfile.gender && (
-                              <div className="flex justify-between items-center px-3 md:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 rounded-md">
-                                <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Gender</span>
-                                <span className="text-xs md:text-sm font-medium text-gray-900 dark:text-white">{selectedProfile.gender}</span>
-                              </div>
-                            )}
-                            {selectedProfile.birthdate && (
-                              <div className="flex justify-between items-center px-3 md:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 rounded-md">
-                                <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Birth Date</span>
-                                <span className="text-xs md:text-sm font-medium text-gray-900 dark:text-white">
-                                  {formatDate(selectedProfile.birthdate)}
-                                </span>
-                              </div>
-                            )}
-                          </div>
+                          {selectedProfile.gender && (
+                            <div className="flex justify-between items-center px-3 py-2 bg-white dark:bg-gray-700 rounded-lg">
+                              <span className="text-sm text-gray-500 dark:text-gray-400">Gender</span>
+                              <span className="text-sm font-medium text-gray-900 dark:text-white">{selectedProfile.gender}</span>
+                            </div>
+                          )}
+                          {selectedProfile.birthdate && (
+                            <div className="flex justify-between items-center px-3 py-2 bg-white dark:bg-gray-700 rounded-lg">
+                              <span className="text-sm text-gray-500 dark:text-gray-400">Birth Date</span>
+                              <span className="text-sm font-medium text-gray-900 dark:text-white">
+                                {formatDate(selectedProfile.birthdate)}
+                              </span>
+                            </div>
+                          )}
                         </div>
                       )}
-                      
+
                       {/* Social links */}
-                      <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-                        <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                      <div className="space-y-3">
+                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
                           Connect
                         </h3>
-                        
                         <div className="space-y-2">
                           {selectedProfile.linkedinURL && (
                             <a
                               href={selectedProfile.linkedinURL}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center p-2 text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md group"
+                              className="flex items-center p-2 bg-white dark:bg-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
                             >
-                              <div className="w-6 h-6 md:w-8 md:h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mr-3 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                                <Linkedin className="w-3 h-3 md:w-4 md:h-4" />
+                              <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mr-3 text-blue-600 dark:text-blue-400">
+                                <Linkedin className="w-4 h-4" />
                               </div>
-                              <span>LinkedIn</span>
-                              <ExternalLink className="w-3 h-3 md:w-3.5 md:h-3.5 ml-auto opacity-70" />
+                              <span className="text-sm text-gray-700 dark:text-gray-300">LinkedIn</span>
+                              <ExternalLink className="w-3.5 h-3.5 ml-auto text-gray-400" />
                             </a>
                           )}
                           
@@ -1135,13 +974,13 @@ const calculateCenterPosition = () => {
                               href={selectedProfile.githubURL}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center p-2 text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md group"
+                              className="flex items-center p-2 bg-white dark:bg-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
                             >
-                              <div className="w-6 h-6 md:w-8 md:h-8 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mr-3 text-gray-700 dark:text-gray-300 group-hover:bg-gray-800 group-hover:text-white transition-colors">
-                                <Github className="w-3 h-3 md:w-4 md:h-4" />
+                              <div className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mr-3 text-gray-700 dark:text-gray-300">
+                                <Github className="w-4 h-4" />
                               </div>
-                              <span>GitHub</span>
-                              <ExternalLink className="w-3 h-3 md:w-3.5 md:h-3.5 ml-auto opacity-70" />
+                              <span className="text-sm text-gray-700 dark:text-gray-300">GitHub</span>
+                              <ExternalLink className="w-3.5 h-3.5 ml-auto text-gray-400" />
                             </a>
                           )}
                           
@@ -1150,73 +989,71 @@ const calculateCenterPosition = () => {
                               href={selectedProfile.twitterURL}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center p-2 text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md group"
+                              className="flex items-center p-2 bg-white dark:bg-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
                             >
-                              <div className="w-6 h-6 md:w-8 md:h-8 bg-sky-100 dark:bg-sky-900/30 rounded-full flex items-center justify-center mr-3 text-sky-500 dark:text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-colors">
-                                <Twitter className="w-3 h-3 md:w-4 md:h-4" />
+                              <div className="w-8 h-8 bg-sky-100 dark:bg-sky-900/30 rounded-full flex items-center justify-center mr-3 text-sky-500 dark:text-sky-400">
+                                <Twitter className="w-4 h-4" />
                               </div>
-                              <span>Twitter</span>
-                              <ExternalLink className="w-3 h-3 md:w-3.5 md:h-3.5 ml-auto opacity-70" />
+                              <span className="text-sm text-gray-700 dark:text-gray-300">Twitter</span>
+                              <ExternalLink className="w-3.5 h-3.5 ml-auto text-gray-400" />
                             </a>
                           )}
                           
-                          {selectedProfile.instaURL && (
-                            <a
-                              href={selectedProfile.instaURL}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center p-2 text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md group"
-                            >
-                              <div className="w-6 h-6 md:w-8 md:h-8 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center mr-3 text-pink-500 dark:text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-colors">
-                                <Instagram className="w-3 h-3 md:w-4 md:h-4" />
-                              </div>
-                              <span>Instagram</span>
-                              <ExternalLink className="w-3 h-3 md:w-3.5 md:h-3.5 ml-auto opacity-70" />
-                            </a>
-                          )}
-                          
-                          {selectedProfile.codingURL && (
-                            <a
-                              href={selectedProfile.codingURL}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center p-2 text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md group"
-                            >
-                              <div className="w-6 h-6 md:w-8 md:h-8 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center mr-3 text-indigo-500 dark:text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-colors">
-                                <Code className="w-3 h-3 md:w-4 md:h-4" />
-                              </div>
-                              <span>Coding Profile</span>
-                              <ExternalLink className="w-3 h-3 md:w-3.5 md:h-3.5 ml-auto opacity-70" />
-                            </a>
-                          )}
-                          
-                          {selectedProfile.resumeURL && (
-                            <a
-                              href={selectedProfile.resumeURL}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center p-2 text-xs md:text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md group"
-                            >
-                              <div className="w-6 h-6 md:w-8 md:h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mr-3 text-green-500 dark:text-green-400 group-hover:bg-green-500 group-hover:text-white transition-colors">
-                                <FileText className="w-3 h-3 md:w-4 md:h-4" />
-                              </div>
-                              <span>Resume</span>
-                              <ExternalLink className="w-3 h-3 md:w-3.5 md:h-3.5 ml-auto opacity-70" />
-                            </a>
-                          )}
-                          
-                          {!selectedProfile.linkedinURL && 
-                           !selectedProfile.githubURL && 
-                           !selectedProfile.twitterURL && 
-                           !selectedProfile.instaURL && 
-                           !selectedProfile.codingURL && 
-                           !selectedProfile.resumeURL && (
-                            <p className="text-center text-xs md:text-sm text-gray-500 dark:text-gray-400 py-4">
-                              No social links provided.
-                            </p>
-                          )}
+                          {/* Add other social links similarly */}
                         </div>
                       </div>
+                    </div>
+
+                    {/* Right column - Main content */}
+                    <div className="md:w-2/3 p-6">
+                      {/* Stats dashboard */}
+                      <div className="grid grid-cols-3 gap-4 mb-6">
+                        <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm text-center">
+                          <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">9</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mt-1">Skills</div>
+                        </div>
+                        <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm text-center">
+                          <div className="text-2xl font-bold text-green-600 dark:text-green-400">1</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mt-1">Projects</div>
+                        </div>
+                        <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm text-center">
+                          <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">6</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mt-1">Connections</div>
+                        </div>
+                      </div>
+                      
+                      {/* About text */}
+                      {selectedProfile.aboutMe ? (
+                        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm mb-6">
+                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                            <User2 className="w-5 h-5 text-blue-500 mr-2" />
+                            About
+                          </h3>
+                          <p className="text-base text-gray-700 dark:text-gray-300 whitespace-pre-line">
+                            {selectedProfile.aboutMe}
+                          </p>
+                        </div>
+                      ) : (
+                        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm text-center mb-6">
+                          <User2 className="w-10 h-10 text-gray-400 dark:text-gray-500 mx-auto mb-3" />
+                          <p className="text-base text-gray-500 dark:text-gray-400">
+                            This user hasn't added a bio yet.
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Goals section */}
+                      {selectedProfile.goals && (
+                        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                            <Target className="w-5 h-5 text-amber-500 mr-2" />
+                            Goals
+                          </h3>
+                          <p className="text-base text-gray-700 dark:text-gray-300 whitespace-pre-line">
+                            {selectedProfile.goals}
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 )}
@@ -1397,7 +1234,7 @@ const ProfileCard = ({ profile, index, setHoveredProfile, hoveredProfile, handle
                 alt={profile.name} 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 onError={(e) => {
-                  e.target.onerror = null; // Prevent infinite loop
+                  e.target.onerror = null;
                   e.target.src = defaultProfilePic;
                 }}
               />
@@ -1430,7 +1267,7 @@ const ProfileCard = ({ profile, index, setHoveredProfile, hoveredProfile, handle
               href={profile.twitterURL || "#"}
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-100 hover:text-blue-500 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors ${!profile.twitterURL ? 'cursor-default opacity-50' : ''}`}
+              className={`w-9 h-9 flex items-center justify-center rounded-full bg-sky-100 dark:bg-sky-900/30 text-sky-500 dark:text-sky-400 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-600 dark:hover:text-white transition-colors ${!profile.twitterURL ? 'cursor-default opacity-50' : ''}`}
               onClick={(e) => !profile.twitterURL && e.preventDefault()}
             >
               <Twitter size={18} />
@@ -1441,7 +1278,7 @@ const ProfileCard = ({ profile, index, setHoveredProfile, hoveredProfile, handle
               href={profile.githubURL || "#"}
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-800 hover:text-white dark:hover:bg-gray-900 dark:hover:text-white transition-colors ${!profile.githubURL ? 'cursor-default opacity-50' : ''}`}
+              className={`w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-800 hover:text-white dark:hover:bg-gray-900 dark:hover:text-white transition-colors ${!profile.githubURL ? 'cursor-default opacity-50' : ''}`}
               onClick={(e) => !profile.githubURL && e.preventDefault()}
             >
               <Github size={18} />
@@ -1452,7 +1289,7 @@ const ProfileCard = ({ profile, index, setHoveredProfile, hoveredProfile, handle
               href={profile.linkedinURL || "#"}
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-700 dark:hover:text-white transition-colors ${!profile.linkedinURL ? 'cursor-default opacity-50' : ''}`}
+              className={`w-9 h-9 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-700 dark:hover:text-white transition-colors ${!profile.linkedinURL ? 'cursor-default opacity-50' : ''}`}
               onClick={(e) => !profile.linkedinURL && e.preventDefault()}
             >
               <Linkedin size={18} />
