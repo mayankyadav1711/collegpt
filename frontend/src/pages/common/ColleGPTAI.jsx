@@ -3,7 +3,6 @@ import { useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import ReactMarkdown from "react-markdown";
-import html2pdf from 'html2pdf.js';
 import {
   Send,
   ArrowRight,

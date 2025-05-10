@@ -2,12 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../context/AppContext";
 import { fetchWithAuth, BASE_URL } from "../../api/api";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-} from "framer-motion";
+import { motion, useScroll, AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
 import {
   Send,
@@ -18,7 +13,6 @@ import {
   MessageSquare,
   CheckCircle,
   ArrowRight,
-  MousePointer,
   Rocket,
   ChevronRight,
   Globe,
@@ -26,16 +20,9 @@ import {
   ArrowUpRight,
   Sparkles,
   Award,
-  PenTool,
-  Cpu,
   GraduationCap,
-  Zap,
-  RefreshCw,
-  Clock,
   Heart,
   ChevronLeft,
-  Coffee,
-  Brain,
   CheckCircle2,
   FileText,
   Layers,
@@ -51,10 +38,8 @@ const About = () => {
   const navigate = useNavigate();
 
   // Refs for sections (for scroll animations)
-  const heroRef = useRef(null);
   const statsRef = useRef(null);
   const valuesRef = useRef(null);
-  const missionRef = useRef(null);
   const feedbackRef = useRef(null);
   const [activeValue, setActiveValue] = useState(null);
   const sectionRef = useRef(null);
@@ -479,156 +464,6 @@ const About = () => {
         <TeamSection />
       </div>
 
-      {/* Stats Section */}
-      <section
-        ref={statsRef}
-        className="py-24 relative bg-white dark:bg-gray-900"
-      >
-        {/* Moving light effect */}
-        <div
-          className="absolute inset-0 overflow-hidden pointer-events-none"
-          style={{
-            background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(79, 70, 229, 0.05), transparent 40%)`,
-          }}
-        />
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-              Our{" "}
-              <span className="text-blue-600 dark:text-blue-400">Impact</span>{" "}
-              in Numbers
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              Since our founding, we've been committed to making education more
-              accessible, engaging, and effective for students everywhere.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { value: "15K+", label: "Students", icon: Users, delay: 0 },
-              {
-                value: "200+",
-                label: "Learning Resources",
-                icon: BookOpen,
-                delay: 0.1,
-              },
-              { value: "50+", label: "Universities", icon: Globe, delay: 0.2 },
-              {
-                value: "4.9/5",
-                label: "Student Satisfaction",
-                icon: Star,
-                delay: 0.3,
-              },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: stat.delay }}
-                viewport={{ once: true }}
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-gray-900/10 border border-gray-100 dark:border-gray-700 p-6 flex flex-col items-center hover:shadow-2xl hover:scale-105 transition-all duration-300"
-              >
-                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4">
-                  <stat.icon className="w-8 h-8" />
-                </div>
-                <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-600 dark:text-gray-300">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Achievement Banner */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white relative overflow-hidden"
-          >
-            {/* Abstract shapes */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-              <svg
-                className="absolute left-0 top-0 h-full w-full opacity-20"
-                viewBox="0 0 400 400"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clipPath="url(#clip0_501_1809)">
-                  <path
-                    d="M400 0H0V400H400V0Z"
-                    fill="url(#paint0_radial_501_1809)"
-                  />
-                  <path
-                    d="M209 89C154.5 52 81.5 33 37 132C-7.5 231 -35 271 -35 328.5C-35 386 22 405.5 54 424C86 442.5 116 483.5 209 424C302 364.5 327 328.5 345 302C363 275.5 346.5 221.5 327 185C307.5 148.5 263.5 126 209 89Z"
-                    fill="url(#paint1_radial_501_1809)"
-                  />
-                </g>
-                <defs>
-                  <radialGradient
-                    id="paint0_radial_501_1809"
-                    cx="0"
-                    cy="0"
-                    r="1"
-                    gradientUnits="userSpaceOnUse"
-                    gradientTransform="translate(200 200) rotate(90) scale(200)"
-                  >
-                    <stop stopColor="white" />
-                    <stop offset="1" stopColor="white" stopOpacity="0" />
-                  </radialGradient>
-                  <radialGradient
-                    id="paint1_radial_501_1809"
-                    cx="0"
-                    cy="0"
-                    r="1"
-                    gradientUnits="userSpaceOnUse"
-                    gradientTransform="translate(148.5 230) rotate(90) scale(150.004 190)"
-                  >
-                    <stop stopColor="white" />
-                    <stop offset="1" stopColor="white" stopOpacity="0" />
-                  </radialGradient>
-                  <clipPath id="clip0_501_1809">
-                    <rect width="400" height="400" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </div>
-
-            <div className="flex flex-col md:flex-row items-center justify-between relative z-10 gap-6">
-              <div>
-                <div className="flex items-center mb-4">
-                  <Award className="w-6 h-6 text-yellow-300 mr-2" />
-                  <h3 className="text-xl font-bold">Student Success Stories</h3>
-                </div>
-                <p className="text-blue-100 max-w-2xl">
-                  Our platform has empowered thousands of students to achieve
-                  their academic goals, secure placements at top companies, and
-                  build innovative projects that solve real-world problems.
-                </p>
-              </div>
-
-              <a
-                href="/success-stories"
-                className="px-6 py-3 bg-white text-blue-600 hover:bg-blue-50 font-medium rounded-lg flex items-center shadow-xl shadow-blue-700/20 transition-all whitespace-nowrap"
-              >
-                Read Stories
-                <ArrowUpRight className="ml-2 w-4 h-4" />
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       <section
         ref={sectionRef}
@@ -795,7 +630,7 @@ const About = () => {
               </motion.a>
             </motion.div>
 
-            {/* Visual Timeline - Enhanced Version */}
+            {/* Visual Timeline */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -1122,115 +957,6 @@ const About = () => {
             </motion.div>
           </div>
 
-          {/* Core values interactive section */}
-          <div ref={valuesRef} className="mb-24">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
-                Four principles guiding{" "}
-                <span className="text-blue-600 dark:text-blue-400">
-                  everything
-                </span>{" "}
-                we do
-              </h3>
-            </motion.div>
-
-            {/* Interactive values cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {coreValues.map((value, index) => (
-                <motion.div
-                  key={index}
-                  onClick={() =>
-                    setActiveValue(activeValue === index ? null : index)
-                  }
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className={`rounded-2xl cursor-pointer transform transition-all duration-300 ${
-                    activeValue === index
-                      ? `bg-${value.color}-50 dark:bg-${value.color}-900/20 border-${value.color}-200 dark:border-${value.color}-800/20 shadow-xl scale-105`
-                      : "bg-white dark:bg-gray-800 border-gray-100 dark:border-gray-700 hover:shadow-lg"
-                  } border p-6 relative overflow-hidden group`}
-                >
-                  {/* Top accent line */}
-                  <div
-                    className={`absolute top-0 left-0 right-0 h-1 bg-${value.color}-500 opacity-70`}
-                  ></div>
-
-                  {/* Content */}
-                  <div className="mb-4">
-                    <div
-                      className={`w-12 h-12 rounded-xl bg-${value.color}-100 dark:bg-${value.color}-900/30 text-${value.color}-600 dark:text-${value.color}-400 flex items-center justify-center mb-4`}
-                    >
-                      <value.icon className="w-6 h-6" />
-                    </div>
-
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                      {value.title}
-                    </h4>
-
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">
-                      {value.description}
-                    </p>
-                  </div>
-
-                  {/* Expanded content */}
-                  <AnimatePresence>
-                    {activeValue === index && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="pt-4 mt-4 border-t border-gray-100 dark:border-gray-700">
-                          <div
-                            className={`p-4 bg-${value.color}-50/50 dark:bg-${value.color}-900/10 rounded-lg mb-4`}
-                          >
-                            <p className="text-sm text-gray-700 dark:text-gray-300 italic">
-                              "{value.personalNote}"
-                            </p>
-                          </div>
-
-                          <div
-                            className={`inline-flex items-center px-3 py-1.5 rounded-full bg-${value.color}-100/70 dark:bg-${value.color}-900/30 text-${value.color}-700 dark:text-${value.color}-300 text-xs font-medium`}
-                          >
-                            <CheckCircle2 className="w-3.5 h-3.5 mr-1" />
-                            {value.stat}
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  {/* Click to expand indicator */}
-                  <div
-                    className={`mt-4 text-xs text-${
-                      value.color
-                    }-600 dark:text-${
-                      value.color
-                    }-400 flex items-center gap-1 ${
-                      activeValue === index
-                        ? "opacity-0"
-                        : "opacity-70 group-hover:opacity-100"
-                    } transition-opacity`}
-                  >
-                    {activeValue === index
-                      ? "Click to collapse"
-                      : "Click to learn more"}
-                    <ChevronRight className="w-3 h-3" />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -1508,7 +1234,7 @@ const About = () => {
                 </div>
                 <div className="flex items-center text-white/90 text-sm">
                   <CheckCircle className="w-4 h-4 text-green-300 mr-2" />
-                  <span>Joined by 1,000+ students this month</span>
+                  <span>Joined by 1,000+ students</span>
                 </div>
               </div>
             </div>
