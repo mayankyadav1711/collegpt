@@ -30,6 +30,7 @@ import Contributor from "./pages/forms/Contributor";
 import GateExamPage from "./pages/common/GateExamPage";
 import GraduateFeedbackForm from "./pages/forms/GraduateFeedbackForm";
 import Community from "./pages/common/Community";
+import ContributorsWallOfFame from "./pages/common/ContributorsWallOfFame";
 
 // ScrollToTop function component implemented directly
 function ScrollToTopOnMount() {
@@ -56,6 +57,7 @@ function AppRoutes() {
           <Route path="/graduate_form" element={<GraduateFeedbackForm />} />
           <Route path="/gate" element={<GateExamPage />} />
           <Route path="/collegptai" element={<ColleGPTAI />} />
+          <Route path="/contributors-wall-of-fame" element={<ContributorsWallOfFame />} />
 
           {/* Auth routes */}
           <Route path="/login" element={<Login />} />
