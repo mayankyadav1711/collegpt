@@ -54,32 +54,22 @@ const Footer = () => {
         href: "/courses",
         icon: <BookOpen className="w-4 h-4" />,
       },
+      
       {
-        name: "Events Calendar",
-        href: "/events",
-        icon: <Calendar className="w-4 h-4" />,
-      },
-      {
-        name: "Cheat Sheets",
-        href: "/cheatsheets",
-        icon: <FileText className="w-4 h-4" />,
-      },
-      {
-        name: "Learning Guides",
-        href: "/guides",
-        icon: <GraduationCap className="w-4 h-4" />,
-      },
-      {
-        name: "Community Forum",
+        name: "Community",
         href: "/community",
         icon: <Users className="w-4 h-4" />,
+      },
+      {
+        name: "ColleGPT AI",
+        href: "/collegptai",
+        icon: <Sparkle className="w-4 h-4" />,
       },
     ],
     Company: [
       { name: "About Us", href: "/about" },
       { name: "Contribute", href: "/contributor" },
       { name: "Contact", href: "/contact" },
-      { name: "Team", href: "/team" },
     ],
     Legal: [
       { name: "Privacy Policy", href: "/privacy" },
@@ -88,11 +78,7 @@ const Footer = () => {
   };
 
   const currentDate = new Date();
-  const stats = [
-    { value: "15K+", label: "Students" },
-    { value: "200+", label: "Resources" },
-    { value: "50+", label: "Institutions" },
-  ];
+ 
 
   return (
     <footer

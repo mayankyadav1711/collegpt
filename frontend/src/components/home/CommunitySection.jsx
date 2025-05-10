@@ -29,7 +29,6 @@ import {
 
 const CommunitySection = forwardRef((props, ref) => {
   // State for interactive elements
-  const [activeDevice, setActiveDevice] = useState("desktop");
   const [activeChat, setActiveChat] = useState("general");
   const [messageText, setMessageText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -37,6 +36,7 @@ const CommunitySection = forwardRef((props, ref) => {
   const [activeThread, setActiveThread] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isScreenOpen, setIsScreenOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(true);
   const sectionRef = useRef(null);
   const chatContainerRef = useRef(null);
 
@@ -50,6 +50,18 @@ const CommunitySection = forwardRef((props, ref) => {
       });
     }
   };
+
+  // Check for mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Auto-animate screen opening
   useEffect(() => {
@@ -371,25 +383,29 @@ const CommunitySection = forwardRef((props, ref) => {
   };
 
   // iPhone Frame Component
-  const iPhoneFrame = ({ children }) => {
+  const IphoneFrame = ({ children }) => {
     return (
-      <div className="relative w-[300px] mx-auto">
-        <div className="rounded-[32px] overflow-hidden border-[12px] border-[#1e1e1e] dark:border-[#2a2a2a] bg-[#1e1e1e] shadow-lg relative z-10">
-          {/* Notch */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-28 h-6 bg-[#1e1e1e] dark:bg-[#2a2a2a] rounded-b-md z-20 flex items-center justify-center">
-            <div className="w-14 h-4 rounded-full bg-[#0f0f0f] flex items-center justify-center">
-              <div className="w-2 h-2 rounded-full bg-[#2a2a2a] dark:bg-[#3a3a3a]"></div>
+      <div className="relative w-[280px] mx-auto">
+        {/* iPhone Frame */}
+        <div className="relative">
+          {/* Main Body */}
+          <div className="rounded-[40px] overflow-hidden border-[12px] border-[#1e1e1e] dark:border-[#2a2a2a] bg-white dark:bg-gray-900 shadow-[0_0_50px_rgba(0,0,0,0.3)] relative z-10">
+            {/* Dynamic Island */}
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[100px] h-[30px] bg-black rounded-b-[20px] z-20 flex items-center justify-center">
+              <div className="w-[80px] h-[20px] rounded-full bg-black flex items-center justify-center">
+                <div className="w-[12px] h-[12px] rounded-full bg-[#2a2a2a]"></div>
+              </div>
             </div>
-          </div>
-          
-          {/* Screen Content */}
-          <div className="relative flex flex-col h-[550px] overflow-hidden bg-white dark:bg-gray-900 pt-6">
-            {children}
+            
+            {/* Screen Content */}
+            <div className="relative flex flex-col h-[580px] overflow-hidden bg-white dark:bg-gray-900 pt-8">
+              {children}
+            </div>
           </div>
         </div>
         
         {/* Home Indicator */}
-        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-white dark:bg-gray-300 rounded-full z-20 opacity-80"></div>
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-[100px] h-[4px] bg-black dark:bg-white rounded-full z-20 opacity-80"></div>
       </div>
     );
   };
@@ -855,7 +871,6 @@ const CommunitySection = forwardRef((props, ref) => {
   return (
     <section
       ref={(node) => {
-        // Assign the ref both to the forwarded ref and our local ref
         if (typeof ref === 'function') {
           ref(node);
         } else if (ref) {
@@ -994,39 +1009,7 @@ const CommunitySection = forwardRef((props, ref) => {
           </motion.div>
         </div>
         
-        {/* Device toggle */}
-        <div className="flex justify-center mb-8">
-          <div className="bg-white dark:bg-gray-800 rounded-full flex p-1.5 shadow-md">
-            <motion.button 
-              className={`px-4 py-1.5 rounded-full transition-all flex items-center ${
-                activeDevice === 'desktop' 
-                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md' 
-                  : 'text-gray-600 dark:text-gray-300'
-              }`}
-              onClick={() => setActiveDevice('desktop')}
-              whileHover={{ scale: activeDevice !== 'desktop' ? 1.03 : 1 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Laptop className="w-4 h-4 mr-2" />
-              <span className="text-sm font-medium">Desktop View</span>
-            </motion.button>
-            <motion.button 
-              className={`px-4 py-1.5 rounded-full transition-all flex items-center ${
-                activeDevice === 'mobile' 
-                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md' 
-                  : 'text-gray-600 dark:text-gray-300'
-              }`}
-              onClick={() => setActiveDevice('mobile')}
-              whileHover={{ scale: activeDevice !== 'mobile' ? 1.03 : 1 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Smartphone className="w-4 h-4 mr-2" />
-              <span className="text-sm font-medium">Mobile View</span>
-            </motion.button>
-          </div>
-        </div>
-        
-        {/* Device preview with MacBook style */}
+        {/* Device preview with responsive frame */}
         <motion.div 
           className="mb-20"
           initial={{ opacity: 0, y: 30 }}
@@ -1035,7 +1018,7 @@ const CommunitySection = forwardRef((props, ref) => {
           transition={{ duration: 0.8 }}
         >
           <AnimatePresence mode="wait">
-            {activeDevice === "desktop" ? (
+            {!isMobile ? (
               <motion.div
                 key="desktop"
                 initial={{ opacity: 0 }}
@@ -1056,9 +1039,9 @@ const CommunitySection = forwardRef((props, ref) => {
                 transition={{ duration: 0.5 }}
                 className="flex justify-center"
               >
-                <iPhoneFrame>
+                <IphoneFrame>
                   <MobileCommunityUI />
-                </iPhoneFrame>
+                </IphoneFrame>
               </motion.div>
             )}
           </AnimatePresence>

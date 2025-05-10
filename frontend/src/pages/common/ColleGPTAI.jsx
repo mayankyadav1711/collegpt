@@ -11,26 +11,24 @@ const ColleGPTAI = () => {
           camera-controls
           style={{ width: '100%', height: '100%' }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
-          auto-rotate-delay="0"
           rotation-per-second="30deg"
           environment-intensity="4"
           shadow-intensity="1"
-          min-camera-orbit="auto auto 50%"
-          max-camera-orbit="auto auto 150%"
           disable-tap
           interaction-prompt="none"
           loading="eager"
-          reveal="interaction"
-          ar-status="not-presenting"
           camera-target="0m 0m 0m"
           field-of-view="30deg"
-          interpolation-decay="200"
           min-field-of-view="10deg"
           max-field-of-view="90deg"
           skybox-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
           shadow-softness="1"
-          animation-name="Animation"
-          animation-crossfade-duration="0.5"
+          preload
+          quick-look-browsers="safari chrome"
+          camera-orbit="0deg 75deg 105%"
+          exposure="1"
+          tone-mapping="basic"
+        
         />
       </div>
 

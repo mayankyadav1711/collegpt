@@ -144,49 +144,7 @@ const About = () => {
     }
   };
 
-  // Core values with personal touch
-  const coreValues = [
-    {
-      title: "Innovation",
-      description:
-        "When I started ColleGPT, I knew education needed fresh ideas. We don't just use technology — we reimagine what's possible with it.",
-      icon: Lightbulb,
-      color: "blue",
-      personalNote:
-        "During my college days, I found myself creating makeshift study tools because nothing available really clicked with how I learned. That's what drives our innovation now — solving real problems students face daily.",
-      stat: "40+ innovative features launched in our first year",
-    },
-    {
-      title: "Collaboration",
-      description:
-        "Learning in isolation is tough — I've been there. We've built ColleGPT to bring students together, because brilliant ideas happen when minds connect.",
-      icon: Users,
-      color: "indigo",
-      personalNote:
-        "Some of my biggest breakthroughs in college came from late-night study sessions with friends. That collaborative energy is something we've worked hard to capture digitally.",
-      stat: "30,000+ collaborative study sessions monthly",
-    },
-    {
-      title: "Accessibility",
-      description:
-        "Knowledge shouldn't be a privilege. I wanted ColleGPT to be a place where quality resources reach everyone, regardless of where they're starting from.",
-      icon: GraduationCap,
-      color: "purple",
-      personalNote:
-        "Growing up, I saw how unequal access to resources created unfair advantages. Breaking down these barriers isn't just a business goal — it's a personal mission.",
-      stat: "Resources available in 8 languages and growing",
-    },
-    {
-      title: "Student-First",
-      description:
-        "Every feature we build starts with asking: 'How does this help students?' If it doesn't make your life better, we won't build it. Simple as that.",
-      icon: Heart,
-      color: "rose",
-      personalNote:
-        "We've turned down partnerships worth millions because they would've compromised our commitment to putting students first. It's not always the easy choice, but it's always the right one.",
-      stat: "94% of features developed from student requests",
-    },
-  ];
+ 
 
   const milestones = [
     {
@@ -195,7 +153,7 @@ const About = () => {
       description:
         "Started sharing handwritten notes in WhatsApp groups. Our first community of 15-20 students began to form.",
       icon: FileText,
-      color: "emerald",
+      color: "red",
       image:
         "https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=350&q=80",
       stats: "20+ students",
@@ -383,8 +341,24 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.5 }}
               >
+                 <motion.a
+                  href="#our-team"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('our-team')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="py-3.5 px-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-full font-medium shadow-xl hover:shadow-indigo-500/30 transition-all duration-300 flex items-center"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  Meet Our Team <Users className="ml-2 w-5 h-5" />
+                </motion.a>
                 <motion.a
-                  href="#our-mission"
+                  href="#our-journey"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('our-journey')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="relative overflow-hidden py-3.5 px-8 bg-white text-blue-600 rounded-full font-medium shadow-xl hover:shadow-blue-500/20 transition-all duration-300 group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.97 }}
@@ -396,7 +370,7 @@ const About = () => {
                     whileHover={{ width: "100%" }}
                   />
                   <span className="relative flex items-center">
-                    Our Mission
+                    Our Journey
                     <motion.span
                       className="ml-2 transition-transform duration-300"
                       initial={{ x: 0 }}
@@ -407,14 +381,7 @@ const About = () => {
                   </span>
                 </motion.a>
 
-                <motion.a
-                  href="#our-team"
-                  className="py-3.5 px-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-full font-medium shadow-xl hover:shadow-indigo-500/30 transition-all duration-300 flex items-center"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  Meet Our Team <Users className="ml-2 w-5 h-5" />
-                </motion.a>
+               
               </motion.div>
             </div>
           </div>
@@ -464,7 +431,6 @@ const About = () => {
         <TeamSection />
       </div>
 
-
       <section
         ref={sectionRef}
         className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800/80 relative overflow-hidden"
@@ -499,124 +465,17 @@ const About = () => {
                 built ColleGPT
               </h2>
 
-              {/* Mayank's Story */}
+              {/* Mission Story */}
               <div className="prose prose-lg dark:prose-invert mb-12 text-gray-600 dark:text-gray-300">
-                <p>
-                  Back in my third year of engineering, I was drowning in
-                  lecture notes and textbooks, yet somehow still missing key
-                  concepts. My friends and I would spend hours hunting for clear
-                  explanations, sharing PDFs, and teaching each other.
+                <p className="mb-8">
+                  In the heart of every student's journey lies a common challenge: the overwhelming sea of information, disconnected resources, and the struggle to find clarity in complex subjects. We witnessed this firsthand during our academic years, where brilliant minds were often held back not by lack of ability, but by the absence of a unified platform that could bridge the gap between knowledge and understanding.
                 </p>
                 <p>
                   <span className="font-semibold text-gray-900 dark:text-white">
-                    That's when it hit me — why isn't there a place that brings
-                    all this together?
+                    ColleGPT was born from a simple yet powerful vision: to transform how students learn, collaborate, and grow together.
                   </span>{" "}
-                  Not just content, but connection. Not just information, but
-                  understanding.
+                  We envisioned a platform where quality resources meet community support, where complex concepts become accessible through collaborative learning, and where every student, regardless of their background, can find the tools and support they need to excel. This isn't just another educational platform – it's a movement to democratize learning, to make education more engaging, and to create a space where students can truly thrive together.
                 </p>
-
-                {/* Mayank's signature */}
-                <div className="flex items-center mt-6 not-prose">
-                  <div className="w-12 h-12 rounded-full overflow-hidden mr-3 border-2 border-white shadow-md">
-                    <img
-                      src="https://res.cloudinary.com/dkyrtfk1u/image/upload/v1690369698/i14t3seuzumapysauajm.jpg"
-                      alt="Mayank Yadav"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <div className="font-bold text-gray-900 dark:text-white">
-                      Mayank Yadav
-                    </div>
-                    <div className="text-gray-600 dark:text-gray-400 text-sm">
-                      Founder & Lead Developer
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Divya's Story */}
-              <div className="prose prose-lg dark:prose-invert mb-12 text-gray-600 dark:text-gray-300">
-                <p>
-                  As a student passionate about algorithms and database design,
-                  I always felt that traditional learning platforms missed a
-                  crucial element:{" "}
-                  <span className="font-semibold text-gray-900 dark:text-white">
-                    structured knowledge that builds connections between
-                    concepts
-                  </span>
-                  . We'd memorize isolated facts without understanding how they
-                  fit together.
-                </p>
-                <p>
-                  When Mayank approached me with the idea of ColleGPT, I
-                  immediately saw how we could create something that helps
-                  students build mental models, not just memorize facts. I've
-                  focused on developing our database architecture and backend
-                  systems to ensure that knowledge is organized in ways that
-                  reflect how our brains actually learn.
-                </p>
-
-                {/* Divya's signature */}
-                <div className="flex items-center mt-6 not-prose">
-                  <div className="w-12 h-12 rounded-full overflow-hidden mr-3 border-2 border-white shadow-md">
-                    <img
-                      src="https://res.cloudinary.com/dkyrtfk1u/image/upload/v1692452732/by2nz7yrqcfmnq2nlnu6.jpg"
-                      alt="Divya Kaurani"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <div className="font-bold text-gray-900 dark:text-white">
-                      Divya Kaurani
-                    </div>
-                    <div className="text-gray-600 dark:text-gray-400 text-sm">
-                      Co-Founder & Backend Developer
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Darshit's Story */}
-              <div className="prose prose-lg dark:prose-invert mb-8 text-gray-600 dark:text-gray-300">
-                <p>
-                  Before joining the ColleGPT team, I was frustrated by how most
-                  educational platforms seemed to prioritize content over
-                  experience.{" "}
-                  <span className="font-semibold text-gray-900 dark:text-white">
-                    Learning shouldn't feel like a chore
-                  </span>{" "}
-                  — the interface and interactions are just as important as the
-                  material itself.
-                </p>
-                <p>
-                  With my background in UI/UX, I've worked to create an
-                  environment where students actually enjoy spending time. Every
-                  animation, color choice, and interaction is designed to reduce
-                  cognitive load and let you focus on what matters:
-                  understanding the concepts and connecting with others. When
-                  learning feels good, you do more of it.
-                </p>
-
-                {/* Darshit's signature */}
-                <div className="flex items-center mt-6 not-prose">
-                  <div className="w-12 h-12 rounded-full overflow-hidden mr-3 border-2 border-white shadow-md">
-                    <img
-                      src="http://res.cloudinary.com/dkyrtfk1u/image/upload/v1697349373/sli9ffed1vdqegf1srip.jpg"
-                      alt="Darshit Sojitra"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <div className="font-bold text-gray-900 dark:text-white">
-                      Darshit Sojitra
-                    </div>
-                    <div className="text-gray-600 dark:text-gray-400 text-sm">
-                      Co-Founder & UI/UX Designer
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <motion.a
@@ -632,13 +491,14 @@ const About = () => {
 
             {/* Visual Timeline */}
             <motion.div
+              id="our-journey"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               viewport={{ once: true }}
-              className="mb-24"
+              className="mb-24 scroll-mt-24"
             >
-              <div className="relative max-w-5xl mx-auto">
+              <div className="relative max-w-4xl mx-auto">
                 <h3 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
                   Our{" "}
                   <span className="text-blue-600 dark:text-blue-400">
@@ -647,316 +507,73 @@ const About = () => {
                   So Far
                 </h3>
 
-                {/* Modern visual timeline */}
                 <div className="relative">
-                  {/* Center line */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-400 via-purple-500 to-amber-500 rounded-full"></div>
-
                   {milestones.map((milestone, index) => (
-                    <motion.div
+                    <motion.div 
                       key={index}
-                      className={`flex flex-col md:flex-row items-center mb-16 ${
-                        index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                      } relative`}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.7, delay: index * 0.2 }}
-                      viewport={{ once: true, margin: "-100px" }}
+                      className={`flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-center mb-12`}
+                      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5 }}
                     >
-                      {/* Timeline center marker */}
-                      <div
-                        className="absolute left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center"
-                        style={{ width: "64px", height: "64px" }}
+                      <motion.div 
+                        className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}
+                        whileHover={{ scale: 1.05 }}
                       >
-                        <motion.div
-                          className={`w-12 h-12 rounded-full bg-${milestone.color}-500 flex items-center justify-center shadow-lg border-4 border-white dark:border-gray-900`}
-                          initial={{ scale: 0.8 }}
-                          whileInView={{ scale: [0.8, 1.2, 1] }}
-                          transition={{ duration: 1, times: [0, 0.5, 1] }}
-                          viewport={{ once: true }}
-                        >
-                          <milestone.icon className="w-6 h-6 text-white" />
-                        </motion.div>
-                      </div>
-
-                      {/* Date tag - styled differently based on position */}
-                      <div
-                        className={`absolute left-1/2 transform -translate-x-1/2 -top-9 md:top-auto md:-translate-x-0 md:left-auto ${
-                          index % 2 === 0
-                            ? "md:right-1/2 md:mr-20"
-                            : "md:left-1/2 md:ml-20"
-                        }`}
-                      >
-                        <div
-                          className={`px-4 py-1.5 rounded-full bg-${milestone.color}-100 dark:bg-${milestone.color}-900/30 text-${milestone.color}-600 dark:text-${milestone.color}-400 font-medium text-sm shadow-sm`}
-                        >
+                        <div className={`inline-block px-4 py-2 rounded-full bg-${milestone.color}-100 dark:bg-${milestone.color}-900/30 text-${milestone.color}-600 dark:text-${milestone.color}-400 text-sm font-medium mb-2`}>
                           {milestone.date}
                         </div>
-                      </div>
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{milestone.title}</h3>
+                        <p className="text-gray-600 dark:text-gray-300">{milestone.description}</p>
+                        
+                        {/* Stats and Achievements */}
+                        <div className="mt-4 space-y-2">
+                          <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-${milestone.color}-50 dark:bg-${milestone.color}-900/20`}>
+                            <milestone.icon className={`w-5 h-5 text-${milestone.color}-500`} />
+                            <span className="text-sm text-gray-700 dark:text-gray-300">{milestone.stats}</span>
+                          </div>
+                          {milestone.achievement && (
+                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-50 dark:bg-amber-900/20 ml-2">
+                              <Award className="w-5 h-5 text-amber-500" />
+                              <span className="text-sm text-gray-700 dark:text-gray-300">{milestone.achievement}</span>
+                            </div>
+                          )}
+                        </div>
+                      </motion.div>
 
-                      {/* First column - card */}
-                      <div
-                        className={`w-full md:w-5/12 mb-8 md:mb-0 ${
-                          index % 2 === 0 ? "md:pr-12" : "md:pl-12"
-                        }`}
-                      >
-                        <motion.div
-                          className="bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700"
-                          whileHover={{ y: -5 }}
+                      <div className="relative flex items-center justify-center w-16 h-16">
+                        <div className="absolute w-1 h-full bg-blue-300 dark:bg-blue-700"></div>
+                        <motion.div 
+                          className={`relative z-10 flex items-center justify-center w-16 h-16 bg-${milestone.color}-500 rounded-full shadow-lg`}
+                          whileHover={{ scale: 1.1 }}
                           transition={{ duration: 0.3 }}
                         >
-                          {/* Tag at the top */}
-                          <div className="relative">
-                            <div className="h-40 overflow-hidden">
-                              <img
-                                src={milestone.image}
-                                alt={milestone.title}
-                                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                            </div>
-
-                            {/* Tag */}
-                            <div className="absolute top-4 left-4">
-                              <div
-                                className={`px-3 py-1 rounded-full bg-${milestone.color}-500 text-white text-xs font-medium shadow-lg`}
-                              >
-                                {milestone.tag}
-                              </div>
-                            </div>
-
-                            {/* Title overlay */}
-                            <div className="absolute bottom-4 left-4 right-4">
-                              <h4 className="text-xl font-bold text-white">
-                                {milestone.title}
-                              </h4>
-                            </div>
-                          </div>
-
-                          {/* Content */}
-                          <div className="p-5">
-                            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                              {milestone.description}
-                            </p>
-
-                            {/* Stats and achievements */}
-                            <div className="flex flex-wrap gap-2 mt-4">
-                              <div
-                                className={`px-3 py-1 bg-${milestone.color}-100 dark:bg-${milestone.color}-900/20 text-${milestone.color}-600 dark:text-${milestone.color}-400 text-xs rounded-full`}
-                              >
-                                {milestone.stats}
-                              </div>
-
-                              {milestone.achievement && (
-                                <div
-                                  className={`px-3 py-1 bg-amber-100 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 text-xs rounded-full`}
-                                >
-                                  <Award className="inline-block w-3 h-3 mr-1" />
-                                  {milestone.achievement}
-                                </div>
-                              )}
-                            </div>
-                          </div>
+                          <milestone.icon className="w-8 h-8 text-white" />
                         </motion.div>
                       </div>
 
-                      {/* Middle spacer - visible only on larger screens */}
-                      <div className="hidden md:block md:w-2/12"></div>
-
-                      {/* Content column - for alternate text and visual elements */}
-                      <div className="w-full md:w-5/12 flex items-center">
-                        {index % 2 === 0 ? (
-                          // Right side content (for even indexed items)
-                          <motion.div
-                            className="space-y-3 w-full"
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                            viewport={{ once: true }}
-                          >
-                            {index === 0 && (
-                              <div className="flex items-center mb-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
-                                <Users className="w-8 h-8 text-emerald-500 mr-3 flex-shrink-0" />
-                                <div>
-                                  <div className="font-medium text-gray-900 dark:text-white">
-                                    Our First Community
-                                  </div>
-                                  <div className="text-sm text-gray-600 dark:text-gray-300">
-                                    Started with just a WhatsApp group
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-
-                            {index === 1 && (
-                              <div className="flex flex-col gap-3">
-                                <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                                  <div className="font-medium text-gray-900 dark:text-white mb-1">
-                                    10,000+ lines of code
-                                  </div>
-                                  <div className="text-sm text-gray-600 dark:text-gray-300">
-                                    Built our first website with external CSS
-                                  </div>
-                                </div>
-                                <div className="text-sm italic text-gray-500 dark:text-gray-400 pl-4 border-l-2 border-blue-300 dark:border-blue-700">
-                                  "We were learning web development as we went,
-                                  struggling with Git and celebrating our first
-                                  successful deployment."
-                                </div>
-                              </div>
-                            )}
-
-                            {index === 2 && (
-                              <div className="flex flex-col gap-3">
-                                <div className="flex items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                                  <Youtube className="w-6 h-6 text-red-500 mr-3" />
-                                  <div className="text-sm text-gray-700 dark:text-gray-300">
-                                    Started producing lecture videos
-                                  </div>
-                                </div>
-                                <div className="flex items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                                  <BookOpen className="w-6 h-6 text-purple-500 mr-3" />
-                                  <div className="text-sm text-gray-700 dark:text-gray-300">
-                                    Created content for three full semesters
-                                  </div>
-                                </div>
-                                <div className="flex items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                                  <Users className="w-6 h-6 text-purple-500 mr-3" />
-                                  <div className="text-sm text-gray-700 dark:text-gray-300">
-                                    Conducted pre-exam preparation meets
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-
-                            {index === 3 && (
-                              <div className="space-y-3">
-                                <div className="flex items-start p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
-                                  <Github className="w-8 h-8 text-gray-900 dark:text-white mr-3 flex-shrink-0" />
-                                  <div>
-                                    <div className="font-medium text-gray-900 dark:text-white">
-                                      Open Source
-                                    </div>
-                                    <div className="text-sm text-gray-600 dark:text-gray-300">
-                                      "By the community, for the community" —
-                                      now anyone can contribute to improving
-                                      education
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <div className="flex items-center gap-2 md:gap-4 flex-wrap">
-                                  <div className="px-3 py-2 bg-green-50 dark:bg-green-900/20 rounded-lg flex items-center">
-                                    <GraduationCap className="w-5 h-5 text-green-500 mr-2" />
-                                    <span className="text-sm text-gray-700 dark:text-gray-300">
-                                      GATE prep
-                                    </span>
-                                  </div>
-                                  <div className="px-3 py-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg flex items-center">
-                                    <Rocket className="w-5 h-5 text-blue-500 mr-2" />
-                                    <span className="text-sm text-gray-700 dark:text-gray-300">
-                                      Placements
-                                    </span>
-                                  </div>
-                                  <div className="px-3 py-2 bg-purple-50 dark:bg-purple-900/20 rounded-lg flex items-center">
-                                    <Code className="w-5 h-5 text-purple-500 mr-2" />
-                                    <span className="text-sm text-gray-700 dark:text-gray-300">
-                                      Hackathons
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-                          </motion.div>
-                        ) : (
-                          // Left side content (for odd indexed items)
-                          <motion.div
-                            className="space-y-3 w-full"
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                            viewport={{ once: true }}
-                          >
-                            {index === 1 && (
-                              <div className="flex flex-col gap-4">
-                                <div className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                                  Features we built:
-                                </div>
-                                <div className="grid grid-cols-2 gap-3">
-                                  <div className="flex items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                                    <Users className="w-5 h-5 text-blue-500 mr-2" />
-                                    <div className="text-sm text-gray-700 dark:text-gray-300">
-                                      Authentication
-                                    </div>
-                                  </div>
-                                  <div className="flex items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                                    <User className="w-5 h-5 text-blue-500 mr-2" />
-                                    <div className="text-sm text-gray-700 dark:text-gray-300">
-                                      User Profiles
-                                    </div>
-                                  </div>
-                                  <div className="flex items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                                    <Rocket className="w-5 h-5 text-blue-500 mr-2" />
-                                    <div className="text-sm text-gray-700 dark:text-gray-300">
-                                      Roadmaps
-                                    </div>
-                                  </div>
-                                  <div className="flex items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                                    <FileText className="w-5 h-5 text-blue-500 mr-2" />
-                                    <div className="text-sm text-gray-700 dark:text-gray-300">
-                                      Cheatsheets
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-
-                            {index === 3 && (
-                              <div className="flex flex-col gap-4">
-                                <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-100 dark:border-amber-800/20">
-                                  <h5 className="font-medium text-gray-900 dark:text-white mb-2 flex items-center">
-                                    <Global className="w-5 h-5 mr-2 text-amber-500" />
-                                    Vision for the Future
-                                  </h5>
-                                  <p className="text-gray-600 dark:text-gray-300 text-sm">
-                                    From helping a small WhatsApp group to
-                                    becoming an open platform that serves
-                                    students across the country — we're just
-                                    getting started.
-                                  </p>
-                                </div>
-
-                                <div className="text-sm italic text-gray-500 dark:text-gray-400 pl-4 border-l-2 border-amber-300 dark:border-amber-700">
-                                  "We believe education should be collaborative,
-                                  accessible, and actually enjoyable. That's why
-                                  we're opening ColleGPT to contributors from
-                                  everywhere."
-                                </div>
-                              </div>
-                            )}
-                          </motion.div>
-                        )}
+                      <div className={`w-1/2 ${index % 2 === 0 ? 'pl-8 text-left' : 'pr-8 text-right'}`}>
+                        <span className="text-6xl font-bold text-blue-200 dark:text-blue-800">0{index + 1}</span>
                       </div>
                     </motion.div>
                   ))}
-                </div>
 
-                {/* Final connector */}
-                <motion.div
-                  className="flex justify-center items-center"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.7, delay: 0.9 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg font-bold">
-                    Now
-                  </div>
-                </motion.div>
+                  {/* Final connector */}
+                  <motion.div
+                    className="flex justify-center items-center"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.7, delay: 0.9 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg font-bold">
+                      Now
+                    </div>
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           </div>
-
         </div>
       </section>
 
@@ -1196,14 +813,14 @@ const About = () => {
                     <div className="flex items-center">
                       <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
                         <img
-                          src="https://i.pravatar.cc/100"
-                          alt="Student"
+                          src="https://res.cloudinary.com/dkyrtfk1u/image/upload/v1697348820/qkswpmr6tnzuiqnfqxtu.png"
+                          alt="Gaurav Tiwari"
                           className="w-full h-full object-cover"
                         />
                       </div>
                       <div>
                         <div className="font-medium text-white">
-                          Priya Sharma
+                          Gaurav Tiwari
                         </div>
                         <div className="text-xs text-white/70">
                           Computer Science Student
@@ -1234,7 +851,7 @@ const About = () => {
                 </div>
                 <div className="flex items-center text-white/90 text-sm">
                   <CheckCircle className="w-4 h-4 text-green-300 mr-2" />
-                  <span>Joined by 1,000+ students</span>
+                  <span>Joined by 2,500+ students</span>
                 </div>
               </div>
             </div>

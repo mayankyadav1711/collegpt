@@ -414,8 +414,38 @@ const HeroSection = forwardRef(({ notesRef }, ref) => {
                       style={{ zIndex: 1 }}
                     ></iframe>
                     
-                    {/* Overlay to hide watermark */}
-                    <div className="absolute bottom-0 left-0 right-0 h-12 bg-[#070D19] z-2" style={{ zIndex: 2 }}></div>
+                    {/* Overlay to hide watermark with stylish text */}
+                    <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#070D19] z-2 flex items-center justify-center" style={{ zIndex: 2 }}>
+                      <div className="relative">
+                        <span className="text-2xl font-bold bg-gradient-to-r from-[#00AEEF] to-cyan-400 bg-clip-text text-transparent animate-pulse">
+                          Nova
+                        </span>
+                        <span className="text-lg ml-2 text-slate-400 font-light">
+                          your AI learning companion
+                        </span>
+                        {/* Animated dots */}
+                        <span className="inline-block text-slate-400">
+                          <motion.span
+                            animate={{ opacity: [0, 1, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                          >
+                            .
+                          </motion.span>
+                          <motion.span
+                            animate={{ opacity: [0, 1, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
+                          >
+                            .
+                          </motion.span>
+                          <motion.span
+                            animate={{ opacity: [0, 1, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity, delay: 0.4 }}
+                          >
+                            .
+                          </motion.span>
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
