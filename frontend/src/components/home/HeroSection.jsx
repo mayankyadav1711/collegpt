@@ -2,12 +2,32 @@ import React, { forwardRef, useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import DecryptedText from "../bits/DecryptedText";
+import {
+  Github,
+  Code,
+  Users,
+  PenTool,
+  Share2,
+  GitBranch,
+  Star,
+  GitPullRequest,
+  ExternalLink,
+  File,
+} from "lucide-react";
 
 const HeroSection = forwardRef(({ notesRef }, ref) => {
   // Mouse position tracking for lighting effects
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [splineReady, setSplineReady] = useState(false);
   const heroRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isRobotLoaded, setIsRobotLoaded] = useState(false);
+  const [selectedSpline, setSelectedSpline] = useState("robotFollow"); // or "robotScene"
+
+  // Spline onLoad handler
+  const handleSplineLoad = () => {
+    setIsRobotLoaded(true);
+  };
 
   // Handle mouse movement
   const handleMouseMove = (e) => {
@@ -68,15 +88,33 @@ const HeroSection = forwardRef(({ notesRef }, ref) => {
     {
       value: "2500+",
       label: "Students",
+      icon: <Users className="w-4 h-4 text-[#00AEEF]" />,
     },
     {
       value: "350+",
       label: "Resources",
+      icon: <Code className="w-4 h-4 text-[#00AEEF]" />,
     },
     {
-      value: "4.8",
-      label: "Rating",
-      suffix: "★",
+      value: "Open",
+      label: "Source",
+      icon: <Github className="w-4 h-4 text-[#00AEEF]" />,
+    },
+  ];
+
+  // Open source benefits
+  const openSourceFeatures = [
+    {
+      icon: <GitBranch className="w-5 h-5" />,
+      text: "Contribute code & content",
+    },
+    {
+      icon: <PenTool className="w-5 h-5" />,
+      text: "Shape the future of learning",
+    },
+    {
+      icon: <Users className="w-5 h-5" />,
+      text: "Join a community of creators",
     },
   ];
 
@@ -168,15 +206,15 @@ const HeroSection = forwardRef(({ notesRef }, ref) => {
               className="lg:w-7/12 lg:pr-8 text-center lg:text-left"
               variants={containerVariants}
             >
-              {/* Subtle badge */}
+              {/* Open Source Badge */}
               <motion.div
                 variants={itemVariants}
-                className="inline-flex items-center rounded-full px-4 py-1.5 mb-6 text-sm bg-white/10 dark:bg-slate-800/20 backdrop-blur-sm border border-white/10 dark:border-slate-700/20"
+                className="inline-flex items-center rounded-full px-4 py-1.5 mb-6 text-sm bg-gradient-to-r from-purple-500/10 to-indigo-500/10 dark:from-purple-500/20 dark:to-indigo-500/20 backdrop-blur-sm border border-white/10 dark:border-slate-700/20"
               >
-                <span className="inline-block w-2 h-2 rounded-full bg-cyan-500 mr-2 animate-pulse"></span>
-                <span className="bg-gradient-to-r from-slate-700 dark:from-slate-100 to-slate-500 dark:to-slate-300 bg-clip-text text-transparent font-medium">
+                <Github className="w-4 h-4 mr-2 text-purple-600 dark:text-purple-400" />
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent font-medium">
                   <DecryptedText
-                    text="ColleGPT 2.0 is now live"
+                    text="Now Open Source on GitHub"
                     speed={30}
                     sequential={true}
                     maxIterations={2}
@@ -201,7 +239,7 @@ const HeroSection = forwardRef(({ notesRef }, ref) => {
                 </span>
                 <span className="block text-xl md:text-2xl lg:text-3xl font-light text-slate-600 dark:text-slate-300 mt-4">
                   <DecryptedText
-                    text="Your ultimate college companion"
+                    text="By the community, for the community"
                     className="font-light"
                     speed={40}
                     maxIterations={5}
@@ -211,22 +249,64 @@ const HeroSection = forwardRef(({ notesRef }, ref) => {
                 </span>
               </motion.h1>
 
-              {/* Description */}
+              {/* Description - Updated for Open Source */}
               <motion.p
                 variants={itemVariants}
                 className="max-w-2xl mx-auto lg:mx-0 text-lg md:text-xl text-slate-600 dark:text-slate-400 my-8 leading-relaxed"
               >
-                Transform your academic journey with AI-powered study resources,
-                personalized learning paths, and a supportive community to
-                achieve your educational goals.
+                ColleGPT is now an open source project, welcoming contributions
+                from developers, designers, educators, and students. Join us in
+                building the future of collaborative education through code and
+                content.
               </motion.p>
 
-              {/* CTA Buttons */}
+              {/* Open Source Features */}
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8"
+              >
+                {openSourceFeatures.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 dark:bg-slate-800/20 backdrop-blur-sm border border-white/10 dark:border-slate-700/20"
+                  >
+                    <span className="text-[#00AEEF]">{feature.icon}</span>
+                    <span className="text-sm text-slate-700 dark:text-slate-300">
+                      {feature.text}
+                    </span>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* CTA Buttons - Updated for Open Source */}
               <motion.div
                 variants={itemVariants}
                 className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12"
               >
-                <Link to="/register">
+                <a
+                  href="https://github.com/yourusername/collegpt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <motion.button
+                    className="relative group px-8 py-4 rounded-lg overflow-hidden bg-gradient-to-r from-[#2b3137] to-[#404b55] flex items-center gap-2"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {/* Animated light effect */}
+                    <div className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100">
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 skew-x-[45deg] transform -translate-x-full group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+                    </div>
+
+                    <Github className="w-5 h-5 text-white" />
+                    <span className="relative z-10 text-white font-medium flex items-center">
+                      Star on GitHub
+                      <Star className="ml-2 w-4 h-4 text-amber-300" />
+                    </span>
+                  </motion.button>
+                </a>
+
+                <Link to="/courses">
                   <motion.button
                     className="relative group px-8 py-4 rounded-lg overflow-hidden bg-gradient-to-r from-[#0067b5] to-[#00AEEF]"
                     whileHover={{ scale: 1.02 }}
@@ -238,31 +318,9 @@ const HeroSection = forwardRef(({ notesRef }, ref) => {
                     </div>
 
                     <span className="relative z-10 text-white font-medium flex items-center">
-                      Start Learning
-                      <svg
-                        className="ml-2 w-5 h-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        />
-                      </svg>
+                      Explore Resources
+                      <File className="ml-2 w-4 h-4" />
                     </span>
-                  </motion.button>
-                </Link>
-
-                <Link to="/explore">
-                  <motion.button
-                    className="px-8 py-4 rounded-lg border border-slate-300/30 dark:border-slate-700/30 bg-white/5 dark:bg-slate-800/20 backdrop-blur-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-white/10 dark:hover:bg-slate-800/30 transition-colors"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Discover Features
                   </motion.button>
                 </Link>
               </motion.div>
@@ -310,9 +368,10 @@ const HeroSection = forwardRef(({ notesRef }, ref) => {
                         )}
                       </div>
 
-                      {/* Label */}
-                      <div className="text-sm md:text-base text-center text-slate-500 dark:text-slate-400 mt-2">
-                        {stat.label}
+                      {/* Label with icon */}
+                      <div className="flex items-center justify-center gap-1.5 text-sm md:text-base text-center text-slate-500 dark:text-slate-400 mt-2">
+                        {stat.icon}
+                        <span>{stat.label}</span>
                       </div>
                     </div>
                   </motion.div>
@@ -320,113 +379,81 @@ const HeroSection = forwardRef(({ notesRef }, ref) => {
               </motion.div>
             </motion.div>
 
-            {/* Right Column: Hero Illustration */}
+            {/* Right Column: Robot Animation */}
             <motion.div
-              className="lg:w-5/12 mt-12 lg:mt-0 hidden md:block lg:block"
+              className="lg:w-5/12 mt-12 lg:mt-0"
               variants={itemVariants}
             >
-              <div className="relative">
-                {/* Premium 3D abstract design */}
-                <div className="aspect-square max-w-md mx-auto relative">
-                  {/* Main graphic - circular layers */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    {/* Rotating rings */}
-                    {[...Array(3)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute border border-cyan-500/20 rounded-full"
-                        style={{
-                          width: `${80 - i * 15}%`,
-                          height: `${80 - i * 15}%`,
-                        }}
-                        animate={{
-                          rotate: 360,
-                          borderColor: [
-                            "rgba(0,174,239,0.2)",
-                            "rgba(0,103,181,0.2)",
-                            "rgba(0,174,239,0.2)",
-                          ],
-                        }}
-                        transition={{
-                          duration: 20 + i * 5,
-                          ease: "linear",
-                          repeat: Infinity,
-                          borderColor: { duration: 3, repeat: Infinity },
-                        }}
-                      />
-                    ))}
-
-                    {/* Pulsing core */}
-                    <motion.div
-                      className="w-[25%] h-[25%] rounded-full bg-gradient-to-r from-[#0067b5] to-[#00AEEF] absolute"
-                      animate={{
-                        scale: [1, 1.1, 1],
-                        boxShadow: [
-                          "0 0 0 0 rgba(0,174,239,0.7)",
-                          "0 0 0 10px rgba(0,174,239,0)",
-                          "0 0 0 0 rgba(0,174,239,0)",
-                        ],
-                      }}
-                      transition={{
-                        duration: 2.5,
-                        repeat: Infinity,
-                        repeatType: "reverse",
-                      }}
-                    />
-
-                    {/* Orbiting particles */}
-                    {[...Array(5)].map((_, i) => {
-                      const angle = (i / 5) * Math.PI * 2;
-                      const radius = 120;
-                      const x = Math.cos(angle) * radius;
-                      const y = Math.sin(angle) * radius;
-
-                      return (
-                        <motion.div
-                          key={`p-${i}`}
-                          className="absolute w-2 h-2 rounded-full bg-cyan-500"
-                          animate={{
-                            x: [x, -y, -x, y, x],
-                            y: [y, x, -y, -x, y],
-                            scale: [1, 1.5, 1],
-                            opacity: [0.7, 1, 0.7],
-                          }}
-                          transition={{
-                            duration: 8,
-                            repeat: Infinity,
-                            delay: i * 0.8,
-                          }}
-                        />
-                      );
-                    })}
+              <div className="relative w-full aspect-[4/5] max-w-md mx-auto pt-4">
+                {/* Loading state */}
+                {!isRobotLoaded && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <div className="w-12 h-12 rounded-full border-t-2 border-b-2 border-[#00AEEF] animate-spin mb-4"></div>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm">
+                      Loading interactive robot...
+                    </p>
                   </div>
+                )}
 
-                  {/* Glowing background effect */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-[#00AEEF]/10 blur-3xl" />
+                {/* Robot animation using custom iframe with removed watermark */}
+                <div
+                  className={`w-full h-full transition-opacity duration-700 ${
+                    isRobotLoaded ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {/* Custom iframe wrapper to handle the Spline watermark */}
+                  <div className="relative w-full h-full">
+                    <iframe
+                      src="https://my.spline.design/robotfollowcursorforlandingpage-T77lkoiVqe2I4yDJDtZyuILC/"
+                      frameBorder="0"
+                      width="100%"
+                      height="100%"
+                      title="Interactive Robot"
+                      onLoad={handleSplineLoad}
+                      className="absolute inset-0 w-full h-full"
+                      style={{ zIndex: 1 }}
+                    ></iframe>
+                    
+                    {/* Overlay to hide watermark */}
+                    <div className="absolute bottom-0 left-0 right-0 h-12 bg-[#070D19] z-2" style={{ zIndex: 2 }}></div>
+                  </div>
                 </div>
 
-                {/* Digital data streams */}
-                {[...Array(3)].map((_, idx) => (
-                  <motion.div
-                    key={idx}
-                    className={`absolute h-0.5 bg-gradient-to-r from-transparent via-[#00AEEF]/30 to-transparent overflow-hidden pointer-events-none`}
-                    style={{
-                      top: `${20 + idx * 40}%`,
-                      right: "0%",
-                      width: "100%",
-                      transform: `rotate(${idx * 5}deg)`,
-                    }}
-                    animate={{
-                      scaleX: [0, 1, 0],
-                      opacity: [0, 0.5, 0],
-                    }}
-                    transition={{
-                      duration: 2 + idx * 0.5,
-                      repeat: Infinity,
-                      repeatDelay: idx * 0.5 + 1,
-                    }}
-                  />
-                ))}
+                {/* Fallback animation if Spline fails to load */}
+                {!isRobotLoaded && (
+                  <div className="absolute inset-0 opacity-20 pointer-events-none">
+                    <div className="aspect-[4/5] max-w-md mx-auto relative">
+                      {/* Main graphic - circular layers */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        {/* Rotating rings */}
+                        {[...Array(3)].map((_, i) => (
+                          <motion.div
+                            key={i}
+                            className="absolute border border-cyan-500/20 rounded-full"
+                            style={{
+                              width: `${80 - i * 15}%`,
+                              height: `${80 - i * 15}%`,
+                            }}
+                            animate={{
+                              rotate: 360,
+                              borderColor: [
+                                "rgba(0,174,239,0.2)",
+                                "rgba(0,103,181,0.2)",
+                                "rgba(0,174,239,0.2)",
+                              ],
+                            }}
+                            transition={{
+                              duration: 20 + i * 5,
+                              ease: "linear",
+                              repeat: Infinity,
+                              borderColor: { duration: 3, repeat: Infinity },
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </motion.div>
           </div>

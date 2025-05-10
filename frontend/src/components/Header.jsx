@@ -16,6 +16,7 @@ import {
   Users,
   Sparkle,
   Monitor,
+  HandHeart,
 } from "lucide-react";
 import toast from "react-hot-toast";
 
@@ -39,9 +40,9 @@ const Header = () => {
     { name: "About", path: "/about", icon: <Users className="w-4 h-4" /> },
     { name: "Notes", path: "/courses", icon: <BookOpen className="w-4 h-4" /> },
     {
-      name: "Cheat Sheets",
-      path: "/cheatsheets",
-      icon: <FileText className="w-4 h-4" />,
+      name: "Contributors",
+      path: "/contributors-wall-of-fame",
+      icon: <HandHeart className="w-4 h-4" />,
     },
     {
       name: "Community",
