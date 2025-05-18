@@ -44,7 +44,7 @@ import ReactDOM from "react-dom";
 // Enhanced MacOS Window Components
 const MacOSWindow = ({ member, isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState("Profile");
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(true);
   const [windowPosition, setWindowPosition] = useState({ x: 100, y: 50 });
   const [isMobile, setIsMobile] = useState(false);
   const constraintsRef = useRef(null);
@@ -569,11 +569,11 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                 </div>
 
                 <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 rounded-full overflow-hidden mr-3 border border-white shadow-sm">
+                  <div className="w-12 h-10 rounded-md overflow-hidden mr-3 border border-white shadow-sm">
                     <img
                       src={member.avatar}
                       alt={member.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-center"
                     />
                   </div>
                   <div>
@@ -598,7 +598,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
             </div>
 
             {/* Main Content Area - Enhanced with subtle shadows and premium styling */}
-            <div className="flex-1 overflow-y-auto p-8 bg-white">
+            <div className="flex-1 overflow-y-auto p-4 pr-12 bg-white ">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
@@ -1163,7 +1163,7 @@ const TeamSection = () => {
           technologies: ["Next.js", "React.js", "REST APIs"]
         },
         {
-          role: "Developer & Content Creator",
+          role: "Co-founder & Developer",
           company: "ColleGPT",
           period: "Jun 2023 — Present",
           description:
@@ -1244,113 +1244,138 @@ const TeamSection = () => {
     
     
     {
-      id: 2,
-      name: "Divya Kaurani",
-      role: "Co-Founder & Developer",
-      avatar:
-        "https://res.cloudinary.com/dkyrtfk1u/image/upload/v1692452732/by2nz7yrqcfmnq2nlnu6.jpg",
-      badge: "Co-Founder",
-      location: "Gujarat, India",
-      joinedDate: "January 2023",
-      yearsExperience: 2.5,
-      projectCount: 8,
-      skillLevel: "Backend Specialist",
-      email: "kauranidivya@gmail.com",
-
-      // Skill domains with appropriate icons
-      skillDomains: [
+      "id": 2,
+      "name": "Divya Kaurani",
+      "role": "Co-Founder & Developer",
+      "avatar": "https://res.cloudinary.com/dkyrtfk1u/image/upload/v1692452732/by2nz7yrqcfmnq2nlnu6.jpg",
+      "badge": "Remote Developer",
+      "location": "Ahmedabad, India",
+      "joinedDate": "June 2023",
+      "yearsExperience": 2,
+      "projectCount": 50,
+      "skillLevel": "Full Stack Expert",
+      "email": "kauranidivya@gmail.com",
+    
+      "skillDomains": [
         {
-          name: "Backend",
-          icon: Database,
-          color: "purple",
-          skills: ["MongoDB", "Express.js", "Node.js", "GraphQL", "REST APIs"],
+          "name": "Frontend",
+          "icon": Monitor,
+          "color": "blue",
+          "skills": [
+            "React.js",
+            "React Native",
+            "Next.js",
+            "Tailwind CSS",
+            "Material UI",
+            "Three.js",
+            "TypeScript"
+          ]
         },
         {
-          name: "Data & Algorithms",
-          icon: Code2,
-          color: "indigo",
-          skills: [
-            "DSA",
-            "Algorithm Optimization",
-            "Data Modeling",
-            "ML Basics",
-          ],
+          "name": "Backend",
+          "icon": Terminal,
+          "color": "green",
+          "skills": [
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "PostgreSQL",
+            "Firebase",
+            "REST APIs",
+            "GraphQL"
+          ]
         },
         {
-          name: "Cloud Services",
-          icon: Globe,
-          color: "cyan",
-          skills: ["AWS", "Google Cloud", "Firebase", "Serverless"],
-        },
+          "name": "Tools & DevOps",
+          "icon": Layers,
+          "color": "purple",
+          "skills": [
+            "Git",
+            "Docker",
+            "AWS",
+            "Vercel",
+            "Google Cloud Platform"
+          ]
+        }
       ],
-
-      // Additional expertise areas
-      additionalExpertise: [
-        { name: "Database Design", icon: Database },
-        { name: "API Architecture", icon: Layers },
-        { name: "Security", icon: Layers },
-        { name: "Performance", icon: Code },
+    
+      "additionalExpertise": [
+        { "name": "UI/UX Design", "icon": PenTool },
+        { "name": "Mobile App Development", "icon": Smartphone },
+        { "name": "Database Management", "icon": Database },
+        { "name": "API Development", "icon": Globe }
       ],
-
-      // Unique experience entries
-      experience: [
+    
+      "experience": [
+  {
+    "role": "Full Stack Developer",
+    "company": "Enstead",
+    "period": "April 2025 - Present",
+    "description": "Developed backend functionalities and redesigned user interfaces for a fintech application. Integrated AWS S3 for storage solutions and implemented a referral module to boost user engagement.",
+    "icon": Briefcase,
+    "achievements": [
+      "Refactored codebase using Husky for improved code quality",
+      "Contributed to mobile application development using React Native",
+      "Actively involved in logic building and module planning"
+    ],
+    "technologies": ["NodeJS", "TypeScript", "React Native", "React JS", "AWS"]
+  },
+  {
+    "role": "Intern",
+    "company": "York IE",
+    "period": "July 2024 - September 2024",
+    "description": "Contributed to the development of YorkIE Hub using ReactJS, NodeJS, Python, and AWS. Assisted in cloud application deployment and management.",
+    "icon": Monitor,
+    "achievements": [
+      "Developed full-stack solutions leveraging AWS infrastructure",
+      "Participated in daily stand-ups, sprint planning, and code reviews"
+    ],
+    "technologies": ["ReactJS", "NodeJS", "Python", "AWS"]
+  },
+  {
+    "role": "Developer & Content Creator",
+    "company": "ColleGPT",
+    "period": "June 2023 - Present",
+    "description": "Spearheaded the growth of ColleGPT by enhancing the responsive UI, increasing user engagement by 70%, and mentoring over 1,000 students.",
+    "icon": Monitor,
+    "achievements": [
+      "Implemented 20+ mobile-responsive UI components",
+      "Optimized website content and SEO strategies",
+      "Guided students towards academic and professional excellence"
+    ],
+    "technologies": ["MERN Stack", "Tailwind CSS", "Foxit", "Figma", "Vercel"]
+  }
+],
+    
+      "education": [
         {
-          role: "Backend Developer",
-          company: "Cloud Systems Inc.",
-          period: "2021 — Present",
-          description:
-            "Building scalable backend solutions and database architectures.",
-          icon: Database,
-          achievements: [
-            "Architected database schema for educational platform serving 10k+ users",
-            "Implemented secure authentication system with JWT and OAuth",
-            "Optimized query performance improving response times by 70%",
-            "Developed robust API documentation and testing framework",
-          ],
-          technologies: ["Node.js", "MongoDB", "AWS", "GraphQL", "Jest"],
-        },
-        {
-          role: "Junior Developer",
-          company: "TechStart Solutions",
-          period: "2020 — 2021",
-          description: "Worked on database management and backend integration.",
-          icon: Code,
-          achievements: [
-            "Assisted in migrating legacy system to modern stack",
-            "Implemented data validation and sanitization protocols",
-            "Built automated data backup and recovery systems",
-          ],
-          technologies: ["Express", "MongoDB", "MySQL", "Docker"],
-        },
+          "degree": "Bachelor of Engineering",
+          "institution": "LDRP Institute of Technology and Research",
+          "period": "2021 - 2025",
+          "description": "CPI: 9.00"
+        }
       ],
-
-      // Education details
-      education: [
-        {
-          degree: "Bachelor of Technology",
-          institution: "Computer Engineering",
-          period: "2019 - 2023",
-          description: "Focused on Database Systems and Cloud Computing",
-        },
+    
+      "achievements": [
+        "Winner - Smart India Hackathon 2024",
+        "1st Rank in IT branch (CPI 9.00)",
+        "Finalist - SSIP Azadi Ka Amrit Mahotsav Hackathon 2022",
+        "NPTEL Domain Scholar & Star - Invited to IIT Bombay",
+        "Winner - Break the Barrier National Hackathon 2022"
       ],
-
-      achievements: [
-        "Cloud Computing Certification",
-        "Database Management Expert",
-        "ML Algorithm Implementation",
-      ],
-      bioShort:
-        "MERN stack developer with expertise in DSA and cloud computing, bringing technical rigor and innovation to ColleGPT.",
-      bioLong:
-        "Divya is a proficient MERN Stack Developer whose technical knowledge forms the backbone of ColleGPT's robust architecture. Her expertise in database management and algorithm design has been crucial in creating a scalable and efficient platform.\n\nBeyond her technical skills, Divya has a passion for making complex concepts accessible to learners. She has completed multiple certifications in Programming, Database Management Systems, and Machine Learning, applying this knowledge to create innovative solutions for educational challenges.",
-      color: "purple",
-      gradient: "from-purple-600 to-pink-600",
-      lightGradient: "from-purple-500/10 to-purple-500/5",
+    
+      "bioShort": "Developer & Content Creator at ColleGPT, focusing on full-stack development and community growth.",
+      "bioLong": "Divya Kaurani is a Developer and Content Creator at ColleGPT, leading the development of user-friendly interfaces and mentoring students in tech. With expertise in MERN stack and responsive design, Divya plays a key role in enhancing user engagement and educational outreach at ColleGPT.",
+      "color": "blue",
+    
+      "gradient": "from-blue-600 to-indigo-600",
+      "lightGradient": "from-blue-500/10 to-blue-600/5",
+    
       social: [
         {
           platform: "GitHub",
           icon: Github,
-          url: "https://github.com/KauraniDivya",
+          url: "https://github.com/kauranidivya/",
           color: "bg-gray-800 hover:bg-gray-700",
         },
         {
@@ -1360,13 +1385,26 @@ const TeamSection = () => {
           color: "bg-blue-600 hover:bg-blue-700",
         },
         {
+          platform: "Twitter",
+          icon: Twitter,
+          url: "https://x.com/d_kaurani61801",
+          color: "bg-sky-500 hover:bg-sky-600",
+        },
+        {
           platform: "Mail",
           icon: Mail,
           url: "mailto:kauranidivya@gmail.com",
           color: "bg-red-600 hover:bg-red-700",
         },
-      ],
+        {
+          platform: "Portfolio",
+          icon: ExternalLink,
+          url: "https://portfolio-divya-sooty.vercel.app/",
+          color: "bg-purple-600 hover:bg-purple-700",
+        }
+      ]
     },
+    
     {
       id: 3,
       name: "Darshit Sojitra",
@@ -1606,9 +1644,8 @@ const TeamSection = () => {
             >
               <motion.button
                 onClick={() => setSelectedMember(member)}
-                className="flex flex-col items-center focus:outline-none transition-transform duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
+                className="flex flex-col items-center  duration-300"
+
               >
                 {/* Profile Image with Animated Outline */}
                 <div className="relative">
@@ -1616,11 +1653,11 @@ const TeamSection = () => {
                     <img
                       src={member.avatar}
                       alt={member.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-center"
                     />
                   </div>
                   <motion.div
-                    className={`absolute inset-0 rounded-full border-2 border-${member.color}-400 opacity-0 group-hover:opacity-100`}
+                    className={`absolute inset-0 rounded-full  opacity-0 group-hover:opacity-100`}
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
@@ -1654,11 +1691,6 @@ const TeamSection = () => {
                   </span>
                 </motion.div>
               </motion.button>
-
-              {/* Gradient Accent */}
-              <div
-                className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-gradient-to-r ${member.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-              ></div>
             </motion.div>
           ))}
         </div>

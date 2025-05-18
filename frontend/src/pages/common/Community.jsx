@@ -27,7 +27,12 @@ import {
   Minimize2,
   Maximize2,
   Instagram,
-  User2
+  User2,
+  Minus,
+  Plus,
+  Share2,
+  Settings,
+  Star
 } from "lucide-react";
 import defaultProfilePic from "../../images/60111.webp";
 import { fetchWithAuth, BASE_URL } from "../../api/api";
@@ -48,14 +53,16 @@ const Community = () => {
   const [selectedProfile, setSelectedProfile] = useState(null);
   const [isProfilePopupOpen, setIsProfilePopupOpen] = useState(false);
   const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(true);
   const [activeTab, setActiveTab] = useState("about");
   const [isDragging, setIsDragging] = useState(false);
+  const [windowPosition, setWindowPosition] = useState({ x: 0, y: 0 });
   
   const searchInputRef = useRef(null);
   const communityRef = useRef(null);
   const popupRef = useRef(null);
   const dragHandleRef = useRef(null);
+  const constraintsRef = useRef(null);
   const isInView = useInView(communityRef, { once: false, amount: 0.1 });
 
   useEffect(() => {
@@ -712,7 +719,7 @@ useEffect(() => {
 <AnimatePresence>
   {isProfilePopupOpen && selectedProfile && (
     <motion.div 
-      className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 overflow-hidden"
+      className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/50 backdrop-blur-sm isolate"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -720,469 +727,405 @@ useEffect(() => {
     >
       <motion.div
         ref={popupRef}
-        className={`absolute bg-white dark:bg-gray-900 ${
-          isFullscreen 
-            ? 'fixed inset-0 m-0 rounded-none mt-20 pb-5' 
-            : 'rounded-xl overflow-hidden shadow-2xl'
-        } border border-gray-200 dark:border-gray-800 flex flex-col max-h-screen`}
-        initial={{ 
-          opacity: 0, 
-          scale: 0.9,
-          x: popupPosition.x,
-          y: popupPosition.y,
-          width: window.innerWidth <= 768 ? '90%' : 700,
-          height: window.innerWidth <= 768 ? 'auto' : 650
-        }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-          x: isFullscreen ? 0 : (window.innerWidth <= 768 ? window.innerWidth * 0.05 : popupPosition.x),
-          y: isFullscreen ? 0 : (window.innerWidth <= 768 ? window.innerHeight * 0.05 : popupPosition.y),
-          width: isFullscreen ? '100%' : (window.innerWidth <= 768 ? '90%' : 700),
-          height: isFullscreen ? '100%' : (window.innerWidth <= 768 ? '90%' : 650)
-        }}
-        exit={{ 
-          opacity: 0, 
-          scale: 0.9,
-          transition: { duration: 0.2 }
-        }}
-        transition={{ 
+        className="relative bg-white dark:bg-gray-900 rounded-xl"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        transition={{
           type: "spring",
-          damping: 25,
-          stiffness: 300
+          damping: 20,
+          stiffness: 300,
         }}
+        drag
+        dragConstraints={constraintsRef}
+        dragElastic={0.05}
         onClick={(e) => e.stopPropagation()}
-        style={{ 
-          position: isFullscreen ? 'fixed' : 'absolute',
-          maxWidth: isFullscreen ? '100%' : (window.innerWidth <= 768 ? '90%' : '700px')
+        onDragEnd={(e, info) => {
+          setPopupPosition({
+            x: windowPosition.x + info.offset.x,
+            y: windowPosition.y + info.offset.y,
+          });
+        }}
+        style={{
+          width: isFullscreen ? "calc(100vw - 60px)" : "900px",
+          height: isFullscreen ? "calc(100vh - 60px)" : "600px",
+          maxWidth: "95vw",
+          maxHeight: "90vh",
+          transition: "width 0.3s, height 0.3s",
         }}
       >
-        {/* Mac-style window header */}
-        <div 
-          ref={dragHandleRef}
-          className="bg-gray-100 dark:bg-gray-800 p-3 border-b border-gray-200 dark:border-gray-700 flex items-center cursor-move"
-          onMouseDown={(e) => {
-            if (isFullscreen || window.innerWidth <= 768) return;
-            
-            e.preventDefault();
-            setIsDragging(true);
-            
-            // Get initial positions
-            const startX = e.clientX;
-            const startY = e.clientY;
-            const startPosX = popupPosition.x;
-            const startPosY = popupPosition.y;
-            
-            const handleMouseMove = (moveEvent) => {
-              if (!isDragging) return;
-              
-              const deltaX = moveEvent.clientX - startX;
-              const deltaY = moveEvent.clientY - startY;
-              
-              // Direct position update without animation
-              const newX = startPosX + deltaX;
-              const newY = startPosY + deltaY;
-              
-              // Apply position directly to prevent elastic effect
-              if (popupRef.current) {
-                popupRef.current.style.transform = `translate3d(${newX}px, ${newY}px, 0) scale(1)`;
-              }
-              
-              // Update state to keep track of position
-              setPopupPosition({
-                x: newX,
-                y: newY
-              });
-            };
-            
-            const handleMouseUp = () => {
-              document.removeEventListener('mousemove', handleMouseMove);
-              document.removeEventListener('mouseup', handleMouseUp);
-              setIsDragging(false);
-              
-              // Get window dimensions for boundary checks
-              const width = popupRef.current?.offsetWidth || 700;
-              const height = popupRef.current?.offsetHeight || 650;
-              
-              // Ensure within bounds
-              let newX = popupPosition.x;
-              let newY = popupPosition.y;
-              
-              if (newX < 0) newX = 0;
-              if (newY < 0) newY = 0;
-              if (newX + width > window.innerWidth) newX = window.innerWidth - width;
-              if (newY + height > window.innerHeight) newY = window.innerHeight - height;
-              
-              setPopupPosition({ x: newX, y: newY });
-            };
-            
-            document.addEventListener('mousemove', handleMouseMove);
-            document.addEventListener('mouseup', handleMouseUp);
-          }}
-        >
-          <div className="flex space-x-2 mr-4">
-            <button 
-              onClick={closeProfilePopup}
-              className="w-3.5 h-3.5 rounded-full bg-red-500 flex items-center justify-center group hover:bg-red-600 transition-colors"
-            >
-              <X className="w-2 h-2 text-red-900 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </button>
-            <button 
-              className="w-3.5 h-3.5 rounded-full bg-yellow-500 hover:bg-yellow-600 transition-colors"
-            >
-              <Minimize2 className="w-2 h-2 text-yellow-900 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </button>
-            <button 
-              onClick={toggleFullscreen}
-              className="w-3.5 h-3.5 rounded-full bg-green-500 hover:bg-green-600 transition-colors"
-            >
-              {isFullscreen ? 
-                <Minimize2 className="w-2 h-2 text-green-900 opacity-0 group-hover:opacity-100 transition-opacity" /> :
-                <Maximize2 className="w-2 h-2 text-green-900 opacity-0 group-hover:opacity-100 transition-opacity" />
-              }
-            </button>
-          </div>
-          
-          <div className="flex-1 text-center text-sm font-medium text-gray-600 dark:text-gray-300 truncate">
-            {selectedProfile.name}'s Profile
-          </div>
-          
-          <div className="w-16">
-            {/* Placeholder to center the title */}
-          </div>
-        </div>
-        
-        {/* Main content area */}
-        <div className={`flex-1 flex flex-col overflow-hidden ${isFullscreen ? 'max-h-screen' : ''}`}>
-          {/* Tabs navigation */}
-          <div className="flex border-b border-gray-200 dark:border-gray-700 overflow-x-auto">
-            {[
-              { id: 'about', label: 'About', icon: User2 },
-              { id: 'education', label: 'Education', icon: Book },
-              { id: 'skills', label: 'Skills', icon: Code },
-              { id: 'interests', label: 'Interests', icon: Heart }
-            ].map(tab => (
-              <button
-                key={tab.id}
-                className={`flex-1 flex justify-center items-center py-2 md:py-3 text-xs md:text-sm font-medium border-b-2 transition-colors whitespace-nowrap px-2 ${
-                  activeTab === tab.id
-                    ? 'border-blue-500 text-blue-600 dark:text-blue-400'
-                    : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-                }`}
-                onClick={() => setActiveTab(tab.id)}
+        {/* Premium Glass Effect & Shadow */}
+        <div className="absolute inset-0 rounded-xl bg-white/10 backdrop-blur-xl opacity-20"></div>
+
+        <div className="flex flex-col h-full overflow-hidden rounded-xl bg-white shadow-[0_10px_60px_-15px_rgba(0,0,0,0.3)] border border-gray-200 backdrop-filter backdrop-blur">
+          {/* Window Header - Enhanced macOS style */}
+          <div className="flex items-center px-4 h-10 bg-gradient-to-b from-gray-100 to-gray-50 dark:from-gray-900 dark:to-gray-800 border-b border-gray-200 dark:border-gray-700 rounded-t-xl">
+            <div className="flex items-center space-x-2">
+              {/* Close button */}
+              <motion.button
+                onClick={closeProfilePopup}
+                className="w-3.5 h-3.5 rounded-full bg-red-500 flex items-center justify-center group relative"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <tab.icon className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
-                {tab.label}
+                <X className="w-2 h-2 text-red-900 opacity-0 group-hover:opacity-100 absolute" />
+              </motion.button>
+              {/* Minimize button */}
+              <motion.button
+                className="w-3.5 h-3.5 rounded-full bg-yellow-400 flex items-center justify-center group relative"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Minus className="w-2 h-2 text-yellow-900 opacity-0 group-hover:opacity-100 absolute" />
+              </motion.button>
+              {/* Maximize button */}
+              <motion.button
+                onClick={toggleFullscreen}
+                className="w-3.5 h-3.5 rounded-full bg-green-500 flex items-center justify-center group relative"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Plus className="w-2 h-2 text-green-900 opacity-0 group-hover:opacity-100 absolute" />
+              </motion.button>
+            </div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 text-xs font-medium text-gray-600 dark:text-gray-300">
+              {selectedProfile.name}'s Profile
+            </div>
+            {/* Window Header Right Section */}
+            <div className="ml-auto flex items-center space-x-3 text-gray-500 dark:text-gray-400">
+              <Share2 size={13} className="opacity-70" />
+              <Settings size={13} className="opacity-70" />
+            </div>
+          </div>
+
+          {/* Window Toolbar - Enhanced macOS style */}
+          <div className="flex items-center px-4 h-10 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 border-b border-gray-200 dark:border-gray-700 shadow-sm">
+            <div className="flex space-x-2">
+              <button className="p-1 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+                <ChevronLeft size={14} />
               </button>
-            ))}
+              <button className="p-1 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+                <ChevronRight size={14} />
+              </button>
+            </div>
+            <div className="flex-1 mx-4">
+              <div className="flex items-center px-3 py-1.5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200/70 dark:hover:bg-gray-700 transition-colors rounded-md text-xs text-gray-600 dark:text-gray-300 border border-gray-200/70 dark:border-gray-700 shadow-inner">
+                <Search size={12} className="mr-2 text-gray-500 dark:text-gray-400" />
+                <span>Search {selectedProfile.name}'s profile</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3 text-gray-500 dark:text-gray-400">
+              <Star
+                size={14}
+                className="opacity-70 hover:opacity-100 cursor-pointer"
+              />
+              <Settings
+                size={14}
+                className="opacity-70 hover:opacity-100 cursor-pointer"
+              />
+            </div>
           </div>
-          
-          {/* Content area */}
-          <div className={`flex-1 overflow-y-auto ${isFullscreen ? 'h-full' : ''}`}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-                className="h-full"
-              >
-                {activeTab === 'about' && (
-                  <div className="flex flex-col md:flex-row h-full">
-                    {/* Left column - Profile photo and basic info */}
-                    <div className="md:w-1/3 bg-gray-50 dark:bg-gray-800/50 p-6 border-r border-gray-200 dark:border-gray-700">
-                      {/* Profile photo */}
-                      <div className="aspect-square rounded-xl overflow-hidden shadow-lg mb-6">
-                        <img 
-                          src={selectedProfile.profilePic || defaultProfilePic}
-                          alt={selectedProfile.name} 
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            e.target.onerror = null;
-                            e.target.src = defaultProfilePic;
-                          }}
-                        />
-                      </div>
-                      
-                      {/* Name and Role */}
-                      <div className="text-center mb-6">
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                          {selectedProfile.name}
-                        </h2>
-                        {selectedProfile.Roles && selectedProfile.Roles[0] && (
-                          <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium">
-                            {selectedProfile.Roles[0]}
-                          </span>
+
+          {/* Main content area */}
+          <div className="flex-1 flex flex-col overflow-hidden">
+            {/* Tabs navigation */}
+            <div className="flex border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 overflow-x-auto">
+              {[
+                { id: 'about', label: 'About', icon: User2 },
+                { id: 'education', label: 'Education', icon: Book },
+                { id: 'skills', label: 'Skills', icon: Code },
+                { id: 'interests', label: 'Interests', icon: Heart }
+              ].map(tab => (
+                <button
+                  key={tab.id}
+                  className={`flex-1 flex justify-center items-center py-2 md:py-3 text-xs md:text-sm font-medium border-b-2 transition-colors whitespace-nowrap px-2 ${
+                    activeTab === tab.id
+                      ? 'border-blue-500 text-blue-600 dark:text-blue-400'
+                      : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                  }`}
+                  onClick={() => setActiveTab(tab.id)}
+                >
+                  <tab.icon className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            
+            {/* Content area */}
+            <div className="flex-1 overflow-y-auto bg-white dark:bg-gray-900">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="h-full"
+                >
+                  {activeTab === 'about' && (
+                    <div className="flex flex-col md:flex-row h-full">
+                      {/* Left column - Profile photo and basic info */}
+                      <div className="md:w-1/3 bg-white dark:bg-gray-900 p-6 border-r border-gray-200 dark:border-gray-700">
+                        {/* Profile photo */}
+                        <div className="aspect-square rounded-xl overflow-hidden shadow-lg mb-6">
+                          <img 
+                            src={selectedProfile.profilePic || defaultProfilePic}
+                            alt={selectedProfile.name} 
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              e.target.onerror = null;
+                              e.target.src = defaultProfilePic;
+                            }}
+                          />
+                        </div>
+                        
+                        {/* Name and Role */}
+                        <div className="text-center mb-6">
+                          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                            {selectedProfile.name}
+                          </h2>
+                          {selectedProfile.Roles && selectedProfile.Roles[0] && (
+                            <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium">
+                              {selectedProfile.Roles[0]}
+                            </span>
+                          )}
+                        </div>
+
+                        {/* University */}
+                        {selectedProfile.university && (
+                          <div className="flex items-center justify-center text-gray-600 dark:text-gray-300 mb-6">
+                            <Book className="w-4 h-4 mr-2" />
+                            <span className="text-sm">{selectedProfile.university}</span>
+                          </div>
                         )}
-                      </div>
 
-                      {/* University */}
-                      {selectedProfile.university && (
-                        <div className="flex items-center justify-center text-gray-600 dark:text-gray-300 mb-6">
-                          <Book className="w-4 h-4 mr-2" />
-                          <span className="text-sm">{selectedProfile.university}</span>
-                        </div>
-                      )}
+                        {/* Personal details */}
+                        {(selectedProfile.gender || selectedProfile.birthdate) && (
+                          <div className="space-y-3 mb-6">
+                            <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
+                              Personal Details
+                            </h3>
+                            {selectedProfile.gender && (
+                              <div className="flex justify-between items-center px-3 py-2 bg-white dark:bg-gray-800 rounded-lg">
+                                <span className="text-sm text-gray-500 dark:text-gray-400">Gender</span>
+                                <span className="text-sm font-medium text-gray-900 dark:text-white">{selectedProfile.gender}</span>
+                              </div>
+                            )}
+                            {selectedProfile.birthdate && (
+                              <div className="flex justify-between items-center px-3 py-2 bg-white dark:bg-gray-800 rounded-lg">
+                                <span className="text-sm text-gray-500 dark:text-gray-400">Birth Date</span>
+                                <span className="text-sm font-medium text-gray-900 dark:text-white">
+                                  {formatDate(selectedProfile.birthdate)}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        )}
 
-                      {/* Personal details */}
-                      {(selectedProfile.gender || selectedProfile.birthdate) && (
-                        <div className="space-y-3 mb-6">
+                        {/* Social links */}
+                        <div className="space-y-3">
                           <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
-                            Personal Details
+                            Connect
                           </h3>
-                          {selectedProfile.gender && (
-                            <div className="flex justify-between items-center px-3 py-2 bg-white dark:bg-gray-700 rounded-lg">
-                              <span className="text-sm text-gray-500 dark:text-gray-400">Gender</span>
-                              <span className="text-sm font-medium text-gray-900 dark:text-white">{selectedProfile.gender}</span>
-                            </div>
-                          )}
-                          {selectedProfile.birthdate && (
-                            <div className="flex justify-between items-center px-3 py-2 bg-white dark:bg-gray-700 rounded-lg">
-                              <span className="text-sm text-gray-500 dark:text-gray-400">Birth Date</span>
-                              <span className="text-sm font-medium text-gray-900 dark:text-white">
-                                {formatDate(selectedProfile.birthdate)}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      )}
-
-                      {/* Social links */}
-                      <div className="space-y-3">
-                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
-                          Connect
-                        </h3>
-                        <div className="space-y-2">
-                          {selectedProfile.linkedinURL && (
-                            <a
-                              href={selectedProfile.linkedinURL}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center p-2 bg-white dark:bg-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
-                            >
-                              <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mr-3 text-blue-600 dark:text-blue-400">
-                                <Linkedin className="w-4 h-4" />
-                              </div>
-                              <span className="text-sm text-gray-700 dark:text-gray-300">LinkedIn</span>
-                              <ExternalLink className="w-3.5 h-3.5 ml-auto text-gray-400" />
-                            </a>
-                          )}
-                          
-                          {selectedProfile.githubURL && (
-                            <a
-                              href={selectedProfile.githubURL}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center p-2 bg-white dark:bg-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
-                            >
-                              <div className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mr-3 text-gray-700 dark:text-gray-300">
-                                <Github className="w-4 h-4" />
-                              </div>
-                              <span className="text-sm text-gray-700 dark:text-gray-300">GitHub</span>
-                              <ExternalLink className="w-3.5 h-3.5 ml-auto text-gray-400" />
-                            </a>
-                          )}
-                          
-                          {selectedProfile.twitterURL && (
-                            <a
-                              href={selectedProfile.twitterURL}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center p-2 bg-white dark:bg-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
-                            >
-                              <div className="w-8 h-8 bg-sky-100 dark:bg-sky-900/30 rounded-full flex items-center justify-center mr-3 text-sky-500 dark:text-sky-400">
-                                <Twitter className="w-4 h-4" />
-                              </div>
-                              <span className="text-sm text-gray-700 dark:text-gray-300">Twitter</span>
-                              <ExternalLink className="w-3.5 h-3.5 ml-auto text-gray-400" />
-                            </a>
-                          )}
-                          
-                          {/* Add other social links similarly */}
+                          <div className="space-y-2">
+                            {selectedProfile.linkedinURL && (
+                              <a
+                                href={selectedProfile.linkedinURL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center p-2 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                              >
+                                <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mr-3 text-blue-600 dark:text-blue-400">
+                                  <Linkedin className="w-4 h-4" />
+                                </div>
+                                <span className="text-sm text-gray-700 dark:text-gray-300">LinkedIn</span>
+                                <ExternalLink className="w-3.5 h-3.5 ml-auto text-gray-400" />
+                              </a>
+                            )}
+                            
+                            {selectedProfile.githubURL && (
+                              <a
+                                href={selectedProfile.githubURL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center p-2 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                              >
+                                <div className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mr-3 text-gray-700 dark:text-gray-300">
+                                  <Github className="w-4 h-4" />
+                                </div>
+                                <span className="text-sm text-gray-700 dark:text-gray-300">GitHub</span>
+                                <ExternalLink className="w-3.5 h-3.5 ml-auto text-gray-400" />
+                              </a>
+                            )}
+                            
+                            {selectedProfile.twitterURL && (
+                              <a
+                                href={selectedProfile.twitterURL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center p-2 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                              >
+                                <div className="w-8 h-8 bg-sky-100 dark:bg-sky-900/30 rounded-full flex items-center justify-center mr-3 text-sky-500 dark:text-sky-400">
+                                  <Twitter className="w-4 h-4" />
+                                </div>
+                                <span className="text-sm text-gray-700 dark:text-gray-300">Twitter</span>
+                                <ExternalLink className="w-3.5 h-3.5 ml-auto text-gray-400" />
+                              </a>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Right column - Main content */}
-                    <div className="md:w-2/3 p-6">
-                      {/* Stats dashboard */}
-                      <div className="grid grid-cols-3 gap-4 mb-6">
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm text-center">
-                          <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">9</div>
-                          <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mt-1">Skills</div>
-                        </div>
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm text-center">
-                          <div className="text-2xl font-bold text-green-600 dark:text-green-400">1</div>
-                          <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mt-1">Projects</div>
-                        </div>
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm text-center">
-                          <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">6</div>
-                          <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mt-1">Connections</div>
-                        </div>
-                      </div>
-                      
-                      {/* About text */}
-                      {selectedProfile.aboutMe ? (
+                      {/* Right column - Main content */}
+                      <div className="md:w-2/3 bg-white dark:bg-gray-900 p-6 min-h-full">
+                        {/* About text */}
                         <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm mb-6">
                           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
                             <User2 className="w-5 h-5 text-blue-500 mr-2" />
                             About
                           </h3>
-                          <p className="text-base text-gray-700 dark:text-gray-300 whitespace-pre-line">
-                            {selectedProfile.aboutMe}
-                          </p>
+                          {selectedProfile.aboutMe ? (
+                            <p className="text-base text-gray-700 dark:text-gray-300 whitespace-pre-line">
+                              {selectedProfile.aboutMe}
+                            </p>
+                          ) : (
+                            <p className="text-base text-gray-500 dark:text-gray-400 italic">
+                              Not posted yet
+                            </p>
+                          )}
                         </div>
-                      ) : (
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm text-center mb-6">
-                          <User2 className="w-10 h-10 text-gray-400 dark:text-gray-500 mx-auto mb-3" />
-                          <p className="text-base text-gray-500 dark:text-gray-400">
-                            This user hasn't added a bio yet.
-                          </p>
-                        </div>
-                      )}
 
-                      {/* Goals section */}
-                      {selectedProfile.goals && (
+                        {/* Goals section */}
                         <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
                           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
                             <Target className="w-5 h-5 text-amber-500 mr-2" />
                             Goals
                           </h3>
-                          <p className="text-base text-gray-700 dark:text-gray-300 whitespace-pre-line">
-                            {selectedProfile.goals}
-                          </p>
+                          {selectedProfile.goals ? (
+                            <p className="text-base text-gray-700 dark:text-gray-300 whitespace-pre-line">
+                              {selectedProfile.goals}
+                            </p>
+                          ) : (
+                            <p className="text-base text-gray-500 dark:text-gray-400 italic">
+                              Not posted yet
+                            </p>
+                          )}
                         </div>
-                      )}
+                      </div>
                     </div>
-                  </div>
-                )}
-                
-                {activeTab === 'education' && (
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-                    <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                      <Book className="w-4 h-4 md:w-5 md:h-5 text-green-500 mr-2" />
-                      Education
-                    </h3>
-                    
-                    {(selectedProfile.university || selectedProfile.sem || selectedProfile.cpi) ? (
-                      <div className="space-y-4 md:space-y-6">
-                        {selectedProfile.university && (
-                          <div className="border-l-2 border-green-500 pl-3 md:pl-4">
-                            <h4 className="text-xs md:text-sm uppercase text-green-600 dark:text-green-400 tracking-wider">University</h4>
-                            <p className="text-md md:text-lg font-medium text-gray-900 dark:text-white mt-1">{selectedProfile.university}</p>
-                          </div>
-                        )}
-                        
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                          {selectedProfile.sem && (
-                            <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 md:p-4">
-                              <h4 className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-1">Current Semester</h4>
-                              <p className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{selectedProfile.sem}</p>
+                  )}
+                  
+                  {activeTab === 'education' && (
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+                      <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                        <Book className="w-4 h-4 md:w-5 md:h-5 text-green-500 mr-2" />
+                        Education
+                      </h3>
+                      
+                      {(selectedProfile.university || selectedProfile.sem || selectedProfile.cpi) ? (
+                        <div className="space-y-4 md:space-y-6">
+                          {selectedProfile.university && (
+                            <div className="border-l-2 border-green-500 pl-3 md:pl-4">
+                              <h4 className="text-xs md:text-sm uppercase text-green-600 dark:text-green-400 tracking-wider">University</h4>
+                              <p className="text-md md:text-lg font-medium text-gray-900 dark:text-white mt-1">{selectedProfile.university}</p>
                             </div>
                           )}
                           
-                          {selectedProfile.cpi && (
-                            <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 md:p-4">
-                              <h4 className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-1">CPI</h4>
-                              <p className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{selectedProfile.cpi}</p>
-                              
-                              {/* CPI visualization */}
-                              <div className="mt-2 h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
-                                <div 
-                                  className="h-full bg-green-500 rounded-full"
-                                  style={{ width: `${(parseFloat(selectedProfile.cpi) / 10) * 100}%` }}
-                                ></div>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                            {selectedProfile.sem && (
+                              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3 md:p-4">
+                                <h4 className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-1">Current Semester</h4>
+                                <p className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{selectedProfile.sem}</p>
                               </div>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="flex flex-col items-center text-center py-6 md:py-8">
-                        <Book className="w-10 h-10 md:w-12 md:h-12 text-gray-300 dark:text-gray-600 mb-2" />
-                        <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">No education details available</p>
-                      </div>
-                    )}
-                  </div>
-                )}
-                
-                {activeTab === 'skills' && (
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-                    <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                      <Code className="w-4 h-4 md:w-5 md:h-5 text-blue-500 mr-2" />
-                      Skills
-                    </h3>
-                    
-                    {selectedProfile.Skills && selectedProfile.Skills.length > 0 ? (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
-                        {selectedProfile.Skills.map((skill, index) => (
-                          <div
-                            key={skill}
-                            className="bg-gray-50 dark:bg-gray-700 rounded-lg p-2 md:p-3 flex items-center"
-                          >
-                            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-2 md:mr-3">
-                              <Code className="w-3 h-3 md:w-4 md:h-4 text-blue-600 dark:text-blue-400" />
-                            </div>
-                            <span className="text-xs md:text-sm text-gray-700 dark:text-gray-300 font-medium truncate">
-                              {skill}
-                            </span>
+                            )}
+                            
+                            {selectedProfile.cpi && (
+                              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3 md:p-4">
+                                <h4 className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-1">CPI</h4>
+                                <p className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{selectedProfile.cpi}</p>
+                                
+                                {/* CPI visualization */}
+                                <div className="mt-2 h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+                                  <div 
+                                    className="h-full bg-green-500 rounded-full"
+                                    style={{ width: `${(parseFloat(selectedProfile.cpi) / 10) * 100}%` }}
+                                  ></div>
+                                </div>
+                              </div>
+                            )}
                           </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="flex flex-col items-center text-center py-6 md:py-8">
-                        <Code className="w-10 h-10 md:w-12 md:h-12 text-gray-300 dark:text-gray-600 mb-2" />
-                        <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">No skills have been added yet</p>
-                      </div>
-                    )}
-                  </div>
-                )}
-                
-                {activeTab === 'interests' && (
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-                    <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                      <Heart className="w-4 h-4 md:w-5 md:h-5 text-pink-500 mr-2" />
-                      Interests & Hobbies
-                    </h3>
-                    
-                    {selectedProfile.hobbies && selectedProfile.hobbies.length > 0 ? (
-                      <div className="flex flex-wrap gap-2">
-                        {selectedProfile.hobbies.map((hobby) => (
-                          <span
-                            key={hobby}
-                            className="inline-flex items-center px-2 md:px-3 py-1 md:py-1.5 rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 text-xs md:text-sm"
-                          >
-                            <Heart className="w-3 h-3 md:w-3.5 md:h-3.5 mr-1 md:mr-1.5" />
-                            {hobby}
-                          </span>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="flex flex-col items-center text-center py-6 md:py-8">
-                        <Heart className="w-10 h-10 md:w-12 md:h-12 text-gray-300 dark:text-gray-600 mb-2" />
-                        <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">No interests or hobbies have been added yet</p>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
-        
-        {/* Footer */}
-        <div className="bg-gray-100 dark:bg-gray-800 p-2 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
-          <div className="text-xs text-gray-500 dark:text-gray-400 px-3">
-            {/* Optional footer content */}
-          </div>
-          <div className="flex items-center space-x-3">
-            <button 
-              onClick={closeProfilePopup}
-              className="px-3 py-1.5 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded text-xs font-medium text-gray-700 dark:text-gray-300 transition-colors"
-            >
-              Close
-            </button>
+                        </div>
+                      ) : (
+                        <div className="flex flex-col items-center text-center py-6 md:py-8">
+                          <Book className="w-10 h-10 md:w-12 md:h-12 text-gray-300 dark:text-gray-600 mb-2" />
+                          <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">Not posted yet</p>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  
+                  {activeTab === 'skills' && (
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+                      <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                        <Code className="w-4 h-4 md:w-5 md:h-5 text-blue-500 mr-2" />
+                        Skills
+                      </h3>
+                      
+                      {selectedProfile.Skills && selectedProfile.Skills.length > 0 ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+                          {selectedProfile.Skills.map((skill, index) => (
+                            <div
+                              key={skill}
+                              className="bg-gray-50 dark:bg-gray-700 rounded-lg p-2 md:p-3 flex items-center"
+                            >
+                              <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-2 md:mr-3">
+                                <Code className="w-3 h-3 md:w-4 md:h-4 text-blue-600 dark:text-blue-400" />
+                              </div>
+                              <span className="text-xs md:text-sm text-gray-700 dark:text-gray-300 font-medium truncate">
+                                {skill}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="flex flex-col items-center text-center py-6 md:py-8">
+                          <Code className="w-10 h-10 md:w-12 md:h-12 text-gray-300 dark:text-gray-600 mb-2" />
+                          <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">Not posted yet</p>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  
+                  {activeTab === 'interests' && (
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+                      <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                        <Heart className="w-4 h-4 md:w-5 md:h-5 text-pink-500 mr-2" />
+                        Interests & Hobbies
+                      </h3>
+                      
+                      {selectedProfile.hobbies && selectedProfile.hobbies.length > 0 ? (
+                        <div className="flex flex-wrap gap-2">
+                          {selectedProfile.hobbies.map((hobby) => (
+                            <span
+                              key={hobby}
+                              className="inline-flex items-center px-2 md:px-3 py-1 md:py-1.5 rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 text-xs md:text-sm"
+                            >
+                              <Heart className="w-3 h-3 md:w-3.5 md:h-3.5 mr-1 md:mr-1.5" />
+                              {hobby}
+                            </span>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="flex flex-col items-center text-center py-6 md:py-8">
+                          <Heart className="w-10 h-10 md:w-12 md:h-12 text-gray-300 dark:text-gray-600 mb-2" />
+                          <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">Not posted yet</p>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </motion.div>

@@ -25,6 +25,7 @@ import {
   CheckSquare,
   ArrowRight
 } from 'lucide-react';
+import registerImage from "../../images/scholar.png";
 
 const defaultProfilePic = "https://www.collegpt.com/static/media/60111.c6884fb1e4065b2484d9.webp";
 
@@ -1148,7 +1149,7 @@ const Register = () => {
               
               {/* Main image */}
               <img 
-                src="https://i.ibb.co/SwDQfqjb/98408298989.png" 
+                src={registerImage} 
                 alt="3D Graduate Student" 
                 className="relative z-10 w-[250px] h-[250px] object-contain"
               />

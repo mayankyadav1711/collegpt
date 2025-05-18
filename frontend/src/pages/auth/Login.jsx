@@ -27,6 +27,7 @@ import {
   Clock,
   Star
 } from "lucide-react";
+import loginImage from "../../images/scholar.png";
 
 const Login = () => {
   const { auth, theme } = useAppContext();
@@ -660,7 +661,7 @@ const Login = () => {
               
               {/* Main image */}
               <img 
-                src="https://i.ibb.co/SwDQfqjb/98408298989.png" 
+                src={loginImage} 
                 alt="3D Graduate Student" 
                 className="relative z-10 w-[250px] h-[250px] object-contain"
               />
