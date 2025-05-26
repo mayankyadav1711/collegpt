@@ -284,7 +284,7 @@ const HeroSection = forwardRef(({ notesRef }, ref) => {
                 className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12"
               >
                 <a
-                  href="https://github.com/yourusername/collegpt"
+                  href="https://github.com/mayankyadav1711/collegpt"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -300,7 +300,7 @@ const HeroSection = forwardRef(({ notesRef }, ref) => {
 
                     <Github className="w-5 h-5 text-white" />
                     <span className="relative z-10 text-white font-medium flex items-center">
-                      Star on GitHub
+                      Start Open Source Journey
                       <Star className="ml-2 w-4 h-4 text-amber-300" />
                     </span>
                   </motion.button>
@@ -381,7 +381,7 @@ const HeroSection = forwardRef(({ notesRef }, ref) => {
 
             {/* Right Column: Robot Animation */}
             <motion.div
-              className="lg:w-5/12 mt-12 lg:mt-0"
+              className="hidden md:block lg:block lg:w-5/12 mt-12 lg:mt-0"
               variants={itemVariants}
             >
               <div className="relative w-full aspect-[4/5] max-w-md mx-auto pt-4">

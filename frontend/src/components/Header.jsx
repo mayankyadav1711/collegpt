@@ -223,14 +223,7 @@ const Header = () => {
                             setIsUserMenuOpen(false);
                           }}
                         />
-                        <MenuButton
-                          icon={<BarChart className="w-4 h-4" />}
-                          text="Dashboard"
-                          onClick={() => {
-                            navigate("/dashboard");
-                            setIsUserMenuOpen(false);
-                          }}
-                        />
+                      
 
                         <hr className="my-2 border-gray-200 dark:border-gray-800" />
                         <MenuButton

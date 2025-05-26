@@ -279,7 +279,7 @@ Infinite Loop Detection: Detects and handles infinite loops, preventing the appl
               <span className="inline-block w-2 h-2 rounded-full bg-red-500 mr-2 animate-pulse"></span>
               <span className="bg-gradient-to-r from-slate-700 dark:from-slate-100 to-slate-500 dark:to-slate-300 bg-clip-text text-transparent font-medium">
                 <DecryptedText
-                  text="Premium Video Content"
+                  text="Youtube Video Content"
                   speed={30}
                   sequential={true}
                   maxIterations={2}
@@ -296,7 +296,7 @@ Infinite Loop Detection: Detects and handles infinite loops, preventing the appl
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4"
           >
-            Learn With <span className="text-[#00AEEF]">Mayank Yadav</span>
+            Learn With <span className="text-[#00AEEF]">Community</span>
           </motion.h2>
           
           <motion.p
@@ -306,7 +306,7 @@ Infinite Loop Detection: Detects and handles infinite loops, preventing the appl
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto"
           >
-            Access premium tutorials, hackathon updates, project walkthroughs, and AI/ML content
+            Access tutorials, hackathon updates, project walkthroughs, and AI/ML content
             from a passionate developer and educator.
           </motion.p>
         </div>
@@ -456,36 +456,7 @@ Infinite Loop Detection: Detects and handles infinite loops, preventing the appl
           </div>
         </div>
         
-        {/* Bottom CTA */}
-        <motion.div 
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <a 
-            href="https://www.youtube.com/@mayankyadav1711"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <motion.button
-              className="group px-8 py-4 rounded-lg overflow-hidden bg-gradient-to-r from-[#0067b5] to-[#00AEEF] relative"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {/* Animated light effect */}
-              <div className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100">
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 skew-x-[45deg] transform -translate-x-full group-hover:translate-x-[200%] transition-transform duration-1000"></div>
-              </div>
-
-              <span className="relative z-10 text-white font-medium text-lg flex items-center">
-                Subscribe to YouTube Channel
-                <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </motion.button>
-          </a>
-        </motion.div>
+        
       </div>
     </section>
   );

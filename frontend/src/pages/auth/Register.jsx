@@ -1201,36 +1201,7 @@ const Register = () => {
             ))}
           </motion.div>
           
-          {/* Bottom section - Social proof */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.8 }}
-            className="flex justify-between items-center mt-6"
-          >
-            {/* User avatars and count */}
-            <div className="flex items-center space-x-3">
-              <div className="flex -space-x-3">
-                {[...Array(5)].map((_, i) => (
-                  <motion.img
-                    key={i}
-                    src={`https://i.pravatar.cc/100?img=${20 + i}`}
-                    alt={`User ${i + 1}`}
-                    className="w-8 h-8 rounded-full border-2 border-white dark:border-gray-800 object-cover"
-                    whileHover={{ y: -3, zIndex: 10 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                  />
-                ))}
-              </div>
-              
-              <div className="inline-flex items-center px-3 py-1.5 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full border border-gray-200/50 dark:border-gray-700/50 shadow-sm">
-                <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                  1,000+ students joined this week
-                </span>
-              </div>
-            </div>
-          </motion.div>
+        
         </div>
       </div>
       

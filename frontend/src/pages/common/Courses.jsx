@@ -901,20 +901,7 @@ const CourseCard = ({ course, semester, index, isFavorite, onToggleFavorite, set
               {course.description}
             </p>
             
-            <div className="flex flex-wrap items-center gap-3 mb-5 text-xs text-slate-500 dark:text-slate-400">
-              <div className="flex items-center bg-slate-100 dark:bg-slate-700/50 px-2.5 py-1.5 rounded-full">
-                <Users className="w-3.5 h-3.5 mr-1.5 text-brand-500" />
-                <span>500+ Students</span>
-              </div>
-              <div className="flex items-center bg-slate-100 dark:bg-slate-700/50 px-2.5 py-1.5 rounded-full">
-                <Clock className="w-3.5 h-3.5 mr-1.5 text-brand-500" />
-                <span>{course.totalUnits * 2}h Content</span>
-              </div>
-              <div className="flex items-center bg-amber-100 dark:bg-amber-900/30 px-2.5 py-1.5 rounded-full">
-                <Star className="w-3.5 h-3.5 mr-1.5 text-amber-500 fill-amber-500" />
-                <span className="text-amber-700 dark:text-amber-300">4.8/5</span>
-              </div>
-            </div>
+          
             
             <Link 
               to={`/semester/${semester.id}/${course.id}`} 

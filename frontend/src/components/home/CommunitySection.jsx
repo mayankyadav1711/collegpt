@@ -181,7 +181,7 @@ const CommunitySection = forwardRef((props, ref) => {
       {
         id: 4,
         user: members[4],
-        message: "Just joined! I'm Arjun, focusing on competitive coding and placement prep. Anyone here preparing for placements?",
+        message: "Just joined! I'm Gaurav, focusing on competitive coding and placement prep. Anyone here preparing for placements?",
         time: "11:05 AM",
         reactions: [
           { emoji: "👋", count: 3 },
@@ -1089,16 +1089,7 @@ const CommunitySection = forwardRef((props, ref) => {
                   {feature.description}
                 </p>
                 
-                <div className="flex justify-end">
-                  <motion.button 
-                    className="flex items-center text-blue-600 dark:text-blue-400 font-medium group-hover:underline"
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-1.5" />
-                  </motion.button>
-                </div>
+               
               </motion.div>
             ))}
           </motion.div>
