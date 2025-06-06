@@ -1,10 +1,15 @@
 const express = require("express");
 const cors = require("cors");
+const dotenv = require("dotenv");
+
+// Load environment variables
+dotenv.config();
 
 const app = express();
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 5000;
-const { MONGOURI } = require('./config/keys')
+const MONGOURI = process.env.MOGOURI;
+
 //cors policy 
 app.use(cors({
   origin: [
@@ -15,7 +20,8 @@ app.use(cors({
     "https://services-collegpt.vercel.app",
     "https://services.collegpt.com",
     "https://collegpt-admin.vercel.app",
-    "https://admin.collegpt.com"
+    "https://admin.collegpt.com",
+    "http://localhost:5173",
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
@@ -41,6 +47,7 @@ require("./models/contact");
 require("./models/event_form");
 require("./models/feedback");
 require("./models/servicecontact");
+require("./models/GraduateFeedback");
 
 app.use(express.json());
 app.use(require("./routes/auth"));
