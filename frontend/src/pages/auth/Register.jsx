@@ -186,12 +186,6 @@ const Register = () => {
       return;
     }
     
-    // Validate email format
-    if (!/^([^\\s@]+@gmail\\.com|[^@]+@ldrp\\.ac\\.in)$/.test(formData.email)) {
-      toast.error('Please enter a valid Gmail or LDRP email address');
-      return;
-    }
-    
     // Validate password match
     if (formData.password !== formData.c_password) {
       toast.error('Passwords do not match');
@@ -508,9 +502,7 @@ const Register = () => {
                           )}
                         </div>
                         
-                        <p className="text-xs text-gray-500 dark:text-gray-400 ml-1">
-                          We accept Gmail or LDRP Institute email addresses
-                        </p>
+                        
                       </motion.div>
 
                       {/* Password field */}
