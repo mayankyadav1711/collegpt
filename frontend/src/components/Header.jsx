@@ -95,7 +95,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[10000] transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[999999] transition-all duration-300 ${
         isScrolled
           ? "bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-200/20 dark:border-gray-800/20"
           : "bg-white dark:bg-gray-950"
@@ -274,7 +274,7 @@ const Header = () => {
 
         {/* Mobile Menu - Slide-in Sidebar */}
         <div
-          className={`fixed inset-y-0 left-0 z-[9999] w-[280px] bg-white dark:bg-gray-900 shadow-2xl transform transition-transform duration-300 ease-in-out ${
+          className={`fixed inset-y-0 left-0 z-[9999999] w-[280px] bg-white dark:bg-gray-900 shadow-2xl transform transition-transform duration-300 ease-in-out ${
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -438,7 +438,7 @@ const Header = () => {
         {/* Overlay when sidebar is open */}
         {isMenuOpen && (
           <div
-            className="fixed inset-0 z-[9998] bg-black/20 dark:bg-black/50 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-[9999998] bg-black/20 dark:bg-black/50 backdrop-blur-sm md:hidden"
             onClick={() => setIsMenuOpen(false)}
           ></div>
         )}

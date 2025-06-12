@@ -122,7 +122,7 @@ const HeroSection = forwardRef(({ notesRef }, ref) => {
     <section
       id="hero"
       ref={ref}
-      className="relative min-h-[90vh] flex items-center py-16 md:py-20 overflow-hidden"
+      className="relative min-h-[90vh] flex items-center py-16 md:py-20 overflow-hidden mt-16 md:mt-20"
       onMouseMove={handleMouseMove}
     >
       {/* Premium Grid Background with 3D perspective */}

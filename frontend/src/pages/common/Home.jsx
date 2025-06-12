@@ -116,7 +116,7 @@ const Home = () => {
   };
 
   return (
-    <div className="font-jost bg-slate-50 text-slate-900 dark:bg-[#050a14] dark:text-white overflow-x-hidden min-h-screen relative z-[999999]">
+    <div className="font-jost bg-slate-50 text-slate-900 dark:bg-[#050a14] dark:text-white overflow-x-hidden min-h-screen relative">
       {/* Showcase Information Modal */}
       {showInfoModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
