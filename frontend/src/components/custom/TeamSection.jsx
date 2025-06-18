@@ -142,7 +142,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
           <div className="flex items-center space-x-1.5">
             <span className="text-xs font-medium">9:41</span>
           </div>
-          <div className="absolute left-1/2 transform -translate-x-1/2 top-2">
+          <div className="absolute top-2 left-1/2 transform -translate-x-1/2">
             <div className="w-12 h-1 bg-gray-700 rounded-full"></div>
           </div>
           <div className="flex items-center space-x-1.5">
@@ -153,7 +153,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
         </div>
 
         {/* iPhone App Header */}
-        <div className="bg-gray-900 text-white px-4 py-3 flex items-center justify-between">
+        <div className="flex justify-between items-center px-4 py-3 text-white bg-gray-900">
           <button onClick={onClose} className="text-blue-400">
             <ChevronLeft size={20} />
           </button>
@@ -164,26 +164,26 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
         </div>
 
         {/* iPhone App Content */}
-        <div className="flex-1 overflow-y-auto bg-gray-100">
+        <div className="overflow-y-auto flex-1 bg-gray-100">
           {/* Profile Header */}
-          <div className="bg-white p-5 mb-3">
+          <div className="p-5 mb-3 bg-white">
             <div className="flex items-center space-x-4">
-              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white shadow-md">
+              <div className="overflow-hidden w-20 h-20 rounded-full border-2 border-white shadow-md">
                 <img
                   src={member.avatar}
                   alt={member.name}
-                  className="w-full h-full object-cover"
+                  className="object-cover w-full h-full"
                 />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-900">
                   {member.name}
                 </h3>
-                <p className="text-gray-600 text-sm">{member.role}</p>
+                <p className="text-sm text-gray-600">{member.role}</p>
                 <div
                   className={`inline-flex items-center mt-2 px-2 py-0.5 rounded-full bg-${member.color}-100 text-${member.color}-600 text-xs`}
                 >
-                  <Sparkles className="w-3 h-3 mr-1" />
+                  <Sparkles className="mr-1 w-3 h-3" />
                   {member.badge}
                 </div>
               </div>
@@ -207,7 +207,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
           </div>
 
           {/* iPhone Navigation */}
-          <div className="bg-white mb-3 px-2 py-3 flex overflow-x-auto hide-scrollbar">
+          <div className="flex overflow-x-auto px-2 py-3 mb-3 bg-white hide-scrollbar">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -224,20 +224,20 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
           </div>
 
           {/* Tab Content */}
-          <div className="bg-white p-5 mb-3">
+          <div className="p-5 mb-3 bg-white">
             {activeTab === "Profile" && (
               <div className="space-y-5">
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-900 mb-2">
+                  <h4 className="mb-2 text-sm font-semibold text-gray-900">
                     About
                   </h4>
-                  <p className="text-gray-600 text-sm whitespace-pre-line">
+                  <p className="text-sm text-gray-600 whitespace-pre-line">
                     {member.bioLong}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-900 mb-2">
+                  <h4 className="mb-2 text-sm font-semibold text-gray-900">
                     Details
                   </h4>
                   <div className="space-y-2 text-sm">
@@ -259,7 +259,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
 
                 {/* Stats Cards */}
                 <div className="grid grid-cols-2 gap-3 mt-4">
-                  <div className="bg-gray-50 p-4 rounded-xl flex flex-col items-center justify-center">
+                  <div className="flex flex-col justify-center items-center p-4 bg-gray-50 rounded-xl">
                     <div
                       className={`w-8 h-8 rounded-full bg-${member.color}-100 flex items-center justify-center mb-1`}
                     >
@@ -267,7 +267,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                         className={`w-4 h-4 text-${member.color}-600`}
                       />
                     </div>
-                    <div className="font-bold text-lg text-gray-900">
+                    <div className="text-lg font-bold text-gray-900">
                       {member.yearsExperience}
                     </div>
                     <div className="text-xs text-gray-500">
@@ -275,13 +275,13 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                     </div>
                   </div>
 
-                  <div className="bg-gray-50 p-4 rounded-xl flex flex-col items-center justify-center">
+                  <div className="flex flex-col justify-center items-center p-4 bg-gray-50 rounded-xl">
                     <div
                       className={`w-8 h-8 rounded-full bg-${member.color}-100 flex items-center justify-center mb-1`}
                     >
                       <Code2 className={`w-4 h-4 text-${member.color}-600`} />
                     </div>
-                    <div className="font-bold text-lg text-gray-900">
+                    <div className="text-lg font-bold text-gray-900">
                       {member.projectCount}
                     </div>
                     <div className="text-xs text-gray-500">Projects</div>
@@ -292,14 +292,14 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
 
             {activeTab === "Skills" && (
               <div className="space-y-4">
-                <h4 className="text-sm font-semibold text-gray-900 mb-3">
+                <h4 className="mb-3 text-sm font-semibold text-gray-900">
                   Technical Skills
                 </h4>
 
                 {member.skillDomains.map((domain, idx) => (
                   <div
                     key={idx}
-                    className="bg-gray-50 p-4 rounded-xl border border-gray-100 mb-3"
+                    className="p-4 mb-3 bg-gray-50 rounded-xl border border-gray-100"
                   >
                     <div className="flex items-center mb-3">
                       <domain.icon
@@ -327,11 +327,11 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
 
             {activeTab === "Experience" && (
               <div className="space-y-4">
-                <h4 className="text-sm font-semibold text-gray-900 mb-3">
+                <h4 className="mb-3 text-sm font-semibold text-gray-900">
                   Professional Experience
                 </h4>
 
-                <div className="pl-5 border-l-2 border-gray-300 space-y-5">
+                <div className="pl-5 space-y-5 border-l-2 border-gray-300">
                   {member.experience.map((exp, idx) => (
                     <div key={idx}>
                       <div
@@ -339,9 +339,9 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                           idx === 0 ? `bg-${member.color}-500` : "bg-gray-300"
                         }`}
                       ></div>
-                      <div className="bg-gray-50 p-4 rounded-xl border border-gray-200">
-                        <h5 className="font-medium text-sm">{exp.role}</h5>
-                        <p className="text-gray-600 text-xs">{exp.company}</p>
+                      <div className="p-4 bg-gray-50 rounded-xl border border-gray-200">
+                        <h5 className="text-sm font-medium">{exp.role}</h5>
+                        <p className="text-xs text-gray-600">{exp.company}</p>
                         <p
                           className={`${
                             idx === 0
@@ -368,7 +368,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
 
             {activeTab === "Contact" && (
               <div className="space-y-4">
-                <h4 className="text-sm font-semibold text-gray-900 mb-3">
+                <h4 className="mb-3 text-sm font-semibold text-gray-900">
                   Contact Information
                 </h4>
 
@@ -378,7 +378,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                     href={socialItem.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors border border-gray-100 mb-2"
+                    className="flex items-center p-4 mb-2 bg-gray-50 rounded-xl border border-gray-100 transition-colors hover:bg-gray-100"
                   >
                     <div
                       className={`w-8 h-8 ${
@@ -422,7 +422,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
           </div>
 
           {/* iPhone Home Indicator */}
-          <div className="bg-black py-2 flex justify-center">
+          <div className="flex justify-center py-2 bg-black">
             <div className="w-32 h-1 bg-gray-700 rounded-full"></div>
           </div>
         </div>
@@ -439,7 +439,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
       exit={{ opacity: 0 }}
       onClick={onClose}
     >
-      <div ref={constraintsRef} className="absolute inset-0 overflow-hidden" />
+      <div ref={constraintsRef} className="overflow-hidden absolute inset-0" />
 
       <motion.div
         ref={windowRef}
@@ -471,11 +471,11 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
         }}
       >
         {/* Premium Glass Effect & Shadow */}
-        <div className="absolute inset-0 rounded-xl bg-white/10 backdrop-blur-xl opacity-20"></div>
+        <div className="absolute inset-0 rounded-xl opacity-20 backdrop-blur-xl bg-white/10"></div>
 
         <div className="flex flex-col h-full overflow-hidden rounded-xl bg-white shadow-[0_10px_60px_-15px_rgba(0,0,0,0.3)] border border-gray-200 backdrop-filter backdrop-blur">
           {/* Window Header - Enhanced macOS style */}
-          <div className="flex items-center px-4 h-10 bg-gradient-to-b from-gray-100 to-gray-50 border-b border-gray-200 rounded-t-xl">
+          <div className="flex items-center px-4 h-10 bg-gradient-to-b from-gray-100 to-gray-50 rounded-t-xl border-b border-gray-200">
             <div className="flex items-center space-x-2">
               {/* Close button */}
               <motion.button
@@ -484,7 +484,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <X className="w-2 h-2 text-red-900 opacity-0 group-hover:opacity-100 absolute" />
+                <X className="absolute w-2 h-2 text-red-900 opacity-0 group-hover:opacity-100" />
               </motion.button>
 
               {/* Minimize button */}
@@ -493,7 +493,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Minus className="w-2 h-2 text-yellow-900 opacity-0 group-hover:opacity-100 absolute" />
+                <Minus className="absolute w-2 h-2 text-yellow-900 opacity-0 group-hover:opacity-100" />
               </motion.button>
 
               {/* Maximize button */}
@@ -503,16 +503,16 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Plus className="w-2 h-2 text-green-900 opacity-0 group-hover:opacity-100 absolute" />
+                <Plus className="absolute w-2 h-2 text-green-900 opacity-0 group-hover:opacity-100" />
               </motion.button>
             </div>
 
-            <div className="absolute left-1/2 transform -translate-x-1/2 text-xs font-medium text-gray-600">
+            <div className="absolute left-1/2 text-xs font-medium text-gray-600 transform -translate-x-1/2">
               {member.name} — Developer Profile
             </div>
 
             {/* Window Header Right Section */}
-            <div className="ml-auto flex items-center space-x-3 text-gray-500">
+            <div className="flex items-center ml-auto space-x-3 text-gray-500">
               <Share2 size={13} className="opacity-70" />
               <Settings size={13} className="opacity-70" />
             </div>
@@ -521,10 +521,10 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
           {/* Window Toolbar - Enhanced macOS style */}
           <div className="flex items-center px-4 h-10 bg-gradient-to-b from-gray-50 to-white border-b border-gray-200 shadow-sm">
             <div className="flex space-x-2">
-              <button className="p-1 text-gray-500 hover:text-gray-700 rounded hover:bg-gray-100">
+              <button className="p-1 text-gray-500 rounded hover:text-gray-700 hover:bg-gray-100">
                 <ChevronLeft size={14} />
               </button>
-              <button className="p-1 text-gray-500 hover:text-gray-700 rounded hover:bg-gray-100">
+              <button className="p-1 text-gray-500 rounded hover:text-gray-700 hover:bg-gray-100">
                 <ChevronRight size={14} />
               </button>
             </div>
@@ -537,20 +537,20 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
             <div className="flex items-center space-x-3 text-gray-500">
               <Star
                 size={14}
-                className="opacity-70 hover:opacity-100 cursor-pointer"
+                className="opacity-70 cursor-pointer hover:opacity-100"
               />
               <Settings
                 size={14}
-                className="opacity-70 hover:opacity-100 cursor-pointer"
+                className="opacity-70 cursor-pointer hover:opacity-100"
               />
             </div>
           </div>
 
           {/* Window Content */}
-          <div className="flex flex-1 overflow-hidden">
+          <div className="flex overflow-hidden flex-1">
             {/* Sidebar */}
-            <div className="w-56 border-r border-gray-200 bg-gray-50 p-4">
-              <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-3">
+            <div className="p-4 w-56 bg-gray-50 border-r border-gray-200">
+              <div className="px-3 mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
                 Developer
               </div>
               {tabs.map((tab) => (
@@ -558,22 +558,22 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
               ))}
 
               {/* Premium Section Divider */}
-              <div className="my-6 px-4">
+              <div className="px-4 my-6">
                 <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-70"></div>
               </div>
 
               {/* Profile Quick Info */}
               <div className="px-3 pt-2">
-                <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+                <div className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
                   Profile
                 </div>
 
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-10 rounded-md overflow-hidden mr-3 border border-white shadow-sm">
+                  <div className="overflow-hidden mr-3 w-12 h-10 rounded-md border border-white shadow-sm">
                     <img
                       src={member.avatar}
                       alt={member.name}
-                      className="w-full h-full object-cover object-center"
+                      className="object-cover object-center w-full h-full"
                     />
                   </div>
                   <div>
@@ -598,7 +598,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
             </div>
 
             {/* Main Content Area - Enhanced with subtle shadows and premium styling */}
-            <div className="flex-1 overflow-y-auto p-4 pr-12 bg-white ">
+            <div className="overflow-y-auto flex-1 p-4 pr-12 bg-white">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
@@ -612,11 +612,11 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                     <div className="space-y-8">
                       {/* Profile Header */}
                       <div className="flex items-start space-x-6">
-                        <div className="w-36 h-36 rounded-xl overflow-hidden border-2 border-white shadow-lg">
+                        <div className="overflow-hidden w-36 h-36 rounded-xl border-2 border-white shadow-lg">
                           <img
                             src={member.avatar}
                             alt={member.name}
-                            className="w-full h-full object-cover"
+                            className="object-cover w-full h-full"
                           />
                         </div>
 
@@ -628,25 +628,25 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                             {member.badge}
                           </div>
 
-                          <h2 className="text-3xl font-bold text-gray-900 mb-1">
+                          <h2 className="mb-1 text-3xl font-bold text-gray-900">
                             {member.name}
                           </h2>
-                          <p className="text-lg text-gray-600 mb-4">
+                          <p className="mb-4 text-lg text-gray-600">
                             {member.role}
                           </p>
 
-                          <div className="flex flex-wrap items-center gap-5">
-                            <div className="flex items-center text-gray-600 text-sm">
+                          <div className="flex flex-wrap gap-5 items-center">
+                            <div className="flex items-center text-sm text-gray-600">
                               <MapPin size={16} className="mr-1.5" />
                               {member.location}
                             </div>
 
-                            <div className="flex items-center text-gray-600 text-sm">
+                            <div className="flex items-center text-sm text-gray-600">
                               <Calendar size={16} className="mr-1.5" />
                               Joined {member.joinedDate}
                             </div>
 
-                            <div className="flex items-center space-x-4 ml-auto">
+                            <div className="flex items-center ml-auto space-x-4">
                               {member.social
                                 .slice(0, 3)
                                 .map((socialItem, idx) => (
@@ -670,21 +670,21 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                       </div>
 
                       {/* Bio Section */}
-                      <div className="bg-gray-50 rounded-xl p-6 border border-gray-100 shadow-sm">
-                        <h3 className="text-base font-semibold text-gray-900 mb-4 flex items-center">
+                      <div className="p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+                        <h3 className="flex items-center mb-4 text-base font-semibold text-gray-900">
                           <User
                             className={`w-4 h-4 mr-2 text-${member.color}-500`}
                           />
                           About
                         </h3>
-                        <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                        <p className="leading-relaxed text-gray-700 whitespace-pre-line">
                           {member.bioLong}
                         </p>
                       </div>
 
                       {/* Summary Cards */}
                       <div className="grid grid-cols-3 gap-4 mt-6">
-                        <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 flex flex-col items-center">
+                        <div className="flex flex-col items-center p-4 bg-gray-50 rounded-xl border border-gray-100">
                           <div
                             className={`w-10 h-10 rounded-full bg-${member.color}-100 flex items-center justify-center mb-2`}
                           >
@@ -692,13 +692,13 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                               className={`w-5 h-5 text-${member.color}-600`}
                             />
                           </div>
-                          <div className="font-bold text-xl text-gray-900">
+                          <div className="text-xl font-bold text-gray-900">
                             {member.projectCount}
                           </div>
                           <div className="text-xs text-gray-500">Projects</div>
                         </div>
 
-                        <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 flex flex-col items-center">
+                        <div className="flex flex-col items-center p-4 bg-gray-50 rounded-xl border border-gray-100">
                           <div
                             className={`w-10 h-10 rounded-full bg-${member.color}-100 flex items-center justify-center mb-2`}
                           >
@@ -706,7 +706,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                               className={`w-5 h-5 text-${member.color}-600`}
                             />
                           </div>
-                          <div className="font-bold text-xl text-gray-900">
+                          <div className="text-xl font-bold text-gray-900">
                             {member.achievements.length}
                           </div>
                           <div className="text-xs text-gray-500">
@@ -714,7 +714,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                           </div>
                         </div>
 
-                        <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 flex flex-col items-center">
+                        <div className="flex flex-col items-center p-4 bg-gray-50 rounded-xl border border-gray-100">
                           <div
                             className={`w-10 h-10 rounded-full bg-${member.color}-100 flex items-center justify-center mb-2`}
                           >
@@ -722,7 +722,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                               className={`w-5 h-5 text-${member.color}-600`}
                             />
                           </div>
-                          <div className="font-bold text-xl text-gray-900">
+                          <div className="text-xl font-bold text-gray-900">
                             {member.yearsExperience}
                           </div>
                           <div className="text-xs text-gray-500">
@@ -735,7 +735,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
 
                   {activeTab === "Skills" && (
                     <div className="space-y-8">
-                      <div className="flex items-center justify-between">
+                      <div className="flex justify-between items-center">
                         <h2 className="text-2xl font-bold text-gray-900">
                           Technical Skills
                         </h2>
@@ -751,7 +751,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                         {member.skillDomains.map((domain, idx) => (
                           <div
                             key={idx}
-                            className="bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-sm"
+                            className="p-6 bg-gray-50 rounded-xl border border-gray-200 shadow-sm"
                           >
                             <div className="flex items-center mb-4">
                               <div
@@ -781,15 +781,15 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                       </div>
 
                       {/* Additional Expertise Section */}
-                      <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-sm">
-                        <h3 className="text-base font-semibold text-gray-900 mb-4">
+                      <div className="p-6 bg-gray-50 rounded-xl border border-gray-200 shadow-sm">
+                        <h3 className="mb-4 text-base font-semibold text-gray-900">
                           Additional Expertise
                         </h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                           {member.additionalExpertise.map((expertise, idx) => (
                             <div
                               key={idx}
-                              className="p-4 bg-white rounded-lg border border-gray-100 text-center"
+                              className="p-4 text-center bg-white rounded-lg border border-gray-100"
                             >
                               <div
                                 className={`w-8 h-8 mx-auto rounded-lg bg-${member.color}-100 flex items-center justify-center mb-2`}
@@ -811,13 +811,13 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                   {activeTab === "Experience" && (
                     <div className="space-y-8">
                       <div>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                        <h2 className="mb-6 text-2xl font-bold text-gray-900">
                           Professional Experience
                         </h2>
                       </div>
 
                       {/* Timeline - Enhanced with premium styling */}
-                      <div className="relative pl-10 border-l-2 border-gray-200 space-y-12">
+                      <div className="relative pl-10 space-y-12 border-l-2 border-gray-200">
                         {/* Dynamic Experience Items */}
                         {member.experience.map((exp, idx) => (
                           <div key={idx} className="relative">
@@ -837,7 +837,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                               ></exp.icon>
                             </div>
 
-                            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-lg">
+                            <div className="p-6 bg-white rounded-xl border border-gray-200 shadow-lg">
                               <div className="flex justify-between mb-2">
                                 <div>
                                   <h3 className="text-xl font-bold text-gray-900">
@@ -860,7 +860,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
 
                               <div className="mt-4">
                                 {exp.description && (
-                                  <p className="text-gray-700 mb-4">
+                                  <p className="mb-4 text-gray-700">
                                     {exp.description}
                                   </p>
                                 )}
@@ -893,11 +893,11 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
 
                               {exp.technologies &&
                                 exp.technologies.length > 0 && (
-                                  <div className="mt-5 pt-5 border-t border-gray-100 flex flex-wrap gap-2">
+                                  <div className="flex flex-wrap gap-2 pt-5 mt-5 border-t border-gray-100">
                                     {exp.technologies.map((tech, tidx) => (
                                       <span
                                         key={tidx}
-                                        className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-md"
+                                        className="px-3 py-1 text-xs text-gray-700 bg-gray-100 rounded-md"
                                       >
                                         {tech}
                                       </span>
@@ -911,9 +911,9 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                         {/* Career Start Indicator */}
                         <div className="relative">
                           <div className="absolute -left-[16px] w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center">
-                            <div className="w-3 h-3 rounded-full bg-gray-400"></div>
+                            <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
                           </div>
-                          <div className="text-gray-500 ml-3 italic">
+                          <div className="ml-3 italic text-gray-500">
                             Career Start
                           </div>
                         </div>
@@ -921,8 +921,8 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
 
                       {/* Education Section */}
                       {member.education && (
-                        <div className="mt-10 bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-sm">
-                          <h3 className="text-lg font-bold text-gray-900 mb-4">
+                        <div className="p-6 mt-10 bg-gray-50 rounded-xl border border-gray-200 shadow-sm">
+                          <h3 className="mb-4 text-lg font-bold text-gray-900">
                             Education
                           </h3>
                           <div className="space-y-4">
@@ -935,16 +935,16 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                                   <h4 className="font-semibold text-gray-900">
                                     {edu.degree}
                                   </h4>
-                                  <p className="text-gray-600 text-sm">
+                                  <p className="text-sm text-gray-600">
                                     {edu.institution}
                                   </p>
                                   {edu.description && (
-                                    <p className="text-gray-500 text-sm mt-1">
+                                    <p className="mt-1 text-sm text-gray-500">
                                       {edu.description}
                                     </p>
                                   )}
                                 </div>
-                                <div className="text-gray-500 text-sm">
+                                <div className="text-sm text-gray-500">
                                   {edu.period}
                                 </div>
                               </div>
@@ -958,7 +958,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                   {activeTab === "Contact" && (
                     <div className="space-y-8">
                       <div>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                        <h2 className="mb-2 text-2xl font-bold text-gray-900">
                           Contact Information
                         </h2>
                         <p className="text-gray-600">
@@ -975,7 +975,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                             href={socialItem.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center p-5 bg-white hover:bg-gray-50 rounded-xl transition-colors border border-gray-200 shadow-sm"
+                            className="flex items-center p-5 bg-white rounded-xl border border-gray-200 shadow-sm transition-colors hover:bg-gray-50"
                             whileHover={{
                               y: -3,
                               boxShadow: "0 10px 25px -5px rgba(0,0,0,0.1)",
@@ -1008,7 +1008,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
 
                       {/* Direct Email */}
                       <div className="mt-4 text-center">
-                        <p className="text-gray-600 mb-4">
+                        <p className="mb-4 text-gray-600">
                           Send an email directly to connect with{" "}
                           {member.name.split(" ")[0]}:
                         </p>
@@ -1021,7 +1021,7 @@ const MacOSWindow = ({ member, isOpen, onClose }) => {
                           rel="noopener noreferrer"
                           className={`inline-flex items-center px-8 py-3 bg-gradient-to-r from-${member.color}-500 to-${member.color}-600 text-white rounded-lg shadow-md hover:shadow-lg transition-shadow`}
                         >
-                          <Mail className="w-5 h-5 mr-2" />
+                          <Mail className="mr-2 w-5 h-5" />
                           <span>Send Email</span>
                         </a>
                       </div>
@@ -1580,43 +1580,43 @@ const TeamSection = () => {
   return (
     <section
       id="our-team"
-      className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900/30 dark:to-gray-800/20 relative overflow-hidden"
+      className="overflow-hidden relative py-10 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900/30 dark:to-gray-800/20"
       onMouseMove={handleMouseMove}
     >
       {/* Dynamic glow effect */}
       <div
-        className="absolute inset-0 overflow-hidden pointer-events-none"
+        className="overflow-hidden absolute inset-0 pointer-events-none"
         style={{
           background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(79, 70, 229, 0.07), transparent 40%)`,
         }}
       />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container relative z-10 px-4 mx-auto sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
           {/* Premium Badge */}
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-500/10 to-indigo-500/10 border border-blue-500/20 mb-4">
             <motion.span
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="h-2 w-2 rounded-full bg-blue-500 mr-2"
+              className="mr-2 w-2 h-2 bg-blue-500 rounded-full"
             ></motion.span>
-            <span className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 tracking-wide">
+            <span className="text-sm font-medium tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
               MEET OUR TEAM
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+          <h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl dark:text-white">
             The Minds Behind{" "}
             <span className="text-blue-600 dark:text-blue-400">ColleGPT</span>
           </h2>
 
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-xl text-gray-600 dark:text-gray-300">
             Our team combines technical expertise, educational insight, and
             creative vision to create an exceptional learning platform.
           </p>
@@ -1627,12 +1627,12 @@ const TeamSection = () => {
             whileInView={{ width: "120px" }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mt-6 rounded-full"
+            className="mx-auto mt-6 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"
           ></motion.div>
         </motion.div>
 
         {/* Enhanced Team Members Row */}
-        <div className="flex flex-wrap justify-center items-center gap-14 mb-20">
+        <div className="flex flex-wrap gap-14 justify-center items-center mb-20">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.id}
@@ -1644,20 +1644,20 @@ const TeamSection = () => {
             >
               <motion.button
                 onClick={() => setSelectedMember(member)}
-                className="flex flex-col items-center  duration-300"
+                className="flex flex-col items-center duration-300"
 
               >
                 {/* Profile Image with Animated Outline */}
                 <div className="relative">
-                  <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-white shadow-lg mb-4 transition-all duration-300 group-hover:shadow-xl">
+                  <div className="overflow-hidden mb-4 w-32 h-32 rounded-full border-2 border-white shadow-lg transition-all duration-300 group-hover:shadow-xl">
                     <img
                       src={member.avatar}
                       alt={member.name}
-                      className="w-full h-full object-cover object-center"
+                      className="object-cover object-center w-full h-full"
                     />
                   </div>
                   <motion.div
-                    className={`absolute inset-0 rounded-full  opacity-0 group-hover:opacity-100`}
+                    className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-100`}
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
@@ -1665,7 +1665,7 @@ const TeamSection = () => {
 
                 {/* Name and Role */}
                 <div className="text-center">
-                  <h3 className="font-semibold text-lg text-gray-900 dark:text-white">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                     {member.name}
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -1687,7 +1687,7 @@ const TeamSection = () => {
                     <span className="text-gray-900 dark:text-white">
                       View Profile
                     </span>
-                    <ArrowRight className="w-3 h-3 ml-1 text-gray-900 dark:text-white" />
+                    <ArrowRight className="ml-1 w-3 h-3 text-gray-900 dark:text-white" />
                   </span>
                 </motion.div>
               </motion.button>
@@ -1701,7 +1701,7 @@ const TeamSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-12"
+          className="mx-auto mb-12 max-w-3xl text-center"
         >
           <p className="text-gray-600 dark:text-gray-300">
             Our team combines diverse expertise across frontend, backend, and
@@ -1713,8 +1713,8 @@ const TeamSection = () => {
         {renderMacOSWindowPortal()}
 
         {/* Subtle Decorative Elements */}
-        <div className="absolute top-1/4 right-0 w-64 h-64 bg-blue-400/5 rounded-full blur-3xl -z-10"></div>
-        <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-purple-400/5 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute right-0 top-1/4 w-64 h-64 rounded-full blur-3xl bg-blue-400/5 -z-10"></div>
+        <div className="absolute left-0 bottom-1/4 w-72 h-72 rounded-full blur-3xl bg-purple-400/5 -z-10"></div>
       </div>
 
       {/* Subtle Dotted Background Pattern */}

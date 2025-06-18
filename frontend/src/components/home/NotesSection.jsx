@@ -154,13 +154,13 @@ const NotesSection = forwardRef((props, ref) => {
 
       {/* Dynamic cursor light effect */}
       <div
-        className="absolute inset-0 -z-5 overflow-hidden"
+        className="overflow-hidden absolute inset-0 -z-5"
         style={{
           background: `radial-gradient(circle 250px at ${mousePosition.x}px ${mousePosition.y}px, rgba(0,174,239,0.07), transparent 80%)`,
         }}
       />
 
-      <div className="container mx-auto px-6">
+      <div className="container px-6 mx-auto">
         {/* Ultra-Premium Hero Row */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -170,8 +170,8 @@ const NotesSection = forwardRef((props, ref) => {
           className="flex flex-col items-center mb-16 text-center"
         >
           <span className="inline-flex items-center rounded-full px-4 py-1.5 text-sm bg-white/10 dark:bg-slate-800/20 backdrop-blur-sm border border-white/10 dark:border-slate-700/20 mb-6">
-            <span className="inline-block w-2 h-2 rounded-full bg-cyan-500 mr-2 animate-pulse"></span>
-            <span className="bg-gradient-to-r from-slate-700 dark:from-slate-100 to-slate-500 dark:to-slate-300 bg-clip-text text-transparent font-medium">
+            <span className="inline-block mr-2 w-2 h-2 bg-cyan-500 rounded-full animate-pulse"></span>
+            <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-slate-700 dark:from-slate-100 to-slate-500 dark:to-slate-300">
               <DecryptedText
                 text="Premium Study Resources"
                 speed={30}
@@ -182,8 +182,8 @@ const NotesSection = forwardRef((props, ref) => {
             </span>
           </span>
 
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 relative">
-            <span className="bg-gradient-to-r from-slate-900 dark:from-white to-slate-600 dark:to-slate-300 bg-clip-text text-transparent relative z-10">
+          <h2 className="relative mb-6 text-5xl font-bold md:text-6xl">
+            <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-slate-900 dark:from-white to-slate-600 dark:to-slate-300">
               Masterclass
             </span>
             <span className="text-[#00AEEF]"> Notes</span>
@@ -197,7 +197,7 @@ const NotesSection = forwardRef((props, ref) => {
           </h2>
 
           <motion.p
-            className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto"
+            className="mx-auto max-w-3xl text-xl text-slate-600 dark:text-slate-300"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -210,7 +210,7 @@ const NotesSection = forwardRef((props, ref) => {
         </motion.div>
 
         {/* Main Content: Left-Right Layout */}
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+        <div className="flex flex-col gap-10 items-center lg:flex-row lg:gap-16">
           {/* Left Side: Content & Features */}
           <motion.div
             className="w-full lg:w-1/2"
@@ -220,7 +220,7 @@ const NotesSection = forwardRef((props, ref) => {
           >
             {/* Main heading */}
             <motion.div variants={textItemVariants} className="mb-8">
-              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+              <h3 className="text-3xl font-bold md:text-4xl text-slate-900 dark:text-white">
                 Not Just Notes, But A
                 <span className="block text-[#00AEEF]">
                   Complete Learning Experience
@@ -248,7 +248,7 @@ const NotesSection = forwardRef((props, ref) => {
                       <feature.icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-xl text-slate-900 dark:text-white mb-2">
+                      <h4 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
                         {feature.title}
                       </h4>
                       <p className="text-slate-600 dark:text-slate-300">
@@ -273,7 +273,7 @@ const NotesSection = forwardRef((props, ref) => {
                 <motion.div
                   key={idx}
                   variants={itemVariants}
-                  className="rounded-xl p-4 bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm border border-white/10 dark:border-slate-700/20 shadow-sm"
+                  className="p-4 rounded-xl border shadow-sm backdrop-blur-sm bg-white/70 dark:bg-slate-800/50 border-white/10 dark:border-slate-700/20"
                 >
                   <div className="flex justify-center items-end mb-1">
                     <span className="text-2xl md:text-3xl font-bold text-[#00AEEF]">
@@ -285,12 +285,12 @@ const NotesSection = forwardRef((props, ref) => {
                       />
                     </span>
                     {stat.suffix && (
-                      <span className="text-2xl md:text-3xl font-bold text-yellow-500 ml-1">
+                      <span className="ml-1 text-2xl font-bold text-yellow-500 md:text-3xl">
                         {stat.suffix}
                       </span>
                     )}
                   </div>
-                  <div className="text-center text-sm text-slate-600 dark:text-slate-400">
+                  <div className="text-sm text-center text-slate-600 dark:text-slate-400">
                     {stat.label}
                   </div>
                 </motion.div>
@@ -310,9 +310,9 @@ const NotesSection = forwardRef((props, ref) => {
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 skew-x-[45deg] transform -translate-x-full group-hover:translate-x-[200%] transition-transform duration-1000"></div>
                   </div>
 
-                  <span className="relative z-10 text-white font-medium flex items-center">
+                  <span className="flex relative z-10 items-center font-medium text-white">
                     Explore All Notes
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                   </span>
                 </motion.button>
               </Link>
@@ -374,15 +374,15 @@ const NotesSection = forwardRef((props, ref) => {
                   transition: { duration: 0.3 },
                 }}
               >
-                <div className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-200 dark:border-slate-700">
+                <div className="overflow-hidden bg-white rounded-2xl border shadow-xl transition-all duration-300 dark:bg-slate-800 hover:shadow-2xl border-slate-200 dark:border-slate-700">
                   {/* Note Header */}
                   <div
                     className={`bg-gradient-to-r ${note.color} px-6 py-4 flex justify-between items-center`}
                   >
-                    <h4 className="text-white font-bold text-lg truncate">
+                    <h4 className="text-lg font-bold text-white truncate">
                       {note.title}
                     </h4>
-                    <span className="bg-white/20 text-white text-xs px-2 py-1 rounded-full">
+                    <span className="px-2 py-1 text-xs text-white rounded-full bg-white/20">
                       PDF
                     </span>
                   </div>
@@ -396,25 +396,25 @@ const NotesSection = forwardRef((props, ref) => {
                           Binary Search Tree Operations
                         </div>
                         <div className="space-y-3">
-                          <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded w-3/4"></div>
-                          <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded"></div>
-                          <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded w-5/6"></div>
+                          <div className="w-3/4 h-2 rounded bg-slate-200 dark:bg-slate-700"></div>
+                          <div className="h-2 rounded bg-slate-200 dark:bg-slate-700"></div>
+                          <div className="w-5/6 h-2 rounded bg-slate-200 dark:bg-slate-700"></div>
                         </div>
-                        <div className="mt-4 flex justify-center">
+                        <div className="flex justify-center mt-4">
                           <div className="relative w-28 h-28">
                             {/* Simple tree visualization */}
                             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-[#00AEEF] rounded-full flex items-center justify-center">
-                              <span className="text-white font-bold text-xs">
+                              <span className="text-xs font-bold text-white">
                                 10
                               </span>
                             </div>
                             <div className="absolute top-[40%] left-[20%] w-6 h-6 bg-[#00AEEF] rounded-full flex items-center justify-center">
-                              <span className="text-white font-bold text-xs">
+                              <span className="text-xs font-bold text-white">
                                 5
                               </span>
                             </div>
                             <div className="absolute top-[40%] right-[20%] w-6 h-6 bg-[#00AEEF] rounded-full flex items-center justify-center">
-                              <span className="text-white font-bold text-xs">
+                              <span className="text-xs font-bold text-white">
                                 15
                               </span>
                             </div>
@@ -436,13 +436,13 @@ const NotesSection = forwardRef((props, ref) => {
                             </span>
                           </div>
                           <div className="flex items-center">
-                            <div className="w-1/4 h-2 bg-purple-500 rounded mr-2"></div>
+                            <div className="mr-2 w-1/4 h-2 bg-purple-500 rounded"></div>
                             <span className="text-xs text-slate-500 dark:text-slate-400">
                               DBMS
                             </span>
                           </div>
                           <div className="flex items-center">
-                            <div className="w-1/2 h-2 bg-green-500 rounded mr-2"></div>
+                            <div className="mr-2 w-1/2 h-2 bg-green-500 rounded"></div>
                             <span className="text-xs text-slate-500 dark:text-slate-400">
                               Data Structures
                             </span>
@@ -455,13 +455,13 @@ const NotesSection = forwardRef((props, ref) => {
                           </div>
                         </div>
                         {/* Highlight areas */}
-                        <div className="mt-4 flex items-center justify-between">
+                        <div className="flex justify-between items-center mt-4">
                           <div className="flex items-center text-xs text-green-500">
-                            <CheckCircle className="w-3 h-3 mr-1" />
+                            <CheckCircle className="mr-1 w-3 h-3" />
                             <span>90% Success Rate</span>
                           </div>
                           <div className="flex items-center text-xs text-amber-500">
-                            <Star className="w-3 h-3 mr-1" />
+                            <Star className="mr-1 w-3 h-3" />
                             <span>Top Rated</span>
                           </div>
                         </div>
@@ -470,7 +470,7 @@ const NotesSection = forwardRef((props, ref) => {
                   </div>
 
                   {/* Note Footer */}
-                  <div className="px-6 py-3 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-700/50 flex justify-between items-center">
+                  <div className="flex justify-between items-center px-6 py-3 border-t bg-slate-50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-700/50">
                     <div className="flex items-center">
                       <span className="w-2 h-2 rounded-full bg-green-500 mr-1.5"></span>
                       <span className="text-xs text-slate-500 dark:text-slate-400">
@@ -478,14 +478,14 @@ const NotesSection = forwardRef((props, ref) => {
                       </span>
                     </div>
                     <button className="flex items-center text-xs font-medium text-[#00AEEF] hover:text-[#0067b5] transition-colors">
-                      <Download className="w-3 h-3 mr-1" />
+                      <Download className="mr-1 w-3 h-3" />
                       Download
                     </button>
                   </div>
 
                   {/* Highlight corner */}
                   <div className="absolute top-0 right-0">
-                    <div className="w-16 h-16 overflow-hidden">
+                    <div className="overflow-hidden w-16 h-16">
                       <div
                         className={`w-[120%] h-[120%] bg-gradient-to-r ${note.color} rotate-45 transform origin-top-left flex items-center justify-center`}
                       >

@@ -346,11 +346,11 @@ useEffect(() => {
 
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-gray-900 pb-20" onMouseMove={handleMouseMove} ref={communityRef}>
+    <div className="pb-20 min-h-screen bg-slate-50 dark:bg-gray-900" onMouseMove={handleMouseMove} ref={communityRef}>
       {/* Hero Section with parallax effect */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="overflow-hidden relative py-10">
         {/* Dynamic Background Elements */}
-        <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="overflow-hidden absolute inset-0 -z-10">
           {/* Animated gradient background */}
           <motion.div
             style={{ 
@@ -360,23 +360,23 @@ useEffect(() => {
             transition={{ type: "tween", ease: "easeOut", duration: 0.5 }}
             className="absolute inset-0"
           >
-            <div className="absolute top-0 -left-1/4 w-2/3 h-2/3 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-500/10 dark:from-blue-400/10 dark:to-purple-500/5 blur-3xl"></div>
-            <div className="absolute bottom-0 -right-1/4 w-2/3 h-2/3 rounded-full bg-gradient-to-tl from-indigo-500/15 to-cyan-400/10 dark:from-indigo-500/10 dark:to-cyan-400/5 blur-3xl"></div>
+            <div className="absolute top-0 -left-1/4 w-2/3 h-2/3 bg-gradient-to-br rounded-full blur-3xl from-blue-400/20 to-purple-500/10 dark:from-blue-400/10 dark:to-purple-500/5"></div>
+            <div className="absolute bottom-0 -right-1/4 w-2/3 h-2/3 bg-gradient-to-tl rounded-full blur-3xl from-indigo-500/15 to-cyan-400/10 dark:from-indigo-500/10 dark:to-cyan-400/5"></div>
           </motion.div>
           
           {/* Pattern overlay */}
           <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:20px_20px] opacity-50 dark:opacity-30"></div>
           
           {/* Glass-like reflections */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-700 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-700 to-transparent"></div>
+          <div className="absolute top-0 right-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent via-slate-200 dark:via-slate-700"></div>
+          <div className="absolute right-0 bottom-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent via-slate-200 dark:via-slate-700"></div>
           
           {/* Floating particles */}
           <div className="absolute inset-0">
             {[...Array(10)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute rounded-full bg-white dark:bg-slate-400 mix-blend-screen"
+                className="absolute bg-white rounded-full mix-blend-screen dark:bg-slate-400"
                 style={{
                   width: Math.random() * 6 + 2 + 'px',
                   height: Math.random() * 6 + 2 + 'px',
@@ -398,9 +398,9 @@ useEffect(() => {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container relative z-10 px-4 mx-auto sm:px-6 lg:px-8">
           <motion.div 
-            className="text-center max-w-4xl mx-auto"
+            className="mx-auto max-w-4xl text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
@@ -416,19 +416,19 @@ useEffect(() => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              <Sparkles className="w-4 h-4 mr-2" />
+              <Sparkles className="mr-2 w-4 h-4" />
               <span>Meet Our Community</span>
             </motion.div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+            <h1 className="mb-8 text-4xl font-bold md:text-5xl lg:text-6xl">
               <span className="block text-gray-900 dark:text-white">Our Amazing</span>
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400 text-transparent bg-clip-text">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400">
                 Community Members
               </span>
             </h1>
             
             <motion.p 
-              className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10"
+              className="mx-auto mb-10 max-w-3xl text-xl text-gray-600 dark:text-gray-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
@@ -437,28 +437,28 @@ useEffect(() => {
             </motion.p>
             
             <motion.div 
-              className="flex flex-wrap justify-center gap-4 mb-10"
+              className="flex flex-wrap gap-4 justify-center mb-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
               <motion.a
                 href="#join-community"
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all flex items-center"
+                className="flex items-center px-6 py-3 font-medium text-white bg-blue-600 rounded-xl shadow-lg transition-all hover:bg-blue-700 shadow-blue-500/25 hover:shadow-blue-500/40"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <UserPlus className="w-5 h-5 mr-2" />
+                <UserPlus className="mr-2 w-5 h-5" />
                 <span>Join Our Community</span>
               </motion.a>
               
               <motion.a
                 href="#browse-members"
-                className="px-6 py-3 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white rounded-xl font-medium shadow border border-gray-200 dark:border-gray-700 transition-all flex items-center"
+                className="flex items-center px-6 py-3 font-medium text-gray-800 bg-white rounded-xl border border-gray-200 shadow transition-all dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white dark:border-gray-700"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Users className="w-5 h-5 mr-2 text-blue-500" />
+                <Users className="mr-2 w-5 h-5 text-blue-500" />
                 <span>Browse Members</span>
               </motion.a>
             </motion.div>
@@ -467,19 +467,19 @@ useEffect(() => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="flex flex-wrap justify-center gap-8 text-sm text-gray-500 dark:text-gray-400"
+              className="flex flex-wrap gap-8 justify-center text-sm text-gray-500 dark:text-gray-400"
             >
               <div className="flex items-center">
-                <Users className="w-5 h-5 mr-2 text-blue-500" />
+                <Users className="mr-2 w-5 h-5 text-blue-500" />
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.8 }}
                   className="relative"
                 >
-                  <span className="text-lg md:text-xl font-medium text-gray-600 dark:text-gray-300">
+                  <span className="text-lg font-medium text-gray-600 md:text-xl dark:text-gray-300">
                     <motion.span
-                      className="inline-block font-bold bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-transparent bg-clip-text"
+                      className="inline-block font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"
                       initial={{ scale: 0.5 }}
                       animate={{ scale: 1 }}
                       transition={{
@@ -509,9 +509,9 @@ useEffect(() => {
       </section>
 
       {/* Search and Filter Controls */}
-      <div id="browse-members" className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-sm border-b border-gray-200 dark:border-gray-800 py-6 px-4 mb-8">
+      <div id="browse-members" className="sticky top-0 z-40 px-4 py-6 mb-8 border-b border-gray-200 shadow-sm backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 dark:border-gray-800">
         <div className="container mx-auto">
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col justify-center items-center">
             {/* Search Input */}
             <div className="relative w-full max-w-2xl">
               <input
@@ -520,13 +520,13 @@ useEffect(() => {
                 placeholder="Search community members..."
                 value={searchTerm}
                 onChange={handleSearch}
-                className="w-full pl-12 pr-4 py-4 bg-gray-100 dark:bg-gray-800 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-800 dark:text-white placeholder-gray-400 text-lg shadow-lg"
+                className="py-4 pr-4 pl-12 w-full text-lg placeholder-gray-400 text-gray-800 bg-gray-100 rounded-xl shadow-lg dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:text-white"
               />
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400" />
+              <Search className="absolute left-4 top-1/2 w-6 h-6 text-gray-400 transform -translate-y-1/2" />
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm("")}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                  className="absolute right-4 top-1/2 text-gray-400 transform -translate-y-1/2 hover:text-gray-600 dark:hover:text-gray-200"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -538,28 +538,28 @@ useEffect(() => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container px-4 mx-auto sm:px-6 lg:px-8">
         {/* Loading State */}
         {isLoading ? (
           <div className="flex flex-col justify-center items-center min-h-[60vh]">
             <div className="relative w-20 h-20">
-              <div className="absolute top-0 left-0 w-full h-full border-8 border-gray-200 dark:border-gray-700 rounded-full"></div>
-              <div className="absolute top-0 left-0 w-full h-full border-8 border-t-blue-500 rounded-full animate-spin"></div>
+              <div className="absolute top-0 left-0 w-full h-full rounded-full border-8 border-gray-200 dark:border-gray-700"></div>
+              <div className="absolute top-0 left-0 w-full h-full rounded-full border-8 animate-spin border-t-blue-500"></div>
             </div>
-            <p className="mt-6 text-gray-600 dark:text-gray-300 font-medium">Loading community members...</p>
+            <p className="mt-6 font-medium text-gray-600 dark:text-gray-300">Loading community members...</p>
           </div>
         ) : filteredProfiles.length === 0 ? (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col items-center justify-center py-16 px-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 max-w-2xl mx-auto"
+            className="flex flex-col justify-center items-center px-4 py-16 mx-auto max-w-2xl bg-white rounded-2xl border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
           >
-            <div className="w-20 h-20 mb-6 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-400 dark:text-gray-500">
+            <div className="flex justify-center items-center mb-6 w-20 h-20 text-gray-400 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-500">
               <Users className="w-10 h-10" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">No members found</h3>
-            <p className="text-gray-500 dark:text-gray-400 text-center max-w-md mb-6">
+            <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">No members found</h3>
+            <p className="mb-6 max-w-md text-center text-gray-500 dark:text-gray-400">
               {searchTerm
                 ? `We couldn't find any members matching "${searchTerm}". Try a different search term or clear your filters.`
                 : "There are no community members available that match your current filters."}
@@ -567,7 +567,7 @@ useEffect(() => {
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm("")}
-                className="px-5 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium shadow-md transition-colors"
+                className="px-5 py-2 font-medium text-white bg-blue-500 rounded-lg shadow-md transition-colors hover:bg-blue-600"
               >
                 Clear Search
               </button>
@@ -578,7 +578,7 @@ useEffect(() => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           >
             {currentProfiles.map((profile, index) => (
               <ProfileCard 
@@ -611,7 +611,7 @@ useEffect(() => {
                 <ChevronLeft className="w-5 h-5" />
               </motion.button>
               
-              <div className="px-4 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+              <div className="px-4 py-2 text-gray-700 bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300">
                 <span className="font-medium">Page {currentPage}</span>
                 <span className="mx-1 text-gray-400">/</span>
                 <span>{totalPages}</span>
@@ -637,18 +637,18 @@ useEffect(() => {
       
       {/* Join Community Section */}
       <section id="join-community" className="mt-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container px-4 mx-auto sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white relative overflow-hidden"
+            className="overflow-hidden relative p-8 text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl"
           >
             {/* Abstract shapes */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+            <div className="overflow-hidden absolute top-0 left-0 w-full h-full">
               <svg
-                className="absolute left-0 top-0 h-full w-full opacity-20"
+                className="absolute top-0 left-0 w-full h-full opacity-20"
                 viewBox="0 0 400 400"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -693,20 +693,20 @@ useEffect(() => {
               </svg>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center justify-between relative z-10 gap-6">
+            <div className="flex relative z-10 flex-col gap-6 justify-between items-center md:flex-row">
               <div>
                 <div className="flex items-center mb-4">
-                  <Users className="w-6 h-6 text-blue-200 mr-2" />
+                  <Users className="mr-2 w-6 h-6 text-blue-200" />
                   <h3 className="text-xl font-bold">Become Part of Our Community</h3>
                 </div>
-                <p className="text-blue-100 max-w-2xl">
+                <p className="max-w-2xl text-blue-100">
                   Join our growing network of learners, educators, and tech enthusiasts. Share knowledge, collaborate on projects, and grow together with like-minded individuals.
                 </p>
               </div>
 
               <a
                 href="/register"
-                className="px-6 py-3 bg-white text-blue-600 hover:bg-blue-50 font-medium rounded-lg flex items-center shadow-xl shadow-blue-700/20 transition-all whitespace-nowrap"
+                className="flex items-center px-6 py-3 font-medium text-blue-600 whitespace-nowrap bg-white rounded-lg shadow-xl transition-all hover:bg-blue-50 shadow-blue-700/20"
               >
                 Join Now
                 <UserPlus className="ml-2 w-4 h-4" />
@@ -727,7 +727,7 @@ useEffect(() => {
     >
       <motion.div
         ref={popupRef}
-        className="relative bg-white dark:bg-gray-900 rounded-xl"
+        className="relative bg-white rounded-xl dark:bg-gray-900"
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
@@ -755,11 +755,11 @@ useEffect(() => {
         }}
       >
         {/* Premium Glass Effect & Shadow */}
-        <div className="absolute inset-0 rounded-xl bg-white/10 backdrop-blur-xl opacity-20"></div>
+        <div className="absolute inset-0 rounded-xl opacity-20 backdrop-blur-xl bg-white/10"></div>
 
         <div className="flex flex-col h-full overflow-hidden rounded-xl bg-white shadow-[0_10px_60px_-15px_rgba(0,0,0,0.3)] border border-gray-200 backdrop-filter backdrop-blur">
           {/* Window Header - Enhanced macOS style */}
-          <div className="flex items-center px-4 h-10 bg-gradient-to-b from-gray-100 to-gray-50 dark:from-gray-900 dark:to-gray-800 border-b border-gray-200 dark:border-gray-700 rounded-t-xl">
+          <div className="flex items-center px-4 h-10 bg-gradient-to-b from-gray-100 to-gray-50 rounded-t-xl border-b border-gray-200 dark:from-gray-900 dark:to-gray-800 dark:border-gray-700">
             <div className="flex items-center space-x-2">
               {/* Close button */}
               <motion.button
@@ -768,7 +768,7 @@ useEffect(() => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <X className="w-2 h-2 text-red-900 opacity-0 group-hover:opacity-100 absolute" />
+                <X className="absolute w-2 h-2 text-red-900 opacity-0 group-hover:opacity-100" />
               </motion.button>
               {/* Minimize button */}
               <motion.button
@@ -776,7 +776,7 @@ useEffect(() => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Minus className="w-2 h-2 text-yellow-900 opacity-0 group-hover:opacity-100 absolute" />
+                <Minus className="absolute w-2 h-2 text-yellow-900 opacity-0 group-hover:opacity-100" />
               </motion.button>
               {/* Maximize button */}
               <motion.button
@@ -785,26 +785,26 @@ useEffect(() => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Plus className="w-2 h-2 text-green-900 opacity-0 group-hover:opacity-100 absolute" />
+                <Plus className="absolute w-2 h-2 text-green-900 opacity-0 group-hover:opacity-100" />
               </motion.button>
             </div>
-            <div className="absolute left-1/2 transform -translate-x-1/2 text-xs font-medium text-gray-600 dark:text-gray-300">
+            <div className="absolute left-1/2 text-xs font-medium text-gray-600 transform -translate-x-1/2 dark:text-gray-300">
               {selectedProfile.name}'s Profile
             </div>
             {/* Window Header Right Section */}
-            <div className="ml-auto flex items-center space-x-3 text-gray-500 dark:text-gray-400">
+            <div className="flex items-center ml-auto space-x-3 text-gray-500 dark:text-gray-400">
               <Share2 size={13} className="opacity-70" />
               <Settings size={13} className="opacity-70" />
             </div>
           </div>
 
           {/* Window Toolbar - Enhanced macOS style */}
-          <div className="flex items-center px-4 h-10 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 border-b border-gray-200 dark:border-gray-700 shadow-sm">
+          <div className="flex items-center px-4 h-10 bg-gradient-to-b from-gray-50 to-white border-b border-gray-200 shadow-sm dark:from-gray-900 dark:to-gray-800 dark:border-gray-700">
             <div className="flex space-x-2">
-              <button className="p-1 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+              <button className="p-1 text-gray-500 rounded dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
                 <ChevronLeft size={14} />
               </button>
-              <button className="p-1 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+              <button className="p-1 text-gray-500 rounded dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
                 <ChevronRight size={14} />
               </button>
             </div>
@@ -817,19 +817,19 @@ useEffect(() => {
             <div className="flex items-center space-x-3 text-gray-500 dark:text-gray-400">
               <Star
                 size={14}
-                className="opacity-70 hover:opacity-100 cursor-pointer"
+                className="opacity-70 cursor-pointer hover:opacity-100"
               />
               <Settings
                 size={14}
-                className="opacity-70 hover:opacity-100 cursor-pointer"
+                className="opacity-70 cursor-pointer hover:opacity-100"
               />
             </div>
           </div>
 
           {/* Main content area */}
-          <div className="flex-1 flex flex-col overflow-hidden">
+          <div className="flex overflow-hidden flex-col flex-1">
             {/* Tabs navigation */}
-            <div className="flex border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 overflow-x-auto">
+            <div className="flex overflow-x-auto bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900">
               {[
                 { id: 'about', label: 'About', icon: User2 },
                 { id: 'education', label: 'Education', icon: Book },
@@ -845,14 +845,14 @@ useEffect(() => {
                   }`}
                   onClick={() => setActiveTab(tab.id)}
                 >
-                  <tab.icon className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
+                  <tab.icon className="mr-1 w-3 h-3 md:w-4 md:h-4 md:mr-2" />
                   {tab.label}
                 </button>
               ))}
             </div>
             
             {/* Content area */}
-            <div className="flex-1 overflow-y-auto bg-white dark:bg-gray-900">
+            <div className="overflow-y-auto flex-1 bg-white dark:bg-gray-900">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
@@ -863,15 +863,15 @@ useEffect(() => {
                   className="h-full"
                 >
                   {activeTab === 'about' && (
-                    <div className="flex flex-col md:flex-row h-full">
+                    <div className="flex flex-col h-full md:flex-row">
                       {/* Left column - Profile photo and basic info */}
-                      <div className="md:w-1/3 bg-white dark:bg-gray-900 p-6 border-r border-gray-200 dark:border-gray-700">
+                      <div className="p-6 bg-white border-r border-gray-200 md:w-1/3 dark:bg-gray-900 dark:border-gray-700">
                         {/* Profile photo */}
-                        <div className="aspect-square rounded-xl overflow-hidden shadow-lg mb-6">
+                        <div className="overflow-hidden mb-6 rounded-xl shadow-lg aspect-square">
                           <img 
                             src={selectedProfile.profilePic || defaultProfilePic}
                             alt={selectedProfile.name} 
-                            className="w-full h-full object-cover"
+                            className="object-cover w-full h-full"
                             onError={(e) => {
                               e.target.onerror = null;
                               e.target.src = defaultProfilePic;
@@ -880,12 +880,12 @@ useEffect(() => {
                         </div>
                         
                         {/* Name and Role */}
-                        <div className="text-center mb-6">
-                          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                        <div className="mb-6 text-center">
+                          <h2 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
                             {selectedProfile.name}
                           </h2>
                           {selectedProfile.Roles && selectedProfile.Roles[0] && (
-                            <span className="inline-block px-4 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium">
+                            <span className="inline-block px-4 py-1 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900/30 dark:text-blue-300">
                               {selectedProfile.Roles[0]}
                             </span>
                           )}
@@ -893,26 +893,26 @@ useEffect(() => {
 
                         {/* University */}
                         {selectedProfile.university && (
-                          <div className="flex items-center justify-center text-gray-600 dark:text-gray-300 mb-6">
-                            <Book className="w-4 h-4 mr-2" />
+                          <div className="flex justify-center items-center mb-6 text-gray-600 dark:text-gray-300">
+                            <Book className="mr-2 w-4 h-4" />
                             <span className="text-sm">{selectedProfile.university}</span>
                           </div>
                         )}
 
                         {/* Personal details */}
                         {(selectedProfile.gender || selectedProfile.birthdate) && (
-                          <div className="space-y-3 mb-6">
+                          <div className="mb-6 space-y-3">
                             <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
                               Personal Details
                             </h3>
                             {selectedProfile.gender && (
-                              <div className="flex justify-between items-center px-3 py-2 bg-white dark:bg-gray-800 rounded-lg">
+                              <div className="flex justify-between items-center px-3 py-2 bg-white rounded-lg dark:bg-gray-800">
                                 <span className="text-sm text-gray-500 dark:text-gray-400">Gender</span>
                                 <span className="text-sm font-medium text-gray-900 dark:text-white">{selectedProfile.gender}</span>
                               </div>
                             )}
                             {selectedProfile.birthdate && (
-                              <div className="flex justify-between items-center px-3 py-2 bg-white dark:bg-gray-800 rounded-lg">
+                              <div className="flex justify-between items-center px-3 py-2 bg-white rounded-lg dark:bg-gray-800">
                                 <span className="text-sm text-gray-500 dark:text-gray-400">Birth Date</span>
                                 <span className="text-sm font-medium text-gray-900 dark:text-white">
                                   {formatDate(selectedProfile.birthdate)}
@@ -933,9 +933,9 @@ useEffect(() => {
                                 href={selectedProfile.linkedinURL}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center p-2 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                                className="flex items-center p-2 bg-white rounded-lg transition-colors dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
                               >
-                                <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mr-3 text-blue-600 dark:text-blue-400">
+                                <div className="flex justify-center items-center mr-3 w-8 h-8 text-blue-600 bg-blue-100 rounded-full dark:bg-blue-900/30 dark:text-blue-400">
                                   <Linkedin className="w-4 h-4" />
                                 </div>
                                 <span className="text-sm text-gray-700 dark:text-gray-300">LinkedIn</span>
@@ -948,9 +948,9 @@ useEffect(() => {
                                 href={selectedProfile.githubURL}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center p-2 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                                className="flex items-center p-2 bg-white rounded-lg transition-colors dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
                               >
-                                <div className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mr-3 text-gray-700 dark:text-gray-300">
+                                <div className="flex justify-center items-center mr-3 w-8 h-8 text-gray-700 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
                                   <Github className="w-4 h-4" />
                                 </div>
                                 <span className="text-sm text-gray-700 dark:text-gray-300">GitHub</span>
@@ -963,9 +963,9 @@ useEffect(() => {
                                 href={selectedProfile.twitterURL}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center p-2 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                                className="flex items-center p-2 bg-white rounded-lg transition-colors dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
                               >
-                                <div className="w-8 h-8 bg-sky-100 dark:bg-sky-900/30 rounded-full flex items-center justify-center mr-3 text-sky-500 dark:text-sky-400">
+                                <div className="flex justify-center items-center mr-3 w-8 h-8 text-sky-500 bg-sky-100 rounded-full dark:bg-sky-900/30 dark:text-sky-400">
                                   <Twitter className="w-4 h-4" />
                                 </div>
                                 <span className="text-sm text-gray-700 dark:text-gray-300">Twitter</span>
@@ -977,36 +977,36 @@ useEffect(() => {
                       </div>
 
                       {/* Right column - Main content */}
-                      <div className="md:w-2/3 bg-white dark:bg-gray-900 p-6 min-h-full">
+                      <div className="p-6 min-h-full bg-white md:w-2/3 dark:bg-gray-900">
                         {/* About text */}
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm mb-6">
-                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
-                            <User2 className="w-5 h-5 text-blue-500 mr-2" />
+                        <div className="p-6 mb-6 bg-white rounded-xl border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                          <h3 className="flex items-center mb-3 text-lg font-semibold text-gray-900 dark:text-white">
+                            <User2 className="mr-2 w-5 h-5 text-blue-500" />
                             About
                           </h3>
                           {selectedProfile.aboutMe ? (
-                            <p className="text-base text-gray-700 dark:text-gray-300 whitespace-pre-line">
+                            <p className="text-base text-gray-700 whitespace-pre-line dark:text-gray-300">
                               {selectedProfile.aboutMe}
                             </p>
                           ) : (
-                            <p className="text-base text-gray-500 dark:text-gray-400 italic">
+                            <p className="text-base italic text-gray-500 dark:text-gray-400">
                               Not posted yet
                             </p>
                           )}
                         </div>
 
                         {/* Goals section */}
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
-                            <Target className="w-5 h-5 text-amber-500 mr-2" />
+                        <div className="p-6 bg-white rounded-xl border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                          <h3 className="flex items-center mb-3 text-lg font-semibold text-gray-900 dark:text-white">
+                            <Target className="mr-2 w-5 h-5 text-amber-500" />
                             Goals
                           </h3>
                           {selectedProfile.goals ? (
-                            <p className="text-base text-gray-700 dark:text-gray-300 whitespace-pre-line">
+                            <p className="text-base text-gray-700 whitespace-pre-line dark:text-gray-300">
                               {selectedProfile.goals}
                             </p>
                           ) : (
-                            <p className="text-base text-gray-500 dark:text-gray-400 italic">
+                            <p className="text-base italic text-gray-500 dark:text-gray-400">
                               Not posted yet
                             </p>
                           )}
@@ -1016,36 +1016,36 @@ useEffect(() => {
                   )}
                   
                   {activeTab === 'education' && (
-                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-                      <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                        <Book className="w-4 h-4 md:w-5 md:h-5 text-green-500 mr-2" />
+                    <div className="p-4 bg-white rounded-xl border border-gray-200 shadow-sm dark:bg-gray-800 md:p-6 dark:border-gray-700">
+                      <h3 className="flex items-center mb-4 font-semibold text-gray-900 text-md md:text-lg dark:text-white">
+                        <Book className="mr-2 w-4 h-4 text-green-500 md:w-5 md:h-5" />
                         Education
                       </h3>
                       
                       {(selectedProfile.university || selectedProfile.sem || selectedProfile.cpi) ? (
                         <div className="space-y-4 md:space-y-6">
                           {selectedProfile.university && (
-                            <div className="border-l-2 border-green-500 pl-3 md:pl-4">
-                              <h4 className="text-xs md:text-sm uppercase text-green-600 dark:text-green-400 tracking-wider">University</h4>
-                              <p className="text-md md:text-lg font-medium text-gray-900 dark:text-white mt-1">{selectedProfile.university}</p>
+                            <div className="pl-3 border-l-2 border-green-500 md:pl-4">
+                              <h4 className="text-xs tracking-wider text-green-600 uppercase md:text-sm dark:text-green-400">University</h4>
+                              <p className="mt-1 font-medium text-gray-900 text-md md:text-lg dark:text-white">{selectedProfile.university}</p>
                             </div>
                           )}
                           
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
                             {selectedProfile.sem && (
-                              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3 md:p-4">
-                                <h4 className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-1">Current Semester</h4>
-                                <p className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{selectedProfile.sem}</p>
+                              <div className="p-3 bg-gray-50 rounded-lg dark:bg-gray-900 md:p-4">
+                                <h4 className="mb-1 text-xs text-gray-500 md:text-sm dark:text-gray-400">Current Semester</h4>
+                                <p className="text-xl font-bold text-gray-900 md:text-2xl dark:text-white">{selectedProfile.sem}</p>
                               </div>
                             )}
                             
                             {selectedProfile.cpi && (
-                              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3 md:p-4">
-                                <h4 className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-1">CPI</h4>
-                                <p className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{selectedProfile.cpi}</p>
+                              <div className="p-3 bg-gray-50 rounded-lg dark:bg-gray-900 md:p-4">
+                                <h4 className="mb-1 text-xs text-gray-500 md:text-sm dark:text-gray-400">CPI</h4>
+                                <p className="text-xl font-bold text-gray-900 md:text-2xl dark:text-white">{selectedProfile.cpi}</p>
                                 
                                 {/* CPI visualization */}
-                                <div className="mt-2 h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+                                <div className="overflow-hidden mt-2 h-2 bg-gray-200 rounded-full dark:bg-gray-600">
                                   <div 
                                     className="h-full bg-green-500 rounded-full"
                                     style={{ width: `${(parseFloat(selectedProfile.cpi) / 10) * 100}%` }}
@@ -1056,50 +1056,50 @@ useEffect(() => {
                           </div>
                         </div>
                       ) : (
-                        <div className="flex flex-col items-center text-center py-6 md:py-8">
-                          <Book className="w-10 h-10 md:w-12 md:h-12 text-gray-300 dark:text-gray-600 mb-2" />
-                          <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">Not posted yet</p>
+                        <div className="flex flex-col items-center py-6 text-center md:py-8">
+                          <Book className="mb-2 w-10 h-10 text-gray-300 md:w-12 md:h-12 dark:text-gray-600" />
+                          <p className="text-sm text-gray-500 md:text-base dark:text-gray-400">Not posted yet</p>
                         </div>
                       )}
                     </div>
                   )}
                   
                   {activeTab === 'skills' && (
-                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-                      <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                        <Code className="w-4 h-4 md:w-5 md:h-5 text-blue-500 mr-2" />
+                    <div className="p-4 bg-white rounded-xl border border-gray-200 shadow-sm dark:bg-gray-800 md:p-6 dark:border-gray-700">
+                      <h3 className="flex items-center mb-4 font-semibold text-gray-900 text-md md:text-lg dark:text-white">
+                        <Code className="mr-2 w-4 h-4 text-blue-500 md:w-5 md:h-5" />
                         Skills
                       </h3>
                       
                       {selectedProfile.Skills && selectedProfile.Skills.length > 0 ? (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+                        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 md:gap-3">
                           {selectedProfile.Skills.map((skill, index) => (
                             <div
                               key={skill}
-                              className="bg-gray-50 dark:bg-gray-700 rounded-lg p-2 md:p-3 flex items-center"
+                              className="flex items-center p-2 bg-gray-50 rounded-lg dark:bg-gray-700 md:p-3"
                             >
-                              <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-2 md:mr-3">
-                                <Code className="w-3 h-3 md:w-4 md:h-4 text-blue-600 dark:text-blue-400" />
+                              <div className="flex justify-center items-center mr-2 w-6 h-6 bg-blue-100 rounded-full md:w-8 md:h-8 dark:bg-blue-900/30 md:mr-3">
+                                <Code className="w-3 h-3 text-blue-600 md:w-4 md:h-4 dark:text-blue-400" />
                               </div>
-                              <span className="text-xs md:text-sm text-gray-700 dark:text-gray-300 font-medium truncate">
+                              <span className="text-xs font-medium text-gray-700 truncate md:text-sm dark:text-gray-300">
                                 {skill}
                               </span>
                             </div>
                           ))}
                         </div>
                       ) : (
-                        <div className="flex flex-col items-center text-center py-6 md:py-8">
-                          <Code className="w-10 h-10 md:w-12 md:h-12 text-gray-300 dark:text-gray-600 mb-2" />
-                          <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">Not posted yet</p>
+                        <div className="flex flex-col items-center py-6 text-center md:py-8">
+                          <Code className="mb-2 w-10 h-10 text-gray-300 md:w-12 md:h-12 dark:text-gray-600" />
+                          <p className="text-sm text-gray-500 md:text-base dark:text-gray-400">Not posted yet</p>
                         </div>
                       )}
                     </div>
                   )}
                   
                   {activeTab === 'interests' && (
-                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-                      <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                        <Heart className="w-4 h-4 md:w-5 md:h-5 text-pink-500 mr-2" />
+                    <div className="p-4 bg-white rounded-xl border border-gray-200 shadow-sm dark:bg-gray-800 md:p-6 dark:border-gray-700">
+                      <h3 className="flex items-center mb-4 font-semibold text-gray-900 text-md md:text-lg dark:text-white">
+                        <Heart className="mr-2 w-4 h-4 text-pink-500 md:w-5 md:h-5" />
                         Interests & Hobbies
                       </h3>
                       
@@ -1116,9 +1116,9 @@ useEffect(() => {
                           ))}
                         </div>
                       ) : (
-                        <div className="flex flex-col items-center text-center py-6 md:py-8">
-                          <Heart className="w-10 h-10 md:w-12 md:h-12 text-gray-300 dark:text-gray-600 mb-2" />
-                          <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">Not posted yet</p>
+                        <div className="flex flex-col items-center py-6 text-center md:py-8">
+                          <Heart className="mb-2 w-10 h-10 text-gray-300 md:w-12 md:h-12 dark:text-gray-600" />
+                          <p className="text-sm text-gray-500 md:text-base dark:text-gray-400">Not posted yet</p>
                         </div>
                       )}
                     </div>
@@ -1164,18 +1164,18 @@ const ProfileCard = ({ profile, index, setHoveredProfile, hoveredProfile, handle
         {/* New improved glow effect on hover */}
         <div className={`absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-indigo-500/20 opacity-0 blur-xl group-hover:opacity-30 transition-opacity duration-700 ${hoveredProfile === profile._id ? 'opacity-40' : ''}`}></div>
         
-        <div className="relative h-full flex flex-col items-center p-6">
+        <div className="flex relative flex-col items-center p-6 h-full">
           {/* Profile Image */}
           <motion.div
             className="relative mb-4"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="w-28 h-28 rounded-full overflow-hidden ring-4 ring-blue-100 dark:ring-blue-900/30 shadow-lg">
+            <div className="overflow-hidden w-28 h-28 rounded-full ring-4 ring-blue-100 shadow-lg dark:ring-blue-900/30">
               <img 
                 src={profile.profilePic || defaultProfilePic} 
                 alt={profile.name} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = defaultProfilePic;
@@ -1185,25 +1185,25 @@ const ProfileCard = ({ profile, index, setHoveredProfile, hoveredProfile, handle
             
             {/* Role Badge */}
             {profile.Roles && profile.Roles[0] && (
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-xs font-medium rounded-full shadow-lg whitespace-nowrap">
+              <div className="absolute -bottom-2 left-1/2 px-3 py-1 text-xs font-medium text-white whitespace-nowrap bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full shadow-lg transform -translate-x-1/2">
                 {profile.Roles[0]}
               </div>
             )}
           </motion.div>
           
           {/* Member Info */}
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1 text-center group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+          <h3 className="mb-1 text-xl font-bold text-center text-gray-900 transition-colors dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
             {profile.name}
           </h3>
           
           {profile.university && (
-            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 text-center line-clamp-2">
+            <p className="mb-4 text-sm text-center text-gray-600 dark:text-gray-300 line-clamp-2">
               {profile.university}
             </p>
           )}
           
           {/* Social Icons */}
-          <div className="flex justify-center space-x-4 mt-auto">
+          <div className="flex justify-center mt-auto space-x-4">
             <motion.a
               whileHover={{ scale: 1.2, y: -2 }}
               whileTap={{ scale: 0.9 }}
@@ -1245,12 +1245,12 @@ const ProfileCard = ({ profile, index, setHoveredProfile, hoveredProfile, handle
               e.preventDefault();
               handleOpenProfile(profile);
             }}
-            className="mt-5 w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg font-medium shadow-md group-hover:shadow-lg transition-all text-center text-sm flex items-center justify-center overflow-hidden relative"
+            className="flex overflow-hidden relative justify-center items-center px-4 py-2 mt-5 w-full text-sm font-medium text-center text-white bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-md transition-all group-hover:shadow-lg"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
             {/* Button shine effect */}
-            <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-shine"></div>
+            <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent to-transparent -translate-x-full via-white/30 group-hover:animate-shine"></div>
             
             <span>View Profile</span>
             <ChevronRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform" />

@@ -261,10 +261,10 @@ const Courses = () => {
     return (
       <div className="flex flex-col justify-center items-center min-h-[60vh]">
         <div className="relative w-20 h-20">
-          <div className="absolute top-0 left-0 w-full h-full border-8 border-slate-200 dark:border-slate-700 rounded-full"></div>
-          <div className="absolute top-0 left-0 w-full h-full border-8 border-t-brand-500 rounded-full animate-spin"></div>
+          <div className="absolute top-0 left-0 w-full h-full rounded-full border-8 border-slate-200 dark:border-slate-700"></div>
+          <div className="absolute top-0 left-0 w-full h-full rounded-full border-8 animate-spin border-t-brand-500"></div>
         </div>
-        <p className="mt-6 text-slate-600 dark:text-slate-300 font-medium">Loading courses...</p>
+        <p className="mt-6 font-medium text-slate-600 dark:text-slate-300">Loading courses...</p>
       </div>
     );
   }
@@ -272,12 +272,12 @@ const Courses = () => {
   // If no semesters data, show an error state
   if (!semesters || semesters.length === 0) {
     return (
-      <div className="text-center py-16 px-4 bg-white dark:bg-slate-900 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-700 max-w-xl mx-auto mt-12">
-        <div className="w-20 h-20 mx-auto mb-6 bg-red-100 dark:bg-red-900/30 text-red-500 dark:text-red-400 rounded-full flex items-center justify-center">
+      <div className="px-4 py-16 mx-auto mt-12 max-w-xl text-center bg-white rounded-3xl border shadow-lg dark:bg-slate-900 border-slate-200 dark:border-slate-700">
+        <div className="flex justify-center items-center mx-auto mb-6 w-20 h-20 text-red-500 bg-red-100 rounded-full dark:bg-red-900/30 dark:text-red-400">
           <X className="w-10 h-10" />
         </div>
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">No Courses Available</h2>
-        <p className="text-slate-600 dark:text-slate-300 mb-8">
+        <h2 className="mb-4 text-2xl font-bold text-slate-900 dark:text-white">No Courses Available</h2>
+        <p className="mb-8 text-slate-600 dark:text-slate-300">
           We couldn't load the course data. Please try again later or contact support if the problem persists.
         </p>
         <button 
@@ -291,7 +291,7 @@ const Courses = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 pb-20">
+    <div className="pb-20 min-h-screen bg-slate-50 dark:bg-slate-900">
       {/* Floating "Back to top" button - appears when scrolled */}
       <AnimatePresence>
         {isScrolled && (
@@ -300,7 +300,7 @@ const Courses = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center text-brand-500 border border-slate-200 dark:border-slate-700 hover:bg-brand-50 dark:hover:bg-slate-700 transition-colors"
+            className="flex fixed right-6 bottom-6 z-50 justify-center items-center w-12 h-12 bg-white rounded-full border shadow-lg transition-colors dark:bg-slate-800 text-brand-500 border-slate-200 dark:border-slate-700 hover:bg-brand-50 dark:hover:bg-slate-700"
           >
             <ChevronDown className="w-6 h-6 rotate-180" />
           </motion.button>
@@ -309,11 +309,11 @@ const Courses = () => {
       
       {/* Hero Section with parallax effect */}
       <section 
-        className="relative py-24 overflow-hidden"
+        className="overflow-hidden relative py-10"
         onMouseMove={handleMouseMove}
       >
         {/* Dynamic Background Elements */}
-        <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="overflow-hidden absolute inset-0 -z-10">
           {/* Animated gradient background */}
           <motion.div
             style={{ 
@@ -322,23 +322,23 @@ const Courses = () => {
             }}
             className="absolute inset-0"
           >
-            <div className="absolute top-0 -left-1/4 w-2/3 h-2/3 rounded-full bg-gradient-to-br from-brand-400/20 to-purple-500/10 dark:from-brand-400/10 dark:to-purple-500/5 blur-3xl"></div>
-            <div className="absolute bottom-0 -right-1/4 w-2/3 h-2/3 rounded-full bg-gradient-to-tl from-indigo-500/15 to-accent-400/10 dark:from-indigo-500/10 dark:to-accent-400/5 blur-3xl"></div>
+            <div className="absolute top-0 -left-1/4 w-2/3 h-2/3 bg-gradient-to-br rounded-full blur-3xl from-brand-400/20 to-purple-500/10 dark:from-brand-400/10 dark:to-purple-500/5"></div>
+            <div className="absolute bottom-0 -right-1/4 w-2/3 h-2/3 bg-gradient-to-tl rounded-full blur-3xl from-indigo-500/15 to-accent-400/10 dark:from-indigo-500/10 dark:to-accent-400/5"></div>
           </motion.div>
           
           {/* Mac-like window base pattern */}
           <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:20px_20px] opacity-50 dark:opacity-30"></div>
           
           {/* Glass-like reflections */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-700 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-700 to-transparent"></div>
+          <div className="absolute top-0 right-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent via-slate-200 dark:via-slate-700"></div>
+          <div className="absolute right-0 bottom-0 left-0 h-px bg-gradient-to-r from-transparent to-transparent via-slate-200 dark:via-slate-700"></div>
           
           {/* Floating particles */}
           <div className="absolute inset-0">
             {[...Array(10)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute rounded-full bg-white dark:bg-slate-400 mix-blend-screen"
+                className="absolute bg-white rounded-full mix-blend-screen dark:bg-slate-400"
                 style={{
                   width: Math.random() * 6 + 2 + 'px',
                   height: Math.random() * 6 + 2 + 'px',
@@ -360,9 +360,9 @@ const Courses = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="container relative z-10 px-4 mx-auto sm:px-6">
           <motion.div 
-            className="text-center max-w-4xl mx-auto"
+            className="mx-auto max-w-4xl text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
@@ -378,11 +378,11 @@ const Courses = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              <Sparkles className="w-4 h-4 mr-2" />
+              <Sparkles className="mr-2 w-4 h-4" />
               <span>Interactive Learning Resources</span>
             </motion.div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-display tracking-tight">
+            <h1 className="mb-8 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl font-display">
               <span className="block text-slate-900 dark:text-white">Explore Our</span>
               <span className="bg-gradient-to-r from-brand-600 via-indigo-600 to-accent-500 dark:from-brand-400 dark:via-indigo-400 dark:to-accent-400 text-transparent bg-clip-text animate-gradient bg.size-200">
                 Class-Leading Courses
@@ -390,7 +390,7 @@ const Courses = () => {
             </h1>
             
             <motion.p 
-              className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-10"
+              className="mx-auto mb-10 max-w-3xl text-xl text-slate-600 dark:text-slate-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
@@ -399,18 +399,18 @@ const Courses = () => {
             </motion.p>
             
             <motion.div 
-              className="flex flex-wrap justify-center gap-4 mb-10"
+              className="flex flex-wrap gap-4 justify-center mb-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              <button className="px-6 py-3 bg-brand-500 hover:bg-brand-600 text-white rounded-xl font-medium shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transition-all flex items-center">
-                <Lightbulb className="w-5 h-5 mr-2" />
+              <button className="flex items-center px-6 py-3 font-medium text-white rounded-xl shadow-lg transition-all bg-brand-500 hover:bg-brand-600 shadow-brand-500/25 hover:shadow-brand-500/40">
+                <Lightbulb className="mr-2 w-5 h-5" />
                 <span>Start Learning</span>
               </button>
               
-              <button className="px-6 py-3 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white rounded-xl font-medium shadow border border-slate-200 dark:border-slate-700 transition-all flex items-center">
-                <BookOpen className="w-5 h-5 mr-2 text-brand-500" />
+              <button className="flex items-center px-6 py-3 font-medium bg-white rounded-xl border shadow transition-all dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white border-slate-200 dark:border-slate-700">
+                <BookOpen className="mr-2 w-5 h-5 text-brand-500" />
                 <span>Browse by Category</span>
               </button>
             </motion.div>
@@ -419,18 +419,18 @@ const Courses = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="flex flex-wrap justify-center gap-8 text-sm text-slate-500 dark:text-slate-400"
+              className="flex flex-wrap gap-8 justify-center text-sm text-slate-500 dark:text-slate-400"
             >
               <div className="flex items-center">
-                <Award className="w-5 h-5 mr-2 text-amber-500" />
+                <Award className="mr-2 w-5 h-5 text-amber-500" />
                 <span>Expert-crafted content</span>
               </div>
               <div className="flex items-center">
-                <Users className="w-5 h-5 mr-2 text-indigo-500" />
+                <Users className="mr-2 w-5 h-5 text-indigo-500" />
                 <span>5,000+ Students</span>
               </div>
               <div className="flex items-center">
-                <Clock className="w-5 h-5 mr-2 text-green-500" />
+                <Clock className="mr-2 w-5 h-5 text-green-500" />
                 <span>Regular updates</span>
               </div>
             </motion.div>
@@ -445,7 +445,7 @@ const Courses = () => {
           transition={{ delay: 1, duration: 1 }}
         >
           <motion.div 
-            className="w-8 h-12 rounded-full border-2 border-slate-400 dark:border-slate-600 flex justify-center"
+            className="flex justify-center w-8 h-12 rounded-full border-2 border-slate-400 dark:border-slate-600"
             animate={{ y: [0, 8, 0] }}
             transition={{ 
               duration: 1.5, 
@@ -469,18 +469,18 @@ const Courses = () => {
       </section>
 
       {/* Improved Modern Style Semester Selection */}
-      <div className="container mx-auto px-4 sm:px-6 mb-10">
+      <div className="container px-4 mx-auto mb-10 sm:px-6">
         <motion.div 
-          className="relative bg-white dark:bg-slate-800 backdrop-blur-xl rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden max-w-5xl mx-auto"
+          className="overflow-hidden relative mx-auto max-w-5xl bg-white rounded-2xl border shadow-xl backdrop-blur-xl dark:bg-slate-800 border-slate-200 dark:border-slate-700"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
           {/* Enhanced Semester Dropdown on Mobile */}
-          <div className="md:hidden p-3">
+          <div className="p-3 md:hidden">
             <button
               onClick={toggleSemesterDropdown}
-              className="w-full flex items-center justify-between px-4 py-3 bg-slate-50 dark:bg-slate-700 rounded-xl font-medium text-slate-800 dark:text-white border border-slate-200 dark:border-slate-600 transition-all"
+              className="flex justify-between items-center px-4 py-3 w-full font-medium rounded-xl border transition-all bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-white border-slate-200 dark:border-slate-600"
             >
               <div className="flex items-center">
                 <span className="w-2 h-2 rounded-full bg-brand-500 mr-2.5"></span>
@@ -496,9 +496,9 @@ const Courses = () => {
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white dark:bg-slate-800 rounded-xl mt-2 shadow-lg border border-slate-200 dark:border-slate-700 overflow-hidden"
+                  className="overflow-hidden mt-2 bg-white rounded-xl border shadow-lg dark:bg-slate-800 border-slate-200 dark:border-slate-700"
                 >
-                  <div className="p-2 max-h-64 overflow-y-auto">
+                  <div className="overflow-y-auto p-2 max-h-64">
                     {semesters.map((semester, index) => (
                       <motion.button
                         key={index}
@@ -525,7 +525,7 @@ const Courses = () => {
           </div>
           
           {/* Improved Semester Tabs for Desktop */}
-          <div className="hidden md:flex justify-between p-2 overflow-x-auto scrollbar-hide">
+          <div className="hidden overflow-x-auto justify-between p-2 md:flex scrollbar-hide">
             <div className="flex">
               {semesters.map((semester, index) => (
                 <motion.button
@@ -543,7 +543,7 @@ const Courses = () => {
                 >
                   {activeTab === index && (
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-brand-500 to-indigo-600 dark:from-brand-600 dark:to-indigo-700 rounded-xl -z-10"
+                      className="absolute inset-0 bg-gradient-to-r to-indigo-600 rounded-xl from-brand-500 dark:from-brand-600 dark:to-indigo-700 -z-10"
                       layoutId="activeSemTab"
                       transition={{ 
                         type: "spring", 
@@ -561,10 +561,10 @@ const Courses = () => {
       </div>
 
       {/* Control Bar (Filters, Search) */}
-      <div className="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-sm border-b border-slate-200 dark:border-slate-800 py-3 px-4 mb-8">
+      <div className="sticky top-0 z-40 px-4 py-3 mb-8 border-b shadow-sm backdrop-blur-lg bg-white/80 dark:bg-slate-900/80 border-slate-200 dark:border-slate-800">
         <div className="container mx-auto">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center space-x-4 flex-grow">
+          <div className="flex gap-4 justify-between items-center">
+            <div className="flex flex-grow items-center space-x-4">
               {/* Search Input */}
               <div className="relative flex-1 md:max-w-xs">
                 <AnimatePresence>
@@ -582,9 +582,9 @@ const Courses = () => {
                         placeholder="Search courses..."
                         value={searchTerm}
                         onChange={handleSearch}
-                        className="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none text-slate-800 dark:text-white placeholder-slate-400"
+                        className="py-2 pr-4 pl-10 w-full rounded-lg bg-slate-100 dark:bg-slate-800 focus:ring-2 focus:ring-brand-500 focus:outline-none text-slate-800 dark:text-white placeholder-slate-400"
                       />
-                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+                      <Search className="absolute left-3 top-1/2 w-4 h-4 transform -translate-y-1/2 text-slate-400" />
                       {searchTerm && (
                         <button
                           onClick={() => setSearchTerm("")}
@@ -623,7 +623,7 @@ const Courses = () => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
-                      className="absolute right-0 mt-2 w-64 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 z-50 overflow-hidden"
+                      className="overflow-hidden absolute right-0 z-50 mt-2 w-64 bg-white rounded-xl border shadow-xl dark:bg-slate-800 border-slate-200 dark:border-slate-700"
                     >
                       <div className="p-3 border-b border-slate-200 dark:border-slate-700">
                         <h4 className="text-sm font-semibold text-slate-900 dark:text-white">Filter by</h4>
@@ -718,7 +718,7 @@ const Courses = () => {
           </div>
           
           {/* Mobile Results Count */}
-          <div className="md:hidden flex items-center justify-between mt-4">
+          <div className="flex justify-between items-center mt-4 md:hidden">
             <p className="text-sm text-slate-500 dark:text-slate-400">
               {filteredCourses.length === 0 ? (
                 "No courses found"
@@ -732,7 +732,7 @@ const Courses = () => {
             {searchTerm && filteredCourses.length === 0 && (
               <button 
                 onClick={() => setSearchTerm("")}
-                className="text-sm text-brand-500 hover:text-brand-600 font-medium"
+                className="text-sm font-medium text-brand-500 hover:text-brand-600"
               >
                 Clear search
               </button>
@@ -741,20 +741,20 @@ const Courses = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container px-4 mx-auto sm:px-6">
         {/* Empty state */}
         {filteredCourses.length === 0 && (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col items-center justify-center py-16 px-4 bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 max-w-2xl mx-auto"
+            className="flex flex-col justify-center items-center px-4 py-16 mx-auto max-w-2xl bg-white rounded-2xl border shadow-md dark:bg-slate-800 border-slate-200 dark:border-slate-700"
           >
-            <div className="w-20 h-20 mb-6 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center text-slate-400 dark:text-slate-500">
+            <div className="flex justify-center items-center mb-6 w-20 h-20 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-500">
               <Search className="w-10 h-10" />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">No courses found</h3>
-            <p className="text-slate-500 dark:text-slate-400 text-center max-w-md mb-6">
+            <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">No courses found</h3>
+            <p className="mb-6 max-w-md text-center text-slate-500 dark:text-slate-400">
               {searchTerm
                 ? `We couldn't find any courses matching "${searchTerm}". Try a different search term or clear your filters.`
                 : filterBy === "favorites"
@@ -764,7 +764,7 @@ const Courses = () => {
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm("")}
-                className="px-5 py-2 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-medium shadow-md transition-colors"
+                className="px-5 py-2 font-medium text-white rounded-lg shadow-md transition-colors bg-brand-500 hover:bg-brand-600"
               >
                 Clear Search
               </button>
@@ -784,7 +784,7 @@ const Courses = () => {
               className="min-h-[300px]"
             >
               <motion.div 
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+                className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -840,9 +840,9 @@ const CourseCard = ({ course, semester, index, isFavorite, onToggleFavorite, set
         {/* New improved glow effect on hover */}
         <div className={`absolute -inset-1 rounded-2xl opacity-0 blur-xl group-hover:opacity-30 transition-opacity duration-700 ${hoverCard === index ? 'opacity-40' : ''}`}></div>
         
-        <div className="relative h-full flex flex-col">
+        <div className="flex relative flex-col h-full">
           {/* Course Thumbnail */}
-          <div className="relative overflow-hidden h-48">
+          <div className="overflow-hidden relative h-48">
             <motion.div
               className="w-full h-full"
               whileHover={{ scale: 1.05 }}
@@ -851,13 +851,13 @@ const CourseCard = ({ course, semester, index, isFavorite, onToggleFavorite, set
               <img 
                 src={course.thumbnail || "/images/sample.webp"} 
                 alt={course.title} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                 onError={(e) => {
                   e.target.src = "/images/sample.webp"; // Fallback image
                 }}
               />
             </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-t pointer-events-none from-black/80 via-black/40 to-black/10"></div>
             
             <div className="absolute bottom-3 left-3 px-2.5 py-1 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm text-slate-800 dark:text-slate-200 text-xs font-medium rounded-full flex items-center shadow-sm">
               <BookOpen className="w-3.5 h-3.5 mr-1.5 text-brand-500" />
@@ -871,7 +871,7 @@ const CourseCard = ({ course, semester, index, isFavorite, onToggleFavorite, set
                 e.stopPropagation();
                 onToggleFavorite();
               }}
-              className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm flex items-center justify-center text-slate-400 dark:text-slate-500 hover:text-amber-500 dark:hover:text-amber-400 transition-all hover:scale-110 shadow-lg"
+              className="flex absolute top-3 right-3 justify-center items-center w-8 h-8 rounded-full shadow-lg backdrop-blur-sm transition-all bg-white/80 dark:bg-slate-900/80 text-slate-400 dark:text-slate-500 hover:text-amber-500 dark:hover:text-amber-400 hover:scale-110"
             >
               <motion.div
                 initial={{ scale: 1 }}
@@ -879,7 +879,7 @@ const CourseCard = ({ course, semester, index, isFavorite, onToggleFavorite, set
                 whileTap={{ scale: 0.9 }}
               >
                 {isFavorite ? (
-                  <Bookmark className="w-4 h-4 fill-amber-500 text-amber-500" />
+                  <Bookmark className="w-4 h-4 text-amber-500 fill-amber-500" />
                 ) : (
                   <BookmarkPlus className="w-4 h-4" />
                 )}
@@ -892,12 +892,12 @@ const CourseCard = ({ course, semester, index, isFavorite, onToggleFavorite, set
           </div>
           
           {/* Course Info with improved styling */}
-          <div className="p-6 flex-grow flex flex-col">
-            <h3 className="font-bold text-xl text-slate-900 dark:text-white mb-3 line-clamp-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+          <div className="flex flex-col flex-grow p-6">
+            <h3 className="mb-3 text-xl font-bold transition-colors text-slate-900 dark:text-white line-clamp-2 group-hover:text-brand-600 dark:group-hover:text-brand-400">
               {course.title}
             </h3>
             
-            <p className="text-slate-600 dark:text-slate-300 text-sm mb-5 line-clamp-3 flex-grow">
+            <p className="flex-grow mb-5 text-sm text-slate-600 dark:text-slate-300 line-clamp-3">
               {course.description}
             </p>
             
@@ -905,13 +905,13 @@ const CourseCard = ({ course, semester, index, isFavorite, onToggleFavorite, set
             
             <Link 
               to={`/semester/${semester.id}/${course.id}`} 
-              className="relative overflow-hidden inline-flex items-center justify-center w-full px-4 py-3 bg-gradient-to-r from-brand-500 to-indigo-600 text-white rounded-xl font-medium shadow-md group-hover:shadow-xl transition-all group/btn"
+              className="inline-flex overflow-hidden relative justify-center items-center px-4 py-3 w-full font-medium text-white bg-gradient-to-r to-indigo-600 rounded-xl shadow-md transition-all from-brand-500 group-hover:shadow-xl group/btn"
             >
               {/* Button shine effect */}
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-shine"></div>
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent to-transparent -translate-x-full via-white/30 group-hover:animate-shine"></div>
               
               <span>Explore Course</span>
-              <ChevronRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
+              <ChevronRight className="ml-2 w-5 h-5 transition-transform transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
