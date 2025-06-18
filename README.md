@@ -1,7 +1,5 @@
 # ColleGPT
 
-
-
 ColleGPT is a community-driven platform designed to help students prepare together. Built with the intention of fostering collaborative learning and knowledge sharing, this project aims to create a supportive environment where students can learn, grow, and succeed together.
 
 <figure><img src=".gitbook/assets/collegptBanner.png" alt=""><figcaption></figcaption></figure>
@@ -41,7 +39,7 @@ npm start
 
 ```bash
 # Navigate to backend directory
-cd backend
+cd server
 
 # Install dependencies
 npm install
@@ -99,7 +97,7 @@ We have created separate repositories for specific features:
 1. [GATE Resources](https://github.com/your-org/collegpt-gate) - GATE exam preparation materials
 2. [Placement Resources](https://github.com/your-org/collegpt-placement) - Placement preparation materials
 3. [Hackathons](https://github.com/your-org/collegpt-hackathons) - Hackathon updates
-3. [Projects](https://github.com/your-org/collegpt-projects) - Projects Showcase
+4. [Projects](https://github.com/your-org/collegpt-projects) - Projects Showcase
 
 ### AI Integration
 
