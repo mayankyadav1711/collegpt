@@ -240,25 +240,8 @@ const GraduateFeedbackForm = () => {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
+    setFormErrors({});
 
-    // Animate submission
-    await submitControls.start({
-      opacity: [1, 0.8, 1],
-      scale: [1, 0.98, 1],
-      transition: { duration: 0.3 },
-    });
-
-    // Show progress animation
-    const progressInterval = setInterval(() => {
-      const currentProgress = progressValue.get();
-      if (currentProgress < 100) {
-        progressValue.set(currentProgress + 1);
-      } else {
-        clearInterval(progressInterval);
-      }
-    }, 20);
-
-    // Form data
     const formData = {
       name,
       email,
@@ -268,10 +251,6 @@ const GraduateFeedbackForm = () => {
     };
 
     try {
-      // Simulate longer request for demo purposes
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      // Send feedback to the server
       const response = await fetch(ENDPOINTS.SUBMIT_GRADUATE_FORM, {
         method: "POST",
         headers: {
@@ -279,20 +258,18 @@ const GraduateFeedbackForm = () => {
         },
         body: JSON.stringify(formData),
       });
-
-      // Show success message
+      if (!response.ok) {
+        throw new Error("Failed to submit feedback");
+      }
       setShowSuccessMessage(true);
-
-      // Reset form
       setName("");
       setEmail("");
       setRating(0);
       setFeedback("");
-      setFormErrors({});
     } catch (error) {
+      setFormErrors({ submit: error.message || "Submission failed" });
       console.error("Error submitting feedback:", error);
     } finally {
-      clearInterval(progressInterval);
       setIsSubmitting(false);
     }
   };
