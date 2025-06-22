@@ -18,6 +18,7 @@ import {
   Clock,
   Building,
   Tag,
+  Github
 } from "lucide-react";
 
 // Company logos - in a real implementation, these would be imported from files
@@ -935,23 +936,45 @@ const PlacementSection = forwardRef((props, ref) => {
                 ))}
               </div>
 
-              <Link to="/placements">
-                <motion.button
-                  className="group px-6 py-3 rounded-lg overflow-hidden bg-gradient-to-r from-[#0067b5] to-[#00AEEF] relative"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  {/* Animated light effect */}
-                  <div className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100">
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 skew-x-[45deg] transform -translate-x-full group-hover:translate-x-[200%] transition-transform duration-1000"></div>
-                  </div>
+             <div className="flex flex-col sm:flex-row gap-2">
+    <Link to="/placements" className="flex-1">
+      <motion.button
+        className="group w-full px-6 py-3 rounded-lg overflow-hidden bg-gradient-to-r from-[#0067b5] to-[#00AEEF] relative"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        {/* Animated light effect */}
+        <div className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100">
+          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 skew-x-[45deg] transform -translate-x-full group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+        </div>
 
-                  <span className="relative z-10 text-white font-medium flex items-center">
-                    View All Placement Resources
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </motion.button>
-              </Link>
+        <span className="relative z-10 text-white font-medium flex items-center justify-center">
+          View Placement Resources
+          <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </span>
+      </motion.button>
+    </Link>
+
+    {/* GitHub themed Contribute button */}
+    <a href="https://github.com/KauraniDivya/ColleGPT-Placement" target="_blank" rel="noopener noreferrer">
+      <motion.button
+        className="group px-4 py-3 bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 border border-slate-700 dark:border-slate-600 rounded-lg overflow-hidden relative shadow-lg"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        {/* GitHub button hover effect */}
+        <div className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100">
+          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 skew-x-[45deg] transform -translate-x-full group-hover:translate-x-[200%] transition-transform duration-700"></div>
+        </div>
+
+        <span className="relative z-10 text-white font-medium flex items-center">
+          <Github className="mr-2 w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
+          Contribute in Jobs
+          <ExternalLink className="ml-2 w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+        </span>
+      </motion.button>
+    </a>
+  </div>
             </motion.div>
           </motion.div>
 
