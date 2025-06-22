@@ -1,7 +1,5 @@
 # ColleGPT
 
-
-
 ColleGPT is a community-driven platform designed to help students prepare together. Built with the intention of fostering collaborative learning and knowledge sharing, this project aims to create a supportive environment where students can learn, grow, and succeed together.
 
 <figure><img src=".gitbook/assets/collegptBanner.png" alt=""><figcaption></figcaption></figure>
@@ -41,7 +39,7 @@ npm start
 
 ```bash
 # Navigate to backend directory
-cd backend
+cd server
 
 # Install dependencies
 npm install

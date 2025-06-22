@@ -164,13 +164,13 @@ const ContributorsWallOfFame = () => {
   return (
     <div 
       ref={containerRef}
-      className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      className="overflow-hidden relative px-4 py-10 min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 sm:px-6 lg:px-8"
       onMouseMove={handleMouseMove}
     >
       {/* Confetti Canvas */}
       <canvas
         ref={confettiCanvasRef}
-        className="fixed inset-0 pointer-events-none z-50"
+        className="fixed inset-0 z-50 pointer-events-none"
         style={{ width: '100%', height: '100%' }}
       ></canvas>
 
@@ -183,22 +183,22 @@ const ContributorsWallOfFame = () => {
       />
 
       {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-purple-200/20 to-indigo-300/20 dark:from-purple-900/10 dark:to-indigo-800/10 rounded-full filter blur-3xl opacity-70 transform translate-x-1/3 -translate-y-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-200/20 to-cyan-300/20 dark:from-blue-900/10 dark:to-cyan-800/10 rounded-full filter blur-3xl opacity-70 transform -translate-x-1/3 translate-y-1/3"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br rounded-full opacity-70 filter blur-3xl transform translate-x-1/3 -translate-y-1/3 from-purple-200/20 to-indigo-300/20 dark:from-purple-900/10 dark:to-indigo-800/10"></div>
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr rounded-full opacity-70 filter blur-3xl transform -translate-x-1/3 translate-y-1/3 from-blue-200/20 to-cyan-300/20 dark:from-blue-900/10 dark:to-cyan-800/10"></div>
       
       
 
-      <div className="container mx-auto relative z-10">
+      <div className="container relative z-10 mx-auto">
         {/* Header Section */}
         <motion.div 
           style={{ opacity, filter: `blur(${blurValue}px)`, y: translateY }}
-          className="text-center max-w-4xl mx-auto mb-16 md:mb-24"
+          className="mx-auto mb-16 max-w-4xl text-center md:mb-24"
         >
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center justify-center gap-2 mb-6"
+            className="flex gap-2 justify-center items-center mb-6"
           >
             <motion.div
               animate={{ 
@@ -212,10 +212,10 @@ const ContributorsWallOfFame = () => {
               }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full blur-lg opacity-30"></div>
-              <Award className="w-7 h-7 text-purple-600 dark:text-purple-400 relative z-10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full opacity-30 blur-lg"></div>
+              <Award className="relative z-10 w-7 h-7 text-purple-600 dark:text-purple-400" />
             </motion.div>
-            <span className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 tracking-wide uppercase">
+            <span className="text-sm font-medium tracking-wide text-transparent uppercase bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400">
               Recognition
             </span>
           </motion.div>
@@ -224,7 +224,7 @@ const ContributorsWallOfFame = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-white"
+            className="mb-6 text-4xl font-bold text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
           >
             <span className="inline-block mr-3">
               Contributors
@@ -240,7 +240,7 @@ const ContributorsWallOfFame = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+            className="mx-auto max-w-3xl text-xl text-gray-600 dark:text-gray-300"
           >
             Celebrating the talented individuals who have contributed their expertise and passion to make ColleGPT better for everyone.
           </motion.p>
@@ -249,11 +249,11 @@ const ContributorsWallOfFame = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
-            className="mt-8 flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap gap-4 justify-center mt-8"
           >
             <Link
               to="/contributor_form"
-              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-medium rounded-lg shadow-lg shadow-purple-600/20 hover:shadow-xl hover:shadow-purple-600/30 transition-all flex items-center gap-2"
+              className="flex gap-2 items-center px-6 py-3 font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg shadow-lg transition-all hover:from-purple-700 hover:to-indigo-700 shadow-purple-600/20 hover:shadow-xl hover:shadow-purple-600/30"
             >
               <Upload className="w-5 h-5" />
               Become a Contributor
@@ -261,12 +261,12 @@ const ContributorsWallOfFame = () => {
             
             <motion.a
               href="#contributors"
-              className="px-6 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 font-medium rounded-lg shadow-sm hover:shadow-md transition-all flex items-center gap-2 group"
+              className="flex gap-2 items-center px-6 py-3 font-medium text-gray-900 bg-white rounded-lg border border-gray-200 shadow-sm transition-all dark:bg-gray-800 dark:text-white dark:border-gray-700 hover:shadow-md group"
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
             >
               <span>Meet Our Contributors</span>
-              <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
+              <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
             </motion.a>
           </motion.div>
         </motion.div>
@@ -276,37 +276,37 @@ const ContributorsWallOfFame = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto mb-20"
+          className="grid grid-cols-2 gap-6 mx-auto mb-20 max-w-4xl sm:grid-cols-4"
         >
-          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 text-center shadow-lg hover:shadow-xl transition-all">
-            <div className="w-12 h-12 mx-auto bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30 rounded-lg flex items-center justify-center mb-4">
+          <div className="p-6 text-center bg-white rounded-xl border border-gray-200 shadow-lg transition-all dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl">
+            <div className="flex justify-center items-center mx-auto mb-4 w-12 h-12 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-lg dark:from-purple-900/30 dark:to-indigo-900/30">
               <User className="w-6 h-6 text-purple-600 dark:text-purple-400" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">{contributors.length}</div>
+            <div className="mb-1 text-3xl font-bold text-gray-900 dark:text-white">{contributors.length}</div>
             <div className="text-sm text-gray-500 dark:text-gray-400">Contributors</div>
           </div>
           
-          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 text-center shadow-lg hover:shadow-xl transition-all">
-            <div className="w-12 h-12 mx-auto bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 rounded-lg flex items-center justify-center mb-4">
+          <div className="p-6 text-center bg-white rounded-xl border border-gray-200 shadow-lg transition-all dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl">
+            <div className="flex justify-center items-center mx-auto mb-4 w-12 h-12 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg dark:from-blue-900/30 dark:to-cyan-900/30">
               <Palette className="w-6 h-6 text-blue-600 dark:text-blue-400" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">1</div>
+            <div className="mb-1 text-3xl font-bold text-gray-900 dark:text-white">1</div>
             <div className="text-sm text-gray-500 dark:text-gray-400">Brand Designs</div>
           </div>
           
-          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 text-center shadow-lg hover:shadow-xl transition-all">
-            <div className="w-12 h-12 mx-auto bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30 rounded-lg flex items-center justify-center mb-4">
+          <div className="p-6 text-center bg-white rounded-xl border border-gray-200 shadow-lg transition-all dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl">
+            <div className="flex justify-center items-center mx-auto mb-4 w-12 h-12 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-lg dark:from-purple-900/30 dark:to-indigo-900/30">
               <Book className="w-6 h-6 text-purple-600 dark:text-purple-400" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">1</div>
+            <div className="mb-1 text-3xl font-bold text-gray-900 dark:text-white">1</div>
             <div className="text-sm text-gray-500 dark:text-gray-400">Subject Contents</div>
           </div>
           
-          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 text-center shadow-lg hover:shadow-xl transition-all">
-            <div className="w-12 h-12 mx-auto bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 rounded-lg flex items-center justify-center mb-4">
+          <div className="p-6 text-center bg-white rounded-xl border border-gray-200 shadow-lg transition-all dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl">
+            <div className="flex justify-center items-center mx-auto mb-4 w-12 h-12 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg dark:from-blue-900/30 dark:to-cyan-900/30">
               <Heart className="w-6 h-6 text-blue-600 dark:text-blue-400" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">∞</div>
+            <div className="mb-1 text-3xl font-bold text-gray-900 dark:text-white">∞</div>
             <div className="text-sm text-gray-500 dark:text-gray-400">Appreciation</div>
           </div>
         </motion.div>
@@ -317,19 +317,19 @@ const ContributorsWallOfFame = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="max-w-5xl mx-auto"
+            className="mx-auto max-w-5xl"
           >
             <div className="flex items-center mb-8">
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-700"></div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mx-4 flex items-center">
-                <Sparkles className="w-5 h-5 text-purple-500 mr-2" />
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-700"></div>
+              <h2 className="flex items-center mx-4 text-2xl font-bold text-gray-900 dark:text-white">
+                <Sparkles className="mr-2 w-5 h-5 text-purple-500" />
                 Our Amazing Contributors
               </h2>
-              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-700"></div>
+              <div className="flex-1 h-px bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-700"></div>
             </div>
 
             {/* Contributors Cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+            <div className="grid grid-cols-1 gap-8 mb-20 lg:grid-cols-2">
               {contributors.map((contributor, index) => (
                 <motion.div
                   key={contributor.id}
@@ -342,7 +342,7 @@ const ContributorsWallOfFame = () => {
                   {/* Glow effect */}
                   <div className={`absolute -inset-0.5 bg-gradient-to-r ${contributor.gradient} rounded-xl blur opacity-30 group-hover:opacity-80 transition duration-500`}></div>
                   
-                  <div className="relative bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
+                  <div className="overflow-hidden relative bg-white rounded-xl border border-gray-100 shadow-xl dark:bg-gray-800 dark:border-gray-700">
                     {/* Top Banner */}
                     <div className={`h-20 bg-gradient-to-r ${contributor.gradient} relative overflow-hidden`}>
                       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRoNHYxaC00di0xem0wLTJoMXY0aC0xdi00em0yLTFoMnYxaC0ydi0xem0wIDNoMnYxaC0ydi0xem0tMyAyaDF2MWgtMXYtMXptMCAxaC0xdjFoMVYzN3pNMzQgMzVoMXYxaC0xdi0xem0tMS0xaDF2MWgtMXYtMXoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-25"></div>
@@ -352,23 +352,23 @@ const ContributorsWallOfFame = () => {
                     
                     {/* Avatar */}
                     <div className="absolute top-8 left-8">
-                      <div className="w-24 h-24 rounded-xl overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg">
+                      <div className="overflow-hidden w-24 h-24 rounded-xl border-4 border-white shadow-lg dark:border-gray-800">
                         <img
                           src={contributor.avatar}
                           alt={contributor.name}
-                          className="w-full h-full object-cover"
+                          className="object-cover w-full h-full"
                         />
                       </div>
                     </div>
                     
                     {/* Content */}
-                    <div className="pt-16 p-8">
+                    <div className="p-8 pt-16">
                       <div className="flex flex-wrap justify-between items-start mb-4">
                         <div>
-                          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                          <h3 className="mb-1 text-xl font-bold text-gray-900 dark:text-white">
                             {contributor.name}
                           </h3>
-                          <p className="text-gray-600 dark:text-gray-300 flex items-center">
+                          <p className="flex items-center text-gray-600 dark:text-gray-300">
                             {contributor.role}
                           </p>
                         </div>
@@ -379,13 +379,13 @@ const ContributorsWallOfFame = () => {
                         </div>
                       </div>
                       
-                      <p className="text-gray-600 dark:text-gray-400 text-sm mb-6">
+                      <p className="mb-6 text-sm text-gray-600 dark:text-gray-400">
                         {contributor.description}
                       </p>
                       
                       {/* Contributions */}
-                      <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 mb-6 border border-gray-100 dark:border-gray-700/50">
-                        <h4 className="font-medium text-gray-900 dark:text-white mb-3 flex items-center">
+                      <div className="p-4 mb-6 bg-gray-50 rounded-lg border border-gray-100 dark:bg-gray-800/50 dark:border-gray-700/50">
+                        <h4 className="flex items-center mb-3 font-medium text-gray-900 dark:text-white">
                           <Gift className={`w-4 h-4 mr-2 text-${contributor.color}-500`} />
                           Key Contributions
                         </h4>
@@ -415,11 +415,11 @@ const ContributorsWallOfFame = () => {
                       </div>
                       
                       {/* Action Links */}
-                      <div className="flex flex-wrap items-center gap-4 mt-6">
+                      <div className="flex flex-wrap gap-4 items-center mt-6">
                        
                         <Link
                           to={`mailto:${contributor.contact}`}
-                          className="px-4 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 rounded-lg flex items-center gap-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-600 transition-all"
+                          className="flex gap-2 items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-lg border border-gray-200 transition-all dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
                         >
                           <Mail className="w-4 h-4" />
                           Contact
@@ -437,15 +437,15 @@ const ContributorsWallOfFame = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl overflow-hidden shadow-xl relative"
+              className="overflow-hidden relative bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl shadow-xl"
             >
               
             
               
-              <div className="relative p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 z-10">
+              <div className="flex relative z-10 flex-col gap-8 justify-between items-center p-10 md:p-14 md:flex-row">
                 <div className="text-center md:text-left">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Want to Join Our Wall of Fame?</h3>
-                  <p className="text-purple-100 text-lg max-w-xl">
+                  <h3 className="mb-4 text-2xl font-bold text-white md:text-3xl">Want to Join Our Wall of Fame?</h3>
+                  <p className="max-w-xl text-lg text-purple-100">
                     Share your knowledge, skills, or resources to help fellow students. 
                     Your contributions could be featured here!
                   </p>
@@ -473,37 +473,37 @@ const ContributorsWallOfFame = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto mt-20"
+          className="mx-auto mt-20 max-w-4xl"
         >
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Questions About Contributing</h2>
+          <div className="mb-10 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">Questions About Contributing</h2>
             <p className="text-gray-600 dark:text-gray-300">Everything you need to know about becoming a contributor</p>
           </div>
           
           <div className="space-y-6">
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">How can I contribute to ColleGPT?</h3>
+            <div className="p-6 bg-white rounded-xl border border-gray-100 shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <h3 className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">How can I contribute to ColleGPT?</h3>
               <p className="text-gray-600 dark:text-gray-300">
                 You can contribute in various ways including creating educational content, designing graphics, developing code, or sharing notes. Simply fill out our contributor form with your proposed contribution and our team will review it.
               </p>
             </div>
             
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">What type of content is accepted?</h3>
+            <div className="p-6 bg-white rounded-xl border border-gray-100 shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <h3 className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">What type of content is accepted?</h3>
               <p className="text-gray-600 dark:text-gray-300">
                 We welcome high-quality educational materials such as notes, guides, tutorials, code examples, designs, and other resources that benefit students. All content should be original or properly licensed and must meet our quality standards.
               </p>
             </div>
             
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">How is the review process conducted?</h3>
+            <div className="p-6 bg-white rounded-xl border border-gray-100 shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <h3 className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">How is the review process conducted?</h3>
               <p className="text-gray-600 dark:text-gray-300">
                 Once submitted, our team reviews all contributions for accuracy, quality, and relevance. This process typically takes 1-3 business days. If approved, your contribution will be published and you'll be featured on our Wall of Fame.
               </p>
             </div>
             
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Can I update my contribution after submitting?</h3>
+            <div className="p-6 bg-white rounded-xl border border-gray-100 shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <h3 className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">Can I update my contribution after submitting?</h3>
               <p className="text-gray-600 dark:text-gray-300">
                 Yes! You can request updates or modifications to your contributed content by contacting our team. We encourage contributors to keep their materials up-to-date and accurate.
               </p>
@@ -513,7 +513,7 @@ const ContributorsWallOfFame = () => {
           <div className="mt-10 text-center">
             <Link
               to="/forms/contribute"
-              className="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 font-medium hover:text-purple-700 dark:hover:text-purple-300 transition-colors"
+              className="inline-flex gap-2 items-center font-medium text-purple-600 transition-colors dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300"
             >
               <span>Ready to contribute?</span>
               <ArrowRight className="w-4 h-4" />

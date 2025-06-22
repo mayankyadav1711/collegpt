@@ -144,8 +144,6 @@ const About = () => {
     }
   };
 
- 
-
   const milestones = [
     {
       date: "May 2023",
@@ -201,9 +199,9 @@ const About = () => {
   return (
     <div className="relative" onMouseMove={handleMouseMove}>
       {/* Hero Section */}
-      <section className="mb-12 relative" onMouseMove={handleMouseMove}>
+      <section className="relative mb-12" onMouseMove={handleMouseMove}>
         {/* Premium Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="overflow-hidden absolute inset-0 pointer-events-none">
           {/* Animated gradients */}
           <div
             className="absolute -top-80 -left-80 w-[500px] h-[500px] rounded-full bg-blue-500/10 mix-blend-multiply blur-3xl"
@@ -228,7 +226,7 @@ const About = () => {
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute rounded-full bg-blue-500/20 mix-blend-screen"
+              className="absolute rounded-full mix-blend-screen bg-blue-500/20"
               style={{
                 width: Math.random() * 10 + 2 + "px",
                 height: Math.random() * 10 + 2 + "px",
@@ -264,14 +262,14 @@ const About = () => {
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-indigo-900/90 z-10 mix-blend-multiply"></div>
+                      <div className="absolute inset-0 z-10 bg-gradient-to-r mix-blend-multiply from-blue-900/90 to-indigo-900/90"></div>
 
                       {/* Subtle Parallax Effect */}
-                      <div className="absolute inset-0 overflow-hidden">
+                      <div className="overflow-hidden absolute inset-0">
                         <motion.img
                           src={image.url}
                           alt={image.caption}
-                          className="absolute inset-0 w-full h-full object-cover"
+                          className="object-cover absolute inset-0 w-full h-full"
                           style={{
                             scale: 1.1,
                             x: mousePosition.x * 20,
@@ -294,8 +292,8 @@ const About = () => {
           </div>
 
           {/* Content Area */}
-          <div className="relative z-30 flex flex-col h-full justify-center px-8 md:px-16 lg:px-24">
-            <div className="max-w-5xl mx-auto">
+          <div className="flex relative z-30 flex-col justify-center px-8 h-full md:px-16 lg:px-24">
+            <div className="mx-auto max-w-5xl">
               {/* Small tagline with animation */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -304,27 +302,27 @@ const About = () => {
                 className="mb-6"
               >
                 <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium">
-                  <Sparkles className="w-4 h-4 mr-2 text-blue-300" />
+                  <Sparkles className="mr-2 w-4 h-4 text-blue-300" />
                   Revolutionizing Education
                 </span>
               </motion.div>
 
               {/* Main heading with animation */}
               <motion.h1
-                className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white"
+                className="mb-8 text-5xl font-bold text-white md:text-6xl lg:text-7xl"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
               >
                 <span className="block">ColleGPT -</span>
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-300">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">
                   Get Prepared Together!
                 </span>
               </motion.h1>
 
               {/* Description with animation */}
               <motion.p
-                className="text-xl md:text-2xl max-w-3xl mb-10 text-blue-50"
+                className="mb-10 max-w-3xl text-xl text-blue-50 md:text-2xl"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.4 }}
@@ -341,11 +339,13 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.5 }}
               >
-                 <motion.a
+                <motion.a
                   href="#our-team"
                   onClick={(e) => {
                     e.preventDefault();
-                    document.getElementById('our-team')?.scrollIntoView({ behavior: 'smooth' });
+                    document
+                      .getElementById("our-team")
+                      ?.scrollIntoView({ behavior: "smooth" });
                   }}
                   className="py-3.5 px-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-full font-medium shadow-xl hover:shadow-indigo-500/30 transition-all duration-300 flex items-center"
                   whileHover={{ scale: 1.05 }}
@@ -357,7 +357,9 @@ const About = () => {
                   href="#our-journey"
                   onClick={(e) => {
                     e.preventDefault();
-                    document.getElementById('our-journey')?.scrollIntoView({ behavior: 'smooth' });
+                    document
+                      .getElementById("our-journey")
+                      ?.scrollIntoView({ behavior: "smooth" });
                   }}
                   className="relative overflow-hidden py-3.5 px-8 bg-white text-blue-600 rounded-full font-medium shadow-xl hover:shadow-blue-500/20 transition-all duration-300 group"
                   whileHover={{ scale: 1.05 }}
@@ -369,7 +371,7 @@ const About = () => {
                     style={{ width: "0%" }}
                     whileHover={{ width: "100%" }}
                   />
-                  <span className="relative flex items-center">
+                  <span className="flex relative items-center">
                     Our Journey
                     <motion.span
                       className="ml-2 transition-transform duration-300"
@@ -380,14 +382,12 @@ const About = () => {
                     </motion.span>
                   </span>
                 </motion.a>
-
-               
               </motion.div>
             </div>
           </div>
 
           {/* Navigation Controls */}
-          <div className="absolute z-40 bottom-8 right-8 flex space-x-2 md:hidden">
+          <div className="flex absolute right-8 bottom-8 z-40 space-x-2 md:hidden">
             {heroImages.map((_, index) => (
               <button
                 key={index}
@@ -401,23 +401,23 @@ const About = () => {
           </div>
 
           {/* Arrow controls (visible on larger screens) */}
-          <div className="absolute inset-y-0 left-4 z-30 flex items-center hidden md:flex">
+          <div className="flex hidden absolute inset-y-0 left-4 z-30 items-center md:flex">
             <button
               onClick={() =>
                 goToSlide(
                   (activeSlide - 1 + heroImages.length) % heroImages.length
                 )
               }
-              className="w-12 h-12 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-black/30 transition-colors"
+              className="flex justify-center items-center w-12 h-12 text-white rounded-full backdrop-blur-md transition-colors bg-black/20 hover:bg-black/30"
               aria-label="Previous slide"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
           </div>
-          <div className="absolute inset-y-0 right-4 z-30 flex items-center hidden md:flex">
+          <div className="flex hidden absolute inset-y-0 right-4 z-30 items-center md:flex">
             <button
               onClick={() => goToSlide((activeSlide + 1) % heroImages.length)}
-              className="w-12 h-12 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-black/30 transition-colors"
+              className="flex justify-center items-center w-12 h-12 text-white rounded-full backdrop-blur-md transition-colors bg-black/20 hover:bg-black/30"
               aria-label="Next slide"
             >
               <ChevronRight className="w-6 h-6" />
@@ -433,18 +433,18 @@ const About = () => {
 
       <section
         ref={sectionRef}
-        className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800/80 relative overflow-hidden"
+        className="overflow-hidden relative py-5 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800/80"
       >
         {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white to-transparent dark:from-gray-900 dark:to-transparent z-10"></div>
-        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent dark:from-gray-900 dark:to-transparent z-10"></div>
+        <div className="absolute top-0 left-0 z-10 w-full h-20 bg-gradient-to-b from-white to-transparent dark:from-gray-900 dark:to-transparent"></div>
+        <div className="absolute bottom-0 left-0 z-10 w-full h-20 bg-gradient-to-t from-white to-transparent dark:from-gray-900 dark:to-transparent"></div>
 
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200/30 dark:bg-blue-900/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-purple-200/20 dark:bg-purple-900/10 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-3xl bg-blue-200/30 dark:bg-blue-900/10"></div>
+        <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full blur-3xl bg-purple-200/20 dark:bg-purple-900/10"></div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        <div className="container relative z-20 px-4 mx-auto sm:px-6 lg:px-8">
           {/* Personal header from founders */}
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -452,29 +452,44 @@ const About = () => {
               viewport={{ once: true }}
               className="mb-16"
             >
-              <div className="inline-flex items-center py-1 px-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">
+              <div className="inline-flex items-center px-3 py-1 mb-4 text-sm font-medium text-blue-700 bg-blue-100 rounded-full dark:bg-blue-900/30 dark:text-blue-300">
                 <Sparkles className="mr-1.5 w-4 h-4" />
                 Our Story & Vision
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
+              <h2 className="mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-5xl dark:text-white">
                 Why{" "}
-                <span className="text-blue-600 dark:text-blue-400 italic">
+                <span className="italic text-blue-600 dark:text-blue-400">
                   we
                 </span>{" "}
                 built ColleGPT
               </h2>
 
               {/* Mission Story */}
-              <div className="prose prose-lg dark:prose-invert mb-12 text-gray-600 dark:text-gray-300">
+              <div className="mb-12 text-gray-600 prose prose-lg dark:prose-invert dark:text-gray-300">
                 <p className="mb-8">
-                  In the heart of every student's journey lies a common challenge: the overwhelming sea of information, disconnected resources, and the struggle to find clarity in complex subjects. We witnessed this firsthand during our academic years, where brilliant minds were often held back not by lack of ability, but by the absence of a unified platform that could bridge the gap between knowledge and understanding.
+                  In the heart of every student's journey lies a common
+                  challenge: the overwhelming sea of information, disconnected
+                  resources, and the struggle to find clarity in complex
+                  subjects. We witnessed this firsthand during our academic
+                  years, where brilliant minds were often held back not by lack
+                  of ability, but by the absence of a unified platform that
+                  could bridge the gap between knowledge and understanding.
                 </p>
                 <p>
                   <span className="font-semibold text-gray-900 dark:text-white">
-                    ColleGPT was born from a simple yet powerful vision: to transform how students learn, collaborate, and grow together.
+                    ColleGPT was born from a simple yet powerful vision: to
+                    transform how students learn, collaborate, and grow
+                    together.
                   </span>{" "}
-                  We envisioned a platform where quality resources meet community support, where complex concepts become accessible through collaborative learning, and where every student, regardless of their background, can find the tools and support they need to excel. This isn't just another educational platform – it's a movement to democratize learning, to make education more engaging, and to create a space where students can truly thrive together.
+                  We envisioned a platform where quality resources meet
+                  community support, where complex concepts become accessible
+                  through collaborative learning, and where every student,
+                  regardless of their background, can find the tools and support
+                  they need to excel. This isn't just another educational
+                  platform – it's a movement to democratize learning, to make
+                  education more engaging, and to create a space where students
+                  can truly thrive together.
                 </p>
               </div>
 
@@ -498,8 +513,8 @@ const About = () => {
               viewport={{ once: true }}
               className="mb-24 scroll-mt-24"
             >
-              <div className="relative max-w-4xl mx-auto">
-                <h3 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+              <div className="relative mx-auto max-w-4xl">
+                <h3 className="mb-12 text-3xl font-bold text-center text-gray-900 dark:text-white">
                   Our{" "}
                   <span className="text-blue-600 dark:text-blue-400">
                     Journey
@@ -509,41 +524,59 @@ const About = () => {
 
                 <div className="relative">
                   {milestones.map((milestone, index) => (
-                    <motion.div 
+                    <motion.div
                       key={index}
-                      className={`flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-center mb-12`}
+                      className={`flex ${
+                        index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                      } items-center mb-12`}
                       initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5 }}
                     >
-                      <motion.div 
-                        className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}
+                      <motion.div
+                        className={`w-1/2 ${
+                          index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"
+                        }`}
                         whileHover={{ scale: 1.05 }}
                       >
-                        <div className={`inline-block px-4 py-2 rounded-full bg-${milestone.color}-100 dark:bg-${milestone.color}-900/30 text-${milestone.color}-600 dark:text-${milestone.color}-400 text-sm font-medium mb-2`}>
+                        <div
+                          className={`inline-block px-4 py-2 rounded-full bg-${milestone.color}-100 dark:bg-${milestone.color}-900/30 text-${milestone.color}-600 dark:text-${milestone.color}-400 text-sm font-medium mb-2`}
+                        >
                           {milestone.date}
                         </div>
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{milestone.title}</h3>
-                        <p className="text-gray-600 dark:text-gray-300">{milestone.description}</p>
-                        
+                        <h3 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
+                          {milestone.title}
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300">
+                          {milestone.description}
+                        </p>
+
                         {/* Stats and Achievements */}
                         <div className="mt-4 space-y-2">
-                          <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-${milestone.color}-50 dark:bg-${milestone.color}-900/20`}>
-                            <milestone.icon className={`w-5 h-5 text-${milestone.color}-500`} />
-                            <span className="text-sm text-gray-700 dark:text-gray-300">{milestone.stats}</span>
+                          <div
+                            className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-${milestone.color}-50 dark:bg-${milestone.color}-900/20`}
+                          >
+                            <milestone.icon
+                              className={`w-5 h-5 text-${milestone.color}-500`}
+                            />
+                            <span className="text-sm text-gray-700 dark:text-gray-300">
+                              {milestone.stats}
+                            </span>
                           </div>
                           {milestone.achievement && (
                             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-50 dark:bg-amber-900/20 ml-2">
                               <Award className="w-5 h-5 text-amber-500" />
-                              <span className="text-sm text-gray-700 dark:text-gray-300">{milestone.achievement}</span>
+                              <span className="text-sm text-gray-700 dark:text-gray-300">
+                                {milestone.achievement}
+                              </span>
                             </div>
                           )}
                         </div>
                       </motion.div>
 
-                      <div className="relative flex items-center justify-center w-16 h-16">
+                      <div className="flex relative justify-center items-center w-16 h-16">
                         <div className="absolute w-1 h-full bg-blue-300 dark:bg-blue-700"></div>
-                        <motion.div 
+                        <motion.div
                           className={`relative z-10 flex items-center justify-center w-16 h-16 bg-${milestone.color}-500 rounded-full shadow-lg`}
                           whileHover={{ scale: 1.1 }}
                           transition={{ duration: 0.3 }}
@@ -552,8 +585,14 @@ const About = () => {
                         </motion.div>
                       </div>
 
-                      <div className={`w-1/2 ${index % 2 === 0 ? 'pl-8 text-left' : 'pr-8 text-right'}`}>
-                        <span className="text-6xl font-bold text-blue-200 dark:text-blue-800">0{index + 1}</span>
+                      <div
+                        className={`w-1/2 ${
+                          index % 2 === 0 ? "pl-8 text-left" : "pr-8 text-right"
+                        }`}
+                      >
+                        <span className="text-6xl font-bold text-blue-200 dark:text-blue-800">
+                          0{index + 1}
+                        </span>
                       </div>
                     </motion.div>
                   ))}
@@ -566,7 +605,7 @@ const About = () => {
                     transition={{ duration: 0.7, delay: 0.9 }}
                     viewport={{ once: true }}
                   >
-                    <div className="w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg font-bold">
+                    <div className="flex justify-center items-center w-16 h-16 text-lg font-bold text-amber-600 bg-amber-100 rounded-full dark:bg-amber-900/30 dark:text-amber-400">
                       Now
                     </div>
                   </motion.div>
@@ -581,26 +620,26 @@ const About = () => {
       <section
         id="feedback"
         ref={feedbackRef}
-        className="py-24 bg-gray-50 dark:bg-gray-800/30 relative overflow-hidden"
+        className="overflow-hidden relative py-10 bg-gray-50 dark:bg-gray-800/30"
       >
         {/* Background elements */}
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-blue-100 dark:bg-blue-900/20 rounded-full filter blur-3xl opacity-70 dark:opacity-30 transform translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-indigo-100 dark:bg-indigo-900/20 rounded-full filter blur-3xl opacity-70 dark:opacity-30 transform -translate-x-1/2 translate-y-1/2"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-blue-100 rounded-full opacity-70 filter blur-3xl transform translate-x-1/2 -translate-y-1/2 dark:bg-blue-900/20 dark:opacity-30"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-indigo-100 rounded-full opacity-70 filter blur-3xl transform -translate-x-1/2 translate-y-1/2 dark:bg-indigo-900/20 dark:opacity-30"></div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container relative z-10 px-4 mx-auto sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center mb-16"
+            className="mx-auto mb-16 max-w-4xl text-center"
           >
             <div className="inline-flex items-center py-1.5 px-4 mb-4 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
               <MessageSquare className="mr-1.5 w-4 h-4" />
               Your Thoughts Matter
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
               Share Your{" "}
               <span className="text-blue-600 dark:text-blue-400">Feedback</span>
             </h2>
@@ -610,7 +649,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="max-w-2xl mx-auto">
+          <div className="mx-auto max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -619,9 +658,9 @@ const About = () => {
               className="relative"
             >
               {/* Card glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-3xl blur-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r rounded-3xl blur-2xl from-blue-500/20 to-indigo-500/20"></div>
 
-              <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8">
+              <div className="relative p-8 bg-white rounded-2xl border border-gray-100 shadow-xl dark:bg-gray-800 dark:border-gray-700">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Textarea for feedback */}
                   <div className="space-y-2">
@@ -629,7 +668,7 @@ const About = () => {
                       Your Feedback
                     </label>
                     <div className="relative">
-                      <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-500" />
+                      <MessageSquare className="absolute top-3 left-3 w-5 h-5 text-gray-400 dark:text-gray-500" />
                       <textarea
                         value={feedback}
                         onChange={(e) => setFeedback(e.target.value)}
@@ -656,7 +695,7 @@ const About = () => {
                           key={value}
                           type="button"
                           onClick={() => handleStarClick(value)}
-                          className="focus:outline-none transition-transform hover:scale-110"
+                          className="transition-transform focus:outline-none hover:scale-110"
                         >
                           <Star
                             className={`w-8 h-8 ${
@@ -681,17 +720,12 @@ const About = () => {
                     disabled={isSubmitting}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-3 bg-gradient-to-r from-blue-600 to-indigo-600
-                             hover:from-blue-700 hover:to-indigo-700 text-white 
-                             rounded-lg font-medium shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30
-                             transition-all duration-200 
-                             flex items-center justify-center focus:outline-none 
-                             disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex justify-center items-center py-3 w-full font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg shadow-lg transition-all duration-200 hover:from-blue-700 hover:to-indigo-700 shadow-blue-600/20 hover:shadow-blue-600/30 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <div className="flex items-center">
                         <svg
-                          className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                          className="mr-2 -ml-1 w-4 h-4 text-white animate-spin"
                           fill="none"
                           viewBox="0 0 24 24"
                         >
@@ -713,7 +747,7 @@ const About = () => {
                       </div>
                     ) : (
                       <div className="flex items-center">
-                        <Send className="w-4 h-4 mr-2" />
+                        <Send className="mr-2 w-4 h-4" />
                         Submit Feedback
                       </div>
                     )}
@@ -726,20 +760,20 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 mb-12 bg-white dark:bg-gray-900 relative rounded-b-md">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="relative py-24 mb-12 bg-white rounded-b-md dark:bg-gray-900">
+        <div className="container relative z-10 px-4 mx-auto sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-5xl mx-auto bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl overflow-hidden shadow-2xl shadow-blue-600/20"
+            className="overflow-hidden mx-auto max-w-5xl bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl shadow-2xl shadow-blue-600/20"
           >
             <div className="relative px-8 py-16 md:p-16">
               {/* Background pattern */}
-              <div className="absolute inset-0 overflow-hidden">
+              <div className="overflow-hidden absolute inset-0">
                 <svg
-                  className="absolute right-0 top-0 h-full opacity-20 transform translate-x-1/3 -translate-y-1/4"
+                  className="absolute top-0 right-0 h-full opacity-20 transform translate-x-1/3 -translate-y-1/4"
                   width="400"
                   height="400"
                   fill="none"
@@ -761,24 +795,24 @@ const About = () => {
                 </svg>
               </div>
 
-              <div className="relative flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="flex relative flex-col gap-8 justify-between items-center md:flex-row">
                 <div className="text-center md:text-left">
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
                     Ready to enhance your learning journey?
                   </h2>
-                  <p className="text-blue-100 text-lg mb-8 md:max-w-xl">
+                  <p className="mb-8 text-lg text-blue-100 md:max-w-xl">
                     Join thousands of students who are already transforming
                     their academic experience with ColleGPT.
                   </p>
 
-                  <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                  <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                     <motion.a
                       href="/register"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.98 }}
-                      className="px-6 py-3 bg-white hover:bg-gray-50 text-blue-600 font-medium rounded-lg shadow-lg shadow-blue-700/20 transition-all flex items-center"
+                      className="flex items-center px-6 py-3 font-medium text-blue-600 bg-white rounded-lg shadow-lg transition-all hover:bg-gray-50 shadow-blue-700/20"
                     >
-                      <Users className="w-5 h-5 mr-2" />
+                      <Users className="mr-2 w-5 h-5" />
                       Join Our Community
                     </motion.a>
 
@@ -786,17 +820,17 @@ const About = () => {
                       href="/contact"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.98 }}
-                      className="px-6 py-3 bg-blue-700/30 hover:bg-blue-700/40 text-white font-medium rounded-lg transition-all flex items-center backdrop-blur-sm"
+                      className="flex items-center px-6 py-3 font-medium text-white rounded-lg backdrop-blur-sm transition-all bg-blue-700/30 hover:bg-blue-700/40"
                     >
-                      <MessageSquare className="w-5 h-5 mr-2" />
+                      <MessageSquare className="mr-2 w-5 h-5" />
                       Contact Us
                     </motion.a>
                   </div>
                 </div>
 
                 {/* Testimonial preview */}
-                <div className="hidden md:block max-w-xs">
-                  <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
+                <div className="hidden max-w-xs md:block">
+                  <div className="p-6 rounded-xl border backdrop-blur-md bg-white/10 border-white/20">
                     <div className="flex mb-4">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <Star
@@ -805,17 +839,17 @@ const About = () => {
                         />
                       ))}
                     </div>
-                    <p className="italic text-white/90 mb-4 text-sm">
+                    <p className="mb-4 text-sm italic text-white/90">
                       "ColleGPT has been a game-changer for my studies. The
                       resources and community support helped me ace my exams
                       with confidence!"
                     </p>
                     <div className="flex items-center">
-                      <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
+                      <div className="overflow-hidden mr-3 w-10 h-10 rounded-full">
                         <img
                           src="https://res.cloudinary.com/dkyrtfk1u/image/upload/v1697348820/qkswpmr6tnzuiqnfqxtu.png"
                           alt="Gaurav Tiwari"
-                          className="w-full h-full object-cover"
+                          className="object-cover w-full h-full"
                         />
                       </div>
                       <div>
@@ -832,25 +866,25 @@ const About = () => {
               </div>
 
               {/* Social proof */}
-              <div className="mt-12 pt-8 border-t border-white/10 relative flex items-center justify-center md:justify-start">
-                <div className="flex -space-x-2 mr-4">
+              <div className="flex relative justify-center items-center pt-8 mt-12 border-t border-white/10 md:justify-start">
+                <div className="flex mr-4 -space-x-2">
                   {Array(5)
                     .fill()
                     .map((_, i) => (
                       <div
                         key={i}
-                        className="w-8 h-8 rounded-full overflow-hidden border-2 border-blue-600"
+                        className="overflow-hidden w-8 h-8 rounded-full border-2 border-blue-600"
                       >
                         <img
                           src={`https://i.pravatar.cc/32?img=${i + 10}`}
                           alt={`User ${i + 1}`}
-                          className="w-full h-full object-cover"
+                          className="object-cover w-full h-full"
                         />
                       </div>
                     ))}
                 </div>
-                <div className="flex items-center text-white/90 text-sm">
-                  <CheckCircle className="w-4 h-4 text-green-300 mr-2" />
+                <div className="flex items-center text-sm text-white/90">
+                  <CheckCircle className="mr-2 w-4 h-4 text-green-300" />
                   <span>Joined by 2,500+ students</span>
                 </div>
               </div>
