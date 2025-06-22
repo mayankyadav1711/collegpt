@@ -974,7 +974,6 @@ const GraduateFeedbackForm = () => {
                       </motion.button>
 
                       {/* Glow effect */}
-                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg blur opacity-30 group-hover:opacity-40 transition"></div>
                     </div>
                   </motion.div>
 
