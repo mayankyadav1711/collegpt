@@ -642,37 +642,59 @@ const ProjectSection = forwardRef((props, ref) => {
             </AnimatePresence>
           </div>
         </div>
-        
-        {/* Bottom CTA */}
-        <motion.div 
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <Link to="/projects">
-            <motion.button
-              className="group px-8 py-4 rounded-lg overflow-hidden bg-gradient-to-r from-[#0067b5] to-[#00AEEF] relative"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {/* Animated light effect */}
-              <div className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100">
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 skew-x-[45deg] transform -translate-x-full group-hover:translate-x-[200%] transition-transform duration-1000"></div>
-              </div>
+      {/* Bottom CTA */}
+<motion.div 
+  className="mt-16 text-center"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7 }}
+>
+  {/* Button container */}
+  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+    <Link to="/projects">
+      <motion.button
+        className="group px-8 py-4 rounded-lg overflow-hidden bg-gradient-to-r from-[#0067b5] to-[#00AEEF] relative"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        {/* Animated light effect */}
+        <div className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100">
+          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 skew-x-[45deg] transform -translate-x-full group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+        </div>
 
-              <span className="relative z-10 text-white font-medium text-lg flex items-center">
-                Explore All Projects & Templates
-                <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </motion.button>
-          </Link>
-          
-          <p className="mt-4 text-slate-500 dark:text-slate-400">
-            Join 20,000+ students who have completed amazing projects
-          </p>
-        </motion.div>
+        <span className="relative z-10 text-white font-medium text-lg flex items-center">
+          Explore All Projects & Templates
+          <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+        </span>
+      </motion.button>
+    </Link>
+
+    {/* GitHub themed Contribute button */}
+    <a href="https://github.com/KauraniDivya/ColleGPT-Projects" target="_blank" rel="noopener noreferrer">
+      <motion.button
+        className="group px-6 py-3 bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 border border-slate-700 dark:border-slate-600 rounded-lg overflow-hidden relative shadow-lg"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        {/* GitHub button hover effect */}
+        <div className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100">
+          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 skew-x-[45deg] transform -translate-x-full group-hover:translate-x-[200%] transition-transform duration-700"></div>
+        </div>
+
+        <span className="relative z-10 text-white font-medium flex items-center">
+          <Github className="mr-2 w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+          Contribute to Projects
+          <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </span>
+      </motion.button>
+    </a>
+  </div>
+  
+  <p className="mt-4 text-slate-500 dark:text-slate-400">
+    Join 20,000+ students who have completed amazing projects
+  </p>
+</motion.div>
       </div>
     </section>
   );

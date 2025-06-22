@@ -96,10 +96,20 @@ This repository contains the following main directories:
 
 We have created separate repositories for specific features:
 
-1. [GATE Resources](https://github.com/your-org/collegpt-gate) - GATE exam preparation materials
-2. [Placement Resources](https://github.com/your-org/collegpt-placement) - Placement preparation materials
-3. [Hackathons](https://github.com/your-org/collegpt-hackathons) - Hackathon updates
-3. [Projects](https://github.com/your-org/collegpt-projects) - Projects Showcase
+1. [GATE Resources](https://github.com/KauraniDivya/ColleGPT-GATE) - GATE exam preparation materials
+2. [Placement Resources](https://github.com/KauraniDivya/ColleGPT-Placement) - Placement preparation materials
+3. [Hackathons](https://github.com/KauraniDivya/ColleGPT-Hackathon) - Hackathon updates
+4. [Projects](https://github.com/KauraniDivya/ColleGPT-Projects) - Projects Showcase
+
+### 🌐 Deployed Links
+
+Access the live versions of our platforms here:
+
+- [ColleGPT Main Platform](https://collegpt.com/)
+- [GATE Resources](https://gate.collegpt.com/)
+- [Placement Resources](https://jobs.collegpt.com/)
+- [Hackathons](https://hackathons.collegpt.com/)
+- [Projects Showcase](https://projects.collegpt.com/)
 
 ### AI Integration
 
