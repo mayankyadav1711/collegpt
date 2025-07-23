@@ -468,6 +468,23 @@ export const getAllSemesters = () => {
           { id: 7, title: "Spring MVC" }
         ]
       },
+      
+      {
+        id: "PYTHON",
+        code: "IT506F-N",
+        title: "Python Programming",
+        description: "The course is designed to provide understanding of the basic components of computer programming using the Python language – and might be a gentle introduction to programming for those who think they might have a longer term interest in the subject area.",
+        thumbnail: "/images/Thumbnail/Sem-5/Python.webp",
+        totalUnits: 6,
+        units: [
+          { id: 1, title: "Introduction to Python Programming Language" },
+          { id: 2, title: "Data Collections and Language Component" },
+          { id: 3, title: "Object and Classes" },
+          { id: 4, title: "Functions and Modules" },
+          { id: 5, title: "I/O and Error Handling In Python" },
+          { id: 6, title: "Simple Algorithms and Data structures" }
+        ]
+      },
       {
         id: "DAA",
         code: "CE504-N",
@@ -557,22 +574,6 @@ export const getAllSemesters = () => {
           { id: 5, title: "Interfacing peripherals and applications" },
           { id: 6, title: "Intel microprocessors" },
           { id: 7, title: "ARM Processor" }
-        ]
-      },
-      {
-        id: "PYTHON",
-        code: "IT506F-N",
-        title: "Python Programming",
-        description: "The course is designed to provide understanding of the basic components of computer programming using the Python language – and might be a gentle introduction to programming for those who think they might have a longer term interest in the subject area.",
-        thumbnail: "/images/Thumbnail/Sem-5/Python.webp",
-        totalUnits: 6,
-        units: [
-          { id: 1, title: "Introduction to Python Programming Language" },
-          { id: 2, title: "Data Collections and Language Component" },
-          { id: 3, title: "Object and Classes" },
-          { id: 4, title: "Functions and Modules" },
-          { id: 5, title: "I/O and Error Handling In Python" },
-          { id: 6, title: "Simple Algorithms and Data structures" }
         ]
       },
       {
