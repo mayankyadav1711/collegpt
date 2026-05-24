@@ -1,6 +1,14 @@
-# ColleGPT Security Hardening and Bug Fixes
+# ColleGPT Security Hardening, Bug Fixes & AI Integration Proposal
 
-This pull request introduces critical security hardening, input validation, and stability fixes across the Express backend to make ColleGPT production-ready and resilient to vulnerabilities. 
+Hey there! 👋 I saw in the README that you are **actively looking for contributors interested in AI integration** to make ColleGPT smarter! 
+
+I am extremely passionate about AI and have recently built two extensive multi-LLM projects:
+* **Zerio AI** — A advanced platform utilizing multiple LLMs for smart automation and features.
+* **AI Battle Arena** — An interactive system running multiple LLMs against each other for capability comparison and evaluation.
+
+I would absolutely love to collaborate, discuss how we can build a highly personalized **AI-Powered Learning Assistant** (such as Retrieval-Augmented Generation (RAG) over study notes, smart doubt solvers, or interactive study chatbots) inside ColleGPT, and schedule a quick meeting to explore these possibilities! 
+
+To show my dedication and capabilities as a full-stack developer, I have gone ahead and resolved the core security issues and pre-existing bugs in your backend in this Pull Request. Below is the detailed changelog of what has been hardened and fixed. Let's make ColleGPT extremely secure and super smart together! 🚀
 
 ---
 
