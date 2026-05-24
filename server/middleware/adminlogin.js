@@ -14,14 +14,23 @@ module.exports = (req, res, next) => {
       return res.status(401).json({ error: 'You must be logged in' });
     }
 
-    const { _id } = payload;
-    const user = await User.findById(_id);
+    try {
+      const { _id } = payload;
+      const user = await User.findById(_id);
 
-    if (!user.isAdmin) {
-      return res.status(403).json({ error: 'Access denied. Admins only.' });
+      if (!user) {
+        return res.status(401).json({ error: 'User not found. Please log in again.' });
+      }
+
+      if (!user.isAdmin) {
+        return res.status(403).json({ error: 'Access denied. Admins only.' });
+      }
+
+      req.user = user;
+      next();
+    } catch (dbErr) {
+      console.error("Admin auth middleware error:", dbErr);
+      return res.status(500).json({ error: 'Internal server error' });
     }
-
-    req.user = user;
-    next();
   });
 };

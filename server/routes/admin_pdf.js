@@ -10,9 +10,10 @@ const EventForm = mongoose.model("EventForm");
 const Feedback = mongoose.model("Feedback");
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
+const requireAdmin = require("../middleware/adminlogin");
 
 
-router.post("/pdf-forms", async (req, res) => {
+router.post("/pdf-forms", requireAdmin, async (req, res) => {
   try {
     const { code, sem, sub, unit, link, author, description, extra, youtube } = req.body;
 
@@ -77,7 +78,7 @@ const handleError = (res, error) => {
 };
 
 // Create a new user
-router.post('/users', async (req, res) => {
+router.post('/users', requireAdmin, async (req, res) => {
   try {
     const { name, email, password, university, sem, gender } = req.body;
     
@@ -108,7 +109,7 @@ router.post('/users', async (req, res) => {
 });
 
 // Get all users
-router.get('/users', async (req, res) => {
+router.get('/users', requireAdmin, async (req, res) => {
   try {
     const users = await User.find().select('-password');
     res.json(users);
@@ -118,7 +119,7 @@ router.get('/users', async (req, res) => {
 });
 
 // Get a specific user
-router.get('/users/:id', async (req, res) => {
+router.get('/users/:id', requireAdmin, async (req, res) => {
   try {
     const user = await User.findById(req.params.id).select('-password');
     if (!user) {
@@ -131,7 +132,7 @@ router.get('/users/:id', async (req, res) => {
 });
 
 // Update a user
-router.put('/users/:id', async (req, res) => {
+router.put('/users/:id', requireAdmin, async (req, res) => {
   try {
     const updates = req.body;
     delete updates.password; // Prevent password update through this route
@@ -147,7 +148,7 @@ router.put('/users/:id', async (req, res) => {
 });
 
 // Delete a user
-router.delete('/users/:id', async (req, res) => {
+router.delete('/users/:id', requireAdmin, async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);
     if (!user) {
@@ -160,7 +161,7 @@ router.delete('/users/:id', async (req, res) => {
 });
 
 // User Analytics
-router.get('/users/analytics/overview', async (req, res) => {
+router.get('/users/analytics/overview', requireAdmin, async (req, res) => {
   try {
     const totalUsers = await User.countDocuments();
     const verifiedUsers = await User.countDocuments({ isVerified: true });
@@ -189,7 +190,7 @@ router.get('/users/analytics/overview', async (req, res) => {
 });
 
 // User Activity Analytics
-router.get('/users/analytics/activity', async (req, res) => {
+router.get('/users/analytics/activity', requireAdmin, async (req, res) => {
   try {
     const lastWeek = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
     const newUsersLastWeek = await User.countDocuments({ createdAt: { $gte: lastWeek } });
@@ -208,7 +209,7 @@ router.get('/users/analytics/activity', async (req, res) => {
 });
 
 // Detailed User Analytics
-router.get('/users/analytics/detailed', async (req, res) => {
+router.get('/users/analytics/detailed', requireAdmin, async (req, res) => {
   try {
     const skillDistribution = await User.aggregate([
       { $unwind: '$Skills' },
@@ -257,7 +258,7 @@ router.get('/users/analytics/detailed', async (req, res) => {
 
 // ------- PDF Forms ------ //
 
-router.post('/pdf-form', async (req, res) => {
+router.post('/pdf-form', requireAdmin, async (req, res) => {
   try {
     const newPdfForm = new PdfForm(req.body);
     await newPdfForm.save();
@@ -268,7 +269,7 @@ router.post('/pdf-form', async (req, res) => {
 });
 
 // Get all PDF forms
-router.get('/pdf-form', async (req, res) => {
+router.get('/pdf-form', requireAdmin, async (req, res) => {
   try {
     const pdfForms = await PdfForm.find();
     res.json(pdfForms);
@@ -278,7 +279,7 @@ router.get('/pdf-form', async (req, res) => {
 });
 
 // Get a specific PDF form
-router.get('/pdf-form/:id', async (req, res) => {
+router.get('/pdf-form/:id', requireAdmin, async (req, res) => {
   try {
     const pdfForm = await PdfForm.findById(req.params.id);
     if (!pdfForm) {
@@ -291,7 +292,7 @@ router.get('/pdf-form/:id', async (req, res) => {
 });
 
 // Update a PDF form
-router.put('/pdf-form/:id', async (req, res) => {
+router.put('/pdf-form/:id', requireAdmin, async (req, res) => {
   try {
     const updatedPdfForm = await PdfForm.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedPdfForm) {
@@ -304,7 +305,7 @@ router.put('/pdf-form/:id', async (req, res) => {
 });
 
 // Delete a PDF form
-router.delete('/pdf-form/:id', async (req, res) => {
+router.delete('/pdf-form/:id', requireAdmin, async (req, res) => {
   try {
     const deletedPdfForm = await PdfForm.findByIdAndDelete(req.params.id);
     if (!deletedPdfForm) {
@@ -318,7 +319,7 @@ router.delete('/pdf-form/:id', async (req, res) => {
 
 // ----- Contact Form ----- //
 
-router.post("/admin/contact", async (req, res) => {
+router.post("/admin/contact", requireAdmin, async (req, res) => {
   try {
     const { name, email, message, postedBy } = req.body;
     const newContact = new Contact({ name, email, message, postedBy });
@@ -330,7 +331,7 @@ router.post("/admin/contact", async (req, res) => {
 });
 
 // Get all contacts
-router.get("/admin/contact", async (req, res) => {
+router.get("/admin/contact", requireAdmin, async (req, res) => {
   try {
     const contacts = await Contact.find().populate("postedBy", "_id name");
     res.json(contacts);
@@ -340,7 +341,7 @@ router.get("/admin/contact", async (req, res) => {
 });
 
 // Get a specific contact
-router.get("/admin/contact/:id", async (req, res) => {
+router.get("/admin/contact/:id", requireAdmin, async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id).populate("postedBy", "_id name");
     if (!contact) {
@@ -353,7 +354,7 @@ router.get("/admin/contact/:id", async (req, res) => {
 });
 
 // Update a contact
-router.put("/admin/contact/:id", async (req, res) => {
+router.put("/admin/contact/:id", requireAdmin, async (req, res) => {
   try {
     const { name, email, message, postedBy } = req.body;
     const updatedContact = await Contact.findByIdAndUpdate(
@@ -371,7 +372,7 @@ router.put("/admin/contact/:id", async (req, res) => {
 });
 
 // Delete a contact
-router.delete("/admin/contact/:id", async (req, res) => {
+router.delete("/admin/contact/:id", requireAdmin, async (req, res) => {
   try {
     const deletedContact = await Contact.findByIdAndDelete(req.params.id);
     if (!deletedContact) {
@@ -385,7 +386,7 @@ router.delete("/admin/contact/:id", async (req, res) => {
 
 // ----- Contributor Form ----- //
 
-router.get("/admin/contributions",  async (req, res) => {
+router.get("/admin/contributions", requireAdmin, async (req, res) => {
   try {
     const contributions = await Contributor.find().populate("postedBy", "_id name");
     res.json(contributions);
@@ -395,7 +396,7 @@ router.get("/admin/contributions",  async (req, res) => {
 });
 
 // Add a new contribution
-router.post("/admin/contributions",  async (req, res) => {
+router.post("/admin/contributions", requireAdmin, async (req, res) => {
   const { semester, subjectName, fileLinks, pdfDescription, postedBy } = req.body;
   if (!semester || !subjectName || !fileLinks || !pdfDescription || !postedBy) {
     return res.status(422).json({ error: "Please add all the fields" });
@@ -416,7 +417,7 @@ router.post("/admin/contributions",  async (req, res) => {
 });
 
 // Update a contribution
-router.put("/admin/contributions/:id",  async (req, res) => {
+router.put("/admin/contributions/:id", requireAdmin, async (req, res) => {
   const { semester, subjectName, fileLinks, pdfDescription } = req.body;
   try {
     const updatedContribution = await Contributor.findByIdAndUpdate(
@@ -431,7 +432,7 @@ router.put("/admin/contributions/:id",  async (req, res) => {
 });
 
 // Delete a contribution
-router.delete("/admin/contributions/:id",  async (req, res) => {
+router.delete("/admin/contributions/:id", requireAdmin, async (req, res) => {
   try {
     await Contributor.findByIdAndDelete(req.params.id);
     res.json({ message: "Contribution deleted successfully" });
@@ -442,7 +443,7 @@ router.delete("/admin/contributions/:id",  async (req, res) => {
 
 // ----- Doubts Section ----- //
 
-router.get("/admin/doubts",  async (req, res) => {
+router.get("/admin/doubts", requireAdmin, async (req, res) => {
   try {
     const doubts = await Doubt.find().populate("postedBy", "_id name");
     res.json(doubts);
@@ -453,7 +454,7 @@ router.get("/admin/doubts",  async (req, res) => {
 });
 
 // Create a new doubt
-router.post("/admin/doubts",  async (req, res) => {
+router.post("/admin/doubts", requireAdmin, async (req, res) => {
   const { code, semester, subjectName, unitName, author, doubt } = req.body;
   
   if (!doubt) {
@@ -481,7 +482,7 @@ router.post("/admin/doubts",  async (req, res) => {
 });
 
 // Update a doubt
-router.put("/admin/doubts/:id",  async (req, res) => {
+router.put("/admin/doubts/:id", requireAdmin, async (req, res) => {
   const { id } = req.params;
   const { code, semester, subjectName, unitName, author, doubt } = req.body;
 
@@ -504,7 +505,7 @@ router.put("/admin/doubts/:id",  async (req, res) => {
 });
 
 // Delete a doubt
-router.delete("/admin/doubts/:id",  async (req, res) => {
+router.delete("/admin/doubts/:id", requireAdmin, async (req, res) => {
   const { id } = req.params;
   
   try {
@@ -523,7 +524,7 @@ router.delete("/admin/doubts/:id",  async (req, res) => {
 
 // ----- Event Form ----- //
 
-router.get("/admin/eventForms",  async (req, res) => {
+router.get("/admin/eventForms", requireAdmin, async (req, res) => {
   try {
     const eventForms = await EventForm.find();
     res.json(eventForms);
@@ -534,7 +535,7 @@ router.get("/admin/eventForms",  async (req, res) => {
 });
 
 // Create a new event form
-router.post("/admin/eventForms",  async (req, res) => {
+router.post("/admin/eventForms", requireAdmin, async (req, res) => {
   const { title, description, date, profilePic, link, extra } = req.body;
   
   const newEventForm = new EventForm({
@@ -556,7 +557,7 @@ router.post("/admin/eventForms",  async (req, res) => {
 });
 
 // Update an event form
-router.put("/admin/eventForms/:id",  async (req, res) => {
+router.put("/admin/eventForms/:id", requireAdmin, async (req, res) => {
   const { id } = req.params;
   const { title, description, date, profilePic, link, extra } = req.body;
 
@@ -579,7 +580,7 @@ router.put("/admin/eventForms/:id",  async (req, res) => {
 });
 
 // Delete an event form
-router.delete("/admin/eventForms/:id",  async (req, res) => {
+router.delete("/admin/eventForms/:id", requireAdmin, async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -599,7 +600,7 @@ router.delete("/admin/eventForms/:id",  async (req, res) => {
 
 // ----- Feedback Section ----- //
 
-router.get("/admin/feedbacks",  async (req, res) => {
+router.get("/admin/feedbacks", requireAdmin, async (req, res) => {
   try {
     const feedbacks = await Feedback.find().populate("postedBy", "_id name");
     res.json(feedbacks);
@@ -610,7 +611,7 @@ router.get("/admin/feedbacks",  async (req, res) => {
 });
 
 // Create a new feedback
-router.post("/admin/feedbacks",  async (req, res) => {
+router.post("/admin/feedbacks", requireAdmin, async (req, res) => {
   const { feedback, rating } = req.body;
 
   if (!feedback || !rating) {
@@ -633,7 +634,7 @@ router.post("/admin/feedbacks",  async (req, res) => {
 });
 
 // Update a feedback
-router.put("/admin/feedbacks/:id",  async (req, res) => {
+router.put("/admin/feedbacks/:id", requireAdmin, async (req, res) => {
   const { id } = req.params;
   const { feedback, rating } = req.body;
 
@@ -656,7 +657,7 @@ router.put("/admin/feedbacks/:id",  async (req, res) => {
 });
 
 // Delete a feedback
-router.delete("/admin/feedbacks/:id",  async (req, res) => {
+router.delete("/admin/feedbacks/:id", requireAdmin, async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -711,7 +712,7 @@ router.post('/admin/login', async (req, res) => {
   }
 });
 
-router.get('/admin/getdashboardstats', async (req, res) => {
+router.get('/admin/getdashboardstats', requireAdmin, async (req, res) => {
   try {
     const stats = await Promise.all([
       User.countDocuments(),
