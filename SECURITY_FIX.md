@@ -66,14 +66,42 @@ To show my dedication and capabilities as a full-stack developer, I have gone ah
 
 ---
 
+## ✨ Frontend Enhancements
+
+### 1. Locomotive Smooth Scroll Integration
+* **What**: Installed and integrated the `locomotive-scroll` library globally inside the React `Layout.jsx` component.
+* **How it works**:
+  * The entire page content is wrapped in a `data-scroll-container` ref that Locomotive Scroll attaches to.
+  * The `<Header />` is kept outside the scroll container so it remains correctly fixed/pinned at the top.
+  * Locomotive Scroll is **re-initialized on every route change** (`useLocation`) to correctly handle React Router page transitions — this prevents the common "scroll not working on second page" issue.
+  * The scroll instance is properly **destroyed** in the `useEffect` cleanup to prevent memory leaks.
+
+### 2. Hidden Default Browser Scrollbar
+* **What**: Added CSS rules in `index.css` to globally hide the native browser scrollbar slider across all pages.
+* **Why**: Provides a cleaner, more premium UI look — especially important since Locomotive Scroll renders its own virtual scroll position.
+* **Cross-browser support**:
+  * `::-webkit-scrollbar { display: none }` — Chrome, Safari, Opera, Edge
+  * `scrollbar-width: none` — Firefox
+  * `-ms-overflow-style: none` — IE / Legacy Edge
+* **Bonus fix**: Corrected the existing `.html` selector to `html` (the old selector wasn't applying `scroll-behavior: smooth` at all since `.html` targets a CSS class, not the HTML element).
+
+---
+
 ## 📁 Files Impacted
 
-* 📄 [index.js](file:///c:/Users/harsh/OneDrive/Desktop/collegpt/collegpt/server/index.js) — *Added defensive middlewares, validation, and security configs.*
-* 📄 [adminlogin.js](file:///c:/Users/harsh/OneDrive/Desktop/collegpt/collegpt/server/middleware/adminlogin.js) — *Hardened admin token validation.*
-* 📄 [requireSignin.js](file:///c:/Users/harsh/OneDrive/Desktop/collegpt/collegpt/server/middleware/requireSignin.js) — *Fixed runtime crash, improved async flow.*
-* 📄 [auth.js](file:///c:/Users/harsh/OneDrive/Desktop/collegpt/collegpt/server/routes/auth.js) — *Hardened input validation, rate limiting, and password reset logic.*
-* 📄 [contributor.js](file:///c:/Users/harsh/OneDrive/Desktop/collegpt/collegpt/server/routes/contributor.js) — *Fixed User import bug, configured dynamic SMTP.*
-* 📄 [profile.js](file:///c:/Users/harsh/OneDrive/Desktop/collegpt/collegpt/server/routes/profile.js) — *Added authentication, whitelist verification, and ID validation.*
-* 📄 [adminRoutes.js](file:///c:/Users/harsh/OneDrive/Desktop/collegpt/collegpt/server/routes/adminRoutes.js) — *Added strict admin authentication middleware.*
-* 📄 [admin_pdf.js](file:///c:/Users/harsh/OneDrive/Desktop/collegpt/collegpt/server/routes/admin_pdf.js) — *Secured all endpoints under the `/admin` prefix.*
-* 📄 [.env.example](file:///c:/Users/harsh/OneDrive/Desktop/collegpt/collegpt/server/.env.example) — *Added a standard environment template.*
+**Backend (Security)**
+* `server/index.js` — *Added defensive middlewares, validation, and security configs.*
+* `server/middleware/adminlogin.js` — *Hardened admin token validation.*
+* `server/middleware/requireSignin.js` — *Fixed runtime crash, improved async flow.*
+* `server/routes/auth.js` — *Hardened input validation, rate limiting, and password reset logic.*
+* `server/routes/contributor.js` — *Fixed User import bug, configured dynamic SMTP.*
+* `server/routes/profile.js` — *Added authentication, whitelist verification, and ID validation.*
+* `server/routes/adminRoutes.js` — *Added strict admin authentication middleware.*
+* `server/routes/admin_pdf.js` — *Secured all endpoints under the `/admin` prefix.*
+* `server/.env.example` — *Added a standard environment template.*
+
+**Frontend (UX Improvements)**
+* `frontend/src/components/Layout.jsx` — *Integrated Locomotive Scroll with full route-change support and memory leak prevention.*
+* `frontend/src/index.css` — *Hidden browser scrollbar across all browsers, fixed `html` selector, added cross-browser scroll rules.*
+* `frontend/package.json` — *Added `locomotive-scroll` as a dependency.*
+
