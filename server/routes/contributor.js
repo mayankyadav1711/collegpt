@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const User = mongoose.model("User");
 const Contributor = mongoose.model("Contributor");
 const Doubt = mongoose.model("Doubt");
 const Contact = mongoose.model("Contact");
@@ -11,10 +12,12 @@ const GraduateFeedback = mongoose.model("GraduateFeedback");
 const requireLogin = require("../middleware/requireSignin");
 const requireAdmin = require("../middleware/adminlogin");
 const nodemailer = require("nodemailer");
+const SMTP_USER = process.env.EMAIL;
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "collegpt@gmail.com",
+    user: SMTP_USER,
     pass: process.env.GPASS,
   },
 });
@@ -72,7 +75,7 @@ router.post("/contribute", requireLogin, async (req, res) => {
 
     // Send email notification about the new contribution
     await transporter.sendMail({
-      from: "collegpt@gmail.com",
+      from: SMTP_USER,
       to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
       subject: `New ${typeLabel} Contribution Submitted`,
       html: `
@@ -177,7 +180,7 @@ router.patch("/contribution/:id/status", requireLogin, async (req, res) => {
     
     // Send email notification about status change
     await transporter.sendMail({
-      from: "collegpt@gmail.com",
+      from: SMTP_USER,
       to: contributor.email,
       subject: `Your Contribution Status Updated`,
       html: `
@@ -248,7 +251,7 @@ router.post("/graduate-feedback", async (req, res) => {
 
     // Send email notification about the new feedback
     await transporter.sendMail({
-      from: "collegpt@gmail.com",
+      from: SMTP_USER,
       to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
       subject: `New Graduate Feedback: ${name}`,
       html: `
@@ -337,7 +340,7 @@ router.post("/doubt", requireLogin, async (req, res) => {
 
     // Send email notification about the new doubt
     await transporter.sendMail({
-      from: "collegpt@gmail.com",
+      from: SMTP_USER,
       to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
       subject: "New Doubt Submitted",
       html: `
@@ -389,7 +392,7 @@ router.post("/contact", requireLogin, async (req, res) => {
 
     // Send email notification about the new contact form submission
     await transporter.sendMail({
-      from: "collegpt@gmail.com",
+      from: SMTP_USER,
       to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
       subject: "Someone tried to reach you (Contact Us Form)",
       html: `
@@ -488,7 +491,7 @@ router.post("/feedback", requireLogin, async (req, res) => {
 
     // Send email notification about the new feedback
     await transporter.sendMail({
-      from: "collegpt@gmail.com",
+      from: SMTP_USER,
       to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
       subject: "New Feedback Received",
       html: `
@@ -553,7 +556,7 @@ router.post("/service-contact", async (req, res) => {
 
     // Send email notification about the new contact form submission
     await transporter.sendMail({
-      from: "collegpt@gmail.com",
+      from: SMTP_USER,
       to: ["mykyadav2003@gmail.com", "kauranidivya@gmail.com", "sojitradarshitpiyushbhai@gmail.com"],
       subject: "New Inquiry - ColleGPT Service",
       html: `

@@ -6,15 +6,25 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
+const rateLimit = require("express-rate-limit");
 
 const JWT_SECRET = process.env.JWT_SEC;
-const EMAIL = process.env.EMAIL;
+const SMTP_USER = process.env.EMAIL;
 const GPASS = process.env.GPASS;
+
+// ─── Auth-specific rate limiter (stricter) ──────────────────────────────────
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 20, // 20 attempts per window
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many attempts, please try again after 15 minutes." },
+});
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "collegpt@gmail.com",
+    user: SMTP_USER,
     pass: GPASS,
   },
 });
@@ -29,7 +39,25 @@ function generateOTP() {
   return OTP;
 }
 
-router.post("/signup", async (req, res) => {
+// ─── Input validation helpers ───────────────────────────────────────────────
+const EMAIL_REGEX = /^\S+@\S+\.\S+$/;
+
+function validateEmail(email) {
+  return typeof email === "string" && EMAIL_REGEX.test(email.trim());
+}
+
+function validatePassword(password) {
+  return typeof password === "string" && password.length >= 6;
+}
+
+function sanitizeString(str) {
+  if (typeof str !== "string") return str;
+  // Strip HTML tags to prevent XSS in emails
+  return str.replace(/<[^>]*>/g, "").trim();
+}
+
+// ─── SIGNUP ─────────────────────────────────────────────────────────────────
+router.post("/signup", authLimiter, async (req, res) => {
   const {
     name,
     email,
@@ -41,11 +69,21 @@ router.post("/signup", async (req, res) => {
     isVerified,
   } = req.body;
 
-  // Perform validation (similar to the frontend validation)
+  // Perform validation
   if (!name || !email || !password || !university || !sem || !gender) {
     return res
       .status(422)
       .json({ error: "Please fill in all the required fields." });
+  }
+
+  if (!validateEmail(email)) {
+    return res.status(422).json({ error: "Please provide a valid email address." });
+  }
+
+  if (!validatePassword(password)) {
+    return res
+      .status(422)
+      .json({ error: "Password must be at least 6 characters long." });
   }
 
   try {
@@ -61,11 +99,11 @@ router.post("/signup", async (req, res) => {
 
     if (savedUser) {
       // User already exists but is not verified, update OTP and OTP expiry
-      savedUser.name = name;
+      savedUser.name = sanitizeString(name);
       savedUser.password = hashedpassword;
-      savedUser.university = university;
+      savedUser.university = sanitizeString(university);
       savedUser.sem = sem;
-      savedUser.gender = gender;
+      savedUser.gender = sanitizeString(gender);
       savedUser.profilePic = profilePic;
       savedUser.otp = otp;
       savedUser.otpExpiry = otpExpiry;
@@ -73,8 +111,8 @@ router.post("/signup", async (req, res) => {
       await savedUser.save();
 
       await transporter.sendMail({
-        from: "collegpt@gmail.com", // Your email address
-        to: savedUser.email, // User's email address
+        from: SMTP_USER,
+        to: savedUser.email,
         subject: "🎁 OTP Verification for ColleGPT",
         html: `
           <html>
@@ -114,10 +152,10 @@ router.post("/signup", async (req, res) => {
       const user = new User({
         email,
         password: hashedpassword,
-        name,
-        university,
+        name: sanitizeString(name),
+        university: sanitizeString(university),
         sem,
-        gender,
+        gender: sanitizeString(gender),
         profilePic,
         otp,
         otpExpiry,
@@ -126,8 +164,8 @@ router.post("/signup", async (req, res) => {
       await user.save();
 
       await transporter.sendMail({
-        from: "collegpt@gmail.com", // Your email address
-        to: user.email, // User's email address
+        from: SMTP_USER,
+        to: user.email,
         subject: "🎁 OTP Verification for ColleGPT",
         html: `
           <html>
@@ -171,12 +209,16 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-// Add a new route to verify OTP
-router.post("/verify-otp", async (req, res) => {
+// ─── VERIFY OTP ─────────────────────────────────────────────────────────────
+router.post("/verify-otp", authLimiter, async (req, res) => {
   const { email, otp } = req.body;
 
   if (!email || !otp) {
     return res.status(422).json({ error: "Please provide both email and OTP" });
+  }
+
+  if (!validateEmail(email)) {
+    return res.status(422).json({ error: "Please provide a valid email address." });
   }
 
   try {
@@ -194,13 +236,18 @@ router.post("/verify-otp", async (req, res) => {
 
     if (user.otp === otp) {
       user.isVerified = true;
+      // Clear OTP after successful verification
+      user.otp = undefined;
+      user.otpExpiry = undefined;
       await user.save();
 
-      const token = jwt.sign({ _id: user._id }, JWT_SECRET);
+      const token = jwt.sign({ _id: user._id }, JWT_SECRET, {
+        expiresIn: "7d",
+      });
       const { _id, name, email } = user;
 
       await transporter.sendMail({
-        from: "collegpt@gmail.com",
+        from: SMTP_USER,
         to: user.email,
         subject: "Registration Successfully",
         html: `
@@ -251,7 +298,8 @@ router.post("/verify-otp", async (req, res) => {
 });
 
 
-router.post("/signin", (req, res) => {
+// ─── SIGNIN ─────────────────────────────────────────────────────────────────
+router.post("/signin", authLimiter, async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     return res
@@ -259,42 +307,53 @@ router.post("/signin", (req, res) => {
       .json({ error: "Please provide both email and password" });
   }
 
-  // Find the user based on the email provided
-  User.findOne({ email: email })
-    .then((savedUser) => {
-      if (!savedUser) {
-        return res.status(422).json({ error: "Invalid email or password" });
-      }
-      if (!savedUser.isVerified) {
-        return res
-          .status(401)
-          .json({ error: "Please verify your email before signing in" });
-      }
+  if (!validateEmail(email)) {
+    return res.status(422).json({ error: "Please provide a valid email address." });
+  }
 
-      // Compare the provided password with the stored hashed password
-      bcrypt.compare(password, savedUser.password).then((doMatch) => {
-        if (doMatch) {
-          // Password is correct, generate a JWT token for successful signin
-          const token = jwt.sign({ _id: savedUser._id }, JWT_SECRET);
-          const { _id, name, email } = savedUser;
+  try {
+    // Find the user based on the email provided
+    const savedUser = await User.findOne({ email: email });
 
-          res.json({
-            token,
-            user: { _id, name, email },
-            message: "Successful SignIn!",
-          });
-        } else {
-          return res.status(422).json({ error: "Invalid email or password" });
-        }
+    if (!savedUser) {
+      return res.status(422).json({ error: "Invalid email or password" });
+    }
+    if (!savedUser.isVerified) {
+      return res
+        .status(401)
+        .json({ error: "Please verify your email before signing in" });
+    }
+
+    // Compare the provided password with the stored hashed password
+    const doMatch = await bcrypt.compare(password, savedUser.password);
+    if (doMatch) {
+      // Password is correct, generate a JWT token with expiry
+      const token = jwt.sign({ _id: savedUser._id }, JWT_SECRET, {
+        expiresIn: "7d",
       });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      const { _id, name, email } = savedUser;
+
+      res.json({
+        token,
+        user: { _id, name, email },
+        message: "Successful SignIn!",
+      });
+    } else {
+      return res.status(422).json({ error: "Invalid email or password" });
+    }
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "An error occurred. Please try again later." });
+  }
 });
 
-router.post("/reset-password", async (req, res) => {
+// ─── RESET PASSWORD ─────────────────────────────────────────────────────────
+router.post("/reset-password", authLimiter, async (req, res) => {
   try {
+    if (!req.body.email || !validateEmail(req.body.email)) {
+      return res.status(422).json({ error: "Please provide a valid email address." });
+    }
+
     const buffer = await crypto.randomBytes(32);
     const token = buffer.toString("hex");
 
@@ -309,8 +368,11 @@ router.post("/reset-password", async (req, res) => {
 
     await user.save();
 
+    // Use the frontend URL from env for the reset link
+    const resetBaseUrl = process.env.RESET_PASSWORD_URL || SMTP_USER;
+
     await transporter.sendMail({
-      from: "collegpt@gmail.com",
+      from: SMTP_USER,
       to: user.email,
       subject: "Reset Password (no reply)",
       html: `
@@ -334,7 +396,7 @@ router.post("/reset-password", async (req, res) => {
         </head>
         <body>
           <h1 style="text-align: center;">Forgot your password? Can't remember that much? You don't forget to eat, do you?</h1>
-          <h2 style="text-align: center;">Click on this 👉 <a href="${EMAIL}/resetpassword/${token}">link</a> to reset your password</h2>
+          <h2 style="text-align: center;">Click on this 👉 <a href="${resetBaseUrl}/resetpassword/${token}">link</a> to reset your password</h2>
         </body>
         </html>
       `,
@@ -348,10 +410,21 @@ router.post("/reset-password", async (req, res) => {
 });
 
 
-router.post("/new-password", async (req, res) => {
+// ─── NEW PASSWORD ───────────────────────────────────────────────────────────
+router.post("/new-password", authLimiter, async (req, res) => {
   try {
     const newPassword = req.body.password;
     const sentToken = req.body.token;
+
+    if (!newPassword || !sentToken) {
+      return res.status(422).json({ error: "Password and token are required." });
+    }
+
+    if (!validatePassword(newPassword)) {
+      return res
+        .status(422)
+        .json({ error: "Password must be at least 6 characters long." });
+    }
 
     const user = await User.findOne({ resetToken: sentToken, expireToken: { $gt: Date.now() } });
 

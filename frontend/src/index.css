@@ -2,10 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-.html {
+html {
   scroll-behavior: smooth;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
-.spline-watermark{
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.spline-watermark {
   display: none;
 }

@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const User = mongoose.model("User");
 const bcrypt = require('bcryptjs');
+const requireAdmin = require("../middleware/adminlogin");
 
 // Helper function for error handling
 const handleError = (res, error) => {
@@ -11,7 +12,7 @@ const handleError = (res, error) => {
 };
 
 // Create a new user
-router.post('/users', async (req, res) => {
+router.post('/users', requireAdmin, async (req, res) => {
   try {
     const { name, email, password, university, sem, gender } = req.body;
     
@@ -42,7 +43,7 @@ router.post('/users', async (req, res) => {
 });
 
 // Get all users
-router.get('/users', async (req, res) => {
+router.get('/users', requireAdmin, async (req, res) => {
   try {
     const users = await User.find().select('-password');
     res.json(users);
@@ -52,7 +53,7 @@ router.get('/users', async (req, res) => {
 });
 
 // Get a specific user
-router.get('/users/:id', async (req, res) => {
+router.get('/users/:id', requireAdmin, async (req, res) => {
   try {
     const user = await User.findById(req.params.id).select('-password');
     if (!user) {
@@ -65,7 +66,7 @@ router.get('/users/:id', async (req, res) => {
 });
 
 // Update a user
-router.put('/users/:id', async (req, res) => {
+router.put('/users/:id', requireAdmin, async (req, res) => {
   try {
     const updates = req.body;
     delete updates.password; // Prevent password update through this route
@@ -81,7 +82,7 @@ router.put('/users/:id', async (req, res) => {
 });
 
 // Delete a user
-router.delete('/users/:id', async (req, res) => {
+router.delete('/users/:id', requireAdmin, async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);
     if (!user) {
@@ -94,7 +95,7 @@ router.delete('/users/:id', async (req, res) => {
 });
 
 // User Analytics
-router.get('/users/analytics/overview', async (req, res) => {
+router.get('/users/analytics/overview', requireAdmin, async (req, res) => {
   try {
     const totalUsers = await User.countDocuments();
     const verifiedUsers = await User.countDocuments({ isVerified: true });
@@ -123,7 +124,7 @@ router.get('/users/analytics/overview', async (req, res) => {
 });
 
 // User Activity Analytics
-router.get('/users/analytics/activity', async (req, res) => {
+router.get('/users/analytics/activity', requireAdmin, async (req, res) => {
   try {
     const lastWeek = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
     const newUsersLastWeek = await User.countDocuments({ createdAt: { $gte: lastWeek } });
@@ -142,7 +143,7 @@ router.get('/users/analytics/activity', async (req, res) => {
 });
 
 // Detailed User Analytics
-router.get('/users/analytics/detailed', async (req, res) => {
+router.get('/users/analytics/detailed', requireAdmin, async (req, res) => {
   try {
     const skillDistribution = await User.aggregate([
       { $unwind: '$Skills' },
